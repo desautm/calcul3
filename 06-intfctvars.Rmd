@@ -1,0 +1,10 @@
+# L'intégration de fonctions de plusieurs variables {#intfctvars}
+
+Allo
+
+## Introduction
+
+```{definition}
+Un essai
+```
+

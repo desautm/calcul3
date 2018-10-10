@@ -1,0 +1,36 @@
+bookdown::gitbook:
+  highlight: default
+  css: css/style.css
+  split_by: section
+  config:
+    sharing:
+      facebook: yes
+      github: no
+      twitter: yes
+    toc:
+      collapse: section
+      before: |
+        <li><a href="./">Calcul différentiel et intégral dans l'espace</a></li>
+      after: |
+        <li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+    download: ["pdf", "epub"]
+    edit:
+      link: https://github.com/desautm/calcul3/edit/master/%s
+      text: "Modifier"
+
+bookdown::pdf_book:
+  toc: true
+  toc_unnumbered: true
+  toc_appendix: true
+  toc_depth: 3
+  includes:
+    in_header: latex/preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  highlight: tango
+  number_sections: true
+  keep_tex: yes
+
+bookdown::epub_book:
+  dev: svglite
+  stylesheet: css/style.css

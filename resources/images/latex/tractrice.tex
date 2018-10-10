@@ -1,0 +1,26 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+
+\psset{algebraic,unit=2}
+\begin{pspicture}(-1,-0.5)(2,2.25)	
+	
+\psaxes[labels=none,ticks=none]{->}(0,0)(-0.25,-0.25)(1.25,2)
+\psclip{\psframe[linestyle=none](-0.25,-0.25)(1.25,2)}
+\psplot[linewidth=1.5pt,linecolor=blue]{0.01}{1}{ln((1+sqrt(1-x^2))/x)-sqrt(1-x^2)}
+\psplot[linewidth=1.5pt,linecolor=red]{0}{0.5}{-1.73*x+1.32}
+\endpsclip
+\psxTick{0}(1){$(a,0)$}
+\psdots[linecolor=blue,dotsize=5pt](1,0)(0.5,0.45)(0,1.32)
+\uput[-90](0.25,0.45){$x$}
+\uput[225](0.25,0.885){$a$}
+\psline[linestyle=dashed](0,0.45)(0.5,0.45)
+	
+\end{pspicture}
+
+\end{document}

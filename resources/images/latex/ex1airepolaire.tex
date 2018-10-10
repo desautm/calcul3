@@ -1,0 +1,35 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+
+\psset{algebraic,unit=2}
+\begin{pspicture}(-2.25,-2.25)(2.25,2.25)	
+
+\pscustom{
+\parametricplot[linewidth=1.pt,plotpoints=200]{0}{6.2832}{(1+sin(2*t))*cos(t)|(1+sin(2*t))*sin(t)}
+\fill[fillstyle=solid, fillcolor=lightgray]
+}
+
+\psaxes[labels=none,ticks=none]{->}(0,0)(-2.25,-2.25)(2.25,2.25)
+\pscircle[linestyle=dotted](0,0){1}
+\pscircle[linestyle=dotted](0,0){2}
+
+\parametricplot[linewidth=1.5pt,plotpoints=200,linecolor=blue]{0}{6.2832}{(1+sin(2*t))*cos(t)|(1+sin(2*t))*sin(t)}
+
+\Polar
+\psline[linestyle=dotted](-2,0)(2,0)
+\psline[linestyle=dotted](-2,30)(2,30)
+\psline[linestyle=dotted](-2,45)(2,45)
+\psline[linestyle=dotted](-2,60)(2,60)
+\psline[linestyle=dotted](-2,-30)(2,-30)
+\psline[linestyle=dotted](-2,-45)(2,-45)
+\psline[linestyle=dotted](-2,-60)(2,-60)
+	
+\end{pspicture}
+
+\end{document}

@@ -1,0 +1,31 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+
+\psset{algebraic,unit=2}
+\begin{pspicture}(-5.25,-5.25)(5.25,5.25)	
+
+\psaxes[labels=none,ticks=none]{->}(0,0)(-5.25,-5.25)(5.25,5.25)
+\pscircle[linestyle=dashed](0,0){1}
+\pscircle[linestyle=dashed](0,0){2}
+\pscircle[linestyle=dashed](0,0){3}
+\pscircle[linestyle=dashed](0,0){4}
+\pscircle[linestyle=dashed](0,0){5}
+
+\Polar
+\psline[linestyle=dashed](-5,0)(5,0)
+\psline[linestyle=dashed](-5,30)(5,30)
+\psline[linestyle=dashed](-5,45)(5,45)
+\psline[linestyle=dashed](-5,60)(5,60)
+\psline[linestyle=dashed](-5,-30)(5,-30)
+\psline[linestyle=dashed](-5,-45)(5,-45)
+\psline[linestyle=dashed](-5,-60)(5,-60)
+	
+\end{pspicture}
+
+\end{document}

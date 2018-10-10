@@ -1,0 +1,26 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+
+\psset{algebraic,unit=2}
+\begin{pspicture}(-0.5,-0.5)(2.75,1.5)	
+	
+\psaxes[labels=none,ticks=none]{->}(0,0)(-0.25,-0.25)(2.25,1.25)[$x$,-90][$y$,180]
+\psline[linecolor=blue,linewidth=1.5pt](0,0)(2,1)
+\psdot(2,1)
+\uput[0](2,1){$a+bi$}
+\uput[-90](1,0){$a$}
+\uput[180](0,0.5){$b$}
+\uput[135](1,0.5){$r$}
+\psline[linestyle=dashed](2,0)(2,1)(0,1)
+\psarc(0,0){0.25}{0}{30}
+\uput{0.35}[15](0,0){$\theta$}
+	
+\end{pspicture}
+
+\end{document}

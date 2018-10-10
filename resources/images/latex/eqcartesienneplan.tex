@@ -1,0 +1,26 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+%%\usepackage{pst-solides3d}
+\usepackage{pst-3dplot}
+
+\begin{document}
+
+\psset{coorType=2}
+\def\psxyzlabel#1{\bgroup\footnotesize\phantom{#1}\egroup} %hack pour ne pas afficher les labels
+\begin{pspicture}(-3,-2)(5.5,4)
+\pstThreeDSquare[fillcolor=cyan,fillstyle=solid](-2,-1,2)(6,0,0)(0,5,-1)
+% \psgrid(-3,-2)(4,4)
+\psline[linewidth=1.5pt,linecolor=red]{->}(-1,0.5)(-1,3)
+\psline[linewidth=1.5pt]{->}(-1,0.5)(2,1)
+\psline(-1,0.75)(-0.75,0.7917)(-0.75,0.5417)
+\uput[90](-1,3){$\red\vec n$}
+\uput[-90](-1,0.5){$P(x_0,y_0,z_0)$}
+\uput[0](2,1){$Q(x,y,z)$}
+\psdots(-1,0.5)(2,1)
+\end{pspicture}
+
+\end{document}

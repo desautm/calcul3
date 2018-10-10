@@ -1,0 +1,27 @@
+--- 
+title: "Calcul différentiel et intégral dans l'espace"
+author: "Marc-André Désautels"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: ["book.bib", "packages.bib"]
+biblio-style: "apalike"
+link-citations: yes
+github-repo: desautm/calcul3
+description: "Un livre sous forme de notes trouées portant sur le calcul différentiel et intégral dans l'espace."
+---
+
+# Introduction {-}
+
+## À propos de ce document {-}
+
+### Remerciements {-}
+
+Ce document est généré par l'excellente extension [bookdown](https://bookdown.org/) de [Yihui Xie](https://yihui.name/).
+
+### License {-}
+
+Ce document est mis à disposition selon les termes de la [Licence Creative Commons Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 4.0 International](http://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+![Licence Creative Commons](resources/icons/license_cc.png)

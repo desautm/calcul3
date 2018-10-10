@@ -1,0 +1,25 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+
+\psset{algebraic,unit=1}
+\begin{pspicture}(-1,-1)(5.75,5.5)
+\psaxes[labels=none,ticks=none]{->}(0,0)(-1,-1)(5,5)
+\uput[-90](2.5,0){$a$}
+\uput[180](0,2){$b$}
+\psdot[dotsize=0.25](2.5,2)
+\psplot{0}{2.5}{0.32*x*x}
+\psplot{2.5}{5}{x-0.5}
+\pscurve(2.5,2)(2,2.5)(2.5,2.8)(2,3)(2.5,3.5)(3,3)(2.8,4)(3,5)
+\psline(2.5,0)(2.5,2)(0,2)
+\uput[90](1,0.5){$C_1$}
+\uput[45](5,4.5){$C_2$}
+\uput[0](3,5){$C_3$}
+\end{pspicture}
+
+\end{document}

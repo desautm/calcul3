@@ -1,0 +1,29 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+
+\psset{algebraic,unit=1}
+\begin{pspicture}(-2,-0.5)(4,3.5)	
+
+\psaxes[labels=none,ticks=none,arrowscale= 1.5]{->}(0,0)(-2,-0.5)(4,3.5)
+\uput{3.5}[50]{0}(0,0){$r=f(\theta)$}
+\Polar
+
+\pscurve[fillstyle=solid,fillcolor=lightgray,linecolor=lightgray](3,22)(2.9,40)(3.2,50)(3.3,65)(2.9,80)(2.7,100)(3,110)(3.1,130)
+\psline[fillstyle=solid,fillcolor=lightgray,linecolor=lightgray](0,0)(3,22)(3.1,130)(0,0)
+\pscurve[linewidth=2pt](3,22)(2.9,40)(3.2,50)(3.3,65)(2.9,80)(2.7,100)(3,110)(3.1,130)
+\psline[linewidth=2pt](0,0)(3,22)
+\psline[linewidth=2pt](3.1,130)(0,0)
+\psarc[arcsepB=4pt]{-}{1.5}{0}{22}
+\psarc[arcsepB=4pt]{-}{0.75}{0}{130}
+\uput{1.7}[11]{0}(0,0){$\theta_a$}
+\uput{0.95}[70]{0}(0,0){$\theta_b$}
+	
+\end{pspicture}
+
+\end{document}

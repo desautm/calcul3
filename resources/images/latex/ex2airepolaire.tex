@@ -1,0 +1,39 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+
+\psset{algebraic,unit=2}
+\begin{pspicture}(-3.25,-3.25)(3.25,3.25)	
+
+\pscustom{
+\parametricplot[linewidth=1.pt,plotpoints=200]{0.52359}{2.61799}{(3*sin(t))*cos(t)|(3*sin(t))*sin(t)}
+\parametricplot[linewidth=1.pt,plotpoints=200]{2.61799}{0.52359}{(1+sin(t))*cos(t)|(1+sin(t))*sin(t)}
+\fill[fillstyle=solid, fillcolor=lightgray]
+}
+\parametricplot[linewidth=1.5pt,plotpoints=200,linecolor=blue]{0}{6.28}{(3*sin(t))*cos(t)|(3*sin(t))*sin(t)}
+\parametricplot[linewidth=1.5pt,plotpoints=200,linecolor=blue]{0}{6.28}{(1+sin(t))*cos(t)|(1+sin(t))*sin(t)}
+
+\psaxes[labels=none,ticks=none]{->}(0,0)(-3.25,-3.25)(3.25,3.25)
+\pscircle[linestyle=dotted](0,0){1}
+\pscircle[linestyle=dotted](0,0){2}
+\pscircle[linestyle=dotted](0,0){3}
+
+
+
+\Polar
+\psline[linestyle=dotted](-3,0)(3,0)
+\psline[linestyle=dotted](-3,30)(3,30)
+\psline[linestyle=dotted](-3,45)(3,45)
+\psline[linestyle=dotted](-3,60)(3,60)
+\psline[linestyle=dotted](-3,-30)(3,-30)
+\psline[linestyle=dotted](-3,-45)(3,-45)
+\psline[linestyle=dotted](-3,-60)(3,-60)
+	
+\end{pspicture}
+
+\end{document}

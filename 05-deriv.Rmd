@@ -1,0 +1,380 @@
+# La dérivation de fonctions de plusieurs variables {#derivfctvars}
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages('DiagrammeR')
+library(DiagrammeR)
+```
+
+Un test
+
+## Introduction
+
+Nous sommes maintenant prêts à aborder la notion de dérivée pour les fonctions de deux variables ou plus. 
+
+## Les dérivées partielles
+
+Nous allons débuter en rappelant la définition de la dérivée d'une fonction d'une seule variable.
+
+```{definition, name="Dérivée d'une fonction d'une seule variable"}
+Soit $f(x)$ une fonction. La dérivée de la fonction $f(x)$, notée $f'(x)$ ou $\dfrac{df}{dx}$ est donnée par:
+$$ \lim_{\Delta x \to 0} \dfrac{f(x+\Delta x)-f(x)}{\Delta x} $$
+```
+
+Nous savons que la dérivée d'une fonction correspond, entre autres, à la pente de la droite tangente. Dans le cas d'une fonction de plus d'une variable, la notion de pente de droite tangente en un point n'existe pas à priori. Nous devrons donc définir une nouvelle définition de dérivée.
+
+Nous allons débuter par introduire la notion de dérivée pour les fonctions de deux variables. La généralisation pour les fonctions de plus de deux variables se fait facilement.
+
+Soit une fonction $z=f(x,y)$. Pour étudier les deux (une par variable indépendante) dérivées partielles de cette fonction, nous allons les  variations de cette fonction.
+
+Supposons que nous nous trouvons dans un plan où la variable $y$ est constante. Ceci signifie que seule la variable $x$ varie, c'est-à-dire que nous partons du point $(x,y)$ jusqu'au point $(x+\Delta x,y)$. Puisque nous avons deux points, nous pouvons déterminer le taux de variation de la fonction $f(x,y)$ par rapport à la vraible $x$. Ce taux est donné par:
+
+$$  \dfrac{f(x+\Delta x,y)-f(x,y)}{\Delta x} $$
+
+Lorsque nous prenons la limite de ce taux de variation lorsque $\Delta x$ tend vers $0$, nous obtenons la dérivée partielle de $f(x,y)$ par rapport à $x$. Mathématiquement, nous écrivons:
+
+$$ \dfrac{\partial f}{\partial x}=\lim_{\Delta x \to 0} \dfrac{f(x+\Delta x,y)-f(x,y)}{\Delta x} $$
+
+D'une manière similaire, nous pouvons définir la dérivée partielle de $f(x,y)$ par rapport à $y$:
+
+$$ \dfrac{\partial f}{\partial y}=\lim_{\Delta y \to 0} \dfrac{f(x,y+\Delta y)-f(x,y)}{\Delta y} $$
+
+Géométriquement, la dérivée partielle de $f(x,y)$ par rapport à $x$ correspond à la pente de la droite tangente à la courbe engendrée par l'intersection du plan $y=k$ où $k$ est une constante et la surface $z=f(x,y)$.
+
+La figure \@ref(fig:derivee-partielle-x) représente dans l'image de gauche la surface $z=f(x,y)$ coupée par le plan $y=k$ où $k$ est une constante. Nous apercevons l'intersection de la surface et du plan, représentée par une courbe parabolique. La ligne pointillée représente la droite tangente à la surface dans le plan $y=k$. La figure de droite représente la fonction parabolique dans le plan $y=k$ ainsi que la droite tangente.
+
+```{r,echo=FALSE,fig.show="hold",fig.align="center",label="derivee-partielle-x",out.width="50%",fig.cap="Représentation géométrique de la dérivée partielle de $f(x,y)$ par rapport à $x$"}
+knitr::include_graphics(c("resources/images/geogebra/deriveepartiellex3d.png","resources/images/geogebra/deriveepartiellex2d.png"))
+```
+
+C'est la même correspondance pour $\dfrac{\partial f}{\partial y}$, il suffit d'étudier la courbe dans le plan $x=k$ où $k$ est une constante. 
+
+> Lorsque nous trouvons la dérivée partielle d'une fonction $f(x_1,x_2,\ldots,x_n)$ par rapport à la variable indépendante $x_i$, nous supposons toutes les autres variables indépendantes $x_j$ où $j\neq i$ sont des constantes.
+
+```{proposition, name="Notation pour dérivées partielles"}
+Soit une fonction $f(x_1,x_2,\ldots,x_n)$. La dérivée partielle de $f$ par rapport à la variable $x_i$ peut être notée par:
+  
+- $f_{x_i}$
+- $f_i$
+- $\dfrac{\partial f}{\partial x_i}$
+- $D_i f$
+
+Dans le cas où la fonction ne possède que deux variable, c'est-à-dire une fonction $f(x,y)$, nous pouvons noter la dérivée partielle de $f$ par rapport à $x$ par:
+
+- $f_{x}$
+- $\dfrac{\partial f}{\partial x}$
+- $D_x f$
+
+```
+
+
+```{example}
+Trouvez les dérivées partielles de $f(x,y)=x\cos(x+y^2)$.
+```
+
+```{example}
+Trouvez les dérivées partielles de $f(x,y)=x^2\sin(y)$.
+```
+
+```{example}
+Trouvez les dérivées partielles de $f(x,y)=x^3y^2+x^4y+y^4$.
+```
+
+```{example}
+Trouvez les dérivées partielles de $f(x,y)=e^{xy}\cos(x+y)$.
+```
+
+```{example}
+Soit une fonction $f$ différentiable et d'une seule variable. Montrez que $f\left(\frac{x}{y}\right)$ satisfait l'équation:
+$$ x\dfrac{\partial f}{\partial x}+y\dfrac{\partial f}{\partial y} = 0 $$
+
+```
+
+### Les dérivées d'ordres supérieurs
+
+Nous allons maintenant définir les dérivées d'ordres supérieurs. Voici les dérivées partielles secondes d'une fonction $f(x,y)$.
+
+```{definition, name="Les dérivées partielles du second ordre"}
+Nous avons:
+\begin{align*}
+\dfrac{\partial^2 f}{\partial x^2} &= 
+  \dfrac{\partial}{\partial x}\left[\dfrac{\partial f}{\partial x}\right] =
+  f_{xx}(x,y) =
+  f_{11}(x,y) \\
+\dfrac{\partial^2 f}{\partial y^2} &= 
+  \dfrac{\partial}{\partial y}\left[\dfrac{\partial f}{\partial y}\right] =
+  f_{yy}(x,y) =
+  f_{22}(x,y) \\
+\dfrac{\partial^2 f}{\partial x \partial y} &= 
+  \dfrac{\partial}{\partial x}\left[\dfrac{\partial f}{\partial y}\right] =
+  f_{yx}(x,y) =
+  f_{21}(x,y) \\
+\dfrac{\partial^2 f}{\partial y \partial x} &= 
+  \dfrac{\partial}{\partial y}\left[\dfrac{\partial f}{\partial x}\right] =
+  f_{xy}(x,y) =
+  f_{12}(x,y)
+\end{align*}
+
+```
+
+```{example}
+Trouvez toutes les dérivées d'ordre 1 et 2 de la fonction $f(x,y)=x^2y+3y^2$.
+```
+
+
+```{example}
+Trouvez toutes les dérivées d'ordre 1 et 2 de la fonction $f(x,y)=x^3y^4$.
+```
+
+```{remark}
+Remarquez que dans les deux exemples précédents, les dérivées partielles mixtes sont égales, c'est-à-dire que $f_{xy}=f_{yx}$.
+```
+
+```{theorem, name="Le théorème de Clairaut"}
+Soit une fonction $f(x,y)$ définie sur un disque $D$ qui contient le point $(a,b)$. Si $f_{xy}$ et $f_{yx}$ sont continues sur $D$, alors:
+\begin{align*}
+f_{xy}(a,b)=f_{yx}(a,b)
+\end{align*}
+
+```
+```{proof}
+La démonstration est laissée à l'étudiante ou l'étudiant.
+```
+
+## Applications des dérivées partielles
+
+Voici quelques applications des dérivées parttielles.
+
+```{example, name="L'équation de Laplace"}
+L'équation de Laplace apparaît dans de nombreuses applications de physique théorique. Pour en savoir plus, [Wikipédia: Équation de Laplace](https://fr.wikipedia.org/wiki/%C3%89quation_de_Laplace).
+
+Montrez que les fonctions $f(x,y)=e^{kx}\cos(ky)$ et $g(x,y)=e^{kx}\sin(ky)$ où $k$ est une constante, sont des solutions de l'équation de Laplace donnée par:
+  
+$$ \dfrac{\partial^2 z}{\partial x^2}+\dfrac{\partial^2 z}{\partial y^2}=0 $$
+  
+```
+
+```{example, name="L'équation d'onde"}
+L'équation d'onde est une équation qui décrit la propagation d'une onde. Pour en savoir plus, [Wikipédia: Équation d'onde](https://fr.wikipedia.org/wiki/%C3%89quation_d%27onde).
+
+Soit $f(u)$ et $g(u)$ deux fonctions dérivables deux fois. Montrez que $\omega=f(x-ct)+g(x+ct)$ où $c$ est une constante, est une solution de l'équation d'onde donnée par:
+  
+$$ \dfrac{\partial^2 \omega}{\partial t^2} = c^2\dfrac{\partial^2 \omega}{\partial x^2} $$
+  
+```
+
+```{example, name="L'équation de la chaleur"}
+L'équation de la chaleur est une équation aux dérivées partielles pour décrire le phénomène physique de conduction thermique. Pour en savoir plus, [Wikipédia: Équation de la chaleur](https://fr.wikipedia.org/wiki/%C3%89quation_de_la_chaleur).
+
+Montrez que la fonction $u(x,t)=t^{-\tfrac{1}{2}}e^{-\tfrac{x^2}{4t}}$ est une solution de l'équation de la chaleur donnée par:
+
+$$ \dfrac{\partial u}{\partial t} = \dfrac{\partial^2 u}{\partial x^2} $$
+  
+```
+
+
+## Le plan tangent
+
+Nous désirons trouver l'équation du plan tangent à une surface donnée par la fonction $z=f(x,y)$ au point $(x_0,y_0,z_0)$ où $z_0=f(x_0,y_0)$. Pour ce faire, nous allons débuter en rappelant comment trouver l'équation cartésienne d'un plan.
+
+### L'équation cartésienne d'un plan
+
+```{definition, name="Le vecteur normal à un plan"}
+Soit un plan $\pi$. Un vecteur normal au plan, noté $\vec n$, est un vecteur tel que tous les vecteurs se trouvant sur le plan sont perpendiculaires à $\vec n$.
+```
+
+Nous allons maintenant utiliser le vecteur normal au plan pour définir l'équation normale du plan de l'espace. Soit un plan $\pi$ et un vecteur $\vec n=[a,b,c]$ normal à ce plan. Soit aussi un point $P(x_0,y_0,z_0)$ connu faisant partie du plan et un point $Q(x,y,z)$ un point quelconque du plan. La figure \@ref(fig:eq-cartesienne-plan) représente un plan ainsi que l'un de se vecteur normal avec un point $P$ connu.
+
+```{r,echo=FALSE,fig.align="center",label="eq-cartesienne-plan",out.width="75%",fig.cap="Représentation d'un plan avec un de ses vecteur normal."}
+knitr::include_graphics("resources/images/latex/eqcartesienneplan.png")
+```
+
+Puisque le vecteur normal $\vec n$ est perpendiculaire à tous les vecteurs se trouvant sur le plan, il est en particulier perpendiculaire au vecteur $\overrightarrow{PQ}$. Si nous définissons le vecteur $\vec p = \overrightarrow{OP}$ et le vecteur $\vec x=\overrightarrow{OQ}$, nous avons que:
+\begin{align*}
+\vec n \cdot (\vec x - \vec p) &= 0 \quad \text{car $\vec n \perp (\vec x - \vec p)$}
+\end{align*}
+Nous avons donc:
+
+```{definition, name="L'équation cartésienne d'un plan"}
+Soit un plan $\pi$. Soit un vecteur normal à ce plan $\vec n=[a,b,c]$ et un point de ce plan $P(x_0,y_0,z_0)$ connu. L'équation normale du plan est donnée par:
+\begin{align*}
+\vec n \cdot (\vec x - \vec p) &= 0 \\
+[a,b,c] \cdot [x-x_0,y-y_0,z-z_0] &= 0 \\
+a(x-x_0)+b(y-y_0)+c(z-z_0) &= 0
+\end{align*}
+```
+
+Nous sommes maintenant prêts à trouver l'équation du plan tangent à une surface. Pour simplifier la démonstration, nous allons modifier l'équation cartésienne d'un plan.
+
+\begin{align*}
+a(x-x_0)+b(y-y_0)+c(z-z_0) &= 0 \\
+c(z-z_0)  &= -a(x-x_0)-b(y-y_0) \\
+z-z_0 &= \frac{-a}{c}(x-x_0)+\frac{-b}{c}(y-y_0) \\
+&= A(x-x_0)+B(y-y_0)
+\end{align*}
+en posant $A=-\frac{a}{c}$ et $B=-\frac{b}{c}$. 
+
+Pour trouver les constantes $A$ et $B$, nous allons nous placer dans les plans $y=y_0$ et $x=x_0$. Tout d'abord, plaçons-nous dans le plan $y=y_0$. Nous avons donc:
+
+\begin{align*}
+z-z_0 &= A(x-x_0)+B(y_0-y_0) \\
+z-z_0 &= A(x-x_0) \\
+z &= Ax +(z_0-Ax_0)
+\end{align*}
+
+L'équation précédente correspond à celle de la droite tangente à la courbe définie par $z=f(x,y_0)$. La pente de cette droite correspond à la dérivée partielle de la fonction $f$ par rapport à $x$, évaluée en $(x_0,y_0)$, c'est-à-dire $A=\left.\dfrac{\partial f}{\partial x}\right|_{(x_0,y_0)}$.
+
+D'une manière similaire, nous montrons que $B=\left.\dfrac{\partial f}{\partial y}\right|_{(x_0,y_0)}$.
+
+L'équation du plan tangent est don donnée par:
+
+$$ z = z_0 + \left.\dfrac{\partial f}{\partial x}\right|_{(x_0,y_0)}\cdot (x-x_0)+\left.\dfrac{\partial f}{\partial y}\right|_{(x_0,y_0)}\cdot (y-y_0) $$
+
+```{example}
+Trouvez l'équation du plan tangent à la surface $f(x,y)=9-x^2-y^2$ au point $(1,1)$.
+```
+
+```{example}
+Trouvez l'équation du plan tangent à la surface $f(x,y)=\sin(xy)$ au point $\left(\frac{\pi}{3},-1 \right)$.
+```
+
+```{example}
+Trouvez le plan tangent horizontal à la surface $f(x,y)=x^2-4xy-2y^2+12x-12y-1$
+```
+
+```{example}
+Trouvez l'équation du plan tangent à la surface $f(x,y)=\dfrac{x-y}{x+y}$ au point $(1,1)$.
+```
+
+```{remark}
+Le plan tangent est l'analogue du polynôme de Taylor de degré 1 pour les fonctions de deux variables.
+```
+
+## Les fonctions différentiables
+
+### Les différentielles
+
+### Le calcul d'incertitude
+
+```{definition, name="L'erreur absolue et l'erreur relative"}
+Soit $a$ une donnée que nous mesurons. Nous notons $\Delta a$ l'erreur absolue de la mesure $a$, c'est-à-dire l'incertitude associée à la prise de mesure de $a$. Nous notons $\dfrac{\Delta a}{a}$ l'erreur relative de $a$.
+```
+
+Nous allons maintenant retrouver certaines règles de calcul d'incertitude à l'aide de la différentielle totale d'une fonction.
+
+Soit une fonction $f(x_1,x_2,\ldots,x_n)$ une donnée dépendant de $n$ mesures notées $x_1$, $x_2$, ..., $x_n$. D'après les notions de différentielle, nous avons:
+
+$$ df = \dfrac{\partial f}{\partial x_1} dx_1 + \ldots + \dfrac{\partial f}{\partial x_n} dx_n $$
+Nous sommes maintenant en mesure de calculer une valeur maximale pour $df$:
+
+$$ |df| \leq \left|\dfrac{\partial f}{\partial x_1}\right| |dx_1| + \ldots + \left|\dfrac{\partial f}{\partial x_n}\right| |dx_n| $$
+
+En notant les incertitudes $\Delta x = |dx|$ pour toutes les mesures, nous obtenons la relation suivante en prenant la valeur maximale de l'incertitude :
+
+$$ \Delta f = \left|\dfrac{\partial f}{\partial x_1}\right| \Delta x_1 + \ldots + \left|\dfrac{\partial f}{\partial x_n}\right| \Delta x_n $$
+
+#### L'addition ou la soustraction de deux mesures.
+
+Soit $f(x_1,x_2)=x_1\pm x_2$. Nous avons:
+\begin{align*}
+\Delta f &= \left| \dfrac{\partial f}{\partial x_1} \right| \Delta x_1
++ \left| \dfrac{\partial f}{\partial x_2} \right| \Delta x_2 \\
+&= \Delta x_1 \pm \Delta x_2
+\end{align*}
+Ceci implique que lors de l'addition ou de la soustraction de deux mesures, les erreurs absolues sont additionnées.
+
+#### Le produit d'une mesure par une constante
+
+Soit $f(x_1)=kx_1$ où $k$ est une constante. Nous avons:
+\begin{align*}
+\Delta f &= \left| \dfrac{\partial f}{\partial x_1} \right| \Delta x_1 \\
+&= |k| \Delta x_1
+\end{align*}
+Ceci implique que lors du produit d'une mesure par une constante, l'erreur absolue de la mesure est multipliée par la valeur absolue de la constante.
+
+#### Le produit de deux mesures
+
+Soit $f(x_1,x_2)=x_1 \cdot x_2$. Nous avons:
+\begin{align*}
+\Delta f &= \left| \dfrac{\partial f}{\partial x_1} \right| \Delta x_1
++ \left| \dfrac{\partial f}{\partial x_2} \right| \Delta x_2 \\
+&= |x_2| \Delta x_1 + |x_1| \Delta x_2 \\
+\dfrac{\Delta f}{f} &= \dfrac{|x_2|}{x_1\cdot x_2}\Delta x_1 + \dfrac{|x_1|}{x_1\cdot x_2}\Delta x_2 \\
+&= \dfrac{\Delta x_1}{x_1} + \dfrac{\Delta x_2}{x_2}
+\end{align*}
+Ceci implique que lors du produit de deux mesures, les erreurs relatives sont additionnées.
+
+#### Le quotient de deux mesures
+
+Soit $f(x_1,x_2)=\dfrac{x_1}{x_2}$. Nous avons:
+\begin{align*}
+\Delta f &= \left| \dfrac{\partial f}{\partial x_1} \right| \Delta x_1
++ \left| \dfrac{\partial f}{\partial x_2} \right| \Delta x_2 \\
+&= \left| \dfrac{1}{x_2} \right| \Delta x_1 + \left| \dfrac{-x_1}{x_2^2} \right| \Delta x_2 \\
+\dfrac{\Delta f}{f} &= \left| \dfrac{1}{x_2}\dfrac{x_2}{x_1} \right| \Delta x_1 + \left| \dfrac{-x_1}{x_2^2}\dfrac{x_2}{x_1} \right| \Delta x_2 \\
+&= \dfrac{\Delta x_1}{x_1} + \dfrac{\Delta x_2}{x_2}
+\end{align*}
+Ceci implique que lors du quotient de deux mesures, les erreurs relatives sont additionnées.
+
+#### La puissance d'une mesure
+
+Soit $f(x_1)=x_1^n$ où $n\in\mathbb{R}$. Nous avons:
+\begin{align*}
+\Delta f &= \left| \dfrac{\partial f}{\partial x_1} \right| \Delta x_1 \\
+&= |nx_1^{n-1}| \Delta x_1 \\
+\dfrac{\Delta f}{f} &= \left| \dfrac{nx_1^{n-1}}{x_1^n} \right| \Delta x_1 \\
+&= |n| \dfrac{\Delta x_1}{x_1}
+\end{align*}
+Ceci implique que lors du calcul de la puissance d'une mesure, nous multiplions l'erreur relative par la valeur absolue de la puissance $n$.
+
+```{example}
+Pour mesurer le volume d'un cylindre, nous mesurons sa hauteur et son rayon. Nous obtenons $h=15\ \text{cm}\pm 0,1\ \text{cm}$ et $h=5\ \text{cm}\pm 0,1\ \text{cm}$. Trouvez l'erreur absolue et l'erreur relative sur le volume du cylindre.
+```
+
+```{example}
+La période d'oscillation $T$ d'un pendule simple dépend de la longueur du pendule $l$, $T=2\pi\sqrt{\dfrac{l}{g}}$. En mesurant la période du pendule et sa longueur (deux mesures), nous pouvons obtenir la valeur de la constante gravitationnelle $g=\dfrac{4\pi^2 l}{T^2}$. Trouvez l'erreur absolue et l'erreur relative sur la mesure de $g$, en fonction des incertitudes sur $T$ et $l$.
+```
+
+## La règle de dérivation en chaîne et la dérivation implicite
+
+Nous savons que si $y=f(x)$ et $x=x(t)$, alors la dérivée de la composition des fonctions $f\circ x$ est:
+
+$$ \dfrac{dy}{dt} = \dfrac{df}{dx}\dfrac{dx}{dt} $$
+
+C'est ce que nous nommons la __règle de dérivation en chaîne__. Nous voulons maintenant introduire une règle similaire pour les fonctions de plusieurs variables. Débutons par étudier la règle pour les fonctions de deux variables. La généralisation pour les fonctions de trois variables ou plus se fait de façon similaire.
+
+```{theorem, name="La règle de dérivation en chaîne pour les fonctions de deux variables"}
+Soit une fonction différentiable $z=f(x,y)$ et soit $x=x(t)$ et $y=y(t)$. Nous avons alors:
+  
+$$ \dfrac{dz}{dt} = \dfrac{\partial f}{\partial x}\dfrac{dx}{dt}+
+  \dfrac{\partial f}{\partial y}\dfrac{dy}{dt} $$
+  
+
+```
+
+```{remark}
+La dérivée $\dfrac{dz}{dt}$ est une dérivée habituelle et non partielle. En effet, la fonction $z=f(x,y)$ ne dépend que d'une seule variable, $t$. Lorsqu'une fonction dépend d'une seule variable, nous utilisons $d$ et lorsqu'elle dépend de deux variables ou plus, nous utilisons $\partial$.
+```
+
+
+```{r}
+grViz("
+digraph schema_derivation {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  f; x; y; t
+
+  # several 'edge' statements
+  f->x f->y x->t y->t
+}
+")
+```
+
+
+## La dérivée directionnelle
+
+

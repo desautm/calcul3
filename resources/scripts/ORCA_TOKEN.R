@@ -1,0 +1,1 @@
+Sys.setenv("MAPBOX_TOKEN"="pk.eyJ1IjoiZGVzYXV0bSIsImEiOiJjam1tMTJqeHIwZWF4M3ZtbDYzcG80ODBpIn0.PNyGi8wpo0cdBhaF__B7jg")

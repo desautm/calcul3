@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Calcul différentiel et intégral dans l’espace</title>
+  <meta name="description" content="Un livre sous forme de notes trouées portant sur le calcul différentiel et intégral dans l’espace.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Calcul différentiel et intégral dans l’espace" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Un livre sous forme de notes trouées portant sur le calcul différentiel et intégral dans l’espace." />
+  <meta name="github-repo" content="desautm/calcul3" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calcul différentiel et intégral dans l’espace" />
+  
+  <meta name="twitter:description" content="Un livre sous forme de notes trouées portant sur le calcul différentiel et intégral dans l’espace." />
+  
+
+<meta name="author" content="Marc-André Désautels">
+
+
+<meta name="date" content="2018-10-10">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="domaine.html">
+<link rel="next" href="la-continuite.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<script src="libs/viz-0.3/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.0/grViz.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Calcul différentiel et intégral dans l'espace</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="a-propos-de-ce-document.html"><a href="a-propos-de-ce-document.html"><i class="fa fa-check"></i>À propos de ce document</a><ul>
+<li class="chapter" data-level="" data-path="a-propos-de-ce-document.html"><a href="a-propos-de-ce-document.html#remerciements"><i class="fa fa-check"></i>Remerciements</a></li>
+<li class="chapter" data-level="" data-path="a-propos-de-ce-document.html"><a href="a-propos-de-ce-document.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="taylor.html"><a href="taylor.html"><i class="fa fa-check"></i><b>1</b> Les séries de Taylor</a><ul>
+<li class="chapter" data-level="1.1" data-path="les-polynomes-de-taylor-et-de-maclaurin.html"><a href="les-polynomes-de-taylor-et-de-maclaurin.html"><i class="fa fa-check"></i><b>1.1</b> Les polynômes de Taylor et de MacLaurin</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="les-polynomes-de-taylor-et-de-maclaurin.html"><a href="les-polynomes-de-taylor-et-de-maclaurin.html#les-polynomes-de-maclaurin"><i class="fa fa-check"></i><b>1.1.1</b> Les polynômes de MacLaurin</a></li>
+<li class="chapter" data-level="1.1.2" data-path="les-polynomes-de-taylor-et-de-maclaurin.html"><a href="les-polynomes-de-taylor-et-de-maclaurin.html#les-polynomes-de-taylor"><i class="fa fa-check"></i><b>1.1.2</b> Les polynômes de Taylor</a></li>
+<li class="chapter" data-level="1.1.3" data-path="les-polynomes-de-taylor-et-de-maclaurin.html"><a href="les-polynomes-de-taylor-et-de-maclaurin.html#le-reste-de-taylor-lagrange"><i class="fa fa-check"></i><b>1.1.3</b> Le reste de Taylor-Lagrange</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="les-series-de-taylor.html"><a href="les-series-de-taylor.html"><i class="fa fa-check"></i><b>1.2</b> Les séries de Taylor</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="les-series-de-taylor.html"><a href="les-series-de-taylor.html#lobtention-de-series-de-taylor-a-partir-de-series-connues."><i class="fa fa-check"></i><b>1.2.1</b> L’obtention de séries de Taylor à partir de séries connues.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>1.3</b> Applications</a></li>
+<li class="chapter" data-level="1.4" data-path="geogebra-taylor.html"><a href="geogebra-taylor.html"><i class="fa fa-check"></i><b>1.4</b> GeoGebra</a></li>
+<li class="chapter" data-level="1.5" data-path="pages-supplementaires.html"><a href="pages-supplementaires.html"><i class="fa fa-check"></i><b>1.5</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="edo.html"><a href="edo.html"><i class="fa fa-check"></i><b>2</b> Les équations différentielles ordinaires</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="les-equations-differentielles-a-variables-separables.html"><a href="les-equations-differentielles-a-variables-separables.html"><i class="fa fa-check"></i><b>2.2</b> Les équations différentielles à variables séparables</a></li>
+<li class="chapter" data-level="2.3" data-path="les-equations-differentielles-lineaires.html"><a href="les-equations-differentielles-lineaires.html"><i class="fa fa-check"></i><b>2.3</b> Les équations différentielles linéaires</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="les-equations-differentielles-lineaires.html"><a href="les-equations-differentielles-lineaires.html#problemes-de-melange"><i class="fa fa-check"></i><b>2.3.1</b> Problèmes de mélange</a></li>
+<li class="chapter" data-level="2.3.2" data-path="les-equations-differentielles-lineaires.html"><a href="les-equations-differentielles-lineaires.html#inverser-la-derivee"><i class="fa fa-check"></i><b>2.3.2</b> Inverser la dérivée</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><a href="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><i class="fa fa-check"></i><b>2.4</b> Les équations différentielles à coefficients constants d’ordre 2</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><a href="les-equations-differentielles-a-coefficients-constants-dordre-2.html#quelques-rappels-concernant-les-nombres-complexes"><i class="fa fa-check"></i><b>2.4.1</b> Quelques rappels concernant les nombres complexes</a></li>
+<li class="chapter" data-level="2.4.2" data-path="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><a href="les-equations-differentielles-a-coefficients-constants-dordre-2.html#les-equations-differentielles-homogenes-a-coefficients-constants-dordre-2"><i class="fa fa-check"></i><b>2.4.2</b> Les équations différentielles homogènes à coefficients constants d’ordre 2</a></li>
+<li class="chapter" data-level="2.4.3" data-path="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><a href="les-equations-differentielles-a-coefficients-constants-dordre-2.html#non-homogene-2"><i class="fa fa-check"></i><b>2.4.3</b> Les équations différentielles non homogènes à coefficients constants d’ordre 2</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="applications-des-equations-differentielles-du-deuxieme-ordre-a-coefficients-constants.html"><a href="applications-des-equations-differentielles-du-deuxieme-ordre-a-coefficients-constants.html"><i class="fa fa-check"></i><b>2.5</b> Applications des équations différentielles du deuxième ordre à coefficients constants</a></li>
+<li class="chapter" data-level="2.6" data-path="geogebra-equations-diff.html"><a href="geogebra-equations-diff.html"><i class="fa fa-check"></i><b>2.6</b> GeoGebra</a></li>
+<li class="chapter" data-level="2.7" data-path="pages-supplementaires-1.html"><a href="pages-supplementaires-1.html"><i class="fa fa-check"></i><b>2.7</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="coordpolaires.html"><a href="coordpolaires.html"><i class="fa fa-check"></i><b>3</b> Les coordonnées polaires</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="le-graphique-dune-equation-polaire-rftheta.html"><a href="le-graphique-dune-equation-polaire-rftheta.html"><i class="fa fa-check"></i><b>3.2</b> Le graphique d’une équation polaire <span class="math inline">\(r=f(\theta)\)</span></a></li>
+<li class="chapter" data-level="3.3" data-path="tangente-a-une-courbe-polaire.html"><a href="tangente-a-une-courbe-polaire.html"><i class="fa fa-check"></i><b>3.3</b> Tangente à une courbe polaire</a></li>
+<li class="chapter" data-level="3.4" data-path="aire-dune-region.html"><a href="aire-dune-region.html"><i class="fa fa-check"></i><b>3.4</b> Aire d’une région</a></li>
+<li class="chapter" data-level="3.5" data-path="longueur-dune-courbe.html"><a href="longueur-dune-courbe.html"><i class="fa fa-check"></i><b>3.5</b> Longueur d’une courbe</a></li>
+<li class="chapter" data-level="3.6" data-path="geogebra-polaire.html"><a href="geogebra-polaire.html"><i class="fa fa-check"></i><b>3.6</b> GeoGebra</a></li>
+<li class="chapter" data-level="3.7" data-path="pages-supplementaires-2.html"><a href="pages-supplementaires-2.html"><i class="fa fa-check"></i><b>3.7</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="fctvar.html"><a href="fctvar.html"><i class="fa fa-check"></i><b>4</b> Les fonctions de plusieurs variables</a><ul>
+<li class="chapter" data-level="4.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="definitions.html"><a href="definitions.html"><i class="fa fa-check"></i><b>4.2</b> Définitions</a></li>
+<li class="chapter" data-level="4.3" data-path="graphiques-divers.html"><a href="graphiques-divers.html"><i class="fa fa-check"></i><b>4.3</b> Graphique</a></li>
+<li class="chapter" data-level="4.4" data-path="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html"><a href="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html"><i class="fa fa-check"></i><b>4.4</b> Comment étudier les graphiques de fonctions de deux variables</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html"><a href="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html#les-coupes-transversales"><i class="fa fa-check"></i><b>4.4.1</b> Les coupes transversales</a></li>
+<li class="chapter" data-level="4.4.2" data-path="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html"><a href="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html#les-courbes-de-niveaux"><i class="fa fa-check"></i><b>4.4.2</b> Les courbes de niveaux</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="domaine.html"><a href="domaine.html"><i class="fa fa-check"></i><b>4.5</b> Domaine</a></li>
+<li class="chapter" data-level="4.6" data-path="limites.html"><a href="limites.html"><i class="fa fa-check"></i><b>4.6</b> Limites</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="limites.html"><a href="limites.html#la-methode-des-chemins"><i class="fa fa-check"></i><b>4.6.1</b> La méthode des chemins</a></li>
+<li class="chapter" data-level="4.6.2" data-path="limites.html"><a href="limites.html#la-methode-des-gendarmes"><i class="fa fa-check"></i><b>4.6.2</b> La méthode des gendarmes</a></li>
+<li class="chapter" data-level="4.6.3" data-path="limites.html"><a href="limites.html#exercises-divers-de-limites"><i class="fa fa-check"></i><b>4.6.3</b> Exercises divers de limites</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="la-continuite.html"><a href="la-continuite.html"><i class="fa fa-check"></i><b>4.7</b> La continuité</a></li>
+<li class="chapter" data-level="4.8" data-path="geogebra-fctvar.html"><a href="geogebra-fctvar.html"><i class="fa fa-check"></i><b>4.8</b> Geogebra</a></li>
+<li class="chapter" data-level="4.9" data-path="pages-supplementaires-3.html"><a href="pages-supplementaires-3.html"><i class="fa fa-check"></i><b>4.9</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="derivfctvars.html"><a href="derivfctvars.html"><i class="fa fa-check"></i><b>5</b> La dérivation de fonctions de plusieurs variables</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-4.html"><a href="introduction-4.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="les-derivees-partielles.html"><a href="les-derivees-partielles.html"><i class="fa fa-check"></i><b>5.2</b> Les dérivées partielles</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="les-derivees-partielles.html"><a href="les-derivees-partielles.html#les-derivees-dordres-superieurs"><i class="fa fa-check"></i><b>5.2.1</b> Les dérivées d’ordres supérieurs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="applications-des-derivees-partielles.html"><a href="applications-des-derivees-partielles.html"><i class="fa fa-check"></i><b>5.3</b> Applications des dérivées partielles</a></li>
+<li class="chapter" data-level="5.4" data-path="le-plan-tangent.html"><a href="le-plan-tangent.html"><i class="fa fa-check"></i><b>5.4</b> Le plan tangent</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="le-plan-tangent.html"><a href="le-plan-tangent.html#lequation-cartesienne-dun-plan"><i class="fa fa-check"></i><b>5.4.1</b> L’équation cartésienne d’un plan</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="les-fonctions-differentiables.html"><a href="les-fonctions-differentiables.html"><i class="fa fa-check"></i><b>5.5</b> Les fonctions différentiables</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="les-fonctions-differentiables.html"><a href="les-fonctions-differentiables.html#les-differentielles"><i class="fa fa-check"></i><b>5.5.1</b> Les différentielles</a></li>
+<li class="chapter" data-level="5.5.2" data-path="les-fonctions-differentiables.html"><a href="les-fonctions-differentiables.html#le-calcul-dincertitude"><i class="fa fa-check"></i><b>5.5.2</b> Le calcul d’incertitude</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html"><a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html"><i class="fa fa-check"></i><b>5.6</b> La règle de dérivation en chaîne et la dérivation implicite</a></li>
+<li class="chapter" data-level="5.7" data-path="la-derivee-directionnelle.html"><a href="la-derivee-directionnelle.html"><i class="fa fa-check"></i><b>5.7</b> La dérivée directionnelle</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="intfctvars.html"><a href="intfctvars.html"><i class="fa fa-check"></i><b>6</b> L’intégration de fonctions de plusieurs variables</a><ul>
+<li class="chapter" data-level="6.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Calcul différentiel et intégral dans l’espace</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="limites" class="section level2">
+<h2><span class="header-section-number">4.6</span> Limites</h2>
+<p>Nous allons débuter en rappelant la définition de la limite d’une fonction à une variable.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-134" class="definition"><strong>Définition 4.5  (Limite d’une fonction à une variable)  </strong></span>Soit une fonction <span class="math inline">\(f(x)\)</span>. Nous disons que <span class="math inline">\(L\)</span> est la limite de <span class="math inline">\(f(x)\)</span> lorsque <span class="math inline">\(x\)</span> tend vers <span class="math inline">\(a\)</span> si pour tout <span class="math inline">\(\epsilon &gt;0\)</span>, il existe <span class="math inline">\(\delta\)</span> tel que si <span class="math inline">\(|x-a|&lt;\delta\)</span> alors <span class="math inline">\(|f(x)-L|&lt;\epsilon\)</span>. Nous notons alors:
+<span class="math display">\[ \lim_{x\to a} f(x) = L \]</span></p>
+</div>
+
+<p><strong>WIP</strong></p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-135" class="proposition"><strong>Proposition 4.1  (Les propriétés des limites)  </strong></span>Soit <span class="math inline">\(f(x,y)\)</span> et <span class="math inline">\(g(x,y)\)</span> deux fonctions de deux variables.</p>
+<span class="math display">\[\begin{align*}
+&amp; \lim_{(x,y)\to(a,b)}f(x,y)\pm g(x,y)=\lim_{(x,y)\to(a,b)}f(x,y)\pm \lim_{(x,y)\to(a,b)} g(x,y) \\
+&amp; \lim_{(x,y)\to(a,b)}f(x,y)\cdot  g(x,y)=\lim_{(x,y)\to(a,b)}f(x,y)\cdot \lim_{(x,y)\to(a,b)} g(x,y) \\
+&amp; \lim_{(x,y)\to(a,b)}\dfrac{f(x,y)}{g(x,y)}=\dfrac{\lim\limits_{(x,y)\to(a,b)}f(x,y)}{ \lim\limits_{(x,y)\to(a,b)} g(x,y)}\quad \text{si $g(x,y)\neq 0$ près de $(a,b)$}
+\end{align*}\]</span>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-136" class="example"><strong>Exemple 4.8  </strong></span>Trouvez la limite suivante:</p>
+<p><span class="math display">\[
+\lim_{(x,y)\to(1,2)} (x^2+y)
+\]</span></p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:lim-sin-sur-x" class="example"><strong>Exemple 4.9  </strong></span>Trouvez la limite suivante:</p>
+<p><span class="math display">\[
+\lim_{(x,y)\to(0,0)}\dfrac{\sin (x^2+y^2)}{x^2+y^2}
+\]</span></p>
+</div>
+
+<p>Nous avons pu lever l’indétermination de l’exemple <a href="limites.html#exm:lim-sin-sur-x">4.9</a> en utilisant une limite vue dans un cours de calcul intégral. Malheureusement, il sera habituellement plus difficile de lever des indéterminations. En particulier, il n’existe pas d’analogue à la règle de L’Hospital pour des fonctions de deux variables ou plus.</p>
+<p>Nous verrons par contre deux techniques pour être en mesure de calculer des limites de fonctions de deux variables ou plus: la méthode des chemins et la méthode du gendarme.</p>
+<div id="la-methode-des-chemins" class="section level3">
+<h3><span class="header-section-number">4.6.1</span> La méthode des chemins</h3>
+<p>Cette méthode est une généralisation du principe de la limite à droite et de la limite à gauche. Lorsque nous avons:</p>
+<p><span class="math display">\[ \lim_{x\to a} f(x) \]</span></p>
+<p>cela signifie que la valeur de <span class="math inline">\(x\)</span> s’approche de <span class="math inline">\(a\)</span>. La variable <span class="math inline">\(x\)</span> peut s’approcher de <span class="math inline">\(a\)</span> de deux façons différentes, par la droite ou par la gauche. Dans le cas de la limite suivante:</p>
+<p><span class="math display">\[ \lim_{(x,y)\to (a,b)} f(x,y) \]</span></p>
+<p>cela signifie que nous devons nous approcher du point <span class="math inline">\((a,b)\)</span>. Par contre, il existe plus de deux façons de se rendre au point <span class="math inline">\((a,b)\)</span>. Il en existe en fait une infinité! La figure <a href="limites.html#fig:limites2d-3d">4.18</a> présente une représentation d’une limite pour une fonction d’une seule variable dans la figure de gauche. Dans la figure de droite, nous montrons trois chemins possibles, parmi l’infinité de chemins possibles.</p>
+<div class="figure" style="text-align: center"><span id="fig:limites2d-3d"></span>
+<img src="resources/images/latex/limite2d.png" alt="Représentation d'une limite en deux dimensions et d'une autre en trois dimensions." width="45%" /><img src="resources/images/latex/limite3d.png" alt="Représentation d'une limite en deux dimensions et d'une autre en trois dimensions." width="45%" />
+<p class="caption">
+Figure 4.18: Représentation d’une limite en deux dimensions et d’une autre en trois dimensions.
+</p>
+</div>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-137" class="example"><strong>Exemple 4.10  </strong></span>Déterminez, si elle existe, la limite suivante:</p>
+<p><span class="math display">\[ \lim_{(x,y)\to (0,0)}\dfrac{x^2}{x^2+y^2} \]</span></p>
+</div>
+
+<p>En général, nous désirons trouver la limite en <span class="math inline">\((0,0)\)</span> et nous allons tester les chemins suivants:</p>
+<ul>
+<li><span class="math inline">\(x=0\)</span></li>
+<li><span class="math inline">\(y=0\)</span></li>
+<li><span class="math inline">\(y=x\)</span></li>
+<li><span class="math inline">\(y=kx\)</span> où <span class="math inline">\(k\)</span> est une constante</li>
+<li><span class="math inline">\(y=kx^2\)</span> où <span class="math inline">\(k\)</span> est une constante</li>
+</ul>
+
+<div class="remark">
+ <span class="remark"><em>Remarque. </em></span> La méthode des chemins ne permet que de démontrer qu’une limite <strong>n’existe pas</strong>.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-139" class="example"><strong>Exemple 4.11  </strong></span>Déterminez, si elle existe, la limite suivante:</p>
+<p><span class="math display">\[ \lim_{(x,y)\to (0,0)}\dfrac{xy}{x^2+y^2} \]</span></p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-140" class="example"><strong>Exemple 4.12  </strong></span>Déterminez, si elle existe, la limite suivante:</p>
+<p><span class="math display">\[ \lim_{(x,y)\to (0,0)}\dfrac{xy^2}{x^2+y^4} \]</span></p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-141" class="example"><strong>Exemple 4.13  </strong></span>Déterminez, si elle existe, la limite suivante:</p>
+<p><span class="math display">\[ \lim_{(x,y)\to (0,0)}\dfrac{x^2+y^2}{y} \]</span></p>
+</div>
+
+</div>
+<div id="la-methode-des-gendarmes" class="section level3">
+<h3><span class="header-section-number">4.6.2</span> La méthode des gendarmes</h3>
+<p>Puisque la méthode des chemins ne nous permet pas de démontrer qu’une limite existe, nous allons introduire la méthode des gendarmes, qui elle permet de démontrer qu’une limite existe. Nous débutons pas utiliser la méthode des chemins pour calculer la limite:</p>
+<p><span class="math display">\[ \lim_{(x,y)\to (a,b)}f(x,y) \]</span></p>
+<p>Si tous les chemins nous donnent une limite égale à <span class="math inline">\(L\)</span>, nous pouvons présumer que:</p>
+<p><span class="math display">\[ \lim_{(x,y)\to (a,b)}f(x,y)=L \]</span></p>
+<p>Nous voulons maintenant trouver une fonction <span class="math inline">\(M(x,y)\)</span> telle que:</p>
+<p><span class="math display">\[ 0 \leq |f(x,y)-L| \leq M(x,y) \]</span></p>
+<p>et telle que la limite suivante est vérifiée:</p>
+<p><span class="math display">\[ \lim_{(x,y)\to (a,b)} M(x,y) = 0 \]</span></p>
+<p>Nous nous retrouvons donc dans la situation suivante:</p>
+<span class="math display">\[\begin{align*}
+0 &amp;\leq |f(x,y)-L| &amp;\leq M(x,y) \\
+\lim_{(x,y)\to (a,b)} 0 &amp;\leq \lim_{(x,y)\to (a,b)}|f(x,y)-L| &amp;\leq \lim_{(x,y)\to (a,b)}M(x,y) \\
+0 &amp;\leq \lim_{(x,y)\to (a,b)}|f(x,y)-L| &amp;\leq 0
+\end{align*}\]</span>
+<p>Nous pouvons donc conclure que:</p>
+<p><span class="math display">\[ \lim_{(x,y)\to (a,b)}f(x,y)=L \]</span></p>
+<p>Pour utiliser la méthode des gendarmes, nous utiliserons à plusieurs reprises l’inégalité suivante.</p>
+
+<div class="proposition">
+<p><span id="prp:unnamed-chunk-142" class="proposition"><strong>Proposition 4.2  </strong></span>Soit <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> deux nombres réels. Nous avons:
+<span class="math display">\[\begin{align*}
+\left|\dfrac{x^2}{x^2+y^2}\right| &amp;\leq 1 \\
+\left|\dfrac{y^2}{x^2+y^2}\right| &amp;\leq 1
+\end{align*}\]</span></p>
+</div>
+
+
+<div class="proof">
+ <span class="proof"><em>Preuve. </em></span> Nous avons:
+<span class="math display">\[\begin{align*}
+x^2 &amp;\leq x^2+y^2 \\
+\dfrac{x^2}{x^2+y^2} &amp;\leq 1
+\end{align*}\]</span>
+L’autre inégalité se démontre de la même manière.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-144" class="example"><strong>Exemple 4.14  </strong></span>Trouvez la limite suivante:
+<span class="math display">\[ \lim_{(x,y)\to (0,0)}\dfrac{x^2y}{x^2+y^2} \]</span></p>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-145" class="example"><strong>Exemple 4.15  </strong></span>Trouvez la limite suivante:
+<span class="math display">\[ \lim_{(x,y)\to (0,0)}\dfrac{y^3}{x^2+y^2} \]</span></p>
+</div>
+
+</div>
+<div id="exercises-divers-de-limites" class="section level3">
+<h3><span class="header-section-number">4.6.3</span> Exercises divers de limites</h3>
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-146" class="example"><strong>Exemple 4.16  </strong></span>Trouvez, si possible, les limites suivantes:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\lim_{(x,y)\to (2,-1)} (xy+y^2)\)</span></li>
+<li><span class="math inline">\(\lim_{(x,y)\to (0,0)} \sqrt{x^2+y^2}\)</span></li>
+<li><span class="math inline">\(\lim_{(x,y)\to (0,0)} \dfrac{x}{x^2+y^2}\)</span></li>
+<li><span class="math inline">\(\lim_{(x,y)\to (0,0)} \dfrac{\cos(xy)}{1-x-\cos(y)}\)</span></li>
+<li><span class="math inline">\(\lim_{(x,y)\to (0,1)} \dfrac{x^2(y-1)^2}{x^2+(y-1)^2}\)</span></li>
+<li><span class="math inline">\(\lim_{(x,y)\to (0,0)} \dfrac{\sin(x-y)}{\cos(x+y)}\)</span></li>
+<li><span class="math inline">\(\lim_{(x,y)\to (0,0)} \dfrac{\sin(xy)}{x^2+y^2}\)</span></li>
+</ol>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="domaine.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="la-continuite.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/desautm/calcul3/edit/master/04-fctvars.Rmd",
+"text": "Modifier"
+},
+"download": ["calcul3.pdf", "calcul3.epub"],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

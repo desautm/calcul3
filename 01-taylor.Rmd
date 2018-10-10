@@ -1,0 +1,416 @@
+# Les séries de Taylor {#taylor}
+
+Vous trouverez à la section \@ref(geogebra-taylor) une application [GeoGebra](https://www.geogebra.org/?lang=fr) vous permettant de visualiser les polynômes de Taylor et de Maclaurin d'une fonction de votre choix. À noter que cette application n'est disponible que dans la version en ligne de ce document.
+
+## Les polynômes de Taylor et de MacLaurin
+
+De tous les types de fonctions, les fonctions polynomiales sont celles qui se dérivent et s'intègrent le plus facilement. De plus, si leur degré est inférieur ou égal à 5, des formules permettent de trouver facilement leurs zéros. Pour ces raisons, l'écriture d'une fonction $f(x)$ sous la forme d'un polynôme de degré $n$, $P_n(x)$, nous permet de l'étudier aisément. Cependant, en écrivant une fonction sous la forme d'un polynôme, nous obtenons une approximation.
+
+L'approche de Taylor et de MacLaurin est couramment utilisée pour transformer une fonction en polynôme.
+
+### Les polynômes de MacLaurin
+
+Pour savoir de quelle manière exprimer une fonction $f(x)$ sous la forme d'un polynôme, nous étudierons un cas particulier des polynômes de Taylor, soit les polynômes de MacLaurin.
+
+```{definition name = "Polynôme de Maclaurin"}
+Soit $f(x)$ une fonction dérivable au moins $n$ fois. Le __polynôme de MacLaurin__ de degré $n$, $P_n(x)$, de la fonction $f(x)$ est un polynôme satisfaisant les conditions suivantes:
+\begin{align}
+\begin{split}
+f(0) &= P_n(0) \\
+\left.\dfrac{d^k f}{dx^k}\right|_{x=0} &= \left.\dfrac{d^k P_n}{dx^k}\right|_{x=0}, \quad \text{pour } k\in\{1,\ldots,n\}
+\end{split}
+\end{align}
+```
+
+Les deux conditions suivantes permettent de construire le polynôme de MacLaurin pour une fonction $f(x)$ quelconque. Nous savons qu'un polynôme de degré $n$ s'écrit de la façon suivante:
+
+\begin{align*}
+P_n(x)=a_0+a_1x+a_2x^2+...+a_{n-1}x^{n-1}+a_nx^n
+\end{align*}
+
+Pour trouver les coefficients $a_k$, nous devons obtenir les dérivées successives de $P_n(x)$. Ainsi:
+
+\begin{align}
+\begin{split}
+P_n(x) &= a_0+a_1x+a_2x^2+...+a_{n-1}x^{n-1}+a_nx^n \\
+P_n^{(1)}(x) &= 1a_1+2a_2x+3a_3x^2+...+(n-1)a_{n-1}x^{n-2}+na_nx^{n-1} \\
+P_n^{(2)}(x) &= 2\cdot 1a_2+3\cdot 2a_3x+...+(n-1)(n-2)a_{n-1}x^{n-3}+n(n-1)a_nx^{n-2} \\
+P_n^{(3)}(x) &= 3\cdot 2\cdot 1a_3+...+(n-1)(n-2)(n-3)a_{n-1}x^{n-4}+n(n-1)(n-2)a_nx^{n-3}
+\end{split}
+\end{align}
+et ainsi de suite.
+
+Par définition, nous savons que $f(0)=P_n(0)$. Ainsi:
+
+\begin{align}
+\begin{split}
+f(0)&=P_n(0) \\
+f(0) &= a_0+a_1(0)+a_2(0)^2+...+a_{n-1}(0)^{n-1}+a_n(0)^n \\
+f(0)&=a_0
+\end{split}
+\end{align}
+
+De même, nous savons que $f^{(1)}(0)=P_n^{(1)}(0)$. Ainsi:
+
+\begin{align}
+\begin{split}
+f^{(1)}(0)&=P_n^{(1)}(0)\\
+f^{(1)}(0)&=1a_1+2a_2(0)+3a_3(0)^2+...+(n-1)a_{n-1}(0)^{n-2}+na_n(0)^{n-1} \\
+f^{(1)}(0)&=1a_1  \\
+\dfrac{f^{(1)}(0)}{1}&=a_1
+\end{split}
+\end{align}
+
+De la même façon, nous savons que $f^{(2)}(0)=P_n^{(2)}(0)$. Ainsi:
+
+\begin{align}
+\begin{split}
+f^{(2)}(0)&=P^{(2)}_n(0)\\
+f^{(2)}(0)&=2\cdot 1a_2+3\cdot 2a_3(0)+\ldots+(n-1)(n-2)a_{n-1}(0)^{n-3}+n(n-1)a_n(0)^{n-2} \\
+f^{(2)}(0)&=2\cdot 1a_2  \\
+\dfrac{f^{(2)}(0)}{2\cdot 1}&=a_2
+\end{split}
+\end{align}
+
+D'une manière générale, nous trouvons:
+
+\begin{align}
+\begin{split}
+a_k &= \dfrac{1}{k\cdot (k-1)\cdot ...\cdot 3\cdot 2\cdot 1}f^{(k)}(0) \\
+&= \dfrac{f^{(k)}(0)}{k!}
+\end{split}
+\end{align}
+
+```{remark, name = "Factorielle"}
+La factorielle d'un nombre entier $k$ positif, notée $k!$, est égale à:
+\begin{equation*}
+k! = k(k-1)(k-2)\cdot\ldots\cdot 3\cdot 2\cdot 1
+\end{equation*}
+Et par définition $0!=1$.
+```
+
+Nous obtenons donc une équation pour déterminer le polynôme de MacLaurin d'une fonction.
+
+```{definition, name = "Polynôme de MacLaurin"}
+Soit $f(x)$ une fonction dérivable au moins $n$ fois en $x=0$. Le __polynôme de MacLaurin__ de degré $n$, $P_n(x)$, est donné par:
+\begin{align*}
+P_n(x)&=\sum_{k=0}^n\dfrac{f^{(k)}(0)}{k!}x^k=f(0)+f^{(1)}(0)x+\dfrac{f^{(2)}(0)}{2!}x^2+...+\dfrac{f^{(n)}(0)}{n!}x^n
+\end{align*}
+```
+
+```{example}
+Trouvez les polynômes de MacLaurin de degrés 1, 2 et 3 de $f(x)=e^x$.
+\vspace*{8cm}
+```
+
+```{example}
+Trouvez les polynômes de MacLaurin de degrés 1, 2 et 3 de $f(x)=sin(x)$.
+\vspace*{8cm}
+```
+
+### Les polynômes de Taylor
+
+Les polynômes de Maclaurin utilisent l'évaluation des dérivées successives de la fonction $f(x)$ en $x=0$. Il est par contre possible de généraliser ces polynômes en évaluant les dérivées successives de la fonction $f(x)$ en $x=a$, avec  $a\in \text{dom} f$. C'est ce que nous appelons les polynômes de Taylor.
+
+```{definition, name = "Polynôme de Taylor"}
+Soit $f(x)$ une fonction dérivable au moins $n$ fois en $x=a$. Le __polynôme de Taylor__ de degré $n$, $P_n(x)$, est donné par:
+\begin{align*}
+P_n(x)&=\sum_{k=0}^n\dfrac{f^{(k)}(a)}{k!}(x-a)^k\\
+&=f(a)+f^{(1)}(a)(x-a)+\dfrac{f^{(2)}(a)}{2!}(x-a)^2+...+\dfrac{f^{(n)}(a)}{n!}(x-a)^n
+\end{align*}
+```
+
+```{example}
+Trouvez le polynôme de Taylor de $f(x)=\ln(x)$ de degré $4$ autour de $x=1$.
+\vspace*{8cm}
+```
+
+### Le reste de Taylor-Lagrange
+
+Les polynômes de Taylor sont des approximations d'une fonction, ce qui signifie qu'une erreur est commise. Le théorème suivant nous permet de quantifier l'erreur commise, c'est-à-dire $f(x)-P_n(x)$.
+
+```{theorem, name = "Le reste de Taylor-Lagrange"}
+Soit $f(x)$ une fonction dérivable au moins $n+1$ fois sur l'intervalle $I=[a,x]$ (si $x>a$) ou $I=[x,a]$ (si $x<a$). L'erreur commise $E_n(x)$ par l'approximation de $f(x)$ par $P_n(x)$ est donnée par:
+\begin{align*}
+|f(x)-P_n(x)|=|E_n(x)|=\left\vert\dfrac{f^{(n+1)}(\xi(x))}{(n+1)!}(x-a)^{(n+1)}\right\vert
+\end{align*}
+avec $\xi(x)\in I$.
+```
+```{proof}
+La démonstration est plus avancée que le niveau de ce livre.
+```
+
+Comme la valeur $\xi(x)$ est rarement connue, nous utiliserons plutôt une borne sur l'erreur:
+
+\begin{align*}
+	|E_n(x)|=|f(x)-P_n(x)|&=\left\vert\dfrac{f^{(n+1)}(\xi(x))}{(n+1)!}(x-a)^{n+1}\right\vert\\
+	|f(x)-P_n(x)| &\leq \left\vert\dfrac{M}{(n+1)!}(x-a)^{n+1}\right\vert,
+\end{align*}
+où $M=\text{max}_{x\in I}\left\vert f^{(n+1)}(x) \right\vert$.
+
+```{example}
+Déterminez $|E_n(x)|$ lorsque vous utilisez le polynôme de MacLaurin de degré $3$ de $f(x)=e^x$ sur l'intervalle $[0,2]$. __Astuce__: supposez que $e<3$.
+\vspace*{10cm}
+```
+
+```{example}
+Lorsque nous demandons à la calculatrice d'évaluer le nombre $e$, elle nous le donne avec une précision de $10^{-8}$, c'est-à-dire que l'erreur est inférieure à $10^{-8}$. Quel devrait être le degré du polynôme de MacLaurin pour $f(x)=e^x$ nécessaire pour obtenir cette précision? __Astuce__: supposez que $e<3$.
+\vspace*{10cm}
+```
+
+```{example}
+Répondez aux questions suivantes:
+  
+ a) Approximez $f(x)=\sqrt[3]{x}$ par un polynôme de Taylor de degré 2 en $a=8$.
+ a) Estimez l'erreur faite lorsque $7\leq x \leq 9$.
+
+\vspace*{10cm}
+```
+
+```{example}
+Quelle est l'erreur maximale possible si on utilise l'approximation $\sin(x)=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}$ lorsque $-0,3\leq x \leq 0,3$? Utilisez l'approximation pour estimer $\sin(12^{\circ})$ avec six (6) décimales exactes.
+\vspace*{10cm}
+```
+
+## Les séries de Taylor
+
+Nous avons vu que l'approximation d'une fonction par un polynôme est meilleure lorsque le degré de ce polynôme est élevé. Dans cette section, nous verrons que lorsque le degré du polynôme tend vers l'infini, nous obtenons une série de Taylor.
+
+```{definition, name = "Série de Taylor"}
+Soit $f(x)$ une fonction infiniment dérivable en $x=a$. La série de Taylor de $f(x)$ autour de $x=a$ est donnée par:
+\begin{align*}
+\lim_{n\to \infty}\sum_{k=0}^{n}\dfrac{f^{(k)}(a)}{k!}(x-a)^k	&= \sum_{k=0}^{\infty}\dfrac{f^{(k)}(a)}{k!}(x-a)^k \\
+	&=f(a)+f^{(1)}(a)(x-a)+\dfrac{f^{(2)}(a)}{2!}(x-a)^2+\ldots +\dfrac{f^{(n)}(a)}{n!}(x-a)^n+\ldots
+\end{align*}
+Dans le cas où $a=0$, nous parlons également de série de MacLaurin.
+```
+
+```{example}
+Déterminez la série de MacLaurin de $f(x)=e^x$.
+\vspace*{10cm}
+```
+
+```{example}
+Déterminez la série de MacLaurin de $f(x)=\dfrac{1}{1-x}$.
+\vspace*{10cm}
+```
+
+```{example}
+Déterminez la série de MacLaurin de $f(x)=\ln(1+x)$.
+\vspace*{10cm}
+```
+
+```{example}
+Déterminez la série de MacLaurin de $f(x)=(1+x)^k$ où $k\in\mathbb{R}$.
+\vspace*{10cm}
+```
+
+Ces exemples nous amènent à nous demander si une fonction $f(x)$ est égale à sa série de Taylor, et si c'est le cas, pour quelles valeurs de $x$. Nous savons que:
+\begin{align*}
+f(x)&=P_n(x)+E_n(x)\\
+\lim_{n\to \infty}f(x)&=\lim_{n\to \infty}(P_n(x)+E_n(x))\quad\text{En prenant la limite de chaque côté}\\
+f(x)&=\lim_{n\to \infty}(P_n(x))+\lim_{n\to \infty}(E_n(x))\\
+f(x)&=\sum_{k=0}^{\infty}\dfrac{f^{(k)}(a)}{k!}(x-a)^k+\lim_{n\to \infty}(E_n(x))
+\end{align*}
+
+Ainsi, pour que $f(x)=\sum_{k=0}^{\infty}\dfrac{f^{(k)}(a)}{k!}(x-a)^k$, il faut que $\lim_{n\to \infty}E_n(x)=0$. Ce qui signifie que l'erreur tend vers zéro lorsque le degré du polynôme de Taylor tend vers l'infini.
+
+De plus, il faut que la série converge, c'est-à-dire que:
+\begin{align*}
+\lim_{n\to \infty}\sum_{k=0}^{n}\dfrac{f^{(k)}(a)}{k!}(x-a)^k
+\end{align*}
+nous donne une valeur finie. Puisque la limite dépend de $x$, il faudra trouver les valeurs de $x$ qui font que la série converge. Ces valeurs forment l'__intervalle de convergence__ de la série.
+
+```{theorem}
+Soit $f(x)$ une fonction infiniment dérivable en $x=a$. Si $\lim_{n\to\infty}E_n(x)$, alors:
+\begin{align*}
+f(x)=\sum_{k=0}^{\infty}\dfrac{f^{(k)}(a)}{k!}(x-a)^k
+\end{align*}
+si $x$ est dans l'intervalle de convergence.
+```
+
+```{theorem, name = "Le critère généralisé de d'Alembert"}
+Soit une série de la forme $\sum_{k=0}^{\infty}c_k$ et soit $L=\lim_{k\to\infty}\left\vert\dfrac{c_{k+1}}{c_k}\right\vert$.
+
+ - Si $L<1$, alors la série converge.
+ - Si $L>1$, alors la série diverge.
+ - Si $L=1$, alors on ne peut rien conclure.
+
+```
+
+```{example}
+Déterminez l'intervalle de convergence de la série de MacLaurin de $f(x)=e^x$.
+\vspace*{10cm}
+```
+
+```{example}
+Déterminez l'intervalle de convergence de la série de MacLaurin de $f(x)=\dfrac{1}{1-x}$.
+\vspace*{10cm}
+```
+
+```{example}
+Déterminez l'intervalle de convergence de la série $\sum_{k=0}^{\infty} k! x^k$.
+\vspace*{10cm}
+```
+
+```{example}
+Déterminez l'intervalle de convergence de la série $\sum_{n=1}^{\infty} \dfrac{(x-3)^n}{n}$.
+\vspace*{10cm}
+```
+
+```{example}
+La fonction de Bessel d'ordre 0, $J_0(x)=\sum_{n=0}^{\infty}\dfrac{(-1)^n x^{2n}}{2^{2n}(n!)^2}$ est solution de l'équation différentielle suivante $x^2\dfrac{d^2y}{dx^2}+x\dfrac{dy}{dx}+x^2y=0$ qui est utile lorsque nous étudions les modes de vibrations d'une membrane circulaire. Pour plus d'informations, [Wikipedia: Vibrations of a circular membrane](https://en.wikipedia.org/wiki/Vibrations_of_a_circular_membrane). Trouvez l'intervalle de convergence de $J_0(x)$.
+\vspace*{10cm}
+```
+
+### L'obtention de séries de Taylor à partir de séries connues.
+
+Il est souvent plus simple de trouver une série de Taylor, à partir d'une série de Taylor déjà connue. La proposition \@ref(prp:taylor-usuelles) contient la liste des séries de Taylor usuelles.
+
+```{proposition, name = "Une liste des séries de Taylor des fonctions usuelles", label = "taylor-usuelles"}
+Voici une liste des séries de Taylor des fonctions usuelles.
+
+ - $e^x=\sum_{k=0}^{\infty} \dfrac{x^k}{k!}$, pour tout $x\in\mathbb{R}$
+ - $\ln(1+x)=\sum_{k=1}^{\infty} \dfrac{(-1)^{k+1}x^k}{k}$, pour tout $x\in ]-1,\ 1]$
+ - $\dfrac{1}{1-x}=\sum_{k=1}^{\infty} x^k$, pour tout $x\in ]-1,\ 1[$
+ - $(a+x)^n=\sum_{k=0}^{n}\dfrac{n!}{k!(n-k)!}a^{n-k}x^k$, où $n\in\mathbb{N}$, pour tout $x\in\mathbb{R}$
+ - $(1+x)^p=\sum_{k=0}^{n}\dfrac{p(p-1)(p-2)\ldots(p-k+1)}{k!}x^k$, où $p\in\mathbb{R}\setminus\mathbb{N}$, pour tout $x\in ]-1,\ 1]$
+ - $\sin(x)=\sum_{k=0}^{\infty} \dfrac{(-1)^kx^{2k+1}}{(2k+1)!}$, pour tout $x\in\mathbb{R}$
+ - $\cos(x)=\sum_{k=0}^{\infty} \dfrac{(-1)^kx^{2k}}{(2k)!}$, pour tout $x\in\mathbb{R}$
+ - $\text{Arctan}(x)=\sum_{k=0}^{\infty} \dfrac{(-1)^kx^{2k+1}}{2k+1}$, pour tout $x\in [-1,\ 1]$
+
+
+```
+
+Pour obtenir des séries de Taylor, les opérations suivantes sont possibles:
+
+ - Changement de variables
+ - Addition et soustraction de séries de Taylor
+ - Multiplication de séries de Taylor
+ - Division de séries de Taylor
+ - Dérivation de séries de Taylor
+ - Intégration de séries de Taylor
+ 
+#### Changement de variables
+
+```{example}
+Trouvez la série de Taylor de $f(x)=e^{-x^2}$.
+```
+\vspace*{10cm}
+
+#### Addition et soustraction
+
+```{example}
+Trouvez la limite $\lim_{x\to 0} \dfrac{e^x-1-x}{x^2}$ en trouvant au préalable la série de MacLaurin de $e^x-1-x$.
+```
+\vspace*{10cm}
+
+```{example}
+Montrez que $e^{ix}=\cos(x)+i\sin(x)$.
+```
+\vspace*{10cm}
+
+#### Multiplication
+
+```{example}
+Trouvez les trois premiers termes de la série de Maclaurin de $e^x\sin(x)$.
+```
+\vspace*{10cm}
+
+#### Division
+
+```{example}
+Trouvez les trois premiers termes de la série de Maclaurin de $\tan(x)$.
+```
+\vspace*{10cm}
+
+#### Dérivation
+
+```{example}
+Trouvez la série de Maclaurin de $\dfrac{1}{1+x}$ en dérivant la série de Maclaurin de $\ln(1+x)$.
+```
+\vspace*{10cm}
+
+#### Intégration
+
+```{example}
+Trouvez la série de Maclaurin de $\text{Arctan}(x)$ en intégrant la série de MacLaurin de $\dfrac{1}{1+x^2}=\sum_{k=0}^{\infty}(-1)^kx^{2k}$.
+```
+\vspace*{10cm}
+
+## Applications
+
+```{example}
+À partir de la deuxième loi de Newton, nous pouvons montrer que l'angle $\theta$ que fait un pendule par rapport à la verticale  en fonction du temps, suit l'équation différentielle $\dfrac{d^2\theta}{dt^2}+\frac{g}{l}\sin(\theta)=0$ où $g$ est la constante gravitationnelle et $l$ la longueur du pendule. Malheureusement, il n'existe pas de solutions exactes pour cette équation différentielle. Par contre, il existe une méthode de résolution pour les équations différentielle de la forme $\dfrac{d^2y}{dt^2}+ky=0$. Écrivez l'équation du pendule sous la forme résoluble.
+```
+\vspace*{10cm}
+
+```{example}
+Soit un disque uniformément chargé de rayon $R$. Le potentiel électrique ressenti au point $P$ situé à une distance $d$ sur une droite perpendiculaire au disque et passant par son centre est donné par $V=2\pi k_e \sigma (\sqrt{d^2+R^2}-d)$. La constante $k_e$ représente la perméabilité du vide et la constante $\sigma$ la charge surfacique. Montrez que si $d$ est très grand par rapport à $R$ alors le potentiel électrique est $V \approx \dfrac{\pi k_e \sigma R^2}{d}$.
+```
+\vspace*{10cm}
+
+```{example}
+Soit  deux charges équivalentes $Q$ et $-Q$ se trouvant à une distance $r$
+l'une de l'autre. Le champ électrique $E$ ressenti au point $P$, qui est à une distance $R$ de la charge $Q$ et de $R+r$ de la charge $-Q$, est donné par $E=\dfrac{Q}{R^2}-\dfrac{Q}{(R+r)^2}$. Montrez que lorsque $R$ est grand, le champ électrique est approximativement proportionnel à $\frac{1}{R^3}$.
+```
+\vspace*{10cm}
+
+```{example}
+Soit un corps de masse $m$ situé à une distance $h$ de la surface de la Terre. La force gravitationnelle $F$ agissant sur ce corps est donnée par $F=\dfrac{mgR^2}{(R+h)^2}$ où $g$ est l'accélération gravitationnelle et $R$ le rayon de la terre. Montrez que lorsque $h$ est petit par rapport à $R$, la formule précédente devient $F\approx mg$.
+```
+\vspace*{10cm}
+
+```{example}
+Les équations de Bessel sont données par $x^2\dfrac{d^2y}{dx^2}+x\dfrac{dy}{dx}+(x^2-n^2)y=0$ où $n\in\mathbb{N}$. Utilisez les séries de puissances pour trouver la solution de l'équation différentielle précédente lorsque $n=0$.
+```
+\vspace*{20cm}
+
+```{example}
+Soit $f(x)=x\cos(2x)$. Trouvez $f^{(99)}(0)$ et $f^{(100)}(0)$.
+```
+\vspace*{10cm}
+
+```{example}
+Soit $f(x)=x^2e^{-x}$. Trouvez $f^{(100)}(0)$.
+```
+\vspace*{10cm}
+
+```{example}
+Soit $g(x)=x\ln(1+(2x)^2)$. Trouvez $g^{(51)}(0)$.
+```
+\vspace*{10cm}
+
+## GeoGebra {#geogebra-taylor}
+
+<script type="text/javascript" src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+<script type="text/javascript">
+var parameters = {
+"appName":"graphing",
+"material_id":"jg2qjmar",
+"width":800,
+"height":600,
+"showToolBar":true,
+"borderColor":null,
+"showMenuBar":true,
+"showFullscreenButton":true,
+"enableShiftDragZoom":true};
+
+var applet = new GGBApplet(parameters, 'applet_container');
+window.onload = function() { applet.inject('applet_container'); updateHelp('AG');}
+</script>
+<div id="applet_container"></div>
+
+
+\newpage
+## Pages supplémentaires
+
+Des pages blanches supplémentaires pour ajouter, potentiellement, de nouveaux exemples et exercices.
+
+<!-- Code pour insérer des pages blanches dans le document pdf pour des exemples supplémentaires. -->
+
+\multido{\i=1+1}{4}{
+\newpage
+\mbox{}
+}
+

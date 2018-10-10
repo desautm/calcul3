@@ -1,0 +1,25 @@
+book_filename: "calcul3"
+repo: https://github.com/desautm/calcul3
+edit: https://github.com/desautm/calcul3/edit/%s
+output_dir: "docs"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapitre "
+    edit: "Source "
+  label:
+    fig: 'Figure '
+    tab: 'Table '
+    eq: 'Équation '
+    thm: 'Théorème '
+    lem: 'Lemme '
+    cor: 'Corollaire '
+    prp: 'Proposition '
+    cnj: 'Conjecture '
+    def: 'Définition '
+    exm: 'Exemple '
+    exr: 'Exercice '
+    proof: 'Preuve. '
+    remark: 'Remarque. '
+    solution: 'Solution. '
+
