@@ -70,24 +70,29 @@ Dans le cas où la fonction ne possède que deux variable, c'est-à-dire une fon
 ```{example}
 Trouvez les dérivées partielles de $f(x,y)=x\cos(x+y^2)$.
 ```
+\vspace*{8cm}
 
 ```{example}
 Trouvez les dérivées partielles de $f(x,y)=x^2\sin(y)$.
 ```
+\vspace*{8cm}
 
 ```{example}
 Trouvez les dérivées partielles de $f(x,y)=x^3y^2+x^4y+y^4$.
 ```
+\vspace*{8cm}
 
 ```{example}
 Trouvez les dérivées partielles de $f(x,y)=e^{xy}\cos(x+y)$.
 ```
+\vspace*{8cm}
 
 ```{example}
 Soit une fonction $f$ différentiable et d'une seule variable. Montrez que $f\left(\frac{x}{y}\right)$ satisfait l'équation:
 $$ x\dfrac{\partial f}{\partial x}+y\dfrac{\partial f}{\partial y} = 0 $$
 
 ```
+\vspace*{8cm}
 
 ### Les dérivées d'ordres supérieurs
 
@@ -119,11 +124,13 @@ Nous avons:
 ```{example}
 Trouvez toutes les dérivées d'ordre 1 et 2 de la fonction $f(x,y)=x^2y+3y^2$.
 ```
+\vspace*{8cm}
 
 
 ```{example}
 Trouvez toutes les dérivées d'ordre 1 et 2 de la fonction $f(x,y)=x^3y^4$.
 ```
+\vspace*{8cm}
 
 ```{remark}
 Remarquez que dans les deux exemples précédents, les dérivées partielles mixtes sont égales, c'est-à-dire que $f_{xy}=f_{yx}$.
@@ -232,18 +239,22 @@ $$ z = z_0 + \left.\dfrac{\partial f}{\partial x}\right|_{(x_0,y_0)}\cdot (x-x_0
 ```{example}
 Trouvez l'équation du plan tangent à la surface $f(x,y)=9-x^2-y^2$ au point $(1,1)$.
 ```
+\vspace*{8cm}
 
 ```{example}
 Trouvez l'équation du plan tangent à la surface $f(x,y)=\sin(xy)$ au point $\left(\frac{\pi}{3},-1 \right)$.
 ```
+\vspace*{8cm}
 
 ```{example}
 Trouvez le plan tangent horizontal à la surface $f(x,y)=x^2-4xy-2y^2+12x-12y-1$
 ```
+\vspace*{8cm}
 
 ```{example}
 Trouvez l'équation du plan tangent à la surface $f(x,y)=\dfrac{x-y}{x+y}$ au point $(1,1)$.
 ```
+\vspace*{8cm}
 
 ```{remark}
 Le plan tangent est l'analogue du polynôme de Taylor de degré 1 pour les fonctions de deux variables.
@@ -329,10 +340,12 @@ Ceci implique que lors du calcul de la puissance d'une mesure, nous multiplions 
 ```{example}
 Pour mesurer le volume d'un cylindre, nous mesurons sa hauteur et son rayon. Nous obtenons $h=15\ \text{cm}\pm 0,1\ \text{cm}$ et $h=5\ \text{cm}\pm 0,1\ \text{cm}$. Trouvez l'erreur absolue et l'erreur relative sur le volume du cylindre.
 ```
+\vspace*{8cm}
 
 ```{example}
 La période d'oscillation $T$ d'un pendule simple dépend de la longueur du pendule $l$, $T=2\pi\sqrt{\dfrac{l}{g}}$. En mesurant la période du pendule et sa longueur (deux mesures), nous pouvons obtenir la valeur de la constante gravitationnelle $g=\dfrac{4\pi^2 l}{T^2}$. Trouvez l'erreur absolue et l'erreur relative sur la mesure de $g$, en fonction des incertitudes sur $T$ et $l$.
 ```
+\vspace*{8cm}
 
 ## La règle de dérivation en chaîne et la dérivation implicite
 
@@ -342,7 +355,7 @@ $$ \dfrac{dy}{dt} = \dfrac{df}{dx}\dfrac{dx}{dt} $$
 
 C'est ce que nous nommons la __règle de dérivation en chaîne__. Nous voulons maintenant introduire une règle similaire pour les fonctions de plusieurs variables. Débutons par étudier la règle pour les fonctions de deux variables. La généralisation pour les fonctions de trois variables ou plus se fait de façon similaire.
 
-```{theorem, name="La règle de dérivation en chaîne pour les fonctions de deux variables"}
+```{theorem, name="La règle de dérivation en chaîne pour les fonctions de deux variables", label="deriv-chaine-1"}
 Soit une fonction différentiable $z=f(x,y)$ et soit $x=x(t)$ et $y=y(t)$. Nous avons alors:
   
 $$ \dfrac{dz}{dt} = \dfrac{\partial f}{\partial x}\dfrac{dx}{dt}+
@@ -355,13 +368,14 @@ $$ \dfrac{dz}{dt} = \dfrac{\partial f}{\partial x}\dfrac{dx}{dt}+
 La dérivée $\dfrac{dz}{dt}$ est une dérivée habituelle et non partielle. En effet, la fonction $z=f(x,y)$ ne dépend que d'une seule variable, $t$. Lorsqu'une fonction dépend d'une seule variable, nous utilisons $d$ et lorsqu'elle dépend de deux variables ou plus, nous utilisons $\partial$.
 ```
 
+La manière la plus simple de trouver une dérivée à l'aide du théorème \@ref(thm:deriv-chaine-1), est de construire un schéma de dérivation. Si nous dessinons le schéma de dérivaton de la fonction du théorème \@ref(thm:deriv-chaine-1), nous obtenons l'image suivante.
 
-```{r}
+```{r, echo=FALSE}
 grViz("
 digraph schema_derivation {
 
   # a 'graph' statement
-  graph [overlap = true, fontsize = 10]
+  graph [overlap = true, fontsize = 8]
 
   # several 'node' statements
   node [shape = box,
@@ -374,6 +388,91 @@ digraph schema_derivation {
 ")
 ```
 
+Pour dériver à la chaîne à l'aide de la figure \précédente, nous partons du haut de l'*arbre* et nous parcourons toutes les *branches* qui se rendent jusqu'à la variable par rapport à laquelle nous dérivons, en multipliant les dérivées. Nous additionnons toutes les *branches* pour obtenir la dérivée.
+
+```{example}
+Trouvez $\dfrac{dz}{dt}$ si $z=e^{xy^2}$, $x=t\cos(t)$ et $y=t\sin(t)$.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez $\dfrac{dz}{dt}$ si $z=\sin(x^2y)$, $x=2t^2$ et $y=2+\frac{1}{t}$.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez la dérivée de $y=(\sin(x))^x$ de deux manières différentes.
+```
+\vspace*{10cm}
+
+Nous voulons maintenant savoir ce qui se produit lorsque nous avons une fonction $z=f(x,y)$ différentiable, $x=x(u,v)$ et $y=y(u,v)$.
+
+```{theorem}
+Soit une fonction $z=f(x,y)$ différentiable, $x=x(u,v)$ et $y=y(u,v)$. Nous avons:
+\begin{align*}
+\dfrac{\partial z}{\partial u} &= \dfrac{\partial f}{\partial x}\dfrac{\partial x}{\partial u} + \dfrac{\partial f}{\partial y}\dfrac{\partial y}{\partial u} \\
+\dfrac{\partial z}{\partial v} &= \dfrac{\partial f}{\partial x}\dfrac{\partial x}{\partial v} + \dfrac{\partial f}{\partial y}\dfrac{\partial y}{\partial v}
+\end{align*}
+
+```
+```{proof}
+Nous ne ferons pas la preuve exacte mais nous allons dessiner le schéma de dérivation.
+```{r, echo=FALSE}
+grViz("
+digraph schema_derivation {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 8]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  f; x; y; u; v
+
+  # several 'edge' statements
+  f->x f->y x->u y->u x->v y->v
+}
+")
+```
+Remarquons que si nous suivons toutes les *branches* de l'*arbre* en multipliant les dérivées et en additionnant les branches, nous obtenons le résultat du théorème.
+```
+
+```{example}
+Déterminez $\dfrac{\partial z}{\partial u}$ et $\dfrac{\partial z}{\partial v}$ si $z=x^2+y^2$, $x=uv$ et $y=\dfrac{u}{v}$.
+```
+\vspace*{8cm}
+
+```{example}
+Déterminez $\dfrac{\partial z}{\partial u}$ et $\dfrac{\partial z}{\partial v}$ si $z=\sqrt{x^2+y^2}$, $x=e^{uv}$ et $y=1+u^2\cos(v)$.
+```
+\vspace*{8cm}
+
+### Les dérivées de surfaces implicites
+
+Certaines surfaces sont définies de façon implicites et il est parfois plus simple de les dériver implicitement plutôt que de tenter de les dériver de façon explicite. De plus, certaines surfaces ne peuvent pas être exprimées de façon explicite.
+
+Pour dériver de façon implicite, il faut garder en mémoire que si la fonction possède $n$ variables, alors une des $n$ variables dépend des $n-1$ autres.
+
+```{example, label="deriv-implicite-sphere"}
+Trouvez $\dfrac{\partial z}{\partial x}$ et $\dfrac{\partial z}{\partial y}$ si $x^2+y^2+z^2=R^2$, où $R$ est une constante.
+```
+\vspace*{8cm}
+
+```{example}
+Utilisez les dérivées trouvées à l'exemple \ref(exm:deriv-implicite-sphere) pour trouver l'équation du plan tangent à la sphère $x^2+y^2+z^2=3$ au point (1,1,1).
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez l'équation du plan tangent à la surface $\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$ au point $\left( \frac{a}{\sqrt{3}},\frac{b}{\sqrt{3}},\frac{c}{\sqrt{3}} \right)$.
+```
+\vspace*{8cm}
+
+```{example}
+Utilisez le changement de variables $r=x+ct$, $s=x-ct$ et $w(r,s)=u(x,t)$ pour transformer l'équation suivante:
+$$ \dfrac{\partial^2 u}{\partial t^2} = c^2\dfrac{\partial^2 u}{\partial x^2} $$
+```
+\vspace*{10cm}
 
 ## La dérivée directionnelle
 
