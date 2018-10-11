@@ -1,2 +1,14 @@
 # L'optimisation {#optimisation}
 
+Vous trouverez à la section  une application [GeoGebra](https://www.geogebra.org/?lang=fr) vous permettant de visualiser des coupes transversales et des courbes de niveaux. À noter que cette application n'est disponible que dans la version en ligne de ce document.
+
+## Introduction
+
+La théorie de l'optimisation des fonctions de plusieurs variables est très vaste. Nous introduirons ce sujet sans aller trop en profondeur. Faire de l'optimisation consiste à déterminer les maximums et les minimums d'une fonction.
+
+## L'approximation quadratique
+
+Nous voulons
+
+## Les points critiques et leur nature
+

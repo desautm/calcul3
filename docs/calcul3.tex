@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-10-10}
+    \date{2018-10-11}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -2855,7 +2855,11 @@ nouveaux exemples et exercices.
 \chapter{La dérivation de fonctions de plusieurs
 variables}\label{derivfctvars}}
 
-Un test
+Vous trouverez à la section \ref{geogebra-derivfctvar} une application
+\href{https://www.geogebra.org/?lang=fr}{GeoGebra} vous permettant de
+visualiser des dérivées partielles et des dérivées directionnelles de
+fonctions. À noter que cette application n'est disponible que dans la
+version en ligne de ce document.
 
 \hypertarget{introduction-4}{%
 \section{Introduction}\label{introduction-4}}
@@ -3518,8 +3522,290 @@ une constante.
 \hypertarget{la-derivee-directionnelle}{%
 \section{La dérivée directionnelle}\label{la-derivee-directionnelle}}
 
+Nous avons jusqu'à maintenant étudié les dérivées partielles d'une
+fonction par rapport aux variables \(x\) et \(y\). Celles-ci
+correspondent respectivement au taux de variation de la fonction dans la
+direction de l'axe des \(x\) et de l'axe des \(y\). Nous aimerions
+maintenant trouver le taux de variation dans une autre direction. Nous
+utiliserons pour ce faire la dérivée directionnelle.
+
+\BeginKnitrBlock{definition}[La dérivée directionnelle]
+\protect\hypertarget{def:deriv-directionnelle}{}{\label{def:deriv-directionnelle}
+\iffalse (La dérivée directionnelle) \fi{} }Soit une fonction
+\(z=f(x,y)\) une fonction différentiable et
+\(\overrightarrow{u}=[u_1,u_2]\), un vecteur unitaire (c'est-à-dire un
+vecteur dont la norme est égale à \(1\)). Nous disons que la dérivée de
+\(f\) dans la direction \(\vec u\), notée \(D_{\vec u}f\),est donnée
+par:
+\[ D_{\vec u}f = \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \] si
+cette limite existe.
+\EndKnitrBlock{definition}
+
+Pour visualiser la dérivée directionnelle, nous vous invitons à utiliser
+l'application GeoGebra de la section \ref{geogebra-derivfctvar}.
+Celle-ci vous permet de changer la direction du vecteur unitaire et le
+point auquel vous visualisez la dérivée directionnelle.
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Nous remarquons que si
+\(\vec u=[1,0]=\vec \imath\), nous obtenons la dérivée partielle par
+rapport à \(x\). D'une manière similaire, si
+\(\vec u=[0,1]=\vec\jmath\), nous obtenons la dérivée partielle par
+rapport à \(x\).
+\EndKnitrBlock{remark}
+
+L'utilisation de la définition \ref{def:deriv-directionnelle} pour
+calculer des dérivées directionnelles n'est pas appropriée pour la
+plupart des problèmes. Le théorème suivant nous permettra de calculer la
+dérivée directionnelles plus simplement.
+
+\BeginKnitrBlock{theorem}
+\protect\hypertarget{thm:derivee-directionnelle}{}{\label{thm:derivee-directionnelle}
+}Soit une fonction \(z=f(x,y)\) différentiable au point \((x_0,y_0)\) et
+soit \(\vec u=[u_1,u_2]\) un vecteur unitaire. Nous avons:
+\[ D_{\vec u}f(x_0,y_0) = f_x(x_0,y_0)u_1 + f_y(x_0,y_0)u_2 \]
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}
+\iffalse{} {Preuve. } \fi{}Posons \(g(h)=f(x+u_1h,y+u_2h)\). Nous avons:
+\begin{align}
+D_{\vec u}f(x_0,y_0) &= \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \notag\\
+&= \lim_{h\to 0} \dfrac{g(h)-g(0)}{h} \notag\\
+&= g'(0) \label{eq:deriv-directionnelle} \quad \text{par définition de $g'$}
+\end{align} Posons manitenant \(x=x_0+u_1h\) et \(y=y_0+u_2h\). D'où
+\(g(h)=f(x,y)\). Par la règle de dérivation en chaîne, nous avons
+\(g'(h)=f_xu_1+f_yu_2\). Si nous évaluons cette expression en \(h=0\) ,
+nous obtenons: \begin{align*}
+g'(0) &= f_x(x_0,y_0)u_1+f_y(x_0,y_0)u_2 \\
+&= D_{\vec u}f(x_0,y_0)
+\end{align*} La dernière ligne est obtenue par l'équation
+\eqref{eq:deriv-directionnelle}.
+\EndKnitrBlock{proof}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-194}{}{\label{exm:unnamed-chunk-194}
+}Déterminez le taux de variation de \(f(x,y)=\cos(xy)+y^2\) dans la
+direction du vecteur \(\vec u=[1,1]\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-195}{}{\label{exm:unnamed-chunk-195}
+}Trouvez la dérivée directionnelle de \(f(x,y)=y^4+2xy^3+x^2y^2\) en
+\((0,1)\) dans les directions suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(\vec u =[1,2]\)
+\item
+  \(\vec u =[-2,1]\)
+\item
+  \(\vec u =[1,1]\)
+\end{enumerate}
+\EndKnitrBlock{example}
+\vspace*{10cm}
+
+\hypertarget{le-vecteur-gradient}{%
+\section{Le vecteur gradient}\label{le-vecteur-gradient}}
+
+Nous allons maintenant définir une fonction vectorielle très utile, le
+vecteur gradient.
+
+\BeginKnitrBlock{definition}[Le vecteur gradient]
+\protect\hypertarget{def:unnamed-chunk-196}{}{\label{def:unnamed-chunk-196}
+\iffalse (Le vecteur gradient) \fi{} }Soit \(z=f(x,y)\) une fonction
+différentiable. Le gradient de \(f\), noté \(\nabla f\), est donné par:
+\[ \nabla f = \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \]
+Nous notons le gradient de \(f\) des façons suivantes: \(\nabla f\),
+\(\text{grad } f\) et \(\overrightarrow{\text{grad}} f\).
+
+Le gradient d'une fonction est un vecteur.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-197}{}{\label{exm:unnamed-chunk-197}
+}Trouvez le gradient de la fonction \(f(x,y)=x^2+3xy^5-4y^4\).
+\EndKnitrBlock{example}
+\vspace*{4cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-198}{}{\label{exm:unnamed-chunk-198}
+}Trouvez le gradient des fonctions suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(f(x,y)=x^2-y^2\)
+\item
+  \(f(x,y)=\dfrac{x-y}{x+y}\)
+\end{enumerate}
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+Le vecteur gradient est très utile ccar celui-ci possède plusieurs
+caractéristiques intéressantes.
+
+\BeginKnitrBlock{theorem}
+\protect\hypertarget{thm:unnamed-chunk-199}{}{\label{thm:unnamed-chunk-199}
+}Soit \(f(x,y)\) une fonction différentiable et \(\vec u\) un vecteur
+unitaire. Nous avons alors: \[ D_{\vec u} f = \nabla f \cdot \vec u \]
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}
+\iffalse{} {Preuve. } \fi{}Nous avons: \begin{align*}
+\nabla f \cdot \vec u &= \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \cdot [u_1,u_2] \\
+&= \dfrac{\partial f}{\partial x}u_1 + \dfrac{\partial f}{\partial y}u_2 \\
+&= D_{\vec u} f
+\end{align*} La dernière ligne est obtenue par le théorème
+\ref{thm:derivee-directionnelle}.
+\EndKnitrBlock{proof}
+
+\BeginKnitrBlock{theorem}
+\protect\hypertarget{thm:unnamed-chunk-201}{}{\label{thm:unnamed-chunk-201}
+}Le vecteur gradient d'une fonction \(f\) pointe dans la direction
+d'accroissement maximal de celle-ci. De plus, le taux de variation dans
+cette direction est donné par la norme du gradient.
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}
+\iffalse{} {Preuve. } \fi{}Soit un vecteur unitaire \(\vec u\). La
+dérivée directionnelle de \(f\) dans la direction de \(\vec u\) est
+donnée par \(D_{\vec u} f = \nabla f \cdot \vec u\). Nous voulons
+trouvez \(\vec u\) tel que cette dérivée est maximale. Nous savons que:
+\begin{align*}
+\nabla f \cdot \vec u &= ||\nabla f || \cdot ||\vec u || \cos(\theta) \\
+&= ||\nabla f || \cos(\theta) \quad \text{car $\vec u$ est unitaire}
+\end{align*} où \(\theta\) est l'angle entre \(\nabla f\) et \(\vec u\).
+Le membre de droite est maximal si \(\cos(\theta)=1\), c'est-à-dire
+lorsque \(\theta=0\). D'où la direction maximale est celle donnée par le
+vecteur gradient.
+
+De plus, dans cette direction, la dérivée directionnelle est
+\(D_{\vec u} f=||\nabla f ||\).
+\EndKnitrBlock{proof}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-203}{}{\label{exm:unnamed-chunk-203}
+}Soit la fonction \(f(x,y)=xe^{-x^2-y^2}\). Déterminez la direction dans
+laquelle se trouve l'accroissement maximal au point \((1,1)\) et le taux
+de variation maximal.
+\EndKnitrBlock{example}
+\vspace*{5cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-204}{}{\label{exm:unnamed-chunk-204}
+}Soit la fonction \(f(x,y)=(x+y^2)e^{-x}\). Déterminez la direction dans
+laquelle se trouve l'accroissement maximal au point \((1,1)\) et le taux
+de variation maximal.
+\EndKnitrBlock{example}
+\vspace*{5cm}
+
+La dernière propriété que nous verrons concernant le vecteur gradient
+met en relation celui-ci avec les courbes de niveau d'une fonction.
+
+\BeginKnitrBlock{theorem}
+\protect\hypertarget{thm:unnamed-chunk-205}{}{\label{thm:unnamed-chunk-205}
+}Le vecteur gradient d'une fonction est perpendiculaire aux courbes de
+niveaux de cette fonction.
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}
+\iffalse{} {Preuve. } \fi{}Soit un point \((x_0,y_0)\) du domaine de la
+fonction \(f\). Soit \(\vec u\) un vecteur unitaire pointant dans la
+direction de la courbe de niveau passant par le point \((x_0,y_0)\). La
+figure \ref{fig:gradientcourbeniveaux} représente cette situation.
+
+À ce moment, nous avons \(D_{\vec u} f(x_0,y_0)=0\), car la fonction ne
+varie pas le long d'une courbe de niveau. Nous pouvons également écrire
+\(D_{\vec u} f(x_0,y_0)=0=||\nabla f(x_0,y_0)||\cos(\theta)\), où
+\(\theta\) est l'angle entre le vecteur gradient et \(\vec u\). Puisque
+\(||\nabla f(x_0,y_0)||\) n'est pas obligatoirement nul, nous avons que:
+\[ \cos(\theta) = 0 \Longrightarrow \theta=\dfrac{\pi}{2} \] Ainsi, le
+gradient est perpendiculaire aux courbes de niveaux.
+\EndKnitrBlock{proof}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{resources/images/latex/gradientcourbeniveaux} 
+
+}
+
+\caption{Représentation d'une courbe de niveau et du gradient.}\label{fig:gradientcourbeniveaux}
+\end{figure}
+
+\hypertarget{le-gradient-des-fonctions-de-plus-de-deux-variables}{%
+\subsection{Le gradient des fonctions de plus de deux
+variables}\label{le-gradient-des-fonctions-de-plus-de-deux-variables}}
+
+Les notions de dérivée directionnelle et de gradient se généralisent
+pour les fonctions de plus de deux variables. Ainsi, si
+\(z=f(x_1,x_2,\ldots, x_n)\), nous avons que:
+
+\[ \nabla f = \left[\dfrac{\partial f}{\partial x_1},\dfrac{\partial f}{\partial x_2},\ldots,\dfrac{\partial f}{\partial x_n}\right] \]
+
+Cette généralisation nous permet de simplifier la résolution de certains
+problèmes.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-207}{}{\label{exm:unnamed-chunk-207}
+}Trouvez l'équation du plan tangent à la surface définie par \(xyz=1\)
+en \(x=1\) et \(y=1\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-208}{}{\label{exm:unnamed-chunk-208}
+}Trouvez l'équation du plan tangent à la surface définie par
+\(x^2+y-z^3=1\) en \(x=1\) et \(y=1\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{geogebra-derivfctvar}{%
+\section{GeoGebra}\label{geogebra-derivfctvar}}
+
+\hypertarget{applet_container}{}
+
+\newpage
+
+\hypertarget{pages-supplementaires-4}{%
+\section{Pages supplémentaires}\label{pages-supplementaires-4}}
+
+Des pages blanches supplémentaires pour ajouter, potentiellement, de
+nouveaux exemples et exercices.
+
+\multido{\i=1+1}{4}{
+\newpage
+\mbox{}
+}
+
 \hypertarget{optimisation}{%
 \chapter{L'optimisation}\label{optimisation}}
+
+Vous trouverez à la section une application
+\href{https://www.geogebra.org/?lang=fr}{GeoGebra} vous permettant de
+visualiser des coupes transversales et des courbes de niveaux. À noter
+que cette application n'est disponible que dans la version en ligne de
+ce document.
+
+\hypertarget{introduction-5}{%
+\section{Introduction}\label{introduction-5}}
+
+La théorie de l'optimisation des fonctions de plusieurs variables est
+très vaste. Nous introduirons ce sujet sans aller trop en profondeur.
+Faire de l'optimisation consiste à déterminer les maximums et les
+minimums d'une fonction.
+
+\hypertarget{lapproximation-quadratique}{%
+\section{L'approximation quadratique}\label{lapproximation-quadratique}}
+
+Nous voulons
+
+\hypertarget{les-points-critiques-et-leur-nature}{%
+\section{Les points critiques et leur
+nature}\label{les-points-critiques-et-leur-nature}}
 
 \hypertarget{intfctvars}{%
 \chapter{L'intégration de fonctions de plusieurs

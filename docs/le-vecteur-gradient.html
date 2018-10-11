@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="geogebra-equations-diff.html">
-<link rel="next" href="coordpolaires.html">
+<link rel="prev" href="la-derivee-directionnelle.html">
+<link rel="next" href="geogebra-derivfctvar.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -194,21 +194,119 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pages-supplementaires-1" class="section level2">
-<h2><span class="header-section-number">2.7</span> Pages supplémentaires</h2>
-<p>Des pages blanches supplémentaires pour ajouter, potentiellement, de nouveaux exemples et exercices.</p>
-<!-- Code pour insérer des pages blanches dans le document pdf pour des exemples supplémentaires. -->
+<div id="le-vecteur-gradient" class="section level2">
+<h2><span class="header-section-number">5.8</span> Le vecteur gradient</h2>
+<p>Nous allons maintenant définir une fonction vectorielle très utile, le vecteur gradient.</p>
 
+<div class="definition">
+<p><span id="def:unnamed-chunk-196" class="definition"><strong>Définition 5.7  (Le vecteur gradient)  </strong></span>Soit <span class="math inline">\(z=f(x,y)\)</span> une fonction différentiable. Le gradient de <span class="math inline">\(f\)</span>, noté <span class="math inline">\(\nabla f\)</span>, est donné par:
+<span class="math display">\[ \nabla f = \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \]</span>
+Nous notons le gradient de <span class="math inline">\(f\)</span> des façons suivantes: <span class="math inline">\(\nabla f\)</span>, <span class="math inline">\(\text{grad } f\)</span> et <span class="math inline">\(\overrightarrow{\text{grad}} f\)</span>.</p>
+Le gradient d’une fonction est un vecteur.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-197" class="example"><strong>Exemple 5.28  </strong></span>Trouvez le gradient de la fonction <span class="math inline">\(f(x,y)=x^2+3xy^5-4y^4\)</span>.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-198" class="example"><strong>Exemple 5.29  </strong></span>Trouvez le gradient des fonctions suivantes:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(f(x,y)=x^2-y^2\)</span></li>
+<li><span class="math inline">\(f(x,y)=\dfrac{x-y}{x+y}\)</span></li>
+</ol>
+</div>
+
+<p>Le vecteur gradient est très utile ccar celui-ci possède plusieurs caractéristiques intéressantes.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-199" class="theorem"><strong>Théorème 5.5  </strong></span>Soit <span class="math inline">\(f(x,y)\)</span> une fonction différentiable et <span class="math inline">\(\vec u\)</span> un vecteur unitaire. Nous avons alors:
+<span class="math display">\[ D_{\vec u} f = \nabla f \cdot \vec u \]</span>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Preuve. </em></span> Nous avons:
+<span class="math display">\[\begin{align*}
+\nabla f \cdot \vec u &amp;= \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \cdot [u_1,u_2] \\
+&amp;= \dfrac{\partial f}{\partial x}u_1 + \dfrac{\partial f}{\partial y}u_2 \\
+&amp;= D_{\vec u} f
+\end{align*}\]</span>
+La dernière ligne est obtenue par le théorème <a href="la-derivee-directionnelle.html#thm:derivee-directionnelle">5.4</a>.</p>
+</div>
+
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-201" class="theorem"><strong>Théorème 5.6  </strong></span>Le vecteur gradient d’une fonction <span class="math inline">\(f\)</span> pointe dans la direction d’accroissement maximal de celle-ci. De plus, le taux de variation dans cette direction est donné par la norme du gradient.
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Preuve. </em></span> Soit un vecteur unitaire <span class="math inline">\(\vec u\)</span>. La dérivée directionnelle de <span class="math inline">\(f\)</span> dans la direction de <span class="math inline">\(\vec u\)</span> est donnée par <span class="math inline">\(D_{\vec u} f = \nabla f \cdot \vec u\)</span>. Nous voulons trouvez <span class="math inline">\(\vec u\)</span> tel que cette dérivée est maximale. Nous savons que:
+<span class="math display">\[\begin{align*}
+\nabla f \cdot \vec u &amp;= ||\nabla f || \cdot ||\vec u || \cos(\theta) \\
+&amp;= ||\nabla f || \cos(\theta) \quad \text{car $\vec u$ est unitaire}
+\end{align*}\]</span>
+où <span class="math inline">\(\theta\)</span> est l’angle entre <span class="math inline">\(\nabla f\)</span> et <span class="math inline">\(\vec u\)</span>. Le membre de droite est maximal si <span class="math inline">\(\cos(\theta)=1\)</span>, c’est-à-dire lorsque <span class="math inline">\(\theta=0\)</span>. D’où la direction maximale est celle donnée par le vecteur gradient.</p>
+<p>De plus, dans cette direction, la dérivée directionnelle est <span class="math inline">\(D_{\vec u} f=||\nabla f ||\)</span>.</p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-203" class="example"><strong>Exemple 5.30  </strong></span>Soit la fonction <span class="math inline">\(f(x,y)=xe^{-x^2-y^2}\)</span>. Déterminez la direction dans laquelle se trouve l’accroissement maximal au point <span class="math inline">\((1,1)\)</span> et le taux de variation maximal.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-204" class="example"><strong>Exemple 5.31  </strong></span>Soit la fonction <span class="math inline">\(f(x,y)=(x+y^2)e^{-x}\)</span>. Déterminez la direction dans laquelle se trouve l’accroissement maximal au point <span class="math inline">\((1,1)\)</span> et le taux de variation maximal.
+</div>
+
+<p>La dernière propriété que nous verrons concernant le vecteur gradient met en relation celui-ci avec les courbes de niveau d’une fonction.</p>
+
+<div class="theorem">
+<span id="thm:unnamed-chunk-205" class="theorem"><strong>Théorème 5.7  </strong></span>Le vecteur gradient d’une fonction est perpendiculaire aux courbes de niveaux de cette fonction.
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Preuve. </em></span> Soit un point <span class="math inline">\((x_0,y_0)\)</span> du domaine de la fonction <span class="math inline">\(f\)</span>. Soit <span class="math inline">\(\vec u\)</span> un vecteur unitaire pointant dans la direction de la courbe de niveau passant par le point <span class="math inline">\((x_0,y_0)\)</span>. La figure <a href="le-vecteur-gradient.html#fig:gradientcourbeniveaux">5.3</a> représente cette situation.</p>
+À ce moment, nous avons <span class="math inline">\(D_{\vec u} f(x_0,y_0)=0\)</span>, car la fonction ne varie pas le long d’une courbe de niveau. Nous pouvons également écrire <span class="math inline">\(D_{\vec u} f(x_0,y_0)=0=||\nabla f(x_0,y_0)||\cos(\theta)\)</span>, où <span class="math inline">\(\theta\)</span> est l’angle entre le vecteur gradient et <span class="math inline">\(\vec u\)</span>. Puisque <span class="math inline">\(||\nabla f(x_0,y_0)||\)</span> n’est pas obligatoirement nul, nous avons que:
+<span class="math display">\[ \cos(\theta) = 0 \Longrightarrow \theta=\dfrac{\pi}{2} \]</span>
+Ainsi, le gradient est perpendiculaire aux courbes de niveaux.
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:gradientcourbeniveaux"></span>
+<img src="resources/images/latex/gradientcourbeniveaux.png" alt="Représentation d'une courbe de niveau et du gradient." width="50%" />
+<p class="caption">
+Figure 5.3: Représentation d’une courbe de niveau et du gradient.
+</p>
+</div>
+<div id="le-gradient-des-fonctions-de-plus-de-deux-variables" class="section level3">
+<h3><span class="header-section-number">5.8.1</span> Le gradient des fonctions de plus de deux variables</h3>
+<p>Les notions de dérivée directionnelle et de gradient se généralisent pour les fonctions de plus de deux variables. Ainsi, si <span class="math inline">\(z=f(x_1,x_2,\ldots, x_n)\)</span>, nous avons que:</p>
+<p><span class="math display">\[ \nabla f = \left[\dfrac{\partial f}{\partial x_1},\dfrac{\partial f}{\partial x_2},\ldots,\dfrac{\partial f}{\partial x_n}\right] \]</span></p>
+<p>Cette généralisation nous permet de simplifier la résolution de certains problèmes.</p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-207" class="example"><strong>Exemple 5.32  </strong></span>Trouvez l’équation du plan tangent à la surface définie par <span class="math inline">\(xyz=1\)</span> en <span class="math inline">\(x=1\)</span> et <span class="math inline">\(y=1\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-208" class="example"><strong>Exemple 5.33  </strong></span>Trouvez l’équation du plan tangent à la surface définie par <span class="math inline">\(x^2+y-z^3=1\)</span> en <span class="math inline">\(x=1\)</span> et <span class="math inline">\(y=1\)</span>.
+</div>
 
 </div>
-<!-- </div> -->
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="geogebra-equations-diff.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="coordpolaires.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="la-derivee-directionnelle.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="geogebra-derivfctvar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -238,7 +336,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/calcul3/edit/master/02-edo.Rmd",
+"link": "https://github.com/desautm/calcul3/edit/master/05-derivfctvars.Rmd",
 "text": "Modifier"
 },
 "download": ["calcul3.pdf", "calcul3.epub"],

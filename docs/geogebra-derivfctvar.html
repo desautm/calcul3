@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="geogebra-equations-diff.html">
-<link rel="next" href="coordpolaires.html">
+<link rel="prev" href="le-vecteur-gradient.html">
+<link rel="next" href="pages-supplementaires-4.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -194,21 +194,36 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pages-supplementaires-1" class="section level2">
-<h2><span class="header-section-number">2.7</span> Pages supplémentaires</h2>
-<p>Des pages blanches supplémentaires pour ajouter, potentiellement, de nouveaux exemples et exercices.</p>
-<!-- Code pour insérer des pages blanches dans le document pdf pour des exemples supplémentaires. -->
+<div id="geogebra-derivfctvar" class="section level2">
+<h2><span class="header-section-number">5.9</span> GeoGebra</h2>
+<script type="text/javascript" src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+<script type="text/javascript">
+var parameters = {
+"appName":"graphing",
+"material_id":"h32ufkn2",
+"width":800,
+"height":600,
+"showToolBar":true,
+"borderColor":null,
+"showMenuBar":true,
+"showFullscreenButton":true,
+"enableShiftDragZoom":true};
 
+var applet = new GGBApplet(parameters, 'applet_container');
+window.onload = function() { applet.inject('applet_container'); updateHelp('AG');}
+</script>
+<div id="applet_container">
 
 </div>
-<!-- </div> -->
+
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="geogebra-equations-diff.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="coordpolaires.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="le-vecteur-gradient.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pages-supplementaires-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -238,7 +253,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/calcul3/edit/master/02-edo.Rmd",
+"link": "https://github.com/desautm/calcul3/edit/master/05-derivfctvars.Rmd",
 "text": "Modifier"
 },
 "download": ["calcul3.pdf", "calcul3.epub"],

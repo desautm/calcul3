@@ -25,7 +25,7 @@
 <meta name="author" content="Marc-André Désautels">
 
 
-<meta name="date" content="2018-10-10">
+<meta name="date" content="2018-10-11">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html">
-<link rel="next" href="optimisation.html">
+<link rel="next" href="le-vecteur-gradient.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -162,8 +162,17 @@
 <li class="chapter" data-level="5.6.1" data-path="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html"><a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html#les-derivees-de-surfaces-implicites"><i class="fa fa-check"></i><b>5.6.1</b> Les dérivées de surfaces implicites</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="la-derivee-directionnelle.html"><a href="la-derivee-directionnelle.html"><i class="fa fa-check"></i><b>5.7</b> La dérivée directionnelle</a></li>
+<li class="chapter" data-level="5.8" data-path="le-vecteur-gradient.html"><a href="le-vecteur-gradient.html"><i class="fa fa-check"></i><b>5.8</b> Le vecteur gradient</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="le-vecteur-gradient.html"><a href="le-vecteur-gradient.html#le-gradient-des-fonctions-de-plus-de-deux-variables"><i class="fa fa-check"></i><b>5.8.1</b> Le gradient des fonctions de plus de deux variables</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="optimisation.html"><a href="optimisation.html"><i class="fa fa-check"></i><b>6</b> L’optimisation</a></li>
+<li class="chapter" data-level="5.9" data-path="geogebra-derivfctvar.html"><a href="geogebra-derivfctvar.html"><i class="fa fa-check"></i><b>5.9</b> GeoGebra</a></li>
+<li class="chapter" data-level="5.10" data-path="pages-supplementaires-4.html"><a href="pages-supplementaires-4.html"><i class="fa fa-check"></i><b>5.10</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="optimisation.html"><a href="optimisation.html"><i class="fa fa-check"></i><b>6</b> L’optimisation</a><ul>
+<li class="chapter" data-level="6.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="lapproximation-quadratique.html"><a href="lapproximation-quadratique.html"><i class="fa fa-check"></i><b>6.2</b> L’approximation quadratique</a></li>
+<li class="chapter" data-level="6.3" data-path="les-points-critiques-et-leur-nature.html"><a href="les-points-critiques-et-leur-nature.html"><i class="fa fa-check"></i><b>6.3</b> Les points critiques et leur nature</a></li>
+</ul></li>
 <li class="chapter" data-level="7" data-path="intfctvars.html"><a href="intfctvars.html"><i class="fa fa-check"></i><b>7</b> L’intégration de fonctions de plusieurs variables</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
@@ -187,16 +196,67 @@
             <section class="normal" id="section-">
 <div id="la-derivee-directionnelle" class="section level2">
 <h2><span class="header-section-number">5.7</span> La dérivée directionnelle</h2>
+<p>Nous avons jusqu’à maintenant étudié les dérivées partielles d’une fonction par rapport aux variables <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>. Celles-ci correspondent respectivement au taux de variation de la fonction dans la direction de l’axe des <span class="math inline">\(x\)</span> et de l’axe des <span class="math inline">\(y\)</span>. Nous aimerions maintenant trouver le taux de variation dans une autre direction. Nous utiliserons pour ce faire la dérivée directionnelle.</p>
+
+<div class="definition">
+<span id="def:deriv-directionnelle" class="definition"><strong>Définition 5.6  (La dérivée directionnelle)  </strong></span>Soit une fonction <span class="math inline">\(z=f(x,y)\)</span> une fonction différentiable et <span class="math inline">\(\overrightarrow{u}=[u_1,u_2]\)</span>, un vecteur unitaire (c’est-à-dire un vecteur dont la norme est égale à <span class="math inline">\(1\)</span>). Nous disons que la dérivée de <span class="math inline">\(f\)</span> dans la direction <span class="math inline">\(\vec u\)</span>, notée <span class="math inline">\(D_{\vec u}f\)</span>,est donnée par:
+<span class="math display">\[ D_{\vec u}f = \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \]</span>
+si cette limite existe.
+</div>
+
+<p>Pour visualiser la dérivée directionnelle, nous vous invitons à utiliser l’application GeoGebra de la section <a href="geogebra-derivfctvar.html#geogebra-derivfctvar">5.9</a>. Celle-ci vous permet de changer la direction du vecteur unitaire et le point auquel vous visualisez la dérivée directionnelle.</p>
+
+<div class="remark">
+ <span class="remark"><em>Remarque. </em></span> Nous remarquons que si <span class="math inline">\(\vec u=[1,0]=\vec \imath\)</span>, nous obtenons la dérivée partielle par rapport à <span class="math inline">\(x\)</span>. D’une manière similaire, si <span class="math inline">\(\vec u=[0,1]=\vec\jmath\)</span>, nous obtenons la dérivée partielle par rapport à <span class="math inline">\(x\)</span>.
+</div>
+
+<p>L’utilisation de la définition <a href="la-derivee-directionnelle.html#def:deriv-directionnelle">5.6</a> pour calculer des dérivées directionnelles n’est pas appropriée pour la plupart des problèmes. Le théorème suivant nous permettra de calculer la dérivée directionnelles plus simplement.</p>
+
+<div class="theorem">
+<span id="thm:derivee-directionnelle" class="theorem"><strong>Théorème 5.4  </strong></span>Soit une fonction <span class="math inline">\(z=f(x,y)\)</span> différentiable au point <span class="math inline">\((x_0,y_0)\)</span> et soit <span class="math inline">\(\vec u=[u_1,u_2]\)</span> un vecteur unitaire. Nous avons:
+<span class="math display">\[ D_{\vec u}f(x_0,y_0) = f_x(x_0,y_0)u_1 + f_y(x_0,y_0)u_2 \]</span>
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Preuve. </em></span> Posons <span class="math inline">\(g(h)=f(x+u_1h,y+u_2h)\)</span>. Nous avons:
+<span class="math display" id="eq:deriv-directionnelle">\[\begin{align}
+D_{\vec u}f(x_0,y_0) &amp;= \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \notag\\
+&amp;= \lim_{h\to 0} \dfrac{g(h)-g(0)}{h} \notag\\
+&amp;= g&#39;(0) \tag{5.1} \quad \text{par définition de $g&#39;$}
+\end{align}\]</span>
+Posons manitenant <span class="math inline">\(x=x_0+u_1h\)</span> et <span class="math inline">\(y=y_0+u_2h\)</span>. D’où <span class="math inline">\(g(h)=f(x,y)\)</span>. Par la règle de dérivation en chaîne, nous avons <span class="math inline">\(g&#39;(h)=f_xu_1+f_yu_2\)</span>. Si nous évaluons cette expression en <span class="math inline">\(h=0\)</span>
+, nous obtenons:
+<span class="math display">\[\begin{align*}
+g&#39;(0) &amp;= f_x(x_0,y_0)u_1+f_y(x_0,y_0)u_2 \\
+&amp;= D_{\vec u}f(x_0,y_0)
+\end{align*}\]</span>
+La dernière ligne est obtenue par l’équation <a href="la-derivee-directionnelle.html#eq:deriv-directionnelle">(5.1)</a>.</p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-194" class="example"><strong>Exemple 5.26  </strong></span>Déterminez le taux de variation de <span class="math inline">\(f(x,y)=\cos(xy)+y^2\)</span> dans la direction du vecteur <span class="math inline">\(\vec u=[1,1]\)</span>.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-195" class="example"><strong>Exemple 5.27  </strong></span>Trouvez la dérivée directionnelle de <span class="math inline">\(f(x,y)=y^4+2xy^3+x^2y^2\)</span> en <span class="math inline">\((0,1)\)</span> dans les directions suivantes:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\vec u =[1,2]\)</span></li>
+<li><span class="math inline">\(\vec u =[-2,1]\)</span></li>
+<li><span class="math inline">\(\vec u =[1,1]\)</span></li>
+</ol>
+</div>
 
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="optimisation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="le-vecteur-gradient.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

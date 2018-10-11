@@ -108,3 +108,4 @@ fct_coupe_plan2 <- plot_ly(showscale=FALSE) %>%
   add_surface(x=xs,y=ys,z=zs) %>%
   add_surface(x=xp2,y=yp2,z=zp2)
 orca(fct_coupe_plan2,"fct_coupe_plan2.png")
+
