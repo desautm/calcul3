@@ -76,12 +76,12 @@ knitr::include_graphics("resources/images/latex/point3d.png")
 Nous allons maintenant présenter plusieurs fonctions accompagnées de leur graphique.
 
 ```{r graphiques, echo=FALSE}
-xy <- meshgrid(linspace(-3,3,20))
+xy <- meshgrid(linspace(-3,3,25))
 x <- xy$X
 y <- xy$Y
 plan <- 1-x-y
 paraboloide <- x^2+y^2
-hyperboloide <- x^2-y^2
+hyperboloide <- (x^2-y^2)/2
 cone <- sqrt(x^2+y^2)
 ```
 
@@ -89,7 +89,7 @@ Les figures suivantes représentent des fonctions usuelles que nous rencontreron
 
 ```{r ,echo=FALSE,fig.align="center",label="plan",out.width="80%",fig.cap="Plan: $z=1-x-y$"}
 if (knitr:::is_html_output()){
-  plot_ly(z=plan, showscale=FALSE) %>% add_surface()
+  plot_ly(x=x,y=y,z=plan, showscale=FALSE) %>% add_surface()
 } else {
   knitr::include_graphics("resources/images/plan.png")
 }
@@ -97,15 +97,15 @@ if (knitr:::is_html_output()){
 
 ```{r ,echo=FALSE,fig.align="center",label="paraboloide",out.width="80%",fig.cap="Paraboloïde: $z=x^2+y^2$"}
 if (knitr:::is_html_output()){
-  plot_ly(z=paraboloide, showscale=FALSE) %>% add_surface()
+  plot_ly(x=x,y=y,z=paraboloide, showscale=FALSE) %>% add_surface()
 } else {
   knitr::include_graphics("resources/images/paraboloide.png")
 }
 ```
 
-```{r ,echo=FALSE,fig.align="center",label="hyperboloide",out.width="80%",fig.cap="Hyperboloïde : $z=x^2-y^2$"}
+```{r ,echo=FALSE,fig.align="center",label="hyperboloide",out.width="80%",fig.cap="Hyperboloïde : $z=(x^2-y^2)/2$"}
 if (knitr:::is_html_output()){
-  plot_ly(z=hyperboloide, showscale=FALSE) %>% add_surface()
+  plot_ly(x=x,y=y,z=hyperboloide, showscale=FALSE) %>% add_surface()
 } else {
   knitr::include_graphics("resources/images/hyperboloide.png")
 }
@@ -113,7 +113,7 @@ if (knitr:::is_html_output()){
 
 ```{r ,echo=FALSE,fig.align="center",label="cone",out.width="80%",fig.cap='Cône : $z=\\sqrt{x^2+y^2}$'}
 if (knitr:::is_html_output()){
-  plot_ly(z=cone, showscale=FALSE) %>% add_surface()
+  plot_ly(x=x,y=y,z=cone, showscale=FALSE) %>% add_surface()
 } else {
   knitr::include_graphics("resources/images/cone.png")
 }

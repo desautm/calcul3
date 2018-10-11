@@ -1,5 +1,10 @@
 # L'optimisation {#optimisation}
 
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+library(pracma)
+library(plotly)
+```
+
 Vous trouverez à la section  une application [GeoGebra](https://www.geogebra.org/?lang=fr) vous permettant de visualiser des coupes transversales et des courbes de niveaux. À noter que cette application n'est disponible que dans la version en ligne de ce document.
 
 ## Introduction
@@ -8,7 +13,119 @@ La théorie de l'optimisation des fonctions de plusieurs variables est très vas
 
 ## L'approximation quadratique
 
-Nous voulons
+Nous voulons approcher une fonction $f(x,y)$ autour d'un point $(x_0,y_0)$ par un paraboloïde. Ceci correspond à l'analogue de l'approximation d'une fonction par un polynôme de Taylor de degré 2. Nous pouvons montrer que le paraboloïde recherché est donné par:
+
+\begin{equation}
+\begin{split}
+Q(x,y) &= f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(y-y_0)+ \\
+&\qquad \dfrac{1}{2!}[f_{xx}(x_0,y_0)(x-x_0)^2+2f_{xy}(x_0,y_0)(x-x_0)(y-y_0) \\
+& \qquad \qquad +f_{yy}(x_0,y_0)(y-y_0)^2]
+\end{split}
+(\#eq:approx-quadratique)
+\end{equation}
+
+Nous utiliserons l'équation \@ref(eq:approx-quadratique) pour démontrer la nature des points critiques d'une fonction de deux variables.
 
 ## Les points critiques et leur nature
+
+```{definition}
+Soit une fonction $f:D_{\alpha}\subseteq \mathbb{R}^2 \rightarrow \mathbb{R}$. Nous disons que le point $(x_0,y_0)$ est un point de maximum __local__ si pour tous les points $(x,y)$ dans le voisinage de $(x_0,y_0)$, nous avons que:
+$$ f(x,y) \leq f(x_0,y_0) $$
+De manière similaire, le point $(x_0,y_0)$ est un point de minimum __local__ si pour tous les points $(x,y)$ dans le voisinage de $(x_0,y_0)$, nous avons que:
+$$ f(x,y) \geq f(x_0,y_0) $$
+Le __maximum absolu__ de $f$ est la valeur maximale de $f$ sur $D$ et le __minimum absolu__ de $f$ est la valeur minimale de $f$ sur $D$.
+```
+
+```{theorem, label="gradient-max-min"}
+Soit une fonction $z=f(x,y)$ différentiable autour du point $(x_0,y_0)$. Si le point $(x_0,y_0)$ est un maximum ou minimum local de $f$, alors:
+$$ \nabla f(x_0,y_0)=\vec 0 $$
+
+```
+```{proof}
+Nous savons que si une fonction d'une seule variable possède un minimum ou un maximum en $x_0$, alors la dérivée évaluée en ce point est nulle.
+
+Maintenant, supposons que $(x_0,y_0)$ est un point de maximum (la démonstration pour le cas d'un minimum est similaire). Si nous fixons $x=x_0$, nous avons une fonction d'une seule variable $g(y)=f(x_0,y)$. Cette fonction possède un maximum lorsque $y=y_0$. Nous avons donc que $g'(y_0)=0$. Mais $g'(y_0)=f_y(x_0,y_0)=0$.
+
+D'une manière similaire, nous avons que $f_x(x_0,y_0)=0$. D'où $\nabla f(x_0,y_0)=\vec 0$.
+
+```
+
+```{remark}
+Il est important de remarquer que le théorème \@ref(thm:gradient-max-min) n'est pas un __si et seulement si__. C'est-à-dire que si $(x_0,y_0)$ est un maximum (ou un minimum), alors le gradient en ce point est nul.
+
+L'inverse n'est pas nécessairement vrai, c'est-à-dire que si le gradient en un point est nul, il est possible que le point ne soit ni un maximum, ni un minimum.
+```
+
+Pour spécifier la nature d'un point critique, nous aurons besoin d'un test supplémentaire.
+
+```{theorem}
+Soit une fonction $z=f(x,y)$ possédant un point critique en $(x_0,y_0)$. Soit le scalaire:
+$$ D=f_{xx}(x_0,y_0)\cdot f_{yy}(x_0,y_0)-\left(f_{xy}(x_0,y_0) \right)^2 $$
+Nous pouvons rencontrer les quatres situations suivantes:
+
+- Si $D>0$ et $f_{xx}(x_0,y_0)>0$ alors $(x_0,y_0)$ est un point de maximum
+- Si $D>0$ et $f_{xx}(x_0,y_0)<0$ alors $(x_0,y_0)$ est un point de minimum
+- Si $D<0$ alors $(x_0,y_0)$ est un point de selle
+- Si $D=0$ alors nous ne pouvons rien conclure
+
+```
+```{proof}
+Pour simplifier la résolution, nous allons poser $A=f_{xx}(x_0,y_0)$, $B=f_{xy}(x_0,y_0)$ et $C=f_{yy}(x_0,y_0)$. Nous allons utiliser l'approximation quadratique trouvée à l'équation \@ref(eq:approx-quadratique), pour trouver une expression pour $f(x,y)-f(x_0,y_0)$ si $(x,y)$ est près de $(x_0,y_0)$.
+
+Par l'équation \@ref(eq:approx-quadratique) et puisque $f_x(x_0,y_0)=f_y(x_0,y_0)=0$, car $(x_0,y_0)$ est un point critique, nous avons:
+$$ f(x,y)-f(x_0,y_0)=\dfrac{A}{2}(x-x_0)^2+B(x-x_0)(y-y_0)+\dfrac{C}{2}(y-y_0)^2 $$
+
+Ainsi, le signe de $f(x,y)-f(x_0,y_0)$ sera le même que celui du membre de droite de l'expression précédente. Nous allons diviser le membre de droite par $\dfrac{1}{2}(y-y_0)^2$. Cette division ne changera pas le signe. Par la suite posons $w=\dfrac{x-x_0}{y-y_0}$.
+
+Nous obtenons une nouvelle expression, que nous noterons $E$:
+$$ E = Aw^2+2Bw+C $$
+L'expression $E$ est un polynôme de degré 2 par rapport à $w$. Étudions maintenant le signe de $E$.
+
+Nous avons que $E=0$ si:
+$$ \dfrac{-2B\pm\sqrt{4B^2-4AC}}{2A}=\dfrac{-B\pm\sqrt{B^2-AC}}{A} $$
+
+Si $B^2-AC<0$ ou $D=AC-B^2>0$ alors $E$ ne possède pas de zéros. Ceci implique que $f(x,y)-f(x_0,y_0)$ ne change pas de signe. Ainsi  $f(x,y)$ est toujours plus grand ou plus petit que $f(x_0,y_0)$, pour tout $(x,y)$ près de $(x_0,y_0)$. C'est la définition d'un maximum ou d'un minimum.
+
+Pour déterminer si nous sommes en présence d'un maximum ou d'un minimum, nous allons étudier le signe de $A$. Si $A<0$, nous avons une concavité vers le bas, donc un maximum. Si $A>0$, nous avons une concavité vers le haut, donc un minimum.
+
+Si $B^2-AC>0$ ou $D=AC-B^2<0$, nous avons deux racines et donc $f(x,y)-f(x_0,y_0)$ change de signe. C'est ce que nous appelons un point de selle.
+```
+
+Nous pouvons voir un point de selle en observant la figure \@ref(fig:hyperboloide1). Le point situé à l'origine est un point de selle. Dans une direction, la concavité de la fonction est vers le haut et elle est vers le bas dans l'autre direction.
+
+```{r ,echo=FALSE,fig.align="center",label="hyperboloide1",out.width="80%",fig.cap="Hyperboloïde : $z=(x^2-y^2)/2$"}
+if (knitr:::is_html_output()){
+  xy <- meshgrid(linspace(-3,3,20))
+  x <- xy$X
+  y <- xy$Y
+  hyperboloide <- (x^2-y^2)/2
+  plot_ly(x=x,y=y,z=~hyperboloide, type="surface", showscale=FALSE)
+} else {
+  knitr::include_graphics("resources/images/hyperboloide.png")
+}
+```
+
+```{example}
+Déterminez tous les points critiques de la fonction $f(x,y)=x^2-y^2$ et donnez leur nature.
+```
+\vspace*{8cm}
+
+```{example}
+Déterminez tous les points critiques de la fonction $f(x,y)=x^4+y^4-4xy+1$ et donnez leur nature.
+```
+```{r ,echo=FALSE,fig.align="center",label="fct-pt-critique",out.width="80%",fig.cap="Graphique de $f(x,y)=x^4+y^4-4xy+1$"}
+if (knitr:::is_html_output()){
+  xy <- meshgrid(linspace(-3,3,25))
+  x <- xy$X
+  y <- xy$Y
+  fct <- x^4+y^4-4*x*y+1
+  plot_ly(x=x,y=y,z=~fct, type="surface",showscale=FALSE)
+} else {
+  knitr::include_graphics("resources/images/fct_pt_critique.png")
+}
+```
+\vspace*{8cm}
+
+## Applications
+
 

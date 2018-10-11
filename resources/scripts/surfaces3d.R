@@ -1,21 +1,21 @@
-xy <- meshgrid(linspace(-3,3,20))
+xy <- meshgrid(linspace(-3,3,25))
 x <- xy$X
 y <- xy$Y
 
 z <- 1-x-y
-p <- plot_ly(z=~z) %>% add_surface()
+p <- plot_ly(x=x,y=y,z=~z) %>% add_surface()
 orca(p, "plan.png")
 
 z <- x^2+y^2
-p <- plot_ly(z=~z) %>% add_surface()
+p <- plot_ly(x=x,y=y,z=~z) %>% add_surface()
 orca(p, "paraboloide.png")
 
-z <- x^2-y^2
-p <- plot_ly(z=~z) %>% add_surface()
+z <- (x^2-y^2)/2
+p <- plot_ly(x=x,y=y,z=~z) %>% add_surface()
 orca(p, "hyperboloide.png")
 
 z <- sqrt(x^2+y^2)
-p <- plot_ly(z=~z) %>% add_surface()
+p <- plot_ly(x=x,y=y,z=~z) %>% add_surface()
 orca(p, "cone.png")
 
 delta <- 0.25
@@ -108,4 +108,14 @@ fct_coupe_plan2 <- plot_ly(showscale=FALSE) %>%
   add_surface(x=xs,y=ys,z=zs) %>%
   add_surface(x=xp2,y=yp2,z=zp2)
 orca(fct_coupe_plan2,"fct_coupe_plan2.png")
+
+xy <- meshgrid(linspace(-2,2,25))
+x <- xy$X
+y <- xy$Y
+fct <- x^4+y^4-4*x*y+1
+fct_pt_critique <- plot_ly(x=x,y=y,z=fct, showscale=FALSE) %>%
+  add_surface()
+orca(fct_pt_critique,"fct_pt_critique.png")
+fct_pt_critique_contour <- plot_ly(z=~fct, type="contour", showscale=FALSE)
+orca(fct_pt_critique_contour, "fct_pt_critique_contour.png")
 

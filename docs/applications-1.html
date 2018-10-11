@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="taylor.html">
-<link rel="next" href="les-series-de-taylor.html">
+<link rel="prev" href="les-points-critiques-et-leur-nature.html">
+<link rel="next" href="intfctvars.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -195,180 +195,18 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="les-polynomes-de-taylor-et-de-maclaurin" class="section level2">
-<h2><span class="header-section-number">1.1</span> Les polynômes de Taylor et de MacLaurin</h2>
-<p>De tous les types de fonctions, les fonctions polynomiales sont celles qui se dérivent et s’intègrent le plus facilement. De plus, si leur degré est inférieur ou égal à 5, des formules permettent de trouver facilement leurs zéros. Pour ces raisons, l’écriture d’une fonction <span class="math inline">\(f(x)\)</span> sous la forme d’un polynôme de degré <span class="math inline">\(n\)</span>, <span class="math inline">\(P_n(x)\)</span>, nous permet de l’étudier aisément. Cependant, en écrivant une fonction sous la forme d’un polynôme, nous obtenons une approximation.</p>
-<p>L’approche de Taylor et de MacLaurin est couramment utilisée pour transformer une fonction en polynôme.</p>
-<div id="les-polynomes-de-maclaurin" class="section level3">
-<h3><span class="header-section-number">1.1.1</span> Les polynômes de MacLaurin</h3>
-<p>Pour savoir de quelle manière exprimer une fonction <span class="math inline">\(f(x)\)</span> sous la forme d’un polynôme, nous étudierons un cas particulier des polynômes de Taylor, soit les polynômes de MacLaurin.</p>
-
-<div class="definition">
-<span id="def:unnamed-chunk-1" class="definition"><strong>Définition 1.1  (Polynôme de Maclaurin)  </strong></span>Soit <span class="math inline">\(f(x)\)</span> une fonction dérivable au moins <span class="math inline">\(n\)</span> fois. Le <strong>polynôme de MacLaurin</strong> de degré <span class="math inline">\(n\)</span>, <span class="math inline">\(P_n(x)\)</span>, de la fonction <span class="math inline">\(f(x)\)</span> est un polynôme satisfaisant les conditions suivantes:
-<span class="math display">\[\begin{align}
-\begin{split}
-f(0) &amp;= P_n(0) \\
-\left.\dfrac{d^k f}{dx^k}\right|_{x=0} &amp;= \left.\dfrac{d^k P_n}{dx^k}\right|_{x=0}, \quad \text{pour } k\in\{1,\ldots,n\}
-\end{split}
-\end{align}\]</span>
-</div>
-
-<p>Les deux conditions suivantes permettent de construire le polynôme de MacLaurin pour une fonction <span class="math inline">\(f(x)\)</span> quelconque. Nous savons qu’un polynôme de degré <span class="math inline">\(n\)</span> s’écrit de la façon suivante:</p>
-<span class="math display">\[\begin{align*}
-P_n(x)=a_0+a_1x+a_2x^2+...+a_{n-1}x^{n-1}+a_nx^n
-\end{align*}\]</span>
-<p>Pour trouver les coefficients <span class="math inline">\(a_k\)</span>, nous devons obtenir les dérivées successives de <span class="math inline">\(P_n(x)\)</span>. Ainsi:</p>
-<span class="math display">\[\begin{align}
-\begin{split}
-P_n(x) &amp;= a_0+a_1x+a_2x^2+...+a_{n-1}x^{n-1}+a_nx^n \\
-P_n^{(1)}(x) &amp;= 1a_1+2a_2x+3a_3x^2+...+(n-1)a_{n-1}x^{n-2}+na_nx^{n-1} \\
-P_n^{(2)}(x) &amp;= 2\cdot 1a_2+3\cdot 2a_3x+...+(n-1)(n-2)a_{n-1}x^{n-3}+n(n-1)a_nx^{n-2} \\
-P_n^{(3)}(x) &amp;= 3\cdot 2\cdot 1a_3+...+(n-1)(n-2)(n-3)a_{n-1}x^{n-4}+n(n-1)(n-2)a_nx^{n-3}
-\end{split}
-\end{align}\]</span>
-<p>et ainsi de suite.</p>
-<p>Par définition, nous savons que <span class="math inline">\(f(0)=P_n(0)\)</span>. Ainsi:</p>
-<span class="math display">\[\begin{align}
-\begin{split}
-f(0)&amp;=P_n(0) \\
-f(0) &amp;= a_0+a_1(0)+a_2(0)^2+...+a_{n-1}(0)^{n-1}+a_n(0)^n \\
-f(0)&amp;=a_0
-\end{split}
-\end{align}\]</span>
-<p>De même, nous savons que <span class="math inline">\(f^{(1)}(0)=P_n^{(1)}(0)\)</span>. Ainsi:</p>
-<span class="math display">\[\begin{align}
-\begin{split}
-f^{(1)}(0)&amp;=P_n^{(1)}(0)\\
-f^{(1)}(0)&amp;=1a_1+2a_2(0)+3a_3(0)^2+...+(n-1)a_{n-1}(0)^{n-2}+na_n(0)^{n-1} \\
-f^{(1)}(0)&amp;=1a_1  \\
-\dfrac{f^{(1)}(0)}{1}&amp;=a_1
-\end{split}
-\end{align}\]</span>
-<p>De la même façon, nous savons que <span class="math inline">\(f^{(2)}(0)=P_n^{(2)}(0)\)</span>. Ainsi:</p>
-<span class="math display">\[\begin{align}
-\begin{split}
-f^{(2)}(0)&amp;=P^{(2)}_n(0)\\
-f^{(2)}(0)&amp;=2\cdot 1a_2+3\cdot 2a_3(0)+\ldots+(n-1)(n-2)a_{n-1}(0)^{n-3}+n(n-1)a_n(0)^{n-2} \\
-f^{(2)}(0)&amp;=2\cdot 1a_2  \\
-\dfrac{f^{(2)}(0)}{2\cdot 1}&amp;=a_2
-\end{split}
-\end{align}\]</span>
-<p>D’une manière générale, nous trouvons:</p>
-<span class="math display">\[\begin{align}
-\begin{split}
-a_k &amp;= \dfrac{1}{k\cdot (k-1)\cdot ...\cdot 3\cdot 2\cdot 1}f^{(k)}(0) \\
-&amp;= \dfrac{f^{(k)}(0)}{k!}
-\end{split}
-\end{align}\]</span>
-
-<div class="remark">
- <span class="remark"><em>Remarque</em> (Factorielle). </span> La factorielle d’un nombre entier <span class="math inline">\(k\)</span> positif, notée <span class="math inline">\(k!\)</span>, est égale à:
-<span class="math display">\[\begin{equation*}
-k! = k(k-1)(k-2)\cdot\ldots\cdot 3\cdot 2\cdot 1
-\end{equation*}\]</span>
-Et par définition <span class="math inline">\(0!=1\)</span>.
-</div>
-
-<p>Nous obtenons donc une équation pour déterminer le polynôme de MacLaurin d’une fonction.</p>
-
-<div class="definition">
-<span id="def:unnamed-chunk-3" class="definition"><strong>Définition 1.2  (Polynôme de MacLaurin)  </strong></span>Soit <span class="math inline">\(f(x)\)</span> une fonction dérivable au moins <span class="math inline">\(n\)</span> fois en <span class="math inline">\(x=0\)</span>. Le <strong>polynôme de MacLaurin</strong> de degré <span class="math inline">\(n\)</span>, <span class="math inline">\(P_n(x)\)</span>, est donné par:
-<span class="math display">\[\begin{align*}
-P_n(x)&amp;=\sum_{k=0}^n\dfrac{f^{(k)}(0)}{k!}x^k=f(0)+f^{(1)}(0)x+\dfrac{f^{(2)}(0)}{2!}x^2+...+\dfrac{f^{(n)}(0)}{n!}x^n
-\end{align*}\]</span>
-</div>
-
-
-<div class="example">
-<span id="exm:unnamed-chunk-4" class="example"><strong>Exemple 1.1  </strong></span>Trouvez les polynômes de MacLaurin de degrés 1, 2 et 3 de <span class="math inline">\(f(x)=e^x\)</span>.
+<div id="applications-1" class="section level2">
+<h2><span class="header-section-number">6.4</span> Applications</h2>
 
 </div>
-
-
-<div class="example">
-<span id="exm:unnamed-chunk-5" class="example"><strong>Exemple 1.2  </strong></span>Trouvez les polynômes de MacLaurin de degrés 1, 2 et 3 de <span class="math inline">\(f(x)=sin(x)\)</span>.
-
-</div>
-
-</div>
-<div id="les-polynomes-de-taylor" class="section level3">
-<h3><span class="header-section-number">1.1.2</span> Les polynômes de Taylor</h3>
-<p>Les polynômes de Maclaurin utilisent l’évaluation des dérivées successives de la fonction <span class="math inline">\(f(x)\)</span> en <span class="math inline">\(x=0\)</span>. Il est par contre possible de généraliser ces polynômes en évaluant les dérivées successives de la fonction <span class="math inline">\(f(x)\)</span> en <span class="math inline">\(x=a\)</span>, avec <span class="math inline">\(a\in \text{dom} f\)</span>. C’est ce que nous appelons les polynômes de Taylor.</p>
-
-<div class="definition">
-<span id="def:unnamed-chunk-6" class="definition"><strong>Définition 1.3  (Polynôme de Taylor)  </strong></span>Soit <span class="math inline">\(f(x)\)</span> une fonction dérivable au moins <span class="math inline">\(n\)</span> fois en <span class="math inline">\(x=a\)</span>. Le <strong>polynôme de Taylor</strong> de degré <span class="math inline">\(n\)</span>, <span class="math inline">\(P_n(x)\)</span>, est donné par:
-<span class="math display">\[\begin{align*}
-P_n(x)&amp;=\sum_{k=0}^n\dfrac{f^{(k)}(a)}{k!}(x-a)^k\\
-&amp;=f(a)+f^{(1)}(a)(x-a)+\dfrac{f^{(2)}(a)}{2!}(x-a)^2+...+\dfrac{f^{(n)}(a)}{n!}(x-a)^n
-\end{align*}\]</span>
-</div>
-
-
-<div class="example">
-<span id="exm:unnamed-chunk-7" class="example"><strong>Exemple 1.3  </strong></span>Trouvez le polynôme de Taylor de <span class="math inline">\(f(x)=\ln(x)\)</span> de degré <span class="math inline">\(4\)</span> autour de <span class="math inline">\(x=1\)</span>.
-
-</div>
-
-</div>
-<div id="le-reste-de-taylor-lagrange" class="section level3">
-<h3><span class="header-section-number">1.1.3</span> Le reste de Taylor-Lagrange</h3>
-<p>Les polynômes de Taylor sont des approximations d’une fonction, ce qui signifie qu’une erreur est commise. Le théorème suivant nous permet de quantifier l’erreur commise, c’est-à-dire <span class="math inline">\(f(x)-P_n(x)\)</span>.</p>
-
-<div class="theorem">
-<span id="thm:unnamed-chunk-8" class="theorem"><strong>Théorème 1.1  (Le reste de Taylor-Lagrange)  </strong></span>Soit <span class="math inline">\(f(x)\)</span> une fonction dérivable au moins <span class="math inline">\(n+1\)</span> fois sur l’intervalle <span class="math inline">\(I=[a,x]\)</span> (si <span class="math inline">\(x&gt;a\)</span>) ou <span class="math inline">\(I=[x,a]\)</span> (si <span class="math inline">\(x&lt;a\)</span>). L’erreur commise <span class="math inline">\(E_n(x)\)</span> par l’approximation de <span class="math inline">\(f(x)\)</span> par <span class="math inline">\(P_n(x)\)</span> est donnée par:
-<span class="math display">\[\begin{align*}
-|f(x)-P_n(x)|=|E_n(x)|=\left\vert\dfrac{f^{(n+1)}(\xi(x))}{(n+1)!}(x-a)^{(n+1)}\right\vert
-\end{align*}\]</span>
-avec <span class="math inline">\(\xi(x)\in I\)</span>.
-</div>
-
-
-<div class="proof">
- <span class="proof"><em>Preuve. </em></span> La démonstration est plus avancée que le niveau de ce livre.
-</div>
-
-<p>Comme la valeur <span class="math inline">\(\xi(x)\)</span> est rarement connue, nous utiliserons plutôt une borne sur l’erreur:</p>
-<span class="math display">\[\begin{align*}
-    |E_n(x)|=|f(x)-P_n(x)|&amp;=\left\vert\dfrac{f^{(n+1)}(\xi(x))}{(n+1)!}(x-a)^{n+1}\right\vert\\
-    |f(x)-P_n(x)| &amp;\leq \left\vert\dfrac{M}{(n+1)!}(x-a)^{n+1}\right\vert,
-\end{align*}\]</span>
-<p>où <span class="math inline">\(M=\text{max}_{x\in I}\left\vert f^{(n+1)}(x) \right\vert\)</span>.</p>
-
-<div class="example">
-<span id="exm:unnamed-chunk-10" class="example"><strong>Exemple 1.4  </strong></span>Déterminez <span class="math inline">\(|E_n(x)|\)</span> lorsque vous utilisez le polynôme de MacLaurin de degré <span class="math inline">\(3\)</span> de <span class="math inline">\(f(x)=e^x\)</span> sur l’intervalle <span class="math inline">\([0,2]\)</span>. <strong>Astuce</strong>: supposez que <span class="math inline">\(e&lt;3\)</span>.
-
-</div>
-
-
-<div class="example">
-<span id="exm:unnamed-chunk-11" class="example"><strong>Exemple 1.5  </strong></span>Lorsque nous demandons à la calculatrice d’évaluer le nombre <span class="math inline">\(e\)</span>, elle nous le donne avec une précision de <span class="math inline">\(10^{-8}\)</span>, c’est-à-dire que l’erreur est inférieure à <span class="math inline">\(10^{-8}\)</span>. Quel devrait être le degré du polynôme de MacLaurin pour <span class="math inline">\(f(x)=e^x\)</span> nécessaire pour obtenir cette précision? <strong>Astuce</strong>: supposez que <span class="math inline">\(e&lt;3\)</span>.
-
-</div>
-
-
-<div class="example">
-<p><span id="exm:unnamed-chunk-12" class="example"><strong>Exemple 1.6  </strong></span>Répondez aux questions suivantes:</p>
-<ol style="list-style-type: lower-alpha">
-<li>Approximez <span class="math inline">\(f(x)=\sqrt[3]{x}\)</span> par un polynôme de Taylor de degré 2 en <span class="math inline">\(a=8\)</span>.</li>
-<li>Estimez l’erreur faite lorsque <span class="math inline">\(7\leq x \leq 9\)</span>.</li>
-</ol>
-</div>
-
-
-<div class="example">
-<span id="exm:unnamed-chunk-13" class="example"><strong>Exemple 1.7  </strong></span>Quelle est l’erreur maximale possible si on utilise l’approximation <span class="math inline">\(\sin(x)=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}\)</span> lorsque <span class="math inline">\(-0,3\leq x \leq 0,3\)</span>? Utilisez l’approximation pour estimer <span class="math inline">\(\sin(12^{\circ})\)</span> avec six (6) décimales exactes.
-
-</div>
-
-</div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="taylor.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="les-series-de-taylor.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="les-points-critiques-et-leur-nature.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intfctvars.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -398,7 +236,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/calcul3/edit/master/01-taylor.Rmd",
+"link": "https://github.com/desautm/calcul3/edit/master/06-optimisation.Rmd",
 "text": "Modifier"
 },
 "download": ["calcul3.pdf", "calcul3.epub"],

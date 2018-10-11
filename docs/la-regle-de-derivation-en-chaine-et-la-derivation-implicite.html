@@ -172,6 +172,7 @@
 <li class="chapter" data-level="6.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="lapproximation-quadratique.html"><a href="lapproximation-quadratique.html"><i class="fa fa-check"></i><b>6.2</b> L’approximation quadratique</a></li>
 <li class="chapter" data-level="6.3" data-path="les-points-critiques-et-leur-nature.html"><a href="les-points-critiques-et-leur-nature.html"><i class="fa fa-check"></i><b>6.3</b> Les points critiques et leur nature</a></li>
+<li class="chapter" data-level="6.4" data-path="applications-1.html"><a href="applications-1.html"><i class="fa fa-check"></i><b>6.4</b> Applications</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="intfctvars.html"><a href="intfctvars.html"><i class="fa fa-check"></i><b>7</b> L’intégration de fonctions de plusieurs variables</a></li>
 <li class="divider"></li>
@@ -212,8 +213,8 @@
 </div>
 
 <p>La manière la plus simple de trouver une dérivée à l’aide du théorème <a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html#thm:deriv-chaine-1">5.2</a>, est de construire un schéma de dérivation. Si nous dessinons le schéma de dérivaton de la fonction du théorème <a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html#thm:deriv-chaine-1">5.2</a>, nous obtenons l’image suivante.</p>
-<div id="htmlwidget-71a1cf557c071804e6cb" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-71a1cf557c071804e6cb">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; t\n\n  # several \"edge\" statements\n  f->x f->y x->t y->t\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-534deb024fe0e3b0cad1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-534deb024fe0e3b0cad1">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; t\n\n  # several \"edge\" statements\n  f->x f->y x->t y->t\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Pour dériver à la chaîne à l’aide de la figure précédente, nous partons du haut de l’<em>arbre</em> et nous parcourons toutes les <em>branches</em> qui se rendent jusqu’à la variable par rapport à laquelle nous dérivons, en multipliant les dérivées. Nous additionnons toutes les <em>branches</em> pour obtenir la dérivée.</p>
 
 <div class="example">
@@ -245,8 +246,8 @@
  <span class="proof"><em>Preuve. </em></span> Nous ne ferons pas la preuve exacte mais nous allons dessiner le schéma de dérivation.
 </div>
 
-<p><div id="htmlwidget-9970949a65e73e8fc493" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9970949a65e73e8fc493">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; u; v\n\n  # several \"edge\" statements\n  f->x f->y x->u y->u x->v y->v\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p><div id="htmlwidget-5df0aa8fcf8314069a25" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5df0aa8fcf8314069a25">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; u; v\n\n  # several \"edge\" statements\n  f->x f->y x->u y->u x->v y->v\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 Remarquons que si nous suivons toutes les <em>branches</em> de l’<em>arbre</em> en multipliant les dérivées et en additionnant les branches, nous obtenons le résultat du théorème.
 ```</p>
 

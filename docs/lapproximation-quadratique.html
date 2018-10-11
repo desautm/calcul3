@@ -172,6 +172,7 @@
 <li class="chapter" data-level="6.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="lapproximation-quadratique.html"><a href="lapproximation-quadratique.html"><i class="fa fa-check"></i><b>6.2</b> L’approximation quadratique</a></li>
 <li class="chapter" data-level="6.3" data-path="les-points-critiques-et-leur-nature.html"><a href="les-points-critiques-et-leur-nature.html"><i class="fa fa-check"></i><b>6.3</b> Les points critiques et leur nature</a></li>
+<li class="chapter" data-level="6.4" data-path="applications-1.html"><a href="applications-1.html"><i class="fa fa-check"></i><b>6.4</b> Applications</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="intfctvars.html"><a href="intfctvars.html"><i class="fa fa-check"></i><b>7</b> L’intégration de fonctions de plusieurs variables</a></li>
 <li class="divider"></li>
@@ -196,7 +197,16 @@
             <section class="normal" id="section-">
 <div id="lapproximation-quadratique" class="section level2">
 <h2><span class="header-section-number">6.2</span> L’approximation quadratique</h2>
-<p>Nous voulons</p>
+<p>Nous voulons approcher une fonction <span class="math inline">\(f(x,y)\)</span> autour d’un point <span class="math inline">\((x_0,y_0)\)</span> par un paraboloïde. Ceci correspond à l’analogue de l’approximation d’une fonction par un polynôme de Taylor de degré 2. Nous pouvons montrer que le paraboloïde recherché est donné par:</p>
+<span class="math display" id="eq:approx-quadratique">\[\begin{equation}
+\begin{split}
+Q(x,y) &amp;= f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(y-y_0)+ \\
+&amp;\qquad \dfrac{1}{2!}[f_{xx}(x_0,y_0)(x-x_0)^2+2f_{xy}(x_0,y_0)(x-x_0)(y-y_0) \\
+&amp; \qquad \qquad +f_{yy}(x_0,y_0)(y-y_0)^2]
+\end{split}
+\tag{6.1}
+\end{equation}\]</span>
+<p>Nous utiliserons l’équation <a href="lapproximation-quadratique.html#eq:approx-quadratique">(6.1)</a> pour démontrer la nature des points critiques d’une fonction de deux variables.</p>
 </div>
             </section>
 
