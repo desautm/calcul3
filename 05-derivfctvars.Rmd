@@ -388,7 +388,7 @@ digraph schema_derivation {
 ")
 ```
 
-Pour dériver à la chaîne à l'aide de la figure \précédente, nous partons du haut de l'*arbre* et nous parcourons toutes les *branches* qui se rendent jusqu'à la variable par rapport à laquelle nous dérivons, en multipliant les dérivées. Nous additionnons toutes les *branches* pour obtenir la dérivée.
+Pour dériver à la chaîne à l'aide de la figure précédente, nous partons du haut de l'*arbre* et nous parcourons toutes les *branches* qui se rendent jusqu'à la variable par rapport à laquelle nous dérivons, en multipliant les dérivées. Nous additionnons toutes les *branches* pour obtenir la dérivée.
 
 ```{example}
 Trouvez $\dfrac{dz}{dt}$ si $z=e^{xy^2}$, $x=t\cos(t)$ et $y=t\sin(t)$.

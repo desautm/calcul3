@@ -31,46 +31,6 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -3020,21 +2980,25 @@ une fonction \(f(x,y)\), nous pouvons noter la dérivée partielle de
 \protect\hypertarget{exm:unnamed-chunk-155}{}{\label{exm:unnamed-chunk-155}
 }Trouvez les dérivées partielles de \(f(x,y)=x\cos(x+y^2)\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-156}{}{\label{exm:unnamed-chunk-156}
 }Trouvez les dérivées partielles de \(f(x,y)=x^2\sin(y)\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-157}{}{\label{exm:unnamed-chunk-157}
 }Trouvez les dérivées partielles de \(f(x,y)=x^3y^2+x^4y+y^4\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-158}{}{\label{exm:unnamed-chunk-158}
 }Trouvez les dérivées partielles de \(f(x,y)=e^{xy}\cos(x+y)\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-159}{}{\label{exm:unnamed-chunk-159}
@@ -3042,6 +3006,7 @@ une fonction \(f(x,y)\), nous pouvons noter la dérivée partielle de
 que \(f\left(\frac{x}{y}\right)\) satisfait l'équation:
 \[ x\dfrac{\partial f}{\partial x}+y\dfrac{\partial f}{\partial y} = 0 \]
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \hypertarget{les-derivees-dordres-superieurs}{%
 \subsection{Les dérivées d'ordres
@@ -3078,12 +3043,14 @@ les dérivées partielles secondes d'une fonction \(f(x,y)\).
 }Trouvez toutes les dérivées d'ordre 1 et 2 de la fonction
 \(f(x,y)=x^2y+3y^2\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-162}{}{\label{exm:unnamed-chunk-162}
 }Trouvez toutes les dérivées d'ordre 1 et 2 de la fonction
 \(f(x,y)=x^3y^4\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Remarque. } \fi{}Remarquez que dans les deux exemples
@@ -3251,24 +3218,28 @@ L'équation du plan tangent est don donnée par:
 }Trouvez l'équation du plan tangent à la surface \(f(x,y)=9-x^2-y^2\) au
 point \((1,1)\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-172}{}{\label{exm:unnamed-chunk-172}
 }Trouvez l'équation du plan tangent à la surface \(f(x,y)=\sin(xy)\) au
 point \(\left(\frac{\pi}{3},-1 \right)\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-173}{}{\label{exm:unnamed-chunk-173}
 }Trouvez le plan tangent horizontal à la surface
 \(f(x,y)=x^2-4xy-2y^2+12x-12y-1\)
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-174}{}{\label{exm:unnamed-chunk-174}
 }Trouvez l'équation du plan tangent à la surface
 \(f(x,y)=\dfrac{x-y}{x+y}\) au point \((1,1)\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Remarque. } \fi{}Le plan tangent est l'analogue du polynôme
@@ -3382,6 +3353,7 @@ rayon. Nous obtenons \(h=15\ \text{cm}\pm 0,1\ \text{cm}\) et
 \(h=5\ \text{cm}\pm 0,1\ \text{cm}\). Trouvez l'erreur absolue et
 l'erreur relative sur le volume du cylindre.
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-178}{}{\label{exm:unnamed-chunk-178}
@@ -3392,6 +3364,7 @@ la valeur de la constante gravitationnelle \(g=\dfrac{4\pi^2 l}{T^2}\).
 Trouvez l'erreur absolue et l'erreur relative sur la mesure de \(g\), en
 fonction des incertitudes sur \(T\) et \(l\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \hypertarget{la-regle-de-derivation-en-chaine-et-la-derivation-implicite}{%
 \section{La règle de dérivation en chaîne et la dérivation
@@ -3409,7 +3382,7 @@ fonctions de deux variables. La généralisation pour les fonctions de
 trois variables ou plus se fait de façon similaire.
 
 \BeginKnitrBlock{theorem}[La règle de dérivation en chaîne pour les fonctions de deux variables]
-\protect\hypertarget{thm:unnamed-chunk-179}{}{\label{thm:unnamed-chunk-179}
+\protect\hypertarget{thm:deriv-chaine-1}{}{\label{thm:deriv-chaine-1}
 \iffalse (La règle de dérivation en chaîne pour les fonctions de deux
 variables) \fi{} }Soit une fonction différentiable \(z=f(x,y)\) et soit
 \(x=x(t)\) et \(y=y(t)\). Nous avons alors:
@@ -3426,44 +3399,131 @@ d'une seule variable, nous utilisons \(d\) et lorsqu'elle dépend de deux
 variables ou plus, nous utilisons \(\partial\).
 \EndKnitrBlock{remark}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{grViz}\NormalTok{(}\StringTok{"}
-\StringTok{digraph schema_derivation \{}
+La manière la plus simple de trouver une dérivée à l'aide du théorème
+\ref{thm:deriv-chaine-1}, est de construire un schéma de dérivation. Si
+nous dessinons le schéma de dérivaton de la fonction du théorème
+\ref{thm:deriv-chaine-1}, nous obtenons l'image suivante.
 
-\StringTok{  # a 'graph' statement}
-\StringTok{  graph [overlap = true, fontsize = 10]}
+\includegraphics{calcul3_files/figure-latex/unnamed-chunk-180-1.pdf}
 
-\StringTok{  # several 'node' statements}
-\StringTok{  node [shape = box,}
-\StringTok{        fontname = Helvetica]}
-\StringTok{  f; x; y; t}
+Pour dériver à la chaîne à l'aide de la figure précédente, nous partons
+du haut de l'\emph{arbre} et nous parcourons toutes les \emph{branches}
+qui se rendent jusqu'à la variable par rapport à laquelle nous dérivons,
+en multipliant les dérivées. Nous additionnons toutes les
+\emph{branches} pour obtenir la dérivée.
 
-\StringTok{  # several 'edge' statements}
-\StringTok{  f->x f->y x->t y->t}
-\StringTok{\}}
-\StringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-181}{}{\label{exm:unnamed-chunk-181}
+}Trouvez \(\dfrac{dz}{dt}\) si \(z=e^{xy^2}\), \(x=t\cos(t)\) et
+\(y=t\sin(t)\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
 
-\includegraphics{calcul3_files/figure-latex/unnamed-chunk-181-1.pdf}
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-182}{}{\label{exm:unnamed-chunk-182}
+}Trouvez \(\dfrac{dz}{dt}\) si \(z=\sin(x^2y)\), \(x=2t^2\) et
+\(y=2+\frac{1}{t}\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-183}{}{\label{exm:unnamed-chunk-183}
+}Trouvez la dérivée de \(y=(\sin(x))^x\) de deux manières différentes.
+\EndKnitrBlock{example}
+\vspace*{10cm}
+
+Nous voulons maintenant savoir ce qui se produit lorsque nous avons une
+fonction \(z=f(x,y)\) différentiable, \(x=x(u,v)\) et \(y=y(u,v)\).
+
+\BeginKnitrBlock{theorem}
+\protect\hypertarget{thm:unnamed-chunk-184}{}{\label{thm:unnamed-chunk-184}
+}Soit une fonction \(z=f(x,y)\) différentiable, \(x=x(u,v)\) et
+\(y=y(u,v)\). Nous avons: \begin{align*}
+\dfrac{\partial z}{\partial u} &= \dfrac{\partial f}{\partial x}\dfrac{\partial x}{\partial u} + \dfrac{\partial f}{\partial y}\dfrac{\partial y}{\partial u} \\
+\dfrac{\partial z}{\partial v} &= \dfrac{\partial f}{\partial x}\dfrac{\partial x}{\partial v} + \dfrac{\partial f}{\partial y}\dfrac{\partial y}{\partial v}
+\end{align*}
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}
+\iffalse{} {Preuve. } \fi{}Nous ne ferons pas la preuve exacte mais nous
+allons dessiner le schéma de dérivation.
+\EndKnitrBlock{proof}
+
+\includegraphics{calcul3_files/figure-latex/unnamed-chunk-186-1.pdf}
+Remarquons que si nous suivons toutes les \emph{branches} de
+l'\emph{arbre} en multipliant les dérivées et en additionnant les
+branches, nous obtenons le résultat du théorème. ```
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-187}{}{\label{exm:unnamed-chunk-187}
+}Déterminez \(\dfrac{\partial z}{\partial u}\) et
+\(\dfrac{\partial z}{\partial v}\) si \(z=x^2+y^2\), \(x=uv\) et
+\(y=\dfrac{u}{v}\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-188}{}{\label{exm:unnamed-chunk-188}
+}Déterminez \(\dfrac{\partial z}{\partial u}\) et
+\(\dfrac{\partial z}{\partial v}\) si \(z=\sqrt{x^2+y^2}\), \(x=e^{uv}\)
+et \(y=1+u^2\cos(v)\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{les-derivees-de-surfaces-implicites}{%
+\subsection{Les dérivées de surfaces
+implicites}\label{les-derivees-de-surfaces-implicites}}
+
+Certaines surfaces sont définies de façon implicites et il est parfois
+plus simple de les dériver implicitement plutôt que de tenter de les
+dériver de façon explicite. De plus, certaines surfaces ne peuvent pas
+être exprimées de façon explicite.
+
+Pour dériver de façon implicite, il faut garder en mémoire que si la
+fonction possède \(n\) variables, alors une des \(n\) variables dépend
+des \(n-1\) autres.
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:deriv-implicite-sphere}{}{\label{exm:deriv-implicite-sphere}
+}Trouvez \(\dfrac{\partial z}{\partial x}\) et
+\(\dfrac{\partial z}{\partial y}\) si \(x^2+y^2+z^2=R^2\), où \(R\) est
+une constante.
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-189}{}{\label{exm:unnamed-chunk-189}
+}Utilisez les dérivées trouvées à l'exemple
+\ref(exm:deriv-implicite-sphere) pour trouver l'équation du plan tangent
+à la sphère \(x^2+y^2+z^2=3\) au point (1,1,1).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-190}{}{\label{exm:unnamed-chunk-190}
+}Trouvez l'équation du plan tangent à la surface
+\(\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1\) au point
+\(\left( \frac{a}{\sqrt{3}},\frac{b}{\sqrt{3}},\frac{c}{\sqrt{3}} \right)\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-191}{}{\label{exm:unnamed-chunk-191}
+}Utilisez le changement de variables \(r=x+ct\), \(s=x-ct\) et
+\(w(r,s)=u(x,t)\) pour transformer l'équation suivante:
+\[ \dfrac{\partial^2 u}{\partial t^2} = c^2\dfrac{\partial^2 u}{\partial x^2} \]
+\EndKnitrBlock{example}
+\vspace*{10cm}
 
 \hypertarget{la-derivee-directionnelle}{%
 \section{La dérivée directionnelle}\label{la-derivee-directionnelle}}
 
+\hypertarget{optimisation}{%
+\chapter{L'optimisation}\label{optimisation}}
+
 \hypertarget{intfctvars}{%
 \chapter{L'intégration de fonctions de plusieurs
 variables}\label{intfctvars}}
-
-Allo
-
-\hypertarget{introduction-5}{%
-\section{Introduction}\label{introduction-5}}
-
-\BeginKnitrBlock{definition}
-\protect\hypertarget{def:unnamed-chunk-182}{}{\label{def:unnamed-chunk-182}
-}Un essai
-\EndKnitrBlock{definition}
 
 \bibliography{book.bib,packages.bib}
 
