@@ -8,7 +8,7 @@ bookdown::gitbook:
       github: no
       twitter: yes
     toc:
-      collapse: section
+      collapse: none
       before: |
         <li><a href="./">Calcul différentiel et intégral dans l'espace</a></li>
       after: |

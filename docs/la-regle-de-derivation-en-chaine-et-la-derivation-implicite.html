@@ -25,7 +25,7 @@
 <meta name="author" content="Marc-André Désautels">
 
 
-<meta name="date" content="2018-10-11">
+<meta name="date" content="2018-10-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -172,7 +172,13 @@
 <li class="chapter" data-level="6.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="lapproximation-quadratique.html"><a href="lapproximation-quadratique.html"><i class="fa fa-check"></i><b>6.2</b> L’approximation quadratique</a></li>
 <li class="chapter" data-level="6.3" data-path="les-points-critiques-et-leur-nature.html"><a href="les-points-critiques-et-leur-nature.html"><i class="fa fa-check"></i><b>6.3</b> Les points critiques et leur nature</a></li>
-<li class="chapter" data-level="6.4" data-path="applications-1.html"><a href="applications-1.html"><i class="fa fa-check"></i><b>6.4</b> Applications</a></li>
+<li class="chapter" data-level="6.4" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html"><i class="fa fa-check"></i><b>6.4</b> La droite de régression</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#le-quartet-danscombe"><i class="fa fa-check"></i><b>6.4.1</b> Le quartet d’Anscombe</a></li>
+<li class="chapter" data-level="6.4.2" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#datasaurus"><i class="fa fa-check"></i><b>6.4.2</b> DatasauRus</a></li>
+<li class="chapter" data-level="6.4.3" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#dautres-types-de-regression"><i class="fa fa-check"></i><b>6.4.3</b> D’autres types de régression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="la-distance-minimale.html"><a href="la-distance-minimale.html"><i class="fa fa-check"></i><b>6.5</b> La distance minimale</a></li>
+<li class="chapter" data-level="6.6" data-path="loptimisation-avec-contraintes.html"><a href="loptimisation-avec-contraintes.html"><i class="fa fa-check"></i><b>6.6</b> L’optimisation avec contraintes</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="intfctvars.html"><a href="intfctvars.html"><i class="fa fa-check"></i><b>7</b> L’intégration de fonctions de plusieurs variables</a></li>
 <li class="divider"></li>
@@ -213,8 +219,8 @@
 </div>
 
 <p>La manière la plus simple de trouver une dérivée à l’aide du théorème <a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html#thm:deriv-chaine-1">5.2</a>, est de construire un schéma de dérivation. Si nous dessinons le schéma de dérivaton de la fonction du théorème <a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html#thm:deriv-chaine-1">5.2</a>, nous obtenons l’image suivante.</p>
-<div id="htmlwidget-534deb024fe0e3b0cad1" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-534deb024fe0e3b0cad1">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; t\n\n  # several \"edge\" statements\n  f->x f->y x->t y->t\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-92a3cf7fa71b062f77c1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-92a3cf7fa71b062f77c1">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; t\n\n  # several \"edge\" statements\n  f->x f->y x->t y->t\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Pour dériver à la chaîne à l’aide de la figure précédente, nous partons du haut de l’<em>arbre</em> et nous parcourons toutes les <em>branches</em> qui se rendent jusqu’à la variable par rapport à laquelle nous dérivons, en multipliant les dérivées. Nous additionnons toutes les <em>branches</em> pour obtenir la dérivée.</p>
 
 <div class="example">
@@ -246,8 +252,8 @@
  <span class="proof"><em>Preuve. </em></span> Nous ne ferons pas la preuve exacte mais nous allons dessiner le schéma de dérivation.
 </div>
 
-<p><div id="htmlwidget-5df0aa8fcf8314069a25" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5df0aa8fcf8314069a25">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; u; v\n\n  # several \"edge\" statements\n  f->x f->y x->u y->u x->v y->v\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p><div id="htmlwidget-df27d061f1c16e3c46c7" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-df27d061f1c16e3c46c7">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; u; v\n\n  # several \"edge\" statements\n  f->x f->y x->u y->u x->v y->v\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 Remarquons que si nous suivons toutes les <em>branches</em> de l’<em>arbre</em> en multipliant les dérivées et en additionnant les branches, nous obtenons le résultat du théorème.
 ```</p>
 
@@ -328,7 +334,7 @@ gitbook.start({
 },
 "download": ["calcul3.pdf", "calcul3.epub"],
 "toc": {
-"collapse": "section"
+"collapse": "none"
 }
 });
 });

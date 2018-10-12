@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-10-11}
+    \date{2018-10-12}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -3140,17 +3140,18 @@ plan}\label{lequation-cartesienne-dun-plan}}
 \BeginKnitrBlock{definition}[Le vecteur normal à un plan]
 \protect\hypertarget{def:unnamed-chunk-169}{}{\label{def:unnamed-chunk-169}
 \iffalse (Le vecteur normal à un plan) \fi{} }Soit un plan \(\pi\). Un
-vecteur normal au plan, noté \(\vec n\), est un vecteur tel que tous les
-vecteurs se trouvant sur le plan sont perpendiculaires à \(\vec n\).
+vecteur normal au plan, noté \(\overrightarrow{n}\), est un vecteur tel
+que tous les vecteurs se trouvant sur le plan sont perpendiculaires à
+\(\overrightarrow{n}\).
 \EndKnitrBlock{definition}
 
 Nous allons maintenant utiliser le vecteur normal au plan pour définir
 l'équation normale du plan de l'espace. Soit un plan \(\pi\) et un
-vecteur \(\vec n=[a,b,c]\) normal à ce plan. Soit aussi un point
-\(P(x_0,y_0,z_0)\) connu faisant partie du plan et un point \(Q(x,y,z)\)
-un point quelconque du plan. La figure \ref{fig:eq-cartesienne-plan}
-représente un plan ainsi que l'un de se vecteur normal avec un point
-\(P\) connu.
+vecteur \(\overrightarrow{n}=[a,b,c]\) normal à ce plan. Soit aussi un
+point \(P(x_0,y_0,z_0)\) connu faisant partie du plan et un point
+\(Q(x,y,z)\) un point quelconque du plan. La figure
+\ref{fig:eq-cartesienne-plan} représente un plan ainsi que l'un de se
+vecteur normal avec un point \(P\) connu.
 
 \begin{figure}
 
@@ -3161,21 +3162,22 @@ représente un plan ainsi que l'un de se vecteur normal avec un point
 \caption{Représentation d'un plan avec un de ses vecteur normal.}\label{fig:eq-cartesienne-plan}
 \end{figure}
 
-Puisque le vecteur normal \(\vec n\) est perpendiculaire à tous les
-vecteurs se trouvant sur le plan, il est en particulier perpendiculaire
-au vecteur \(\overrightarrow{PQ}\). Si nous définissons le vecteur
-\(\vec p = \overrightarrow{OP}\) et le vecteur
-\(\vec x=\overrightarrow{OQ}\), nous avons que: \begin{align*}
-\vec n \cdot (\vec x - \vec p) &= 0 \quad \text{car $\vec n \perp (\vec x - \vec p)$}
+Puisque le vecteur normal \(\overrightarrow{n}\) est perpendiculaire à
+tous les vecteurs se trouvant sur le plan, il est en particulier
+perpendiculaire au vecteur \(\overrightarrow{PQ}\). Si nous définissons
+le vecteur \(\overrightarrow{p} = \overrightarrow{OP}\) et le vecteur
+\(\overrightarrow{x}=\overrightarrow{OQ}\), nous avons que:
+\begin{align*}
+\overrightarrow{n} \cdot (\overrightarrow{x} - \overrightarrow{p}) &= 0 \quad \text{car $\overrightarrow{n} \perp (\overrightarrow{x} - \overrightarrow{p})$}
 \end{align*} Nous avons donc:
 
 \BeginKnitrBlock{definition}[L'équation cartésienne d'un plan]
 \protect\hypertarget{def:unnamed-chunk-170}{}{\label{def:unnamed-chunk-170}
 \iffalse (L'équation cartésienne d'un plan) \fi{} }Soit un plan \(\pi\).
-Soit un vecteur normal à ce plan \(\vec n=[a,b,c]\) et un point de ce
-plan \(P(x_0,y_0,z_0)\) connu. L'équation normale du plan est donnée
-par: \begin{align*}
-\vec n \cdot (\vec x - \vec p) &= 0 \\
+Soit un vecteur normal à ce plan \(\overrightarrow{n}=[a,b,c]\) et un
+point de ce plan \(P(x_0,y_0,z_0)\) connu. L'équation normale du plan
+est donnée par: \begin{align*}
+\overrightarrow{n} \cdot (\overrightarrow{x} - \overrightarrow{p}) &= 0 \\
 [a,b,c] \cdot [x-x_0,y-y_0,z-z_0] &= 0 \\
 a(x-x_0)+b(y-y_0)+c(z-z_0) &= 0
 \end{align*}
@@ -3535,10 +3537,10 @@ utiliserons pour ce faire la dérivée directionnelle.
 \(z=f(x,y)\) une fonction différentiable et
 \(\overrightarrow{u}=[u_1,u_2]\), un vecteur unitaire (c'est-à-dire un
 vecteur dont la norme est égale à \(1\)). Nous disons que la dérivée de
-\(f\) dans la direction \(\vec u\), notée \(D_{\vec u}f\),est donnée
-par:
-\[ D_{\vec u}f = \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \] si
-cette limite existe.
+\(f\) dans la direction \(\overrightarrow{u}\), notée
+\(D_{\overrightarrow{u}}f\),est donnée par:
+\[ D_{\overrightarrow{u}}f = \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \]
+si cette limite existe.
 \EndKnitrBlock{definition}
 
 Pour visualiser la dérivée directionnelle, nous vous invitons à utiliser
@@ -3548,10 +3550,10 @@ point auquel vous visualisez la dérivée directionnelle.
 
 \BeginKnitrBlock{remark}
 \iffalse{} {Remarque. } \fi{}Nous remarquons que si
-\(\vec u=[1,0]=\vec \imath\), nous obtenons la dérivée partielle par
-rapport à \(x\). D'une manière similaire, si
-\(\vec u=[0,1]=\vec\jmath\), nous obtenons la dérivée partielle par
-rapport à \(x\).
+\(\overrightarrow{u}=[1,0]=\overrightarrow{\imath}\), nous obtenons la
+dérivée partielle par rapport à \(x\). D'une manière similaire, si
+\(\overrightarrow{u}=[0,1]=\overrightarrow{\jmath}\), nous obtenons la
+dérivée partielle par rapport à \(x\).
 \EndKnitrBlock{remark}
 
 L'utilisation de la définition \ref{def:deriv-directionnelle} pour
@@ -3562,14 +3564,14 @@ dérivée directionnelles plus simplement.
 \BeginKnitrBlock{theorem}
 \protect\hypertarget{thm:derivee-directionnelle}{}{\label{thm:derivee-directionnelle}
 }Soit une fonction \(z=f(x,y)\) différentiable au point \((x_0,y_0)\) et
-soit \(\vec u=[u_1,u_2]\) un vecteur unitaire. Nous avons:
-\[ D_{\vec u}f(x_0,y_0) = f_x(x_0,y_0)u_1 + f_y(x_0,y_0)u_2 \]
+soit \(\overrightarrow{u}=[u_1,u_2]\) un vecteur unitaire. Nous avons:
+\[ D_{\overrightarrow{u}}f(x_0,y_0) = f_x(x_0,y_0)u_1 + f_y(x_0,y_0)u_2 \]
 \EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{proof}
 \iffalse{} {Preuve. } \fi{}Posons \(g(h)=f(x+u_1h,y+u_2h)\). Nous avons:
 \begin{align}
-D_{\vec u}f(x_0,y_0) &= \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \notag\\
+D_{\overrightarrow{u}}f(x_0,y_0) &= \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \notag\\
 &= \lim_{h\to 0} \dfrac{g(h)-g(0)}{h} \notag\\
 &= g'(0) \label{eq:deriv-directionnelle} \quad \text{par définition de $g'$}
 \end{align} Posons manitenant \(x=x_0+u_1h\) et \(y=y_0+u_2h\). D'où
@@ -3577,7 +3579,7 @@ D_{\vec u}f(x_0,y_0) &= \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \notag\
 \(g'(h)=f_xu_1+f_yu_2\). Si nous évaluons cette expression en \(h=0\) ,
 nous obtenons: \begin{align*}
 g'(0) &= f_x(x_0,y_0)u_1+f_y(x_0,y_0)u_2 \\
-&= D_{\vec u}f(x_0,y_0)
+&= D_{\overrightarrow{u}}f(x_0,y_0)
 \end{align*} La dernière ligne est obtenue par l'équation
 \eqref{eq:deriv-directionnelle}.
 \EndKnitrBlock{proof}
@@ -3585,7 +3587,7 @@ g'(0) &= f_x(x_0,y_0)u_1+f_y(x_0,y_0)u_2 \\
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-194}{}{\label{exm:unnamed-chunk-194}
 }Déterminez le taux de variation de \(f(x,y)=\cos(xy)+y^2\) dans la
-direction du vecteur \(\vec u=[1,1]\).
+direction du vecteur \(\overrightarrow{u}=[1,1]\).
 \EndKnitrBlock{example}
 \vspace*{8cm}
 
@@ -3598,11 +3600,11 @@ direction du vecteur \(\vec u=[1,1]\).
 \def\labelenumi{\alph{enumi}.}
 \tightlist
 \item
-  \(\vec u =[1,2]\)
+  \(\overrightarrow{u} =[1,2]\)
 \item
-  \(\vec u =[-2,1]\)
+  \(\overrightarrow{u} =[-2,1]\)
 \item
-  \(\vec u =[1,1]\)
+  \(\overrightarrow{u} =[1,1]\)
 \end{enumerate}
 \EndKnitrBlock{example}
 \vspace*{10cm}
@@ -3650,15 +3652,16 @@ caractéristiques intéressantes.
 
 \BeginKnitrBlock{theorem}
 \protect\hypertarget{thm:unnamed-chunk-199}{}{\label{thm:unnamed-chunk-199}
-}Soit \(f(x,y)\) une fonction différentiable et \(\vec u\) un vecteur
-unitaire. Nous avons alors: \[ D_{\vec u} f = \nabla f \cdot \vec u \]
+}Soit \(f(x,y)\) une fonction différentiable et \(\overrightarrow{u}\)
+un vecteur unitaire. Nous avons alors:
+\[ D_{\overrightarrow{u}} f = \nabla f \cdot \overrightarrow{u} \]
 \EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{proof}
 \iffalse{} {Preuve. } \fi{}Nous avons: \begin{align*}
-\nabla f \cdot \vec u &= \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \cdot [u_1,u_2] \\
+\nabla f \cdot \overrightarrow{u} &= \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \cdot [u_1,u_2] \\
 &= \dfrac{\partial f}{\partial x}u_1 + \dfrac{\partial f}{\partial y}u_2 \\
-&= D_{\vec u} f
+&= D_{\overrightarrow{u}} f
 \end{align*} La dernière ligne est obtenue par le théorème
 \ref{thm:derivee-directionnelle}.
 \EndKnitrBlock{proof}
@@ -3671,20 +3674,21 @@ cette direction est donné par la norme du gradient.
 \EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{proof}
-\iffalse{} {Preuve. } \fi{}Soit un vecteur unitaire \(\vec u\). La
-dérivée directionnelle de \(f\) dans la direction de \(\vec u\) est
-donnée par \(D_{\vec u} f = \nabla f \cdot \vec u\). Nous voulons
-trouvez \(\vec u\) tel que cette dérivée est maximale. Nous savons que:
-\begin{align*}
-\nabla f \cdot \vec u &= ||\nabla f || \cdot ||\vec u || \cos(\theta) \\
-&= ||\nabla f || \cos(\theta) \quad \text{car $\vec u$ est unitaire}
-\end{align*} où \(\theta\) est l'angle entre \(\nabla f\) et \(\vec u\).
-Le membre de droite est maximal si \(\cos(\theta)=1\), c'est-à-dire
-lorsque \(\theta=0\). D'où la direction maximale est celle donnée par le
-vecteur gradient.
+\iffalse{} {Preuve. } \fi{}Soit un vecteur unitaire
+\(\overrightarrow{u}\). La dérivée directionnelle de \(f\) dans la
+direction de \(\overrightarrow{u}\) est donnée par
+\(D_{\overrightarrow{u}} f = \nabla f \cdot \overrightarrow{u}\). Nous
+voulons trouvez \(\overrightarrow{u}\) tel que cette dérivée est
+maximale. Nous savons que: \begin{align*}
+\nabla f \cdot \overrightarrow{u} &= ||\nabla f || \cdot ||\overrightarrow{u} || \cos(\theta) \\
+&= ||\nabla f || \cos(\theta) \quad \text{car $\overrightarrow{u}$ est unitaire}
+\end{align*} où \(\theta\) est l'angle entre \(\nabla f\) et
+\(\overrightarrow{u}\). Le membre de droite est maximal si
+\(\cos(\theta)=1\), c'est-à-dire lorsque \(\theta=0\). D'où la direction
+maximale est celle donnée par le vecteur gradient.
 
 De plus, dans cette direction, la dérivée directionnelle est
-\(D_{\vec u} f=||\nabla f ||\).
+\(D_{\overrightarrow{u}} f=||\nabla f ||\).
 \EndKnitrBlock{proof}
 
 \BeginKnitrBlock{example}
@@ -3714,15 +3718,18 @@ niveaux de cette fonction.
 
 \BeginKnitrBlock{proof}
 \iffalse{} {Preuve. } \fi{}Soit un point \((x_0,y_0)\) du domaine de la
-fonction \(f\). Soit \(\vec u\) un vecteur unitaire pointant dans la
-direction de la courbe de niveau passant par le point \((x_0,y_0)\). La
-figure \ref{fig:gradientcourbeniveaux} représente cette situation.
+fonction \(f\). Soit \(\overrightarrow{u}\) un vecteur unitaire pointant
+dans la direction de la courbe de niveau passant par le point
+\((x_0,y_0)\). La figure \ref{fig:gradientcourbeniveaux} représente
+cette situation.
 
-À ce moment, nous avons \(D_{\vec u} f(x_0,y_0)=0\), car la fonction ne
-varie pas le long d'une courbe de niveau. Nous pouvons également écrire
-\(D_{\vec u} f(x_0,y_0)=0=||\nabla f(x_0,y_0)||\cos(\theta)\), où
-\(\theta\) est l'angle entre le vecteur gradient et \(\vec u\). Puisque
-\(||\nabla f(x_0,y_0)||\) n'est pas obligatoirement nul, nous avons que:
+À ce moment, nous avons \(D_{\overrightarrow{u}} f(x_0,y_0)=0\), car la
+fonction ne varie pas le long d'une courbe de niveau. Nous pouvons
+également écrire
+\(D_{\overrightarrow{u}} f(x_0,y_0)=0=||\nabla f(x_0,y_0)||\cos(\theta)\),
+où \(\theta\) est l'angle entre le vecteur gradient et
+\(\overrightarrow{u}\). Puisque \(||\nabla f(x_0,y_0)||\) n'est pas
+obligatoirement nul, nous avons que:
 \[ \cos(\theta) = 0 \Longrightarrow \theta=\dfrac{\pi}{2} \] Ainsi, le
 gradient est perpendiculaire aux courbes de niveaux.
 \EndKnitrBlock{proof}
@@ -3840,7 +3847,7 @@ valeur maximale de \(f\) sur \(D\) et le \textbf{minimum absolu} de
 \protect\hypertarget{thm:gradient-max-min}{}{\label{thm:gradient-max-min}
 }Soit une fonction \(z=f(x,y)\) différentiable autour du point
 \((x_0,y_0)\). Si le point \((x_0,y_0)\) est un maximum ou minimum local
-de \(f\), alors: \[ \nabla f(x_0,y_0)=\vec 0 \]
+de \(f\), alors: \[ \nabla f(x_0,y_0)=\overrightarrow{0} \]
 \EndKnitrBlock{theorem}
 
 \BeginKnitrBlock{proof}
@@ -3855,7 +3862,7 @@ démonstration pour le cas d'un minimum est similaire). Si nous fixons
 Nous avons donc que \(g'(y_0)=0\). Mais \(g'(y_0)=f_y(x_0,y_0)=0\).
 
 D'une manière similaire, nous avons que \(f_x(x_0,y_0)=0\). D'où
-\(\nabla f(x_0,y_0)=\vec 0\).
+\(\nabla f(x_0,y_0)=\overrightarrow{0}\).
 \EndKnitrBlock{proof}
 
 \BeginKnitrBlock{remark}
@@ -3873,7 +3880,7 @@ Pour spécifier la nature d'un point critique, nous aurons besoin d'un
 test supplémentaire.
 
 \BeginKnitrBlock{theorem}
-\protect\hypertarget{thm:unnamed-chunk-213}{}{\label{thm:unnamed-chunk-213}
+\protect\hypertarget{thm:test-derivee-seconde}{}{\label{thm:test-derivee-seconde}
 }Soit une fonction \(z=f(x,y)\) possédant un point critique en
 \((x_0,y_0)\). Soit le scalaire:
 \[ D=f_{xx}(x_0,y_0)\cdot f_{yy}(x_0,y_0)-\left(f_{xy}(x_0,y_0) \right)^2 \]
@@ -3950,14 +3957,14 @@ et elle est vers le bas dans l'autre direction.
 \end{figure}
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:unnamed-chunk-215}{}{\label{exm:unnamed-chunk-215}
+\protect\hypertarget{exm:unnamed-chunk-214}{}{\label{exm:unnamed-chunk-214}
 }Déterminez tous les points critiques de la fonction \(f(x,y)=x^2-y^2\)
 et donnez leur nature.
 \EndKnitrBlock{example}
 \vspace*{8cm}
 
 \BeginKnitrBlock{example}
-\protect\hypertarget{exm:unnamed-chunk-216}{}{\label{exm:unnamed-chunk-216}
+\protect\hypertarget{exm:unnamed-chunk-215}{}{\label{exm:unnamed-chunk-215}
 }Déterminez tous les points critiques de la fonction
 \(f(x,y)=x^4+y^4-4xy+1\) et donnez leur nature.
 \EndKnitrBlock{example}
@@ -3971,8 +3978,290 @@ et donnez leur nature.
 \end{figure}
 \vspace*{8cm}
 
-\hypertarget{applications-1}{%
-\section{Applications}\label{applications-1}}
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-216}{}{\label{exm:unnamed-chunk-216}
+}Déterminez tous les points critiques de la fonction
+\(f(x,y)=2x^3-6xy+3y^2\) et donnez leur nature.
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-217}{}{\label{exm:unnamed-chunk-217}
+}Déterminez tous les points critiques de la fonction
+\(f(x,y)=xye^{-\frac{x^2+y^2}{2}}\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{la-droite-de-regression}{%
+\section{La droite de régression}\label{la-droite-de-regression}}
+
+Supposons que nous ayons amassé \(n\) couples de données \((x_i,y_i)\)
+pour \(i\in \{1,2,\ldots, n\}\). Nous voulons déterminer l'équation de
+laa droite qui minimise la somme des carrés des distances verticales
+entre les points et cette droite. En d'autre mots, nous voulons trouver
+l'équation de la droite \emph{la plus proche} du nuage de points. Cette
+situation est représentée à la figure \ref{fig:droite-regression}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{resources/images/latex/droiteregression} 
+
+}
+
+\caption{Nuage de points et droite de régression}\label{fig:droite-regression}
+\end{figure}
+
+Nous allons supposer que l'équation est de la forme \(y=ax+b\) avec
+\(a\) et \(b\) que nous devons déterminer en minimisant la somme des
+carrés des distances verticales. Nous savons:
+
+\[ d_i^2 = (y-y_i)^2 = (ax_i+b-y_i)^2 \]
+
+Nous voulons minimiser la somme de toutes ces distances, c'est-à-dire:
+
+\begin{equation}
+\begin{split}
+f(a,b) &= \sum_{i=1}^n d_i^2 \notag \\
+&= \sum_{i=1}^n (ax_i+b-y_i)^2
+\end{split}
+\label{eq:somme-distances}
+\end{equation}
+
+Nous désirons trouver \(a\) et \(b\) tels qu'ils minimisent la fonction
+\(f(a,b)\). Nous désirons en fait trouver les points critiques de \(f\):
+
+\begin{align}
+\dfrac{\partial f}{\partial a} &= \sum_{i=1}^n 2x_i(ax_i+b-y_i) = 0 \label{eq:deriv1}\\
+\dfrac{\partial f}{\partial b} &= \sum_{i=1}^n 2(ax_i+b-y_i) = 0 \label{eq:deriv2}
+\end{align}
+
+En utilisant l'équation \eqref{eq:deriv2}, nous obtenons:
+
+\begin{align}
+\sum_{i=1}^n 2(ax_i+b-y_i) &= 0 \notag\\
+\sum_{i=1}^n 2ax_i + \sum_{i=1}^n 2b - \sum_{i=1}^n 2y_i &= 0 \notag\\
+b \sum_{i=1}^n 1 &= \sum_{i=1}^n y_i - a \sum_{i=1}^n x_i \notag\\
+bn &= \sum_{i=1}^n y_i - a \sum_{i=1}^n x_i \notag\\
+b &= \dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n} \label{eq:valeurb}
+\end{align}
+
+Nous devons maintenant remplacer l'équation \eqref{eq:valeurb} dans
+l'équation \eqref{eq:deriv1}.
+
+\begin{align*}
+\sum_{i=1}^n 2x_i(ax_i+b-y_i) &= 0 \\
+a\sum_{i=1}^n x_i^2 + b \sum_{i=1}^n x_i - \sum_{i=1}^n x_iy_i &= 0 \\
+a\sum_{i=1}^n x_i^2 + \left(\dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n}\right) \sum_{i=1}^n x_i - \sum_{i=1}^n x_iy_i &= 0 \\
+an\sum_{i=1}^n x_i^2+\left(\sum_{i=1}^n x_i\right)\left(\sum_{i=1}^n y_i\right)-a\left(\sum_{i=1}^n x_i\right)^2- \sum_{i=1}^n x_iy_i &= 0 \\
+a\left(n\sum_{i=1}^n x_i^2-\left(\sum_{i=1}^n x_i\right)^2\right) &= \sum_{i=1}^n x_iy_i-\left(\sum_{i=1}^n x_i\right)\left(\sum_{i=1}^n y_i\right) \\
+a &= \dfrac{\sum\limits_{i=1}^n x_iy_i-\left(\sum\limits_{i=1}^n x_i\right)\left(\sum\limits_{i=1}^n y_i\right)}{n\sum\limits_{i=1}^n x_i^2-\left(\sum\limits_{i=1}^n x_i\right)^2}
+\end{align*}
+
+En résumé, nous avons:
+
+\begin{align*}
+a &= \dfrac{\sum\limits_{i=1}^n x_iy_i-\left(\sum\limits_{i=1}^n x_i\right)\left(\sum\limits_{i=1}^n y_i\right)}{n\sum\limits_{i=1}^n x_i^2-\left(\sum\limits_{i=1}^n x_i\right)^2} \\
+b &= \dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n}
+\end{align*}
+
+En utilisant le théorème \ref{thm:test-derivee-seconde}, nous pourrions
+démontrer que ces valeurs de \(a\) et \(b\) minimisent la fonction
+\(f\).
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-218}{}{\label{exm:unnamed-chunk-218}
+}Utilisez les données suivantes pour trouver la droite de régression
+associée au nuage de points de la figure \ref{fig:anscombe1}.
+\EndKnitrBlock{example}
+
+\begin{tabular}{cc}
+\toprule
+x & y\\
+\midrule
+10 & 8.04\\
+8 & 6.95\\
+13 & 7.58\\
+9 & 8.81\\
+11 & 8.33\\
+\addlinespace
+14 & 9.96\\
+6 & 7.24\\
+4 & 4.26\\
+12 & 10.84\\
+7 & 4.82\\
+\addlinespace
+5 & 5.68\\
+\bottomrule
+\end{tabular}
+
+\begin{figure}
+
+{\centering \includegraphics{calcul3_files/figure-latex/anscombe1-1} 
+
+}
+
+\caption{Le nuage de points.}\label{fig:anscombe1}
+\end{figure}
+\vspace*{10cm}
+
+\hypertarget{le-quartet-danscombe}{%
+\subsection{Le quartet d'Anscombe}\label{le-quartet-danscombe}}
+
+Le quartet d'Anscombe est constitué de quatre ensembles de données qui
+ont les mêmes propriétés statistiques simples mais qui sont en réalité
+très différents, ce qui se voit facilement lorsqu'on les représente sous
+forme de graphiques. Ils ont été construits en 1973 par le statisticien
+Francis Anscombe dans le but de démontrer l'importance de tracer des
+graphiques avant d'analyser des données, car cela permet notamment
+d'estimer l'incidence des données aberrantes sur les différentes indices
+statistiques que l'on pourrait calculer.
+
+Dans la table \ref{tab:quartet-anscombe}, les observations \(x_i\) sont
+reliées aux observations \(y_i\).
+
+\begin{table}[t]
+
+\caption{\label{tab:quartet-anscombe}Le quartet d'Anscombe}
+\centering
+\begin{tabular}{cccccccc}
+\toprule
+x1 & x2 & x3 & x4 & y1 & y2 & y3 & y4\\
+\midrule
+10 & 10 & 10 & 8 & 8.04 & 9.14 & 7.46 & 6.58\\
+8 & 8 & 8 & 8 & 6.95 & 8.14 & 6.77 & 5.76\\
+13 & 13 & 13 & 8 & 7.58 & 8.74 & 12.74 & 7.71\\
+9 & 9 & 9 & 8 & 8.81 & 8.77 & 7.11 & 8.84\\
+11 & 11 & 11 & 8 & 8.33 & 9.26 & 7.81 & 8.47\\
+\addlinespace
+14 & 14 & 14 & 8 & 9.96 & 8.10 & 8.84 & 7.04\\
+6 & 6 & 6 & 8 & 7.24 & 6.13 & 6.08 & 5.25\\
+4 & 4 & 4 & 19 & 4.26 & 3.10 & 5.39 & 12.50\\
+12 & 12 & 12 & 8 & 10.84 & 9.13 & 8.15 & 5.56\\
+7 & 7 & 7 & 8 & 4.82 & 7.26 & 6.42 & 7.91\\
+\addlinespace
+5 & 5 & 5 & 8 & 5.68 & 4.74 & 5.73 & 6.89\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Avant d'afficher les ensembles de données, nous allons calculer quelques
+mesures sur chacun de ces ensembles, à savoir, la moyenne des \(x\), la
+moyenne des \(y\), la variance des \(x\), la variance des \(y\) et le
+coefficient de corrélation.
+
+\begin{tabular}{c|c|c|c|c|c}
+\hline
+ensemble & moyenne des \$x\$ & variance des \$x\$ & moyenne des \$y\$ & variance des \$y\$ & coeff. de corrélation\\
+\hline
+I & 9 & 11 & 7.500909 & 4.127269 & 0.8164205\\
+\hline
+II & 9 & 11 & 7.500909 & 4.127629 & 0.8162365\\
+\hline
+III & 9 & 11 & 7.500000 & 4.122620 & 0.8162867\\
+\hline
+IV & 9 & 11 & 7.500909 & 4.123249 & 0.8165214\\
+\hline
+\end{tabular}
+
+Comme nous pouvons le remarquer, les quatre ensembles de données
+possèdent les mêmes mesures. Par contre, lorsque nous affichons ensuite
+les quatre ensembles de données, nous remarquons que ces ensembles sont
+très différents.
+
+\begin{figure}
+
+{\centering \includegraphics{calcul3_files/figure-latex/graphe-quartet-anscombe-1} 
+
+}
+
+\caption{Les nuages de points et les droites de régression pour le quartet d'Anscombe.}\label{fig:graphe-quartet-anscombe}
+\end{figure}
+
+\hypertarget{datasaurus}{%
+\subsection{DatasauRus}\label{datasaurus}}
+
+Les données disponibles dans la librairie \texttt{datasauRus} nous
+montrent pourquoi la visualisation est importante. Les treize ensembles
+de données possèdent tous les mêmes statiistiques descriptives et les
+mêmes droites de régression, mais leur aspect graphique est fort
+différent.
+
+La table \ref{tab:datasaurus-mesures} montre les mesures pour les treize
+ensembles de données.
+
+\begin{table}[t]
+
+\caption{\label{tab:datasaurus-mesures}Les mesures de datasauRus}
+\centering
+\begin{tabular}{cccccc}
+\toprule
+dataset & moyenne des \$x\$ & variance des \$x\$ & moyenne des \$y\$ & variance des \$y\$ & coeff. de corrélation\\
+\midrule
+away & 54.26610 & 281.2270 & 47.83472 & 725.7498 & -0.0641284\\
+bullseye & 54.26873 & 281.2074 & 47.83082 & 725.5334 & -0.0685864\\
+circle & 54.26732 & 280.8980 & 47.83772 & 725.2268 & -0.0683434\\
+dino & 54.26327 & 281.0700 & 47.83225 & 725.5160 & -0.0644719\\
+dots & 54.26030 & 281.1570 & 47.83983 & 725.2352 & -0.0603414\\
+\addlinespace
+h\_lines & 54.26144 & 281.0953 & 47.83025 & 725.7569 & -0.0617148\\
+high\_lines & 54.26881 & 281.1224 & 47.83545 & 725.7635 & -0.0685042\\
+slant\_down & 54.26785 & 281.1242 & 47.83590 & 725.5537 & -0.0689797\\
+slant\_up & 54.26588 & 281.1944 & 47.83150 & 725.6886 & -0.0686092\\
+star & 54.26734 & 281.1980 & 47.83955 & 725.2397 & -0.0629611\\
+\addlinespace
+v\_lines & 54.26993 & 281.2315 & 47.83699 & 725.6388 & -0.0694456\\
+wide\_lines & 54.26692 & 281.2329 & 47.83160 & 725.6506 & -0.0665752\\
+x\_shape & 54.26015 & 281.2315 & 47.83972 & 725.2250 & -0.0655833\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+La figure \ref{fig:datasaurus-graph} représente les 13 ensembles de
+données graphiquement avec leurs droites de régression.
+
+\begin{figure}
+
+{\centering \includegraphics{calcul3_files/figure-latex/datasaurus-graph-1} 
+
+}
+
+\caption{Les 13 ensembles de données de datasauRus.}\label{fig:datasaurus-graph}
+\end{figure}
+
+\hypertarget{dautres-types-de-regression}{%
+\subsection{D'autres types de
+régression}\label{dautres-types-de-regression}}
+
+TODO\ldots{} MAYBE
+
+\hypertarget{la-distance-minimale}{%
+\section{La distance minimale}\label{la-distance-minimale}}
+
+La distance entre deux objets mathématiques (points, droites, plans,
+\ldots{}) correspond en réalité à la plus petite distance entre ces
+objets. Pour trouver cette plus courte distance, nous utiliserons
+l'optimisation des fonctions de plusieurs variables.
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Habituellement, nous minimiserons le carré
+de la distance plutôt que la distance. Nous obtenons de cette façon le
+même résultat mais les calculs à faire seront plus simples.
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-223}{}{\label{exm:unnamed-chunk-223}
+}Trouvez la distance entre le point \((1,2,3)\) et le plan \(x+y+z=1\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{loptimisation-avec-contraintes}{%
+\section{L'optimisation avec
+contraintes}\label{loptimisation-avec-contraintes}}
+
+Jusqu'à maintenant, nous avons optimisé des fonctions sans contraintes,
+c'est-à-dire que nous optimisions la fonction sur tout son domaine. Par
+contre, nous devons parfois optimiser une fonction sur un ensemble fermé
+de \(\mathbb{R}^2\).
 
 \hypertarget{intfctvars}{%
 \chapter{L'intégration de fonctions de plusieurs

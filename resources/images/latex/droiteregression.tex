@@ -1,0 +1,39 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+%%\usepackage{pst-solides3d}
+\usepackage{pst-3dplot}
+
+\begin{document}
+
+\psset{unit=1,algebraic}
+\begin{pspicture}(-1,-1)(5.5,5.5)
+
+	\psaxes[labels=none,ticks=none]{->}(0,0)(-1,-1)(5,5)[$x$,-90][$y$,180]
+	
+	\psline[linecolor=blue](0.5,2)(4.5,4.5)
+	
+	\psdot[dotstyle=o,dotsize=0.2](0.8,3)
+	\psdot[dotstyle=o,dotsize=0.2](1,1.5)
+	\psdot[dotstyle=o,dotsize=0.2](1.5,3.5)
+	\psdot[dotstyle=o,dotsize=0.2](1.8,1.9)
+	\psdot[dotstyle=o,dotsize=0.2](2.5,2.9)
+	\psdot[dotstyle=o,dotsize=0.2](3,1.8)
+	\psdot[dotstyle=o,dotsize=0.2](2.6,3.8)
+	\psdot[dotstyle=o,dotsize=0.2](3.75,4.5)
+	\psdot[dotsize=0.2](3.5,3.85)
+	\psdot[dotstyle=o,dotsize=0.2](4,3.8)
+	
+	\psline[linestyle=dashed](3.5,3)(3.5,3.875)
+	
+		\psdot[dotstyle=o,dotsize=0.2](3.5,3)
+	\uput[200](3.5,3.4375){$d_i$}
+	\uput[0](3.5,3){$(x_i,y_i)$}
+	\uput[135](3.5,3.85){$(x_i,ax_i+b)$}
+
+\end{pspicture}
+
+\end{document}

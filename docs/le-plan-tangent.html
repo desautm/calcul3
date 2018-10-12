@@ -25,7 +25,7 @@
 <meta name="author" content="Marc-André Désautels">
 
 
-<meta name="date" content="2018-10-11">
+<meta name="date" content="2018-10-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -172,7 +172,13 @@
 <li class="chapter" data-level="6.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="lapproximation-quadratique.html"><a href="lapproximation-quadratique.html"><i class="fa fa-check"></i><b>6.2</b> L’approximation quadratique</a></li>
 <li class="chapter" data-level="6.3" data-path="les-points-critiques-et-leur-nature.html"><a href="les-points-critiques-et-leur-nature.html"><i class="fa fa-check"></i><b>6.3</b> Les points critiques et leur nature</a></li>
-<li class="chapter" data-level="6.4" data-path="applications-1.html"><a href="applications-1.html"><i class="fa fa-check"></i><b>6.4</b> Applications</a></li>
+<li class="chapter" data-level="6.4" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html"><i class="fa fa-check"></i><b>6.4</b> La droite de régression</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#le-quartet-danscombe"><i class="fa fa-check"></i><b>6.4.1</b> Le quartet d’Anscombe</a></li>
+<li class="chapter" data-level="6.4.2" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#datasaurus"><i class="fa fa-check"></i><b>6.4.2</b> DatasauRus</a></li>
+<li class="chapter" data-level="6.4.3" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#dautres-types-de-regression"><i class="fa fa-check"></i><b>6.4.3</b> D’autres types de régression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="la-distance-minimale.html"><a href="la-distance-minimale.html"><i class="fa fa-check"></i><b>6.5</b> La distance minimale</a></li>
+<li class="chapter" data-level="6.6" data-path="loptimisation-avec-contraintes.html"><a href="loptimisation-avec-contraintes.html"><i class="fa fa-check"></i><b>6.6</b> L’optimisation avec contraintes</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="intfctvars.html"><a href="intfctvars.html"><i class="fa fa-check"></i><b>7</b> L’intégration de fonctions de plusieurs variables</a></li>
 <li class="divider"></li>
@@ -202,26 +208,26 @@
 <h3><span class="header-section-number">5.4.1</span> L’équation cartésienne d’un plan</h3>
 
 <div class="definition">
-<span id="def:unnamed-chunk-169" class="definition"><strong>Définition 5.3  (Le vecteur normal à un plan)  </strong></span>Soit un plan <span class="math inline">\(\pi\)</span>. Un vecteur normal au plan, noté <span class="math inline">\(\vec n\)</span>, est un vecteur tel que tous les vecteurs se trouvant sur le plan sont perpendiculaires à <span class="math inline">\(\vec n\)</span>.
+<span id="def:unnamed-chunk-169" class="definition"><strong>Définition 5.3  (Le vecteur normal à un plan)  </strong></span>Soit un plan <span class="math inline">\(\pi\)</span>. Un vecteur normal au plan, noté <span class="math inline">\(\overrightarrow{n}\)</span>, est un vecteur tel que tous les vecteurs se trouvant sur le plan sont perpendiculaires à <span class="math inline">\(\overrightarrow{n}\)</span>.
 </div>
 
-<p>Nous allons maintenant utiliser le vecteur normal au plan pour définir l’équation normale du plan de l’espace. Soit un plan <span class="math inline">\(\pi\)</span> et un vecteur <span class="math inline">\(\vec n=[a,b,c]\)</span> normal à ce plan. Soit aussi un point <span class="math inline">\(P(x_0,y_0,z_0)\)</span> connu faisant partie du plan et un point <span class="math inline">\(Q(x,y,z)\)</span> un point quelconque du plan. La figure <a href="le-plan-tangent.html#fig:eq-cartesienne-plan">5.2</a> représente un plan ainsi que l’un de se vecteur normal avec un point <span class="math inline">\(P\)</span> connu.</p>
+<p>Nous allons maintenant utiliser le vecteur normal au plan pour définir l’équation normale du plan de l’espace. Soit un plan <span class="math inline">\(\pi\)</span> et un vecteur <span class="math inline">\(\overrightarrow{n}=[a,b,c]\)</span> normal à ce plan. Soit aussi un point <span class="math inline">\(P(x_0,y_0,z_0)\)</span> connu faisant partie du plan et un point <span class="math inline">\(Q(x,y,z)\)</span> un point quelconque du plan. La figure <a href="le-plan-tangent.html#fig:eq-cartesienne-plan">5.2</a> représente un plan ainsi que l’un de se vecteur normal avec un point <span class="math inline">\(P\)</span> connu.</p>
 <div class="figure" style="text-align: center"><span id="fig:eq-cartesienne-plan"></span>
 <img src="resources/images/latex/eqcartesienneplan.png" alt="Représentation d'un plan avec un de ses vecteur normal." width="75%" />
 <p class="caption">
 Figure 5.2: Représentation d’un plan avec un de ses vecteur normal.
 </p>
 </div>
-<p>Puisque le vecteur normal <span class="math inline">\(\vec n\)</span> est perpendiculaire à tous les vecteurs se trouvant sur le plan, il est en particulier perpendiculaire au vecteur <span class="math inline">\(\overrightarrow{PQ}\)</span>. Si nous définissons le vecteur <span class="math inline">\(\vec p = \overrightarrow{OP}\)</span> et le vecteur <span class="math inline">\(\vec x=\overrightarrow{OQ}\)</span>, nous avons que:
+<p>Puisque le vecteur normal <span class="math inline">\(\overrightarrow{n}\)</span> est perpendiculaire à tous les vecteurs se trouvant sur le plan, il est en particulier perpendiculaire au vecteur <span class="math inline">\(\overrightarrow{PQ}\)</span>. Si nous définissons le vecteur <span class="math inline">\(\overrightarrow{p} = \overrightarrow{OP}\)</span> et le vecteur <span class="math inline">\(\overrightarrow{x}=\overrightarrow{OQ}\)</span>, nous avons que:
 <span class="math display">\[\begin{align*}
-\vec n \cdot (\vec x - \vec p) &amp;= 0 \quad \text{car $\vec n \perp (\vec x - \vec p)$}
+\overrightarrow{n} \cdot (\overrightarrow{x} - \overrightarrow{p}) &amp;= 0 \quad \text{car $\overrightarrow{n} \perp (\overrightarrow{x} - \overrightarrow{p})$}
 \end{align*}\]</span>
 Nous avons donc:</p>
 
 <div class="definition">
-<span id="def:unnamed-chunk-170" class="definition"><strong>Définition 5.4  (L’équation cartésienne d’un plan)  </strong></span>Soit un plan <span class="math inline">\(\pi\)</span>. Soit un vecteur normal à ce plan <span class="math inline">\(\vec n=[a,b,c]\)</span> et un point de ce plan <span class="math inline">\(P(x_0,y_0,z_0)\)</span> connu. L’équation normale du plan est donnée par:
+<span id="def:unnamed-chunk-170" class="definition"><strong>Définition 5.4  (L’équation cartésienne d’un plan)  </strong></span>Soit un plan <span class="math inline">\(\pi\)</span>. Soit un vecteur normal à ce plan <span class="math inline">\(\overrightarrow{n}=[a,b,c]\)</span> et un point de ce plan <span class="math inline">\(P(x_0,y_0,z_0)\)</span> connu. L’équation normale du plan est donnée par:
 <span class="math display">\[\begin{align*}
-\vec n \cdot (\vec x - \vec p) &amp;= 0 \\
+\overrightarrow{n} \cdot (\overrightarrow{x} - \overrightarrow{p}) &amp;= 0 \\
 [a,b,c] \cdot [x-x_0,y-y_0,z-z_0] &amp;= 0 \\
 a(x-x_0)+b(y-y_0)+c(z-z_0) &amp;= 0
 \end{align*}\]</span>
@@ -313,7 +319,7 @@ gitbook.start({
 },
 "download": ["calcul3.pdf", "calcul3.epub"],
 "toc": {
-"collapse": "section"
+"collapse": "none"
 }
 });
 });

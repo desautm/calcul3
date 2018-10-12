@@ -25,7 +25,7 @@
 <meta name="author" content="Marc-André Désautels">
 
 
-<meta name="date" content="2018-10-11">
+<meta name="date" content="2018-10-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -172,7 +172,13 @@
 <li class="chapter" data-level="6.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
 <li class="chapter" data-level="6.2" data-path="lapproximation-quadratique.html"><a href="lapproximation-quadratique.html"><i class="fa fa-check"></i><b>6.2</b> L’approximation quadratique</a></li>
 <li class="chapter" data-level="6.3" data-path="les-points-critiques-et-leur-nature.html"><a href="les-points-critiques-et-leur-nature.html"><i class="fa fa-check"></i><b>6.3</b> Les points critiques et leur nature</a></li>
-<li class="chapter" data-level="6.4" data-path="applications-1.html"><a href="applications-1.html"><i class="fa fa-check"></i><b>6.4</b> Applications</a></li>
+<li class="chapter" data-level="6.4" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html"><i class="fa fa-check"></i><b>6.4</b> La droite de régression</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#le-quartet-danscombe"><i class="fa fa-check"></i><b>6.4.1</b> Le quartet d’Anscombe</a></li>
+<li class="chapter" data-level="6.4.2" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#datasaurus"><i class="fa fa-check"></i><b>6.4.2</b> DatasauRus</a></li>
+<li class="chapter" data-level="6.4.3" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#dautres-types-de-regression"><i class="fa fa-check"></i><b>6.4.3</b> D’autres types de régression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="la-distance-minimale.html"><a href="la-distance-minimale.html"><i class="fa fa-check"></i><b>6.5</b> La distance minimale</a></li>
+<li class="chapter" data-level="6.6" data-path="loptimisation-avec-contraintes.html"><a href="loptimisation-avec-contraintes.html"><i class="fa fa-check"></i><b>6.6</b> L’optimisation avec contraintes</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="intfctvars.html"><a href="intfctvars.html"><i class="fa fa-check"></i><b>7</b> L’intégration de fonctions de plusieurs variables</a></li>
 <li class="divider"></li>
@@ -223,17 +229,17 @@ Le gradient d’une fonction est un vecteur.
 <p>Le vecteur gradient est très utile ccar celui-ci possède plusieurs caractéristiques intéressantes.</p>
 
 <div class="theorem">
-<span id="thm:unnamed-chunk-199" class="theorem"><strong>Théorème 5.5  </strong></span>Soit <span class="math inline">\(f(x,y)\)</span> une fonction différentiable et <span class="math inline">\(\vec u\)</span> un vecteur unitaire. Nous avons alors:
-<span class="math display">\[ D_{\vec u} f = \nabla f \cdot \vec u \]</span>
+<span id="thm:unnamed-chunk-199" class="theorem"><strong>Théorème 5.5  </strong></span>Soit <span class="math inline">\(f(x,y)\)</span> une fonction différentiable et <span class="math inline">\(\overrightarrow{u}\)</span> un vecteur unitaire. Nous avons alors:
+<span class="math display">\[ D_{\overrightarrow{u}} f = \nabla f \cdot \overrightarrow{u} \]</span>
 </div>
 
 
 <div class="proof">
 <p> <span class="proof"><em>Preuve. </em></span> Nous avons:
 <span class="math display">\[\begin{align*}
-\nabla f \cdot \vec u &amp;= \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \cdot [u_1,u_2] \\
+\nabla f \cdot \overrightarrow{u} &amp;= \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \cdot [u_1,u_2] \\
 &amp;= \dfrac{\partial f}{\partial x}u_1 + \dfrac{\partial f}{\partial y}u_2 \\
-&amp;= D_{\vec u} f
+&amp;= D_{\overrightarrow{u}} f
 \end{align*}\]</span>
 La dernière ligne est obtenue par le théorème <a href="la-derivee-directionnelle.html#thm:derivee-directionnelle">5.4</a>.</p>
 </div>
@@ -245,13 +251,13 @@ La dernière ligne est obtenue par le théorème <a href="la-derivee-directionne
 
 
 <div class="proof">
-<p> <span class="proof"><em>Preuve. </em></span> Soit un vecteur unitaire <span class="math inline">\(\vec u\)</span>. La dérivée directionnelle de <span class="math inline">\(f\)</span> dans la direction de <span class="math inline">\(\vec u\)</span> est donnée par <span class="math inline">\(D_{\vec u} f = \nabla f \cdot \vec u\)</span>. Nous voulons trouvez <span class="math inline">\(\vec u\)</span> tel que cette dérivée est maximale. Nous savons que:
+<p> <span class="proof"><em>Preuve. </em></span> Soit un vecteur unitaire <span class="math inline">\(\overrightarrow{u}\)</span>. La dérivée directionnelle de <span class="math inline">\(f\)</span> dans la direction de <span class="math inline">\(\overrightarrow{u}\)</span> est donnée par <span class="math inline">\(D_{\overrightarrow{u}} f = \nabla f \cdot \overrightarrow{u}\)</span>. Nous voulons trouvez <span class="math inline">\(\overrightarrow{u}\)</span> tel que cette dérivée est maximale. Nous savons que:
 <span class="math display">\[\begin{align*}
-\nabla f \cdot \vec u &amp;= ||\nabla f || \cdot ||\vec u || \cos(\theta) \\
-&amp;= ||\nabla f || \cos(\theta) \quad \text{car $\vec u$ est unitaire}
+\nabla f \cdot \overrightarrow{u} &amp;= ||\nabla f || \cdot ||\overrightarrow{u} || \cos(\theta) \\
+&amp;= ||\nabla f || \cos(\theta) \quad \text{car $\overrightarrow{u}$ est unitaire}
 \end{align*}\]</span>
-où <span class="math inline">\(\theta\)</span> est l’angle entre <span class="math inline">\(\nabla f\)</span> et <span class="math inline">\(\vec u\)</span>. Le membre de droite est maximal si <span class="math inline">\(\cos(\theta)=1\)</span>, c’est-à-dire lorsque <span class="math inline">\(\theta=0\)</span>. D’où la direction maximale est celle donnée par le vecteur gradient.</p>
-<p>De plus, dans cette direction, la dérivée directionnelle est <span class="math inline">\(D_{\vec u} f=||\nabla f ||\)</span>.</p>
+où <span class="math inline">\(\theta\)</span> est l’angle entre <span class="math inline">\(\nabla f\)</span> et <span class="math inline">\(\overrightarrow{u}\)</span>. Le membre de droite est maximal si <span class="math inline">\(\cos(\theta)=1\)</span>, c’est-à-dire lorsque <span class="math inline">\(\theta=0\)</span>. D’où la direction maximale est celle donnée par le vecteur gradient.</p>
+<p>De plus, dans cette direction, la dérivée directionnelle est <span class="math inline">\(D_{\overrightarrow{u}} f=||\nabla f ||\)</span>.</p>
 </div>
 
 
@@ -272,8 +278,8 @@ où <span class="math inline">\(\theta\)</span> est l’angle entre <span class=
 
 
 <div class="proof">
-<p> <span class="proof"><em>Preuve. </em></span> Soit un point <span class="math inline">\((x_0,y_0)\)</span> du domaine de la fonction <span class="math inline">\(f\)</span>. Soit <span class="math inline">\(\vec u\)</span> un vecteur unitaire pointant dans la direction de la courbe de niveau passant par le point <span class="math inline">\((x_0,y_0)\)</span>. La figure <a href="le-vecteur-gradient.html#fig:gradientcourbeniveaux">5.3</a> représente cette situation.</p>
-À ce moment, nous avons <span class="math inline">\(D_{\vec u} f(x_0,y_0)=0\)</span>, car la fonction ne varie pas le long d’une courbe de niveau. Nous pouvons également écrire <span class="math inline">\(D_{\vec u} f(x_0,y_0)=0=||\nabla f(x_0,y_0)||\cos(\theta)\)</span>, où <span class="math inline">\(\theta\)</span> est l’angle entre le vecteur gradient et <span class="math inline">\(\vec u\)</span>. Puisque <span class="math inline">\(||\nabla f(x_0,y_0)||\)</span> n’est pas obligatoirement nul, nous avons que:
+<p> <span class="proof"><em>Preuve. </em></span> Soit un point <span class="math inline">\((x_0,y_0)\)</span> du domaine de la fonction <span class="math inline">\(f\)</span>. Soit <span class="math inline">\(\overrightarrow{u}\)</span> un vecteur unitaire pointant dans la direction de la courbe de niveau passant par le point <span class="math inline">\((x_0,y_0)\)</span>. La figure <a href="le-vecteur-gradient.html#fig:gradientcourbeniveaux">5.3</a> représente cette situation.</p>
+À ce moment, nous avons <span class="math inline">\(D_{\overrightarrow{u}} f(x_0,y_0)=0\)</span>, car la fonction ne varie pas le long d’une courbe de niveau. Nous pouvons également écrire <span class="math inline">\(D_{\overrightarrow{u}} f(x_0,y_0)=0=||\nabla f(x_0,y_0)||\cos(\theta)\)</span>, où <span class="math inline">\(\theta\)</span> est l’angle entre le vecteur gradient et <span class="math inline">\(\overrightarrow{u}\)</span>. Puisque <span class="math inline">\(||\nabla f(x_0,y_0)||\)</span> n’est pas obligatoirement nul, nous avons que:
 <span class="math display">\[ \cos(\theta) = 0 \Longrightarrow \theta=\dfrac{\pi}{2} \]</span>
 Ainsi, le gradient est perpendiculaire aux courbes de niveaux.
 </div>
@@ -342,7 +348,7 @@ gitbook.start({
 },
 "download": ["calcul3.pdf", "calcul3.epub"],
 "toc": {
-"collapse": "section"
+"collapse": "none"
 }
 });
 });

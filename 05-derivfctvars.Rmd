@@ -185,25 +185,25 @@ Nous désirons trouver l'équation du plan tangent à une surface donnée par la
 ### L'équation cartésienne d'un plan
 
 ```{definition, name="Le vecteur normal à un plan"}
-Soit un plan $\pi$. Un vecteur normal au plan, noté $\vec n$, est un vecteur tel que tous les vecteurs se trouvant sur le plan sont perpendiculaires à $\vec n$.
+Soit un plan $\pi$. Un vecteur normal au plan, noté $\overrightarrow{n}$, est un vecteur tel que tous les vecteurs se trouvant sur le plan sont perpendiculaires à $\overrightarrow{n}$.
 ```
 
-Nous allons maintenant utiliser le vecteur normal au plan pour définir l'équation normale du plan de l'espace. Soit un plan $\pi$ et un vecteur $\vec n=[a,b,c]$ normal à ce plan. Soit aussi un point $P(x_0,y_0,z_0)$ connu faisant partie du plan et un point $Q(x,y,z)$ un point quelconque du plan. La figure \@ref(fig:eq-cartesienne-plan) représente un plan ainsi que l'un de se vecteur normal avec un point $P$ connu.
+Nous allons maintenant utiliser le vecteur normal au plan pour définir l'équation normale du plan de l'espace. Soit un plan $\pi$ et un vecteur $\overrightarrow{n}=[a,b,c]$ normal à ce plan. Soit aussi un point $P(x_0,y_0,z_0)$ connu faisant partie du plan et un point $Q(x,y,z)$ un point quelconque du plan. La figure \@ref(fig:eq-cartesienne-plan) représente un plan ainsi que l'un de se vecteur normal avec un point $P$ connu.
 
 ```{r,echo=FALSE,fig.align="center",label="eq-cartesienne-plan",out.width="75%",fig.cap="Représentation d'un plan avec un de ses vecteur normal."}
 knitr::include_graphics("resources/images/latex/eqcartesienneplan.png")
 ```
 
-Puisque le vecteur normal $\vec n$ est perpendiculaire à tous les vecteurs se trouvant sur le plan, il est en particulier perpendiculaire au vecteur $\overrightarrow{PQ}$. Si nous définissons le vecteur $\vec p = \overrightarrow{OP}$ et le vecteur $\vec x=\overrightarrow{OQ}$, nous avons que:
+Puisque le vecteur normal $\overrightarrow{n}$ est perpendiculaire à tous les vecteurs se trouvant sur le plan, il est en particulier perpendiculaire au vecteur $\overrightarrow{PQ}$. Si nous définissons le vecteur $\overrightarrow{p} = \overrightarrow{OP}$ et le vecteur $\overrightarrow{x}=\overrightarrow{OQ}$, nous avons que:
 \begin{align*}
-\vec n \cdot (\vec x - \vec p) &= 0 \quad \text{car $\vec n \perp (\vec x - \vec p)$}
+\overrightarrow{n} \cdot (\overrightarrow{x} - \overrightarrow{p}) &= 0 \quad \text{car $\overrightarrow{n} \perp (\overrightarrow{x} - \overrightarrow{p})$}
 \end{align*}
 Nous avons donc:
 
 ```{definition, name="L'équation cartésienne d'un plan"}
-Soit un plan $\pi$. Soit un vecteur normal à ce plan $\vec n=[a,b,c]$ et un point de ce plan $P(x_0,y_0,z_0)$ connu. L'équation normale du plan est donnée par:
+Soit un plan $\pi$. Soit un vecteur normal à ce plan $\overrightarrow{n}=[a,b,c]$ et un point de ce plan $P(x_0,y_0,z_0)$ connu. L'équation normale du plan est donnée par:
 \begin{align*}
-\vec n \cdot (\vec x - \vec p) &= 0 \\
+\overrightarrow{n} \cdot (\overrightarrow{x} - \overrightarrow{p}) &= 0 \\
 [a,b,c] \cdot [x-x_0,y-y_0,z-z_0] &= 0 \\
 a(x-x_0)+b(y-y_0)+c(z-z_0) &= 0
 \end{align*}
@@ -478,27 +478,27 @@ $$ \dfrac{\partial^2 u}{\partial t^2} = c^2\dfrac{\partial^2 u}{\partial x^2} $$
 Nous avons jusqu'à maintenant étudié les dérivées partielles d'une fonction par rapport aux variables $x$ et $y$. Celles-ci correspondent respectivement au taux de variation de la fonction dans la direction de l'axe des $x$ et de l'axe des $y$. Nous aimerions maintenant trouver le taux de variation dans une autre direction. Nous utiliserons pour ce faire la dérivée directionnelle.
 
 ```{definition, name="La dérivée directionnelle", label="deriv-directionnelle"}
-Soit une fonction $z=f(x,y)$ une fonction différentiable et $\overrightarrow{u}=[u_1,u_2]$, un vecteur unitaire (c'est-à-dire un vecteur dont la norme est égale à $1$). Nous disons que la dérivée de $f$ dans la direction $\vec u$, notée $D_{\vec u}f$,est donnée par:
-$$ D_{\vec u}f = \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} $$
+Soit une fonction $z=f(x,y)$ une fonction différentiable et $\overrightarrow{u}=[u_1,u_2]$, un vecteur unitaire (c'est-à-dire un vecteur dont la norme est égale à $1$). Nous disons que la dérivée de $f$ dans la direction $\overrightarrow{u}$, notée $D_{\overrightarrow{u}}f$,est donnée par:
+$$ D_{\overrightarrow{u}}f = \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} $$
 si cette limite existe.
 ```
 
 Pour visualiser la dérivée directionnelle, nous vous invitons à utiliser l'application GeoGebra de la section \@ref(geogebra-derivfctvar). Celle-ci vous permet de changer la direction du vecteur unitaire et le point auquel vous visualisez la dérivée directionnelle.
 
 ```{remark}
-Nous remarquons que si $\vec u=[1,0]=\vec \imath$, nous obtenons la dérivée partielle par rapport à $x$. D'une manière similaire, si $\vec u=[0,1]=\vec\jmath$, nous obtenons la dérivée partielle par rapport à $x$.
+Nous remarquons que si $\overrightarrow{u}=[1,0]=\overrightarrow{\imath}$, nous obtenons la dérivée partielle par rapport à $x$. D'une manière similaire, si $\overrightarrow{u}=[0,1]=\overrightarrow{\jmath}$, nous obtenons la dérivée partielle par rapport à $x$.
 ```
 
 L'utilisation de la définition \@ref(def:deriv-directionnelle) pour calculer des dérivées directionnelles n'est pas appropriée pour la plupart des problèmes. Le théorème suivant nous permettra de calculer la dérivée directionnelles plus simplement.
 
 ```{theorem, label="derivee-directionnelle"}
-Soit une fonction $z=f(x,y)$ différentiable au point $(x_0,y_0)$ et soit $\vec u=[u_1,u_2]$ un vecteur unitaire. Nous avons:
-$$ D_{\vec u}f(x_0,y_0) = f_x(x_0,y_0)u_1 + f_y(x_0,y_0)u_2 $$
+Soit une fonction $z=f(x,y)$ différentiable au point $(x_0,y_0)$ et soit $\overrightarrow{u}=[u_1,u_2]$ un vecteur unitaire. Nous avons:
+$$ D_{\overrightarrow{u}}f(x_0,y_0) = f_x(x_0,y_0)u_1 + f_y(x_0,y_0)u_2 $$
 ```
 ```{proof}
 Posons $g(h)=f(x+u_1h,y+u_2h)$. Nous avons:
 \begin{align}
-D_{\vec u}f(x_0,y_0) &= \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \notag\\
+D_{\overrightarrow{u}}f(x_0,y_0) &= \lim_{h\to 0} \dfrac{f(x+hu_1,y+hu_2)-f(x,y)}{h} \notag\\
 &= \lim_{h\to 0} \dfrac{g(h)-g(0)}{h} \notag\\
 &= g'(0) (\#eq:deriv-directionnelle) \quad \text{par définition de $g'$}
 \end{align}
@@ -506,23 +506,23 @@ Posons manitenant $x=x_0+u_1h$ et $y=y_0+u_2h$. D'où $g(h)=f(x,y)$. Par la règ
 , nous obtenons:
 \begin{align*}
 g'(0) &= f_x(x_0,y_0)u_1+f_y(x_0,y_0)u_2 \\
-&= D_{\vec u}f(x_0,y_0)
+&= D_{\overrightarrow{u}}f(x_0,y_0)
 \end{align*}
 La dernière ligne est obtenue par l'équation \@ref(eq:deriv-directionnelle).
 
 ```
 
 ```{example}
-Déterminez le taux de variation de $f(x,y)=\cos(xy)+y^2$ dans la direction du vecteur $\vec u=[1,1]$.
+Déterminez le taux de variation de $f(x,y)=\cos(xy)+y^2$ dans la direction du vecteur $\overrightarrow{u}=[1,1]$.
 ```
 \vspace*{8cm}
 
 ```{example}
 Trouvez la dérivée directionnelle de $f(x,y)=y^4+2xy^3+x^2y^2$ en $(0,1)$ dans les directions suivantes:
 
-a. $\vec u =[1,2]$
-a. $\vec u =[-2,1]$
-a. $\vec u =[1,1]$
+a. $\overrightarrow{u} =[1,2]$
+a. $\overrightarrow{u} =[-2,1]$
+a. $\overrightarrow{u} =[1,1]$
 
 ```
 \vspace*{10cm}
@@ -556,15 +556,15 @@ a. $f(x,y)=\dfrac{x-y}{x+y}$
 Le vecteur gradient est très utile ccar celui-ci possède plusieurs caractéristiques intéressantes.
 
 ```{theorem}
-Soit $f(x,y)$ une fonction différentiable et $\vec u$ un vecteur unitaire. Nous avons alors:
-$$ D_{\vec u} f = \nabla f \cdot \vec u $$
+Soit $f(x,y)$ une fonction différentiable et $\overrightarrow{u}$ un vecteur unitaire. Nous avons alors:
+$$ D_{\overrightarrow{u}} f = \nabla f \cdot \overrightarrow{u} $$
 ```
 ```{proof}
 Nous avons:
 \begin{align*}
-\nabla f \cdot \vec u &= \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \cdot [u_1,u_2] \\
+\nabla f \cdot \overrightarrow{u} &= \left[\dfrac{\partial f}{\partial x},\dfrac{\partial f}{\partial y}\right] \cdot [u_1,u_2] \\
 &= \dfrac{\partial f}{\partial x}u_1 + \dfrac{\partial f}{\partial y}u_2 \\
-&= D_{\vec u} f
+&= D_{\overrightarrow{u}} f
 \end{align*}
 La dernière ligne est obtenue par le théorème \@ref(thm:derivee-directionnelle).
 
@@ -574,14 +574,14 @@ La dernière ligne est obtenue par le théorème \@ref(thm:derivee-directionnell
 Le vecteur gradient d'une fonction $f$ pointe dans la direction d'accroissement maximal de celle-ci. De plus, le taux de variation dans cette direction est donné par la norme du gradient.
 ```
 ```{proof}
-Soit un vecteur unitaire $\vec u$. La dérivée directionnelle de $f$ dans la direction de $\vec u$ est donnée par $D_{\vec u} f = \nabla f \cdot \vec u$. Nous voulons trouvez $\vec u$ tel que cette dérivée est maximale. Nous savons que:
+Soit un vecteur unitaire $\overrightarrow{u}$. La dérivée directionnelle de $f$ dans la direction de $\overrightarrow{u}$ est donnée par $D_{\overrightarrow{u}} f = \nabla f \cdot \overrightarrow{u}$. Nous voulons trouvez $\overrightarrow{u}$ tel que cette dérivée est maximale. Nous savons que:
 \begin{align*}
-\nabla f \cdot \vec u &= ||\nabla f || \cdot ||\vec u || \cos(\theta) \\
-&= ||\nabla f || \cos(\theta) \quad \text{car $\vec u$ est unitaire}
+\nabla f \cdot \overrightarrow{u} &= ||\nabla f || \cdot ||\overrightarrow{u} || \cos(\theta) \\
+&= ||\nabla f || \cos(\theta) \quad \text{car $\overrightarrow{u}$ est unitaire}
 \end{align*}
-où $\theta$ est l'angle entre $\nabla f$ et $\vec u$. Le membre de droite est maximal si $\cos(\theta)=1$, c'est-à-dire lorsque $\theta=0$. D'où la direction maximale est celle donnée par le vecteur gradient.
+où $\theta$ est l'angle entre $\nabla f$ et $\overrightarrow{u}$. Le membre de droite est maximal si $\cos(\theta)=1$, c'est-à-dire lorsque $\theta=0$. D'où la direction maximale est celle donnée par le vecteur gradient.
 
-De plus, dans cette direction, la dérivée directionnelle est $D_{\vec u} f=||\nabla f ||$.
+De plus, dans cette direction, la dérivée directionnelle est $D_{\overrightarrow{u}} f=||\nabla f ||$.
 
 ```
 
@@ -601,9 +601,9 @@ La dernière propriété que nous verrons concernant le vecteur gradient met en 
 Le vecteur gradient d'une fonction est perpendiculaire aux courbes de niveaux de cette fonction.
 ```
 ```{proof}
-Soit un point $(x_0,y_0)$ du domaine de la fonction $f$. Soit $\vec u$ un vecteur unitaire pointant dans la direction de la courbe de niveau passant par le point $(x_0,y_0)$. La figure \@ref(fig:gradientcourbeniveaux) représente cette situation.
+Soit un point $(x_0,y_0)$ du domaine de la fonction $f$. Soit $\overrightarrow{u}$ un vecteur unitaire pointant dans la direction de la courbe de niveau passant par le point $(x_0,y_0)$. La figure \@ref(fig:gradientcourbeniveaux) représente cette situation.
 
-À ce moment, nous avons $D_{\vec u} f(x_0,y_0)=0$, car la fonction ne varie pas le long d'une courbe de niveau. Nous pouvons également écrire $D_{\vec u} f(x_0,y_0)=0=||\nabla f(x_0,y_0)||\cos(\theta)$, où $\theta$ est l'angle entre le vecteur gradient et $\vec u$. Puisque $||\nabla f(x_0,y_0)||$ n'est pas obligatoirement nul, nous avons que:
+À ce moment, nous avons $D_{\overrightarrow{u}} f(x_0,y_0)=0$, car la fonction ne varie pas le long d'une courbe de niveau. Nous pouvons également écrire $D_{\overrightarrow{u}} f(x_0,y_0)=0=||\nabla f(x_0,y_0)||\cos(\theta)$, où $\theta$ est l'angle entre le vecteur gradient et $\overrightarrow{u}$. Puisque $||\nabla f(x_0,y_0)||$ n'est pas obligatoirement nul, nous avons que:
 $$ \cos(\theta) = 0 \Longrightarrow \theta=\dfrac{\pi}{2} $$
 Ainsi, le gradient est perpendiculaire aux courbes de niveaux.
 ```

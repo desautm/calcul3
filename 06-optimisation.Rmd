@@ -3,6 +3,10 @@
 ```{r,echo=FALSE,message=FALSE,warning=FALSE}
 library(pracma)
 library(plotly)
+library(tidyverse)
+library(knitr)
+library(ggplot2)
+library(datasauRus)
 ```
 
 Vous trouverez à la section  une application [GeoGebra](https://www.geogebra.org/?lang=fr) vous permettant de visualiser des coupes transversales et des courbes de niveaux. À noter que cette application n'est disponible que dans la version en ligne de ce document.
@@ -38,7 +42,7 @@ Le __maximum absolu__ de $f$ est la valeur maximale de $f$ sur $D$ et le __minim
 
 ```{theorem, label="gradient-max-min"}
 Soit une fonction $z=f(x,y)$ différentiable autour du point $(x_0,y_0)$. Si le point $(x_0,y_0)$ est un maximum ou minimum local de $f$, alors:
-$$ \nabla f(x_0,y_0)=\vec 0 $$
+$$ \nabla f(x_0,y_0)=\overrightarrow{0} $$
 
 ```
 ```{proof}
@@ -46,7 +50,7 @@ Nous savons que si une fonction d'une seule variable possède un minimum ou un m
 
 Maintenant, supposons que $(x_0,y_0)$ est un point de maximum (la démonstration pour le cas d'un minimum est similaire). Si nous fixons $x=x_0$, nous avons une fonction d'une seule variable $g(y)=f(x_0,y)$. Cette fonction possède un maximum lorsque $y=y_0$. Nous avons donc que $g'(y_0)=0$. Mais $g'(y_0)=f_y(x_0,y_0)=0$.
 
-D'une manière similaire, nous avons que $f_x(x_0,y_0)=0$. D'où $\nabla f(x_0,y_0)=\vec 0$.
+D'une manière similaire, nous avons que $f_x(x_0,y_0)=0$. D'où $\nabla f(x_0,y_0)=\overrightarrow{0}$.
 
 ```
 
@@ -58,7 +62,7 @@ L'inverse n'est pas nécessairement vrai, c'est-à-dire que si le gradient en un
 
 Pour spécifier la nature d'un point critique, nous aurons besoin d'un test supplémentaire.
 
-```{theorem}
+```{theorem, label="test-derivee-seconde"}
 Soit une fonction $z=f(x,y)$ possédant un point critique en $(x_0,y_0)$. Soit le scalaire:
 $$ D=f_{xx}(x_0,y_0)\cdot f_{yy}(x_0,y_0)-\left(f_{xy}(x_0,y_0) \right)^2 $$
 Nous pouvons rencontrer les quatres situations suivantes:
@@ -126,6 +130,182 @@ if (knitr:::is_html_output()){
 ```
 \vspace*{8cm}
 
-## Applications
+```{example}
+Déterminez tous les points critiques de la fonction $f(x,y)=2x^3-6xy+3y^2$ et donnez leur nature.
+```
+\vspace*{8cm}
+
+```{example}
+Déterminez tous les points critiques de la fonction $f(x,y)=xye^{-\frac{x^2+y^2}{2}}$.
+```
+\vspace*{8cm}
+
+## La droite de régression
+
+Supposons que nous ayons amassé $n$ couples de données $(x_i,y_i)$ pour $i\in \{1,2,\ldots, n\}$. Nous voulons déterminer l'équation de laa droite qui minimise la somme des carrés des distances verticales entre les points et cette droite. En d'autre mots, nous voulons trouver l'équation de la droite *la plus proche* du nuage de points. Cette situation est représentée à la figure \@ref(fig:droite-regression).
+
+```{r,echo=FALSE,fig.align="center",label="droite-regression",out.width="50%",fig.cap="Nuage de points et droite de régression"}
+knitr::include_graphics("resources/images/latex/droiteregression.png")
+```
+
+Nous allons supposer que l'équation est de la forme $y=ax+b$ avec $a$ et $b$ que nous devons déterminer en minimisant la somme des carrés des distances verticales. Nous savons:
+
+$$ d_i^2 = (y-y_i)^2 = (ax_i+b-y_i)^2 $$
+
+Nous voulons minimiser la somme de toutes ces distances, c'est-à-dire:
+
+\begin{equation}
+\begin{split}
+f(a,b) &= \sum_{i=1}^n d_i^2 \notag \\
+&= \sum_{i=1}^n (ax_i+b-y_i)^2
+\end{split}
+(\#eq:somme-distances)
+\end{equation}
+
+Nous désirons trouver $a$ et $b$ tels qu'ils minimisent la fonction $f(a,b)$. Nous désirons en fait trouver les points critiques de $f$:
+
+\begin{align}
+\dfrac{\partial f}{\partial a} &= \sum_{i=1}^n 2x_i(ax_i+b-y_i) = 0 (\#eq:deriv1)\\
+\dfrac{\partial f}{\partial b} &= \sum_{i=1}^n 2(ax_i+b-y_i) = 0 (\#eq:deriv2)
+\end{align}
+
+En utilisant l'équation \@ref(eq:deriv2), nous obtenons:
+
+\begin{align}
+\sum_{i=1}^n 2(ax_i+b-y_i) &= 0 \notag\\
+\sum_{i=1}^n 2ax_i + \sum_{i=1}^n 2b - \sum_{i=1}^n 2y_i &= 0 \notag\\
+b \sum_{i=1}^n 1 &= \sum_{i=1}^n y_i - a \sum_{i=1}^n x_i \notag\\
+bn &= \sum_{i=1}^n y_i - a \sum_{i=1}^n x_i \notag\\
+b &= \dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n} (\#eq:valeurb)
+\end{align}
+
+Nous devons maintenant remplacer l'équation \@ref(eq:valeurb) dans l'équation \@ref(eq:deriv1).
+
+\begin{align*}
+\sum_{i=1}^n 2x_i(ax_i+b-y_i) &= 0 \\
+a\sum_{i=1}^n x_i^2 + b \sum_{i=1}^n x_i - \sum_{i=1}^n x_iy_i &= 0 \\
+a\sum_{i=1}^n x_i^2 + \left(\dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n}\right) \sum_{i=1}^n x_i - \sum_{i=1}^n x_iy_i &= 0 \\
+an\sum_{i=1}^n x_i^2+\left(\sum_{i=1}^n x_i\right)\left(\sum_{i=1}^n y_i\right)-a\left(\sum_{i=1}^n x_i\right)^2- \sum_{i=1}^n x_iy_i &= 0 \\
+a\left(n\sum_{i=1}^n x_i^2-\left(\sum_{i=1}^n x_i\right)^2\right) &= \sum_{i=1}^n x_iy_i-\left(\sum_{i=1}^n x_i\right)\left(\sum_{i=1}^n y_i\right) \\
+a &= \dfrac{\sum\limits_{i=1}^n x_iy_i-\left(\sum\limits_{i=1}^n x_i\right)\left(\sum\limits_{i=1}^n y_i\right)}{n\sum\limits_{i=1}^n x_i^2-\left(\sum\limits_{i=1}^n x_i\right)^2}
+\end{align*}
+
+En résumé, nous avons:
+
+\begin{align*}
+a &= \dfrac{\sum\limits_{i=1}^n x_iy_i-\left(\sum\limits_{i=1}^n x_i\right)\left(\sum\limits_{i=1}^n y_i\right)}{n\sum\limits_{i=1}^n x_i^2-\left(\sum\limits_{i=1}^n x_i\right)^2} \\
+b &= \dfrac{\sum\limits_{i=1}^n y_i - a \sum\limits_{i=1}^n x_i}{n}
+\end{align*}
+
+En utilisant le théorème \@ref(thm:test-derivee-seconde), nous pourrions démontrer que ces valeurs de $a$ et $b$ minimisent la fonction $f$.
+
+```{example}
+Utilisez les données suivantes pour trouver la droite de régression associée au nuage de points de la figure \@ref(fig:anscombe1).
+```
+```{r, echo=FALSE}
+anscombe %>% 
+  select(x1, y1) %>% 
+  rename(x = x1, y = y1) %>% 
+  kable(booktabs=TRUE, align="c")
+```
+
+```{r,echo=FALSE,fig.align="center",fig.cap="Le nuage de points.",label="anscombe1"}
+anscombe %>% 
+  select(x1, y1) %>% 
+  rename(x = x1, y = y1) %>% 
+  ggplot(aes(x=x, y=y))+
+  geom_point()
+```
+\vspace*{10cm}
+
+### Le quartet d'Anscombe
+
+Le quartet d'Anscombe est constitué de quatre ensembles de données qui ont les mêmes propriétés statistiques simples mais qui sont en réalité très différents, ce qui se voit facilement lorsqu'on les représente sous forme de graphiques. Ils ont été construits en 1973 par le statisticien Francis Anscombe dans le but de démontrer l'importance de tracer des graphiques avant d'analyser des données, car cela permet notamment d'estimer l'incidence des données aberrantes sur les différentes indices statistiques que l'on pourrait calculer.
+
+Dans la table \@ref(tab:quartet-anscombe), les observations $x_i$ sont reliées aux observations $y_i$.
+
+```{r quartet-anscombe,echo=FALSE}
+kable(anscombe, booktabs=TRUE, align="c", caption="Le quartet d'Anscombe")
+```
+
+```{r echo = FALSE}
+anscombe_tidy <- anscombe %>%
+    mutate(observation = seq_len(n())) %>%
+    gather(key, value, -observation) %>%
+    separate(key, c("variable", "ensemble"), 1, convert = TRUE) %>%
+    mutate(ensemble = c("I", "II", "III", "IV")[ensemble]) %>%
+    spread(variable, value)
+```
+
+Avant d'afficher les ensembles de données, nous allons calculer quelques mesures sur chacun de ces ensembles, à savoir, la moyenne des $x$, la moyenne des $y$, la variance des $x$, la variance des $y$ et le coefficient de corrélation.
+
+```{r, echo=FALSE}
+anscombe_tidy %>%
+  group_by(ensemble) %>%
+  summarise("moyenne des $x$"=mean(x), 
+            "variance des $x$"=var(x), 
+            "moyenne des $y$"=mean(y), 
+            "variance des $y$"=var(y), 
+            "coeff. de corrélation"=cor(x,y)) %>%
+  kable(align="c")
+```
+
+Comme nous pouvons le remarquer, les quatre ensembles de données possèdent les mêmes mesures. Par contre, lorsque nous affichons ensuite les quatre ensembles de données, nous remarquons que ces ensembles sont très différents.
+
+```{r, echo=FALSE,fig.cap="Les nuages de points et les droites de régression pour le quartet d'Anscombe.",fig.align="center",label="graphe-quartet-anscombe"}
+ggplot(anscombe_tidy, aes(x, y)) +
+    geom_point() +
+    facet_wrap(~ ensemble) +
+    geom_smooth(method = "lm", se = FALSE)
+```
+
+### DatasauRus
+
+Les données disponibles dans la librairie `datasauRus` nous montrent pourquoi la visualisation est importante. Les treize ensembles de données possèdent tous les mêmes statiistiques descriptives et les mêmes droites de régression, mais leur aspect graphique est fort différent.
+
+La table \@ref(tab:datasaurus-mesures) montre les mesures pour les treize ensembles de données.
+
+```{r datasaurus-mesures, echo=FALSE}
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarise("moyenne des $x$"=mean(x), 
+            "variance des $x$"=var(x), 
+            "moyenne des $y$"=mean(y), 
+            "variance des $y$"=var(y), 
+            "coeff. de corrélation"=cor(x,y)) %>%
+  kable(booktabs=TRUE, align="c", caption="Les mesures de datasauRus")
+```
+
+La figure \@ref(fig:datasaurus-graph) représente les 13 ensembles de données graphiquement avec leurs droites de régression.
+
+```{r datasaurus-graph,echo=FALSE,fig.align="center",fig.cap="Les 13 ensembles de données de datasauRus."}
+ggplot(datasaurus_dozen, aes(x=x, y=y, colour=dataset))+
+  geom_point()+
+  theme_void()+
+  theme(legend.position = "none")+
+  facet_wrap(~dataset, ncol=3)+
+  geom_smooth(method = "lm", se = FALSE)
+```
+
+### D'autres types de régression
+
+TODO... MAYBE
+
+## La distance minimale
+
+La distance entre deux objets mathématiques (points, droites, plans, ...) correspond en réalité à la plus petite distance entre ces objets. Pour trouver cette plus courte distance, nous utiliserons l'optimisation des fonctions de plusieurs variables.
+
+```{remark}
+Habituellement, nous minimiserons le carré de la distance plutôt que la distance. Nous obtenons de cette façon le même résultat mais les calculs à faire seront plus simples.
+```
+
+```{example}
+Trouvez la distance entre le point $(1,2,3)$ et le plan $x+y+z=1$.
+```
+\vspace*{8cm}
+
+## L'optimisation avec contraintes
+
+Jusqu'à maintenant, nous avons optimisé des fonctions sans contraintes, c'est-à-dire que nous optimisions la fonction sur tout son domaine. Par contre, nous devons parfois optimiser une fonction sur un ensemble fermé de $\mathbb{R}^2$.
 
 
