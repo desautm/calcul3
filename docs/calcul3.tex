@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-10-12}
+    \date{2018-10-24}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -4262,6 +4262,70 @@ Jusqu'à maintenant, nous avons optimisé des fonctions sans contraintes,
 c'est-à-dire que nous optimisions la fonction sur tout son domaine. Par
 contre, nous devons parfois optimiser une fonction sur un ensemble fermé
 de \(\mathbb{R}^2\).
+
+Le théorème des valeurs extrèmes pour les fonctions d'une seule variable
+stipule que si \(f\) est continue sur un intervalle fermé \([a,b]\),
+alors \(f\) atteint un minimum absolu et un maximum absolu.
+
+La situation est semblable pour les fonctions de deux variables.
+
+\BeginKnitrBlock{definition}[Ensemble fermé]
+\protect\hypertarget{def:unnamed-chunk-224}{}{\label{def:unnamed-chunk-224}
+\iffalse (Ensemble fermé) \fi{} }Un ensemble fermé de \(\mathbb{R}^2\)
+est un ensemble qui contient ses points frontières.
+\EndKnitrBlock{definition}
+
+Par exemple, le disque \(D=\{(x,y)\in\mathbb{R}^2\mid x^2+y^2\leq 1\}\)
+composé de tous les points à l'intérieur du cercle \(x^2+y^2=1\) et de
+tous les points sur le cercle.
+
+\BeginKnitrBlock{definition}[Ensemble borné]
+\protect\hypertarget{def:unnamed-chunk-225}{}{\label{def:unnamed-chunk-225}
+\iffalse (Ensemble borné) \fi{} }Un ensemble borné de \(\mathbb{R}^2\)
+est un ensemble contenu dans un certain disque. Il est donc d'étendue
+finie.
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{theorem}[Théorème des valeurs extrèmes pour les fonctions de deux variables]
+\protect\hypertarget{thm:valeurs-extremes}{}{\label{thm:valeurs-extremes}
+\iffalse (Théorème des valeurs extrèmes pour les fonctions de deux
+variables) \fi{} }Si \(f(x,y)\) est une fonction continue sur un
+ensemble borné et fermé \(D\) de \(\mathbb{R}^2\), alors \(f\) atteint
+un maximum absolu \(f(x_1,y_1)\) et un minimum absolu \(f(x_2,y_2)\) en
+des points \((x_1,y_1)\) et \((x_2,y_2)\) de \(D\).
+\EndKnitrBlock{theorem}
+
+Pour déterminer les valeurs extrèmes d'une fonction continue \(f(x,y)\)
+sur un ensemble borné fermé \(D\), dont l'existence est garantie par le
+théorème \ref{thm:valeurs-extremes}, les étapes sont les suivantes:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Calculez les valeurs de \(f\) aux points critiques de \(f\) dans
+  \(D\);
+\item
+  Calculez les valeurs extrèmes de \(f\) sur la frontière de \(D\);
+\item
+  La plus grande des valeurs des étapes \(1\) et \(2\) est la valeur
+  maximale absolue, la plus petite de ces valeurs est la valeur minimale
+  absolue.
+\end{enumerate}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-226}{}{\label{exm:unnamed-chunk-226}
+}Trouvez les valeurs extrèmes absolues de la fonction
+\(f(x,y)=x^2-2xy+2y\) sur le rectangle
+\[ D=\{(x,y)\in\mathbb{R}^2 \mid 0 \leq x \leq 3, 0 \leq y \leq 2 \} \]
+\EndKnitrBlock{example}
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{resources/images/optim_rect} 
+
+}
+
+\caption{La fonction $f(x,y)=x^2-2xy+2y$}\label{fig:optimisation-rectangle}
+\end{figure}
 
 \hypertarget{intfctvars}{%
 \chapter{L'intégration de fonctions de plusieurs

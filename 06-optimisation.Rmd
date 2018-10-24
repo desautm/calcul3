@@ -308,4 +308,44 @@ Trouvez la distance entre le point $(1,2,3)$ et le plan $x+y+z=1$.
 
 Jusqu'à maintenant, nous avons optimisé des fonctions sans contraintes, c'est-à-dire que nous optimisions la fonction sur tout son domaine. Par contre, nous devons parfois optimiser une fonction sur un ensemble fermé de $\mathbb{R}^2$.
 
+Le théorème des valeurs extrèmes pour les fonctions d'une seule variable stipule que si $f$ est continue sur un intervalle fermé $[a,b]$, alors $f$ atteint un minimum absolu et un maximum absolu.
+
+La situation est semblable pour les fonctions de deux variables.
+
+```{definition, name="Ensemble fermé"}
+Un ensemble fermé de $\mathbb{R}^2$ est un ensemble qui contient ses points frontières.
+```
+Par exemple, le disque $D=\{(x,y)\in\mathbb{R}^2\mid x^2+y^2\leq 1\}$ composé de tous les points à l'intérieur du cercle $x^2+y^2=1$ et de tous les points sur le cercle.
+
+```{definition, name="Ensemble borné"}
+Un ensemble borné de $\mathbb{R}^2$ est un ensemble contenu dans un certain disque. Il est donc d'étendue finie.
+```
+
+```{theorem, label="valeurs-extremes",name="Théorème des valeurs extrèmes pour les fonctions de deux variables"}
+Si $f(x,y)$ est une fonction continue sur un ensemble borné et fermé $D$ de $\mathbb{R}^2$, alors $f$ atteint un maximum absolu $f(x_1,y_1)$ et un minimum absolu $f(x_2,y_2)$ en des points $(x_1,y_1)$ et $(x_2,y_2)$ de $D$.
+```
+
+Pour déterminer les valeurs extrèmes d'une fonction continue $f(x,y)$ sur un ensemble borné fermé $D$, dont l'existence est garantie par le théorème \@ref(thm:valeurs-extremes), les étapes sont les suivantes:
+
+1. Calculez les valeurs de $f$ aux points critiques de $f$ dans $D$;
+
+1. Calculez les valeurs extrèmes de $f$ sur la frontière de $D$;
+
+1. La plus grande des valeurs des étapes $1$ et $2$ est la valeur maximale absolue, la plus petite de ces valeurs est la valeur minimale absolue.
+
+```{example}
+Trouvez les valeurs extrèmes absolues de la fonction $f(x,y)=x^2-2xy+2y$ sur le rectangle
+$$ D=\{(x,y)\in\mathbb{R}^2 \mid 0 \leq x \leq 3, 0 \leq y \leq 2 \} $$
+```
+```{r ,echo=FALSE,fig.align="center",label="optimisation-rectangle",out.width="80%",fig.cap="La fonction $f(x,y)=x^2-2xy+2y$"}
+if (knitr:::is_html_output()){
+  x <- meshgrid(linspace(0,3,20))$X
+  y <- meshgrid(linspace(0,2,20))$Y
+  fct <- x^2-2*x*y+2*y
+  plot_ly(x=x,y=y,z=~fct, type="surface", showscale=FALSE)
+} else {
+  knitr::include_graphics("resources/images/optim_rect.png")
+}
+```
+
 

@@ -119,3 +119,8 @@ orca(fct_pt_critique,"fct_pt_critique.png")
 fct_pt_critique_contour <- plot_ly(z=~fct, type="contour", showscale=FALSE)
 orca(fct_pt_critique_contour, "fct_pt_critique_contour.png")
 
+x <- meshgrid(linspace(0,3,20))$X
+y <- meshgrid(linspace(0,2,20))$Y
+fct <- x^2-2*x*y+2*y
+optim_rect <- plot_ly(x=x,y=y,z=~fct, type="surface", showscale=FALSE)
+orca(optim_rect, "optim_rect.png")
