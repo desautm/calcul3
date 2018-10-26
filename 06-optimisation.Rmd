@@ -348,4 +348,31 @@ if (knitr:::is_html_output()){
 }
 ```
 
+```{example}
+Trouvez les valeurs minimales et maximales de $f(x,y)=2xy$ sur le disque $x^2+y^2\leq 4$.
+```
+
+```{example}
+Trouvez les valeurs extrèmes de $f(x,y)=x^2ye^{-(x+y)}$ sur la région triangulaire donnée par $x\geq 0$, $y\geq 0$ et $x+y \leq 4$.
+```
+
+```{example}
+Si la somme de 3 nombres positifs est $a$, quelle est leur valeur si la somme de leurs carrés est minimale?
+```
+
+```{example}
+Déterminez le point sur le plan $2x-3y+z=1$ le plus près de l'origine.
+```
+
+```{example}
+Déterminez le point sur le plan $ax+by+cz=d$ le plus près de l'origine.
+```
+
+```{example}
+Une compagnie de téléphonie veut installer une nouvelle antenne de téléphonie cellulaire pour minimiser le caréé des distances entre cette antennes et ses utilisateurs. Si les positions des $n$ utilisateurs sont $(x_i,y_i)$, trouvez la position de l'antenne qui minimise le carré de la distance.
+```
+
+```{example}
+Montrez que la boîte...
+```
 
