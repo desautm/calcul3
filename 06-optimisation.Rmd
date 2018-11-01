@@ -347,32 +347,88 @@ if (knitr:::is_html_output()){
   knitr::include_graphics("resources/images/optim_rect.png")
 }
 ```
+\vspace*{8cm}
 
 ```{example}
 Trouvez les valeurs minimales et maximales de $f(x,y)=2xy$ sur le disque $x^2+y^2\leq 4$.
 ```
+\vspace*{8cm}
 
 ```{example}
 Trouvez les valeurs extrèmes de $f(x,y)=x^2ye^{-(x+y)}$ sur la région triangulaire donnée par $x\geq 0$, $y\geq 0$ et $x+y \leq 4$.
 ```
+\vspace*{8cm}
 
 ```{example}
 Si la somme de 3 nombres positifs est $a$, quelle est leur valeur si la somme de leurs carrés est minimale?
 ```
+\vspace*{8cm}
 
 ```{example}
 Déterminez le point sur le plan $2x-3y+z=1$ le plus près de l'origine.
 ```
+\vspace*{8cm}
 
 ```{example}
 Déterminez le point sur le plan $ax+by+cz=d$ le plus près de l'origine.
 ```
+\vspace*{8cm}
 
 ```{example}
 Une compagnie de téléphonie veut installer une nouvelle antenne de téléphonie cellulaire pour minimiser le caréé des distances entre cette antennes et ses utilisateurs. Si les positions des $n$ utilisateurs sont $(x_i,y_i)$, trouvez la position de l'antenne qui minimise le carré de la distance.
 ```
+\vspace*{8cm}
 
 ```{example}
-Montrez que la boîte...
+Montrez que la boîte rectangulaire de volume maximum inscrite dans une sphère est un cube. Trouvez les dimensions de ce cube ainsi que son volume.
 ```
+\vspace*{8cm}
 
+```{example}
+Un canal d'irrigation à une forme trapézoidale et une surface de 50 $m^2$. Si $w$ est la longueur de sa base, $h$ sa hauteur et $\theta$ l'angle que font les côtés du canal, trouvez $w$, $d$ et $\theta$ qui minimisent le périmètre.
+```
+\vspace*{8cm}
+
+## Les multiplicateurs de Lagrange
+
+La méthode des multiplicateurs de Lagrange permet de maximiser ou de minimiser une fonction générale $f(x,y,z)$ sujette à une contrainte de la forme $g(x,y,z)=k$.
+
+Il est plus simple d'expliquer la méthode de Lagrange d'un point de vue géométrique pour des fonctions de deux variables. Nous commençerons donc par essayer de trouver les valeurs extrèmes d'une fonction $f(x,y)$ soumise à une contrainte de la forme $g(x,y)=k$. Nous sommes donc à la recherche des valeurs extrèmes par lesquelles passerait la fonction $f(x,y)$ lorsque le point $(x,y)$ doit se trouver sur la courbe de niveau $g(x,y)=k$. La figure \@ref(fig:multiplicateur-lagrange) montre cette courbe ainsi que plusieurs courbe de niveau de $f(x,y)$, c'est-à-dire $f(x,y)=c$.
+```{r,echo=FALSE,fig.align="center",label="multiplicateur-lagrange",out.width="90%",fig.cap="Représentation géométrique de la méthode des multiplicateurs de Lagrange."}
+knitr::include_graphics("resources/images/latex/lagrange.png")
+```
+Maximiser (ou minimiser) $f(x,y)$ sous la contrainte $g(x,y)=k$ revient à trouver la plus grande (petite) valeur de $c$ telle que la courbe de niveau $f(x,y)=c$ coupe $g(x,y)=k$. En observant la figure \@ref(fig:multiplicateur-lagrange), il est clair que cela se produit lorsque ces courbes ont une tangente en commun. Donc, en un point $(x_0,y_0)$ où les courbes se touchent, elles ont la même droite normale. Les vecteurs gradients sont donc parallèles, ce qui s'écrit $\nabla f(x_0,y_0)=\lambda \nabla g(x_0,y_0)$ pour un certain scalaire $\lambda$.
+
+Ce type d'argumentation s'applique également au problème de trouver les valeurs extrèmes de $f(x,y,z)$ soumise à une contrainte $g(x,y,z)=k$. 
+
+La méthode des multiplicateurs de Lagrange peut donc être décrite de la façon suivante. Pour déterminer les valeurs extrèmes (maximales ou minimales) de $f(x,y,z)$ soumises à la contrainte $g(x,y,z)=k$:
+
+1. Cherchez toutes les valeurs de $x$, $y$, $z$ et $\lambda$ telles que $\nabla f(x,y,z) = \lambda \nabla g(x,y,z)$ et $g(x,y,z)=k$.
+
+1. Calculez la valeur de $f$ en tous les points $(x,y,z)$ trouvés à l'étape 1. La plus grande de ces valeurs est le maximum de $f$; la plus petite de ces valeurs est le minimum de $f$.
+
+```{example}
+Trouvez le minimum et le maximum de $f(x,y)=x^2+y^2$ soumise à la contrainte $g(x,y)=x^2-xy+y^2-3=0$.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez les dimensions du plus grand parralélépipède inscrit dans l'ellispoïde $\frac{x^2}{16}+\frac{y^2}{9}+\frac{z^2}{4}=1$.
+```
+\vspace*{8cm}
+
+```{example}
+Donnez le maximum et le minimum de $f(x,y)=x^2-xy+y^2-3x$ sur le domaine $x^2+y^2\leq 9$.
+```
+\vspace*{8cm}
+
+## Pages supplémentaires
+
+Des pages blanches supplémentaires pour ajouter, potentiellement, de nouveaux exemples et exercices.
+
+<!-- Code pour insérer des pages blanches dans le document pdf pour des exemples supplémentaires. -->
+
+\multido{\i=1+1}{4}{
+\newpage
+\mbox{}
+}

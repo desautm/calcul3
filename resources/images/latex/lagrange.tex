@@ -1,0 +1,33 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% ?a produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+\usepackage{fp}
+
+\begin{document}
+
+\psset{algebraic,unit=1}
+\begin{pspicture}(-0.5,-0.5)(1.25,5.5)
+	
+\psset{algebraic,unit=0.75}
+\pspicture(-0.5,-0.5)(7,5.5)
+\psaxes[labels=none,ticks=none]{->}(0,0)(-0.5,-0.5)(7,5.5)[$x$,-90][$y$,180]
+\multido{\i=1+1}{4}{%
+	\psarc(5,5){\i}{180}{270}
+	\FPeval{y}{5-\i}
+	\FPeval{z}{5+\i}
+	\FPtrunc{\z}{\z}{0}
+	\uput[0](5,\y){$f(x,y)=\z$}
+}
+\pscurve(-0.5,2)(0,2)(2,3)(2.9,2.9)(2.8,2)(3.5,0)(3.8,-0.5)
+\psdot[dotsize=0.1](2.9,2.9)
+\uput[0](0,0.5){$g(x,y)=k$}
+\psline{->}(0.5,0.8)(0.5,2)
+\psplotTangent[linecolor=lightgray]{2.9}{2.9}{5-sqrt(9-(x-5)^2)}
+\endpspicture
+	
+\end{pspicture}
+
+\end{document}

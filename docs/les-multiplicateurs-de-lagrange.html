@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="geogebra-equations-diff.html">
-<link rel="next" href="coordpolaires.html">
+<link rel="prev" href="loptimisation-avec-contraintes.html">
+<link rel="next" href="pages-supplementaires-5.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -207,21 +207,46 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pages-supplementaires-1" class="section level2">
-<h2><span class="header-section-number">2.7</span> Pages supplémentaires</h2>
-<p>Des pages blanches supplémentaires pour ajouter, potentiellement, de nouveaux exemples et exercices.</p>
-<!-- Code pour insérer des pages blanches dans le document pdf pour des exemples supplémentaires. -->
+<div id="les-multiplicateurs-de-lagrange" class="section level2">
+<h2><span class="header-section-number">6.7</span> Les multiplicateurs de Lagrange</h2>
+<p>La méthode des multiplicateurs de Lagrange permet de maximiser ou de minimiser une fonction générale <span class="math inline">\(f(x,y,z)\)</span> sujette à une contrainte de la forme <span class="math inline">\(g(x,y,z)=k\)</span>.</p>
+Il est plus simple d’expliquer la méthode de Lagrange d’un point de vue géométrique pour des fonctions de deux variables. Nous commençerons donc par essayer de trouver les valeurs extrèmes d’une fonction <span class="math inline">\(f(x,y)\)</span> soumise à une contrainte de la forme <span class="math inline">\(g(x,y)=k\)</span>. Nous sommes donc à la recherche des valeurs extrèmes par lesquelles passerait la fonction <span class="math inline">\(f(x,y)\)</span> lorsque le point <span class="math inline">\((x,y)\)</span> doit se trouver sur la courbe de niveau <span class="math inline">\(g(x,y)=k\)</span>. La figure <a href="les-multiplicateurs-de-lagrange.html#fig:multiplicateur-lagrange">6.8</a> montre cette courbe ainsi que plusieurs courbe de niveau de <span class="math inline">\(f(x,y)\)</span>, c’est-à-dire <span class="math inline">\(f(x,y)=c\)</span>.
+<div class="figure" style="text-align: center"><span id="fig:multiplicateur-lagrange"></span>
+<img src="resources/images/latex/lagrange.png" alt="Représentation géométrique de la méthode des multiplicateurs de Lagrange." width="90%" />
+<p class="caption">
+Figure 6.8: Représentation géométrique de la méthode des multiplicateurs de Lagrange.
+</p>
+</div>
+<p>Maximiser (ou minimiser) <span class="math inline">\(f(x,y)\)</span> sous la contrainte <span class="math inline">\(g(x,y)=k\)</span> revient à trouver la plus grande (petite) valeur de <span class="math inline">\(c\)</span> telle que la courbe de niveau <span class="math inline">\(f(x,y)=c\)</span> coupe <span class="math inline">\(g(x,y)=k\)</span>. En observant la figure <a href="les-multiplicateurs-de-lagrange.html#fig:multiplicateur-lagrange">6.8</a>, il est clair que cela se produit lorsque ces courbes ont une tangente en commun. Donc, en un point <span class="math inline">\((x_0,y_0)\)</span> où les courbes se touchent, elles ont la même droite normale. Les vecteurs gradients sont donc parallèles, ce qui s’écrit <span class="math inline">\(\nabla f(x_0,y_0)=\lambda \nabla g(x_0,y_0)\)</span> pour un certain scalaire <span class="math inline">\(\lambda\)</span>.</p>
+<p>Ce type d’argumentation s’applique également au problème de trouver les valeurs extrèmes de <span class="math inline">\(f(x,y,z)\)</span> soumise à une contrainte <span class="math inline">\(g(x,y,z)=k\)</span>.</p>
+<p>La méthode des multiplicateurs de Lagrange peut donc être décrite de la façon suivante. Pour déterminer les valeurs extrèmes (maximales ou minimales) de <span class="math inline">\(f(x,y,z)\)</span> soumises à la contrainte <span class="math inline">\(g(x,y,z)=k\)</span>:</p>
+<ol style="list-style-type: decimal">
+<li><p>Cherchez toutes les valeurs de <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, <span class="math inline">\(z\)</span> et <span class="math inline">\(\lambda\)</span> telles que <span class="math inline">\(\nabla f(x,y,z) = \lambda \nabla g(x,y,z)\)</span> et <span class="math inline">\(g(x,y,z)=k\)</span>.</p></li>
+<li><p>Calculez la valeur de <span class="math inline">\(f\)</span> en tous les points <span class="math inline">\((x,y,z)\)</span> trouvés à l’étape 1. La plus grande de ces valeurs est le maximum de <span class="math inline">\(f\)</span>; la plus petite de ces valeurs est le minimum de <span class="math inline">\(f\)</span>.</p></li>
+</ol>
 
+<div class="example">
+<span id="exm:unnamed-chunk-235" class="example"><strong>Exemple 6.16  </strong></span>Trouvez le minimum et le maximum de <span class="math inline">\(f(x,y)=x^2+y^2\)</span> soumise à la contrainte <span class="math inline">\(g(x,y)=x^2-xy+y^2-3=0\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-236" class="example"><strong>Exemple 6.17  </strong></span>Trouvez les dimensions du plus grand parralélépipède inscrit dans l’ellispoïde <span class="math inline">\(\frac{x^2}{16}+\frac{y^2}{9}+\frac{z^2}{4}=1\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-237" class="example"><strong>Exemple 6.18  </strong></span>Donnez le maximum et le minimum de <span class="math inline">\(f(x,y)=x^2-xy+y^2-3x\)</span> sur le domaine <span class="math inline">\(x^2+y^2\leq 9\)</span>.
+</div>
 
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="geogebra-equations-diff.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="coordpolaires.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="loptimisation-avec-contraintes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="pages-supplementaires-5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -251,7 +276,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/desautm/calcul3/edit/master/02-edo.Rmd",
+"link": "https://github.com/desautm/calcul3/edit/master/06-optimisation.Rmd",
 "text": "Modifier"
 },
 "download": ["calcul3.pdf", "calcul3.epub"],

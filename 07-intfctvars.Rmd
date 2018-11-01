@@ -1,3 +1,14 @@
 # L'intégration de fonctions de plusieurs variables {#intfctvars}
 
+Vous trouverez à la section  une application [GeoGebra](https://www.geogebra.org/?lang=fr) vous permettant de visualiser des coupes transversales et des courbes de niveaux. À noter que cette application n'est disponible que dans la version en ligne de ce document.
+
+## Introduction
+
+Dans ce chapitre, nous verrons les intégrales multiples qui sont la généralisation des intégrales pour les fonctions de plusieurs variables. Nous étudierons également les changements de coordonnées afin de simplifier la résolution de ces intégrales.
+
+## Les intégrales doubles
+
+
+
+## Les intégrale triples
 

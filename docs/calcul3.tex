@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-10-26}
+    \date{2018-11-01}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -4326,36 +4326,42 @@ théorème \ref{thm:valeurs-extremes}, les étapes sont les suivantes:
 
 \caption{La fonction $f(x,y)=x^2-2xy+2y$}\label{fig:optimisation-rectangle}
 \end{figure}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-227}{}{\label{exm:unnamed-chunk-227}
 }Trouvez les valeurs minimales et maximales de \(f(x,y)=2xy\) sur le
 disque \(x^2+y^2\leq 4\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-228}{}{\label{exm:unnamed-chunk-228}
 }Trouvez les valeurs extrèmes de \(f(x,y)=x^2ye^{-(x+y)}\) sur la région
 triangulaire donnée par \(x\geq 0\), \(y\geq 0\) et \(x+y \leq 4\).
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-229}{}{\label{exm:unnamed-chunk-229}
 }Si la somme de 3 nombres positifs est \(a\), quelle est leur valeur si
 la somme de leurs carrés est minimale?
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-230}{}{\label{exm:unnamed-chunk-230}
 }Déterminez le point sur le plan \(2x-3y+z=1\) le plus près de
 l'origine.
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-231}{}{\label{exm:unnamed-chunk-231}
 }Déterminez le point sur le plan \(ax+by+cz=d\) le plus près de
 l'origine.
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-232}{}{\label{exm:unnamed-chunk-232}
@@ -4365,15 +4371,137 @@ antennes et ses utilisateurs. Si les positions des \(n\) utilisateurs
 sont \((x_i,y_i)\), trouvez la position de l'antenne qui minimise le
 carré de la distance.
 \EndKnitrBlock{example}
+\vspace*{8cm}
 
 \BeginKnitrBlock{example}
 \protect\hypertarget{exm:unnamed-chunk-233}{}{\label{exm:unnamed-chunk-233}
-}Montrez que la boîte\ldots{}
+}Montrez que la boîte rectangulaire de volume maximum inscrite dans une
+sphère est un cube. Trouvez les dimensions de ce cube ainsi que son
+volume.
 \EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-234}{}{\label{exm:unnamed-chunk-234}
+}Un canal d'irrigation à une forme trapézoidale et une surface de 50
+\(m^2\). Si \(w\) est la longueur de sa base, \(h\) sa hauteur et
+\(\theta\) l'angle que font les côtés du canal, trouvez \(w\), \(d\) et
+\(\theta\) qui minimisent le périmètre.
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{les-multiplicateurs-de-lagrange}{%
+\section{Les multiplicateurs de
+Lagrange}\label{les-multiplicateurs-de-lagrange}}
+
+La méthode des multiplicateurs de Lagrange permet de maximiser ou de
+minimiser une fonction générale \(f(x,y,z)\) sujette à une contrainte de
+la forme \(g(x,y,z)=k\).
+
+Il est plus simple d'expliquer la méthode de Lagrange d'un point de vue
+géométrique pour des fonctions de deux variables. Nous commençerons donc
+par essayer de trouver les valeurs extrèmes d'une fonction \(f(x,y)\)
+soumise à une contrainte de la forme \(g(x,y)=k\). Nous sommes donc à la
+recherche des valeurs extrèmes par lesquelles passerait la fonction
+\(f(x,y)\) lorsque le point \((x,y)\) doit se trouver sur la courbe de
+niveau \(g(x,y)=k\). La figure \ref{fig:multiplicateur-lagrange} montre
+cette courbe ainsi que plusieurs courbe de niveau de \(f(x,y)\),
+c'est-à-dire \(f(x,y)=c\).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{resources/images/latex/lagrange} 
+
+}
+
+\caption{Représentation géométrique de la méthode des multiplicateurs de Lagrange.}\label{fig:multiplicateur-lagrange}
+\end{figure}
+
+Maximiser (ou minimiser) \(f(x,y)\) sous la contrainte \(g(x,y)=k\)
+revient à trouver la plus grande (petite) valeur de \(c\) telle que la
+courbe de niveau \(f(x,y)=c\) coupe \(g(x,y)=k\). En observant la figure
+\ref{fig:multiplicateur-lagrange}, il est clair que cela se produit
+lorsque ces courbes ont une tangente en commun. Donc, en un point
+\((x_0,y_0)\) où les courbes se touchent, elles ont la même droite
+normale. Les vecteurs gradients sont donc parallèles, ce qui s'écrit
+\(\nabla f(x_0,y_0)=\lambda \nabla g(x_0,y_0)\) pour un certain scalaire
+\(\lambda\).
+
+Ce type d'argumentation s'applique également au problème de trouver les
+valeurs extrèmes de \(f(x,y,z)\) soumise à une contrainte
+\(g(x,y,z)=k\).
+
+La méthode des multiplicateurs de Lagrange peut donc être décrite de la
+façon suivante. Pour déterminer les valeurs extrèmes (maximales ou
+minimales) de \(f(x,y,z)\) soumises à la contrainte \(g(x,y,z)=k\):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Cherchez toutes les valeurs de \(x\), \(y\), \(z\) et \(\lambda\)
+  telles que \(\nabla f(x,y,z) = \lambda \nabla g(x,y,z)\) et
+  \(g(x,y,z)=k\).
+\item
+  Calculez la valeur de \(f\) en tous les points \((x,y,z)\) trouvés à
+  l'étape 1. La plus grande de ces valeurs est le maximum de \(f\); la
+  plus petite de ces valeurs est le minimum de \(f\).
+\end{enumerate}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-235}{}{\label{exm:unnamed-chunk-235}
+}Trouvez le minimum et le maximum de \(f(x,y)=x^2+y^2\) soumise à la
+contrainte \(g(x,y)=x^2-xy+y^2-3=0\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-236}{}{\label{exm:unnamed-chunk-236}
+}Trouvez les dimensions du plus grand parralélépipède inscrit dans
+l'ellispoïde \(\frac{x^2}{16}+\frac{y^2}{9}+\frac{z^2}{4}=1\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-237}{}{\label{exm:unnamed-chunk-237}
+}Donnez le maximum et le minimum de \(f(x,y)=x^2-xy+y^2-3x\) sur le
+domaine \(x^2+y^2\leq 9\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{pages-supplementaires-5}{%
+\section{Pages supplémentaires}\label{pages-supplementaires-5}}
+
+Des pages blanches supplémentaires pour ajouter, potentiellement, de
+nouveaux exemples et exercices.
+
+\multido{\i=1+1}{4}{
+\newpage
+\mbox{}
+}
 
 \hypertarget{intfctvars}{%
 \chapter{L'intégration de fonctions de plusieurs
 variables}\label{intfctvars}}
+
+Vous trouverez à la section une application
+\href{https://www.geogebra.org/?lang=fr}{GeoGebra} vous permettant de
+visualiser des coupes transversales et des courbes de niveaux. À noter
+que cette application n'est disponible que dans la version en ligne de
+ce document.
+
+\hypertarget{introduction-6}{%
+\section{Introduction}\label{introduction-6}}
+
+Dans ce chapitre, nous verrons les intégrales multiples qui sont la
+généralisation des intégrales pour les fonctions de plusieurs variables.
+Nous étudierons également les changements de coordonnées afin de
+simplifier la résolution de ces intégrales.
+
+\hypertarget{les-integrales-doubles}{%
+\section{Les intégrales doubles}\label{les-integrales-doubles}}
+
+\hypertarget{les-integrale-triples}{%
+\section{Les intégrale triples}\label{les-integrale-triples}}
 
 \bibliography{book.bib,packages.bib}
 
