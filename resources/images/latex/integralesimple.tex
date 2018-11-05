@@ -1,0 +1,53 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+
+\psset{unit=0.75,algebraic}
+	\begin{pspicture}(-1.5,-1.75)(10.5,5.5)
+		
+		\psaxes[labels=none,ticks=none]{->}(0,0)(-1,-1.5)(10,5)[$x$,-90][$y$,180]
+		
+		\pnode(1,2){P0}
+		\pnode(2,3){P1}
+		\pnode(3,4){P2}
+		\pnode(4,3.5){P3}
+		\pnode(5,2.5){P4}
+		\pnode(6,3){P5}
+		\pnode(7,3.2){P6}
+		\pnode(8,2.7){P7}
+		\pnode(0.25,1.5){Pa}
+		\pnode(8.75,3){Pb}
+		
+		\psframe(0.5,0)(1.5,2)
+		\psframe(1.5,0)(2.5,3)
+		\psframe[fillstyle=solid,fillcolor=lightgray](2.5,0)(3.5,4)
+		\psframe(3.5,0)(4.5,3.5)
+		\psframe(4.5,0)(5.5,2.5)
+		\psframe(5.5,0)(6.5,3)
+		\psframe(6.5,0)(7.5,3.2)
+		\psframe(7.5,0)(8.5,2.7)
+		
+		\psline[linewidth=2pt,linestyle=dashed](0.5,0)(0.5,1.6)
+		\psline[linewidth=2pt,linestyle=dashed](8.5,0)(8.5,2.75)
+		\psline[linestyle=dashed](3,0)(3,4)
+		
+		\pscurve[linewidth=2pt](Pa)(P0)(P1)(P2)(P3)(P4)(P5)(P6)(P7)(Pb)
+		
+		\uput[-90](0.5,0){$x_0$}
+		\uput[-90](2.5,0){$x_{i-1}$}
+		\uput[-90](3.5,0){$x_i$}
+		\uput[-90](8.5,0){$x_n$}
+		
+		\pnode(3,0){Pc}
+		\pnode(3.25,-1){Pd}
+		\psline{->}(Pd)(Pc)
+		\uput[-45](Pd){$x^*_i$}
+		
+	\end{pspicture}
+
+\end{document}

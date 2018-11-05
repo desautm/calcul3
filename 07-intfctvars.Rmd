@@ -8,6 +8,94 @@ Dans ce chapitre, nous verrons les intégrales multiples qui sont la généralis
 
 ## Les intégrales doubles
 
+### L'intégrale simple (rappel)
+
+Nous allons débuter en revenant sur la définition de l'intégrale d'une fonction $f(x)$ sur l'intervalle $[a,b]$.
+
+Soit une partition de l'intervalle $[a,b]$: $$P=\{x_0=a,x_1,\ldots,x_{n-1},x_n=b\}$$
+Nous notons $\Delta x_i=x_i-x_{i-1}$ la largeur d'un sous-intervalle et $x_i^{*}$ une valeur dans l'intervalle $[x_{i-1},x_i]$. Nous pouvons obtenir une approximation de l'aire algébrique sous la courbe, notée $A_n$: $$A_n=\sum_{i=1}^n f(x_i^*)\Delta x_i$$
+La figure \@ref(fig:integralesimple) représente cette somme.
+```{r,echo=FALSE,fig.align="center",label="integralesimple",out.width="75%",fig.cap="Graphique représentant $A_n$"}
+knitr::include_graphics("resources/images/latex/integralesimple.png")
+```
+Si nous prenons la limite de $A_n$, lorsque $n$ tend vers l'infini, nous obtenons une somme de Riemann.
+```{definition,name="L'intégrale simple"}
+L'intégrale simple d'une fonction $f(x)$ sur l'intervalle $[a,b]$ est donnée par:
+$$ \int_a^b f(x)dx = \lim_{n\to\infty}\sum_{i=1}^n f(x_i^*)\Delta x_i$$
+```
+```{remark}
+Nous disons que l'intégrale définie correspond à l'aire algébrique sous la courbe, ce qui ne représente pas toujours l'aire géométrique. En effet,si la fonction est négative, alors l'intégrale sera négative. D'où la différence entre l'aire algébrique et géométrique.
+```
+
+### L'intégrale double sur un rectangle
+
+D'une manière similaire, nous cherchons à déterminer le volume algébrique d'une fonction $z=f(x,y)$ définie sur un rectangle $$R=\{(x,y)\in\mathbb{R^2}\mid x\in [a,b]\ \text{et}\ y\in[c,d]\}=[a,b]\times[c,d]$$
+Pour ce faire, nous divisons $R$ en petits rectangles, comme le montre la figure \@ref(fig:partitionR2). C'est ce que nous appelons une partition de $R$.
+```{r,echo=FALSE,fig.align="center",label="partitionR2",out.width="75%",fig.cap="Partition de $R$."}
+knitr::include_graphics("resources/images/latex/partitionR2.png")
+```
+Nous notons par $\Delta x_i=x_i-x_{i-1}$ et $\Delta y_j=y_j-y_{j-1}$. Nous notons également $$R_{ij}=[x_{i-1},x_i]\times[y_{j-1},y_j]$$
+Ainsi un élément de volume au-dessus du rectangle $R_{ij}$ est donné par $$V_{ij}=f(x_i^*,y_j^*)\Delta x_i\Delta y_j$$
+où $(x_i^*,y_j^*)\in R_{ij}$. Cette expression pour $V_{ij}$ provient du fait que le volume d'un prisme rectangulaire est donné par l'aire de la base $\Delta x_i\Delta y_j$, multipliée par la hauteur $f(x_i^*,y_j^*)$. Nous notons parfois $\Delta x_i\Delta y_j$ par $\Delta A_{ij}$, un petit élément d'aire. En additionnant tous ces petits éléments de volume, nous obtenons une approximation du volume total $$V\approx \sum_{i=1}^{n}\sum_{j=1}^m f(x_i^*,y_j^*)\Delta x_i\Delta y_j$$ La figure \@ref(fig:volumeR2) représente une approximation du volume d'une fonction.
+```{r,echo=FALSE,fig.align="center",label="volumeR2",out.width="90%",fig.cap="Visualisation de l'approximation de $V$."}
+knitr::include_graphics("resources/images/latex/volumeR2.png")
+```
+Lorsque $m$ et $n$ deviennent très grands, nous obtenons une meilleure approximation du volume $$V=\lim_{m,n\to\infty}\sum_{i=1}^{n}\sum_{j=1}^m f(x_i^*,y_j^*)\Delta A_{ij}$$
+Nous remarquons que l'expression précédente est une double somme de Riemann.
+```{definition,label="int-double"}
+L'intégrale double de la fonction $f(x,y)$ sur le rectangle $R$ est donnée par: $$\iint\limits_R f(x,y)dA = \lim_{m,n\to\infty}\sum_{i=1}^{n}\sum_{j=1}^m f(x_i^*,y_j^*)\Delta A_{ij}$$
+```
+```{remark}
+Si la fonction $f(x,y)\geq 0$ sur $R$, alors l'intégrale double correspond au volume géométrique entre la fonction $f$ et le plan $z=0$.
+```
+La définition \@ref(def:int-double) est difficilement utilisable, nous aurons donc besoin de faire nos intégrales différemment.
+
+### Les intégrales itérées
+
+Nous voulons maintenant transformer des intégrales doubles en deux intégrales simples. Nous savons qu'un élément de volume correspond à un élément d'aire multiplié par une hauteur. Cependant, rien ne nous oblige à utiliser $\Delta x_i\Delta y_j$ comme élément d'aire. Nous allons plutôt fixer la variable $x$ et calculer l'aire de cette section de volume. Cette aire dépend de la valeur de $x$. Notons-la $A(x)$. Puisque $x$ est fixe (une constante), nous avons que l'aire de la section est donnée par: $$A(x)=\int_c^{d} f(x,y)dy$$ Pour déterminer le volume, il suffit d'additionner toutes les aires de section que l'on multiplie par un petit élément de hauteur $dx$. Ceci correspond à $$V=\int_a^b A(x)dx=\int_a^b\left(\int_c^{d} f(x,y)dy\right)dx$$
+Nous avons donc que:$$\iint\limits_D f(x,y) dA=\int_a^b\left(\int_c^{d} f(x,y)dy\right)dx$$
+D'une manière similaire, nous pouvons trouver que: $$\iint\limits_D f(x,y) dA=\int_c^d\left(\int_a^{b} f(x,y)dx\right)dy$$
+```{definition,name="Intégrales doubles itérées",label="integrale-double-iteree"}
+Nous avons: $$\iint\limits_D f(x,y) dA=\int_a^b\left(\int_c^{d} f(x,y)dy\right)dx$$
+  et
+$$\iint\limits_D f(x,y) dA=\int_c^d\left(\int_a^{b} f(x,y)dx\right)dy$$
+```
+
+```{example}
+Trouvez l'intégrale de $f(x,y)=x^2y$ sur le rectangle $R=[0,3]\times[1,2]$, en utilisant les deux intégrales de \@ref(def:integrale-double-iteree).
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez l'intégrale de $f(x,y)=\frac{x-y}{(x+y)^3}$ sur le rectangle $R=[0,1]\times[0,1]$, en utilisant les deux intégrales de \@ref(def:integrale-double-iteree).
+```
+\vspace*{8cm}
+
+```{theorem,name="Fubini",label="fubini"}
+Si $f$ est continue sur un rectangle $R=[a,b]\times[c,d]$, alors:
+\begin{align*}
+\int_a^b\int_c^df(x,y)\ dy\ dx=\int_c^d\int_a^bf(x,y)\ dx\ dy
+\end{align*}
+```
+Au théorème \@ref(thm:fubini), nous avons enlevé les crochets dans l'intégrale. Par définition:
+\begin{align*}
+\int_a^b\int_c^df(x,y)\ dy\ dx
+\end{align*}
+signifie que nous intégrons tout d'abord par rapport à $y$ et par la suite par rapport à $x$.
+
+Le théorème de Fubini signifie que si la fonction est continue (ce qui sera le cas pour les fonctions du cours), alors on peut changer l'ordre d'intégration sans changer le résultat. 
+```{example}
+Trouvez le volume délimité par $z=x\sqrt{x^2+y}$, $x=0$, $x=1$, $y=0$, $y=1$ et $z=0$.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez l'intégrale de $f(x,y)=xy$ sur le rectangle $R=[1,2]\times[0,4]$.
+```
+\vspace*{8cm}
+
+### Les intégrales doubles sur une région quelconque
+
 
 
 ## Les intégrale triples

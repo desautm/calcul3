@@ -1,0 +1,52 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+\usepackage{pst-solides3d}
+\usepackage{fp}
+
+\begin{document}
+
+\psset{viewpoint=60 25 30 rtp2xyz,unit=1,algebraic,lightsrc=viewpoint}
+	\begin{pspicture}(-3.5,-5)(7,3)
+		
+		\psPoint(2,0,0){P0}
+		\psPoint(2,2,0){P1}
+		\psPoint(0,2,0){P2}
+		\psline[linestyle=dashed](P0)(P1)(P2)
+		\uput[180](P0){$a$}
+		\uput[90](P2){$c$}
+		
+		\psPoint(7,0,0){P3}
+		\psPoint(7,2,0){P4}
+		\psline[linestyle=dashed](P3)(P4)
+		\uput[180](P3){$b$}
+		
+		\psPoint(0,7.25,0){P5}
+		\psPoint(2,7.25,0){P6}
+		\psline[linestyle=dashed](P5)(P6)
+		\uput[90](P5){$d$}
+
+		\axesIIID(0,0,0)(8,8,3)
+
+		\multido{\nbA=2.5+0.5}{10}{%
+			\multido{\nbB=2.5+0.5}{10}{%
+				\FPeval{nbC}{(\nbA-0.5)*(\nbA-0.5)}
+				\FPeval{nbD}{(\nbB-7)*(\nbB-7)}
+				\FPeval{nbE}{\nbC+\nbD}
+				\FProot{\nbE}{\nbE}{3}
+				\FPexp{\nbF}{-\nbE}
+				\FPeval{nbF}{\nbF*15}
+				\FPeval{nbG}{\nbF/2}
+				\psSolid[%
+					object=parallelepiped,%
+					a=0.5,b=0.5,c=\nbF,%
+					fillcolor=yellow]%
+					(\nbA,\nbB,\nbG)%
+			}%
+		}
+		
+	\end{pspicture}
+\end{document}

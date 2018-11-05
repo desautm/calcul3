@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-01}
+    \date{2018-11-05}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -4499,6 +4499,189 @@ simplifier la résolution de ces intégrales.
 
 \hypertarget{les-integrales-doubles}{%
 \section{Les intégrales doubles}\label{les-integrales-doubles}}
+
+\hypertarget{lintegrale-simple-rappel}{%
+\subsection{L'intégrale simple
+(rappel)}\label{lintegrale-simple-rappel}}
+
+Nous allons débuter en revenant sur la définition de l'intégrale d'une
+fonction \(f(x)\) sur l'intervalle \([a,b]\).
+
+Soit une partition de l'intervalle \([a,b]\):
+\[P=\{x_0=a,x_1,\ldots,x_{n-1},x_n=b\}\] Nous notons
+\(\Delta x_i=x_i-x_{i-1}\) la largeur d'un sous-intervalle et
+\(x_i^{*}\) une valeur dans l'intervalle \([x_{i-1},x_i]\). Nous pouvons
+obtenir une approximation de l'aire algébrique sous la courbe, notée
+\(A_n\): \[A_n=\sum_{i=1}^n f(x_i^*)\Delta x_i\] La figure
+\ref{fig:integralesimple} représente cette somme.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{resources/images/latex/integralesimple} 
+
+}
+
+\caption{Graphique représentant $A_n$}\label{fig:integralesimple}
+\end{figure}
+
+Si nous prenons la limite de \(A_n\), lorsque \(n\) tend vers l'infini,
+nous obtenons une somme de Riemann.
+\BeginKnitrBlock{definition}[L'intégrale simple]
+\protect\hypertarget{def:unnamed-chunk-238}{}{\label{def:unnamed-chunk-238}
+\iffalse (L'intégrale simple) \fi{} }L'intégrale simple d'une fonction
+\(f(x)\) sur l'intervalle \([a,b]\) est donnée par:
+\[ \int_a^b f(x)dx = \lim_{n\to\infty}\sum_{i=1}^n f(x_i^*)\Delta x_i\]
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Nous disons que l'intégrale définie
+correspond à l'aire algébrique sous la courbe, ce qui ne représente pas
+toujours l'aire géométrique. En effet,si la fonction est négative, alors
+l'intégrale sera négative. D'où la différence entre l'aire algébrique et
+géométrique.
+\EndKnitrBlock{remark}
+
+\hypertarget{lintegrale-double-sur-un-rectangle}{%
+\subsection{L'intégrale double sur un
+rectangle}\label{lintegrale-double-sur-un-rectangle}}
+
+D'une manière similaire, nous cherchons à déterminer le volume
+algébrique d'une fonction \(z=f(x,y)\) définie sur un rectangle
+\[R=\{(x,y)\in\mathbb{R^2}\mid x\in [a,b]\ \text{et}\ y\in[c,d]\}=[a,b]\times[c,d]\]
+Pour ce faire, nous divisons \(R\) en petits rectangles, comme le montre
+la figure \ref{fig:partitionR2}. C'est ce que nous appelons une
+partition de \(R\).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{resources/images/latex/partitionR2} 
+
+}
+
+\caption{Partition de $R$.}\label{fig:partitionR2}
+\end{figure}
+
+Nous notons par \(\Delta x_i=x_i-x_{i-1}\) et
+\(\Delta y_j=y_j-y_{j-1}\). Nous notons également
+\[R_{ij}=[x_{i-1},x_i]\times[y_{j-1},y_j]\] Ainsi un élément de volume
+au-dessus du rectangle \(R_{ij}\) est donné par
+\[V_{ij}=f(x_i^*,y_j^*)\Delta x_i\Delta y_j\] où
+\((x_i^*,y_j^*)\in R_{ij}\). Cette expression pour \(V_{ij}\) provient
+du fait que le volume d'un prisme rectangulaire est donné par l'aire de
+la base \(\Delta x_i\Delta y_j\), multipliée par la hauteur
+\(f(x_i^*,y_j^*)\). Nous notons parfois \(\Delta x_i\Delta y_j\) par
+\(\Delta A_{ij}\), un petit élément d'aire. En additionnant tous ces
+petits éléments de volume, nous obtenons une approximation du volume
+total
+\[V\approx \sum_{i=1}^{n}\sum_{j=1}^m f(x_i^*,y_j^*)\Delta x_i\Delta y_j\]
+La figure \ref{fig:volumeR2} représente une approximation du volume
+d'une fonction.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{resources/images/latex/volumeR2} 
+
+}
+
+\caption{Visualisation de l'approximation de $V$.}\label{fig:volumeR2}
+\end{figure}
+
+Lorsque \(m\) et \(n\) deviennent très grands, nous obtenons une
+meilleure approximation du volume
+\[V=\lim_{m,n\to\infty}\sum_{i=1}^{n}\sum_{j=1}^m f(x_i^*,y_j^*)\Delta A_{ij}\]
+Nous remarquons que l'expression précédente est une double somme de
+Riemann. \BeginKnitrBlock{definition}
+
+\protect\hypertarget{def:int-double}{}{\label{def:int-double} }L'intégrale
+double de la fonction \(f(x,y)\) sur le rectangle \(R\) est donnée par:
+\[\iint\limits_R f(x,y)dA = \lim_{m,n\to\infty}\sum_{i=1}^{n}\sum_{j=1}^m f(x_i^*,y_j^*)\Delta A_{ij}\]
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Si la fonction \(f(x,y)\geq 0\) sur \(R\),
+alors l'intégrale double correspond au volume géométrique entre la
+fonction \(f\) et le plan \(z=0\).
+\EndKnitrBlock{remark}
+
+La définition \ref{def:int-double} est difficilement utilisable, nous
+aurons donc besoin de faire nos intégrales différemment.
+
+\hypertarget{les-integrales-iterees}{%
+\subsection{Les intégrales itérées}\label{les-integrales-iterees}}
+
+Nous voulons maintenant transformer des intégrales doubles en deux
+intégrales simples. Nous savons qu'un élément de volume correspond à un
+élément d'aire multiplié par une hauteur. Cependant, rien ne nous oblige
+à utiliser \(\Delta x_i\Delta y_j\) comme élément d'aire. Nous allons
+plutôt fixer la variable \(x\) et calculer l'aire de cette section de
+volume. Cette aire dépend de la valeur de \(x\). Notons-la \(A(x)\).
+Puisque \(x\) est fixe (une constante), nous avons que l'aire de la
+section est donnée par: \[A(x)=\int_c^{d} f(x,y)dy\] Pour déterminer le
+volume, il suffit d'additionner toutes les aires de section que l'on
+multiplie par un petit élément de hauteur \(dx\). Ceci correspond à
+\[V=\int_a^b A(x)dx=\int_a^b\left(\int_c^{d} f(x,y)dy\right)dx\] Nous
+avons donc
+que:\[\iint\limits_D f(x,y) dA=\int_a^b\left(\int_c^{d} f(x,y)dy\right)dx\]
+D'une manière similaire, nous pouvons trouver que:
+\[\iint\limits_D f(x,y) dA=\int_c^d\left(\int_a^{b} f(x,y)dx\right)dy\]
+\BeginKnitrBlock{definition}[Intégrales doubles itérées]
+\protect\hypertarget{def:integrale-double-iteree}{}{\label{def:integrale-double-iteree}
+\iffalse (Intégrales doubles itérées) \fi{} }Nous avons:
+\[\iint\limits_D f(x,y) dA=\int_a^b\left(\int_c^{d} f(x,y)dy\right)dx\]
+et
+\[\iint\limits_D f(x,y) dA=\int_c^d\left(\int_a^{b} f(x,y)dx\right)dy\]
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-241}{}{\label{exm:unnamed-chunk-241}
+}Trouvez l'intégrale de \(f(x,y)=x^2y\) sur le rectangle
+\(R=[0,3]\times[1,2]\), en utilisant les deux intégrales de
+\ref{def:integrale-double-iteree}.
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-242}{}{\label{exm:unnamed-chunk-242}
+}Trouvez l'intégrale de \(f(x,y)=\frac{x-y}{(x+y)^3}\) sur le rectangle
+\(R=[0,1]\times[0,1]\), en utilisant les deux intégrales de
+\ref{def:integrale-double-iteree}.
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{theorem}[Fubini]
+\protect\hypertarget{thm:fubini}{}{\label{thm:fubini} \iffalse (Fubini)
+\fi{} }Si \(f\) est continue sur un rectangle \(R=[a,b]\times[c,d]\),
+alors: \begin{align*}
+\int_a^b\int_c^df(x,y)\ dy\ dx=\int_c^d\int_a^bf(x,y)\ dx\ dy
+\end{align*}
+\EndKnitrBlock{theorem}
+
+Au théorème \ref{thm:fubini}, nous avons enlevé les crochets dans
+l'intégrale. Par définition: \begin{align*}
+\int_a^b\int_c^df(x,y)\ dy\ dx
+\end{align*} signifie que nous intégrons tout d'abord par rapport à
+\(y\) et par la suite par rapport à \(x\).
+
+Le théorème de Fubini signifie que si la fonction est continue (ce qui
+sera le cas pour les fonctions du cours), alors on peut changer l'ordre
+d'intégration sans changer le résultat. \BeginKnitrBlock{example}
+
+\protect\hypertarget{exm:unnamed-chunk-243}{}{\label{exm:unnamed-chunk-243}
+}Trouvez le volume délimité par \(z=x\sqrt{x^2+y}\), \(x=0\), \(x=1\),
+\(y=0\), \(y=1\) et \(z=0\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-244}{}{\label{exm:unnamed-chunk-244}
+}Trouvez l'intégrale de \(f(x,y)=xy\) sur le rectangle
+\(R=[1,2]\times[0,4]\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{les-integrales-doubles-sur-une-region-quelconque}{%
+\subsection{Les intégrales doubles sur une région
+quelconque}\label{les-integrales-doubles-sur-une-region-quelconque}}
 
 \hypertarget{les-integrale-triples}{%
 \section{Les intégrale triples}\label{les-integrale-triples}}
