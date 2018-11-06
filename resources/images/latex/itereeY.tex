@@ -1,0 +1,41 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+\usepackage{pst-solides3d}
+\usepackage{fp}
+
+\begin{document}
+
+\psset{unit=1,algebraic}
+	\begin{pspicture}(-1,-1)(5.5,5.5)
+		
+		\psaxes[labels=none,ticks=none]{->}(0,0)(-1,-1)(5,5)[$x$,-90][$y$,180]
+	
+		\pscustom{
+			\pscurve(2,1)(1,2)(0.7,3)(2.3,4)
+			\gsave
+			\psline(2.3,4)(4,4)
+			\pscurve(4,4)(4.3,3)(3.6,2)(3.2,1)
+			\psline(3.2,1)(2,1)
+			\fill[fillstyle=solid, fillcolor=lightgray]
+			\grestore
+		}
+		\pscurve[linewidth=1.5pt](2,1)(1,2)(0.7,3)(2.3,4)
+		\pscurve[linewidth=1.5pt](4,4)(4.3,3)(3.6,2)(3.2,1)
+		
+		\psline[linestyle=dashed](0,1)(3.2,1)
+		\psline[linestyle=dashed](0,4)(4,4)
+		
+		\uput[0](2.1,2.5){$D$}
+		
+		\uput[180](0,1){$c$}
+		\uput[180](0,4){$d$}
+		
+		\uput{0.25}[180](1.5,1.5){$x_1(y)$}
+		\uput[0](3.6,2){$x_2(y)$}
+		
+	\end{pspicture}
+\end{document}

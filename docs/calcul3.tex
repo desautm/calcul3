@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-05}
+    \date{2018-11-06}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -152,6 +152,9 @@ dans les Mêmes Conditions 4.0 International}.
 \includegraphics{resources/icons/license_cc.png}
 \caption{Licence Creative Commons}
 \end{figure}
+
+\hypertarget{part-les-series-de-taylor}{%
+\part{Les séries de Taylor}\label{part-les-series-de-taylor}}
 
 \hypertarget{taylor}{%
 \chapter{Les séries de Taylor}\label{taylor}}
@@ -744,6 +747,10 @@ nouveaux exemples et exercices.
 \newpage
 \mbox{}
 }
+
+\hypertarget{part-les-equations-differentielles}{%
+\part{Les équations
+différentielles}\label{part-les-equations-differentielles}}
 
 \hypertarget{edo}{%
 \chapter{Les équations différentielles ordinaires}\label{edo}}
@@ -1683,6 +1690,10 @@ nouveaux exemples et exercices.
 \mbox{}
 }
 
+\hypertarget{part-les-coordonnees-polaires}{%
+\part{Les coordonnées
+polaires}\label{part-les-coordonnees-polaires}}
+
 \hypertarget{coordpolaires}{%
 \chapter{Les coordonnées polaires}\label{coordpolaires}}
 
@@ -2093,6 +2104,10 @@ nouveaux exemples et exercices.
 \newpage
 \mbox{}
 }
+
+\hypertarget{part-les-fonctions-de-plusieurs-variables}{%
+\part{Les fonctions de plusieurs
+variables}\label{part-les-fonctions-de-plusieurs-variables}}
 
 \hypertarget{fctvar}{%
 \chapter{Les fonctions de plusieurs variables}\label{fctvar}}
@@ -4479,9 +4494,13 @@ nouveaux exemples et exercices.
 \mbox{}
 }
 
-\hypertarget{intfctvars}{%
-\chapter{L'intégration de fonctions de plusieurs
-variables}\label{intfctvars}}
+\hypertarget{part-lintegration-de-fonctions-de-plusieurs-variables}{%
+\part{L'intégration de fonctions de plusieurs
+variables}\label{part-lintegration-de-fonctions-de-plusieurs-variables}}
+
+\hypertarget{intfct2vars}{%
+\chapter{L'intégration de fonctions de deux
+variables}\label{intfct2vars}}
 
 Vous trouverez à la section une application
 \href{https://www.geogebra.org/?lang=fr}{GeoGebra} vous permettant de
@@ -4606,8 +4625,8 @@ fonction \(f\) et le plan \(z=0\).
 La définition \ref{def:int-double} est difficilement utilisable, nous
 aurons donc besoin de faire nos intégrales différemment.
 
-\hypertarget{les-integrales-iterees}{%
-\subsection{Les intégrales itérées}\label{les-integrales-iterees}}
+\hypertarget{integrales-iterees}{%
+\subsection{Les intégrales itérées}\label{integrales-iterees}}
 
 Nous voulons maintenant transformer des intégrales doubles en deux
 intégrales simples. Nous savons qu'un élément de volume correspond à un
@@ -4683,8 +4702,176 @@ d'intégration sans changer le résultat. \BeginKnitrBlock{example}
 \subsection{Les intégrales doubles sur une région
 quelconque}\label{les-integrales-doubles-sur-une-region-quelconque}}
 
-\hypertarget{les-integrale-triples}{%
-\section{Les intégrale triples}\label{les-integrale-triples}}
+Comme vu à la section \ref{derivfctvars}, nous savons comment intégrer
+sur un rectangle. Malheureusement, le domaine d'intégration n'est pas
+toujours un rectangle. La situation se présente régulièrement où le
+domaine est délimité par des courbes dans le plan. Supposons que le
+domaine d'intégration \(D\) est défini comme suit:
+\[D=\{(x,y)\in\mathbb{R}^2\mid a\leq x\leq b,\ y_1(x)\leq y \leq y_2(x)\}\]
+Dans cette situation, lorsque nous fixons la variable \(x\) pour
+déterminer l'aire d'une section, les bornes d'intégration dépendent de
+la valeur \(x\). Ainsi: \[A(x)=\int_{y_1(x)}^{y_2(x)}f(x,y)dy\] D'où
+\[\iint\limits_D f(x,y)dA=\int_a^b \int_{y_1(x)}^{y_2(x)}f(x,y)dy dx\]
+Nous présentons à la figure \ref{fig:itereeX} une représentation de ce
+domaine.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{resources/images/latex/itereeX} 
+
+}
+
+\caption{Domaine d'intégration $D$ lorsque les courbes sont des fonctions de $x$.}\label{fig:itereeX}
+\end{figure}
+
+D'une manière similaire, si \(D\) est défini par
+\[D=\{(x,y)\in\mathbb{R}^2\mid x_1(y)\leq x\leq x_2(y),\ c\leq y \leq d\}\]
+alors
+\[\iint\limits_D f(x,y)dA=\int_c^d \int_{x_1(y)}^{x_2(y)}f(x,y)dx dy\]
+Nous présentons à la figure \ref{fig:itereeY} une représentation de ce
+domaine.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{resources/images/latex/itereeY} 
+
+}
+
+\caption{Domaine d'intégration $D$ lorsque les courbes sont des fonctions de $y$.}\label{fig:itereeY}
+\end{figure}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-245}{}{\label{exm:unnamed-chunk-245}
+}Calculez le volume du solide compris entre \(z=0\) et \(z=5+2xy\)
+au-dessus de la région délimitée par \(y=x\) et \(y=\sqrt{x}\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-246}{}{\label{exm:unnamed-chunk-246}
+}Trouvez \(\iint\limits_D (2y-x^2)dA\) sur la région \(0\leq x\leq 2\)
+et \(x^2\leq y \leq 9-x\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-247}{}{\label{exm:unnamed-chunk-247}
+}Trouvez \(\iint\limits_D (x^2+y^2)dA\) sur la région triangulaire
+délimitée par les points \((0,0)\), \((2,0)\) et \((1,1)\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-248}{}{\label{exm:unnamed-chunk-248}
+}Trouvez \(\iint\limits_D (1+x+y)dA\) sur la région délimitée par
+\(y=-x\), \(y=2\) et \(x=y^2\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-249}{}{\label{exm:unnamed-chunk-249}
+}Calculez le volume délimité par les plans \(x+y+z=1\), \(x=0\), \(y=0\)
+et \(z=0\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{changer-lordre-dintegration}{%
+\subsection{Changer l'ordre
+d'intégration}\label{changer-lordre-dintegration}}
+
+Il arrive parfois qu'une intégrale double ne se calcule pas lorsque nous
+tentons d'utiliser l'ordre d'intégration proposé. Pour tenter de
+calculer l'intégrale, nous allons changer l'ordre d'intégration.
+
+Pour ce faire, voici les étapes:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Dessiner le domaine d'intégration.
+\item
+  Changer l'ordre d'intégration en se basant sur le dessin.
+\item
+  Calculer l'intégrale résultante.
+\end{enumerate}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-250}{}{\label{exm:unnamed-chunk-250}
+}Calculez \(\int_0^1\int_x^1 \sin(y^2)dydx\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-251}{}{\label{exm:unnamed-chunk-251}
+}Calculez \(\int_0^1\int_{e^y}^e \frac{x}{\ln(x)}dxdy\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-252}{}{\label{exm:unnamed-chunk-252}
+}Calculez \(\int_0^e\int_{0}^{\ln(x)} ydydx\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-253}{}{\label{exm:unnamed-chunk-253}
+}Calculez \(\int_0^3\int_{y^2}^{9} y\cos(x^2)dxdy\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{les-proprietes-de-lintegrale-double}{%
+\subsection{Les propriétés de l'intégrale
+double}\label{les-proprietes-de-lintegrale-double}}
+
+Voici quelques propriétés de l'intégrale double.
+\BeginKnitrBlock{theorem}
+\protect\hypertarget{thm:unnamed-chunk-254}{}{\label{thm:unnamed-chunk-254}
+}Soit \(f(x,y)\) et \(g(x,y)\) deux fonctions définies sur un domaine
+\(D\). Nous avons alors:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \(\iint\limits_D \left[f(x,y)\pm g(x,y)\right]dA=\iint\limits_D f(x,y)dA \pm \iint\limits_D g(x,y)dA\)
+\item
+  \(\iint\limits_D kf(x,y)dA=k\iint\limits_D f(x,y)dA\) où \(k\) est une
+  constante
+\item
+  Si \(f(x,y)\geq g(x,y)\), \(\forall\) \((x,y)\in D\), alors
+  \(\iint\limits_D f(x,y)dA\geq \iint\limits_D g(x,y)dA\)
+\item
+  Si \(D=D_1 \cup D_2\), alors
+  \(\iint\limits_D f(x,y)dA=\iint\limits_{D_1} f(x,y)dA+\iint\limits_{D_2} f(x,y)dA\)
+\item
+  \(\iint\limits_D 1dA=\) aire de \(D\)
+\end{enumerate}
+\EndKnitrBlock{theorem}
+
+\BeginKnitrBlock{proof}
+\iffalse{} {Preuve. } \fi{}Les propriétés sont énoncées sans
+démonstration.
+\EndKnitrBlock{proof}
+
+Ces propriétés sont très utiles, particulièrement la 4. Elle permet de
+scinder en plusieurs parties un domaine d'intégration.
+
+\hypertarget{intfct3vars}{%
+\chapter{L'intégration de fonctions de trois
+variables}\label{intfct3vars}}
+
+Vous trouverez à la section une application
+\href{https://www.geogebra.org/?lang=fr}{GeoGebra} vous permettant de
+visualiser des coupes transversales et des courbes de niveaux. À noter
+que cette application n'est disponible que dans la version en ligne de
+ce document.
+
+\hypertarget{introduction-7}{%
+\section{Introduction}\label{introduction-7}}
+
+Dans ce chapitre, nous verrons les intégrales multiples qui sont la
+généralisation des intégrales pour les fonctions de plusieurs variables.
+Nous étudierons également les changements de coordonnées afin de
+simplifier la résolution de ces intégrales.
 
 \bibliography{book.bib,packages.bib}
 

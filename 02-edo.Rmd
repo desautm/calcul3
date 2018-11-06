@@ -1,3 +1,5 @@
+# (PART) Les équations différentielles {-}
+
 # Les équations différentielles ordinaires {#edo}
 
 Vous trouverez à la section \@ref(geogebra-equations-diff) une application [GeoGebra](https://www.geogebra.org/?lang=fr) vous permettant de visualiser les solutions d'une équation différentielle homogène d'ordre 2 à coefficients constants. À noter que cette application n'est disponible que dans la version en ligne de ce document.
