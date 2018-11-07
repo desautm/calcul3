@@ -1,0 +1,56 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+\usepackage{pst-solides3d}
+\usepackage{fp}
+\def\nbpi{3.14159265}
+
+\begin{document}
+\psset{unit=1,algebraic}
+\begin{pspicture}(-1,-1)(6,5.5)
+	\psaxes[labels=none,ticks=none]{->}(0,0)(-1,-1)(5,5)
+	\psline(0,0)(4.7,1.71) \uput[20](4.7,1.71){$\theta=\alpha$}
+	\psline(0,0)(1.71,4.7) \uput[70](1.71,4.7){$\theta=\beta$}
+	
+	\FPeval{Xa}{4.5*cos(70*\nbpi/180)}
+	\FPeval{Ya}{4.5*sin(70*\nbpi/180)}
+	\FPeval{Xb}{3.5*cos(60*\nbpi/180)}
+	\FPeval{Yb}{3.5*sin(60*\nbpi/180)}
+	\FPeval{Xc}{3.9*cos(50*\nbpi/180)}
+	\FPeval{Yc}{3.9*sin(50*\nbpi/180)}
+	\FPeval{Xd}{3.2*cos(40*\nbpi/180)}
+	\FPeval{Yd}{3.2*sin(40*\nbpi/180)}
+	\FPeval{Xe}{3.7*cos(30*\nbpi/180)}
+	\FPeval{Ye}{3.7*sin(30*\nbpi/180)}
+	\FPeval{Xf}{3*cos(20*\nbpi/180)}
+	\FPeval{Yf}{3*sin(20*\nbpi/180)}
+	
+	\FPeval{Xg}{2*cos(20*\nbpi/180)}
+	\FPeval{Yg}{2*sin(20*\nbpi/180)}
+	
+	\FPeval{Xh}{1.9*cos(40*\nbpi/180)}
+	\FPeval{Yh}{1.9*sin(40*\nbpi/180)}
+	\FPeval{Xi}{1.4*cos(60*\nbpi/180)}
+	\FPeval{Yi}{1.4*sin(60*\nbpi/180)}
+	\FPeval{Xj}{2.2*cos(70*\nbpi/180)}
+	\FPeval{Yj}{2.2*sin(70*\nbpi/180)}
+	
+	\uput[0](\Xc,\Yc){$r_2 (\theta)$}
+	\uput{0.25}[-90](\Xh,0){$r_1(\theta)$} \psline{->}(\Xh,-0.25)(\Xh,\Yh)
+	
+	\pscustom{
+		\pscurve(\Xa,\Ya)(\Xb,\Yb)(\Xc,\Yc)(\Xd,\Yd)(\Xe,\Ye)(\Xf,\Yf)
+		\psline(\Xf,\Yf)(\Xg,\Yg)
+		\pscurve(\Xg,\Yg)(\Xh,\Yh)(\Xi,\Yi)(\Xj,\Yj)
+		\fill[fillstyle=solid,fillcolor=lightgray]
+	}
+	\pscurve[linewidth=1.5pt](\Xa,\Ya)(\Xb,\Yb)(\Xc,\Yc)(\Xd,\Yd)(\Xe,\Ye)(\Xf,\Yf)
+	\pscurve[linewidth=1.5pt](\Xg,\Yg)(\Xh,\Yh)(\Xi,\Yi)(\Xj,\Yj)
+	\psline[linewidth=1.5pt](\Xf,\Yf)(\Xg,\Yg)
+	\psline[linewidth=1.5pt](\Xj,\Yj)(\Xa,\Ya)
+	
+\end{pspicture}
+\end{document}

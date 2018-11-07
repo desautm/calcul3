@@ -25,7 +25,7 @@
 <meta name="author" content="Marc-André Désautels">
 
 
-<meta name="date" content="2018-11-06">
+<meta name="date" content="2018-11-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -197,6 +197,11 @@
 <li class="chapter" data-level="7.2.5" data-path="les-integrales-doubles.html"><a href="les-integrales-doubles.html#changer-lordre-dintegration"><i class="fa fa-check"></i><b>7.2.5</b> Changer l’ordre d’intégration</a></li>
 <li class="chapter" data-level="7.2.6" data-path="les-integrales-doubles.html"><a href="les-integrales-doubles.html#les-proprietes-de-lintegrale-double"><i class="fa fa-check"></i><b>7.2.6</b> Les propriétés de l’intégrale double</a></li>
 </ul></li>
+<li class="chapter" data-level="7.3" data-path="les-integrales-doubles-en-coordonneees-polaires.html"><a href="les-integrales-doubles-en-coordonneees-polaires.html"><i class="fa fa-check"></i><b>7.3</b> Les intégrales doubles en coordonnéees polaires</a></li>
+<li class="chapter" data-level="7.4" data-path="le-changement-de-coordonnees-pour-les-integrales-doubles.html"><a href="le-changement-de-coordonnees-pour-les-integrales-doubles.html"><i class="fa fa-check"></i><b>7.4</b> Le changement de coordonnées pour les intégrales doubles</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="le-changement-de-coordonnees-pour-les-integrales-doubles.html"><a href="le-changement-de-coordonnees-pour-les-integrales-doubles.html#le-produit-vectoriel"><i class="fa fa-check"></i><b>7.4.1</b> Le produit vectoriel</a></li>
+<li class="chapter" data-level="7.4.2" data-path="le-changement-de-coordonnees-pour-les-integrales-doubles.html"><a href="le-changement-de-coordonnees-pour-les-integrales-doubles.html#le-changement-de-coordonnees"><i class="fa fa-check"></i><b>7.4.2</b> Le changement de coordonnées</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="intfct3vars.html"><a href="intfct3vars.html"><i class="fa fa-check"></i><b>8</b> L’intégration de fonctions de trois variables</a><ul>
 <li class="chapter" data-level="8.1" data-path="introduction-7.html"><a href="introduction-7.html"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
@@ -239,8 +244,8 @@
 </div>
 
 <p>La manière la plus simple de trouver une dérivée à l’aide du théorème <a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html#thm:deriv-chaine-1">5.2</a>, est de construire un schéma de dérivation. Si nous dessinons le schéma de dérivaton de la fonction du théorème <a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html#thm:deriv-chaine-1">5.2</a>, nous obtenons l’image suivante.</p>
-<div id="htmlwidget-849a24a1df4430252ee7" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-849a24a1df4430252ee7">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; t\n\n  # several \"edge\" statements\n  f->x f->y x->t y->t\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cfebd82d5d806218f53f" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cfebd82d5d806218f53f">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; t\n\n  # several \"edge\" statements\n  f->x f->y x->t y->t\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Pour dériver à la chaîne à l’aide de la figure précédente, nous partons du haut de l’<em>arbre</em> et nous parcourons toutes les <em>branches</em> qui se rendent jusqu’à la variable par rapport à laquelle nous dérivons, en multipliant les dérivées. Nous additionnons toutes les <em>branches</em> pour obtenir la dérivée.</p>
 
 <div class="example">
@@ -272,8 +277,8 @@
  <span class="proof"><em>Preuve. </em></span> Nous ne ferons pas la preuve exacte mais nous allons dessiner le schéma de dérivation.
 </div>
 
-<p><div id="htmlwidget-7fb55e3b8155c43889c4" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7fb55e3b8155c43889c4">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; u; v\n\n  # several \"edge\" statements\n  f->x f->y x->u y->u x->v y->v\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p><div id="htmlwidget-b4d0d1be0e4369088bd4" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b4d0d1be0e4369088bd4">{"x":{"diagram":"\ndigraph schema_derivation {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 8]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  f; x; y; u; v\n\n  # several \"edge\" statements\n  f->x f->y x->u y->u x->v y->v\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 Remarquons que si nous suivons toutes les <em>branches</em> de l’<em>arbre</em> en multipliant les dérivées et en additionnant les branches, nous obtenons le résultat du théorème.
 ```</p>
 

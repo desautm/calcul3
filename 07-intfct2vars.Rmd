@@ -192,3 +192,231 @@ Les propriétés sont énoncées sans démonstration.
 ```
 
 Ces propriétés sont très utiles, particulièrement la 4. Elle permet de scinder en plusieurs parties un domaine d'intégration.
+
+```{example}
+Soit une fonction $f(x,y)\geq 0$. Écrivez l'expression permettant de calculer lee volume sous $f(x,y)$ au dessus du triangle dont les sommets sont $(1,1)$, $(2,2)$ et $(-1,3)$.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez $\iint\limits_D (2y+x)dA$ sur la région formée de l'union des régions 1 et 2. La région 1 est telle que $0\leq x \leq 2$ et $0\leq y \leq x^2+1$. La région 2 ests telle que $2\leq x\leq 7$ et $0\leq y \leq 7-x$.
+```
+\vspace*{8cm}
+
+## Les intégrales doubles en coordonnéees polaires
+
+Dans certains cas, il est difficile de calculer certaines intégrales en coordonnées cartésiennes et ce, pour différentes raisons. Parfois le domaine d'intégration est difficile à écrire en coordonnées cartésiennes. Par exemple, si le domaine d'intégration est celui présenté à la figure \@ref(fig:demianneau), il serait alors plus simple d'utiliser les coordonnées polaires.
+```{r,echo=FALSE,fig.align="center",label="demianneau",out.width="75%",fig.cap="Une région sur laquelle nous voulons intégrer qui se prête particulièrement bien aux coordonnées polaires."}
+knitr::include_graphics("resources/images/latex/demianneau.png")
+```
+Voyons comment nous pouvons effectuer le changement de coordonnées. Supposons tout d'abord que le domaine est un rectangle polaire, c'est-à-dire que:
+$$D=\{(r,\theta)|a\leq r\leq b,\alpha \leq \theta\leq \beta\}$$
+Divisons maintenant ce rectangle polaire en petits rectangles polaires. Posons
+\begin{align*}
+R_{i,j}&=\{(r,\theta)|r_{i-1}\leq r\leq r_{i},\theta_{j-1} \leq \theta\leq \theta_j \},\\
+\Delta \theta_j&=\theta_j-\theta_{j-1},\\
+\Delta r_i&=r_i-r_{i-1}.
+\end{align*}
+La figure \@ref(fig:partition-rectangle-polaire) représente un rectangle polaire ainsi qu'une partition possible de ce rectangle.
+```{r,echo=FALSE,fig.show='hold',fig.align="center",label="partition-rectangle-polaire",out.width="45%",fig.cap="Un rectangle polaire et une partition du rectangle polaire."}
+knitr::include_graphics(c("resources/images/latex/rectanglepolaire.png","resources/images/latex/partitionrectpolaire.png"))
+```
+Le volume délimité par le rectangle polaire $R_{ij}$ et la fonction $f(x,y)$ est donné par:
+\begin{align*}
+V_{ij}&\approx f(x_i^*,y_j^*)\Delta A_{i,j}\\
+&\approx f(r_i^*\cos \theta_j^*,r_i^*\sin \theta_j^*)\Delta A_{i,j},
+\end{align*}
+où $(r_i^*,\theta_j^*)$ est le point au centre de $R_{i,j}$. Il ne reste plus qu'à déterminer $\Delta A_{i,j}$ qui correspond à l'aire de $R_{i,j}$. Nous savons que l'aire d'une section de disque de rayon $R$ est donnée par:
+\begin{align*}
+A=\dfrac{1}{2}R^2\varphi
+\end{align*}
+où $\varphi $ est l'angle au centre. Ainsi, nous pouvons trouver $\Delta A_{i,j}$ en effectuant la différence de l'aire deux sections. D'où:
+\begin{align*}
+\Delta A_{i,j}= \frac{1}{2}r_i^2\Delta \theta_j-\frac{1}{2}r_{i-1}^2\Delta \theta_j.
+\end{align*}
+Nous allons manipuler l'expression précédente pour la simplifier.
+\begin{align*}
+\Delta A_{i,j}&= \frac{1}{2}r_i^2\Delta \theta_j-\frac{1}{2}r_{i-1}^2\Delta \theta_j\\
+&= \frac{1}{2}\left(r_i^2- r_{i-1}^2  \right)\theta_j\\
+&= \underbrace{\frac{1}{2}(r_i+r_{i-1})}_{=r_i^*}\underbrace{(r_i-r_{i-1})}_{=\Delta r_i} \Delta \theta_j \\
+&=r_i^*\Delta r_i\Delta \theta_j. 
+\end{align*}
+Ainsi, 
+\begin{align*}
+V_{i,j}\approx f(r_i^*\cos \theta_j^*,r_i^*\sin \theta_j^*)r_i^*\Delta r_i\Delta \theta_j
+\end{align*}
+Posons $g(r,\theta)=rf(r\cos\theta, r\sin\theta)$. Maintenant, trouvons une expression pour l'intégrale double. 
+\begin{align*}
+\iint\limits_Df(x,y)dA&:=\lim_{m,n\to\infty }\sum_{i=1}^n\sum_{j=1}^mf(r_i^*\cos \theta_j^*,r_i^*\sin \theta_j^*)\Delta A_{i,j}\\
+&=\lim_{m,n\to\infty }\sum_{i=1}^n\sum_{j=1}^mg(r_i^*,\theta_j^*)\Delta r_i\Delta \theta_j\\
+&=\int_{\alpha }^{\beta }\int_{a }^{b }g(r,\theta)drd\theta\\
+&=\int_{\alpha }^{\beta }\int_{a }^{b }f(r\cos\theta,r\sin\theta)rdrd\theta
+\end{align*}
+
+```{remark}
+Il est important de voir que $dxdy=rdrd\theta$. Ainsi, nous devons multiplier la fonction par $r$ lorsque nous passons en coordonnées polaires.
+```
+
+```{example}
+Trouvez $\iint\limits_D (x^2+y^2)dA$ sur le disque de rayon 1 centré à l'origine.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez $\iint\limits_D \frac{1}{e^{x^2+y^2}}dA$ sur le quart de disque de rayon 3 centré à l'origine.
+```
+\vspace*{8cm}
+
+Nous avons montré le changement en coordonnées polaires lorsque le domaine est un rectangle polaire. Cependant, tout comme pour les coordonnées cartésiennes, il est possible de fixer une variable et de faire varier l'autre, ce qui entraîne que les bornes peuvent dépendre d'une variable. La figure \@ref(fig:r-depend-theta) présente les deux possibilités, que la variable $r$ dépende de $\theta$ ou que la variable $\theta$ dépende de $r$.
+```{r,echo=FALSE,fig.show='hold',fig.align="center",label="r-depend-theta",out.width="45%",fig.cap="La variable $r$ peut dépendre de $\\theta$ et vice-versa."}
+knitr::include_graphics(c("resources/images/latex/rdependtheta.png","resources/images/latex/thetadependr.png"))
+```
+Dans le cas de la figure \@ref(fig:r-depend-theta) de gauche, l'intégrale devient:
+\begin{align*}
+\iint\limits_D f(x,y)dA=\int_{\alpha }^{\beta}\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos\theta,r\sin\theta)rdrd\theta
+\end{align*}
+Dans le cas de la figure \@ref(fig:r-depend-theta) de droite, l'intégrale devient: 
+\begin{align*}
+\iint\limits_Df(x,y)dA=\int_{a}^{b}\int_{\theta_1(r)}^{\theta_2(r)}f(r\cos\theta,r\sin\theta)rd\theta dr
+\end{align*}
+
+```{remark}
+Nous allons nous intéresser à un cas particulier. Soit $f(x,y)=1$, alors l'inttégrale double calcule maintenant la surface du domaine d'intégration. Si nous nous plaçons dans le premier cas où la variable $r$ dépend de $\theta$, c'est-à-dire $r_1(\theta)=0$ et $r_2(\theta)=r(\theta)$ pour $\alpha \leq \theta \leq \beta$, nous obtenons:
+\begin{align*}
+\text{Aire}(D)&=\int_{\alpha }^{\beta }\int_0^{r(\theta)}rdrd\theta\\
+&=\int_{\alpha }^{\beta }\left.\dfrac{r^2}{2}\right|_0^{r(\theta)}d\theta\\
+&=\int_{\alpha }^{\beta }\dfrac{r^2(\theta)}{2}\theta
+\end{align*}
+L'équation précédente correspond au résultat obtenu au chapitre \@ref(coordpolaires) pour le calcul de l'aire d'une région polaire.
+```
+
+```{example}
+Trouvez $\int_0^1 \int_y^{\sqrt{2-y^2}} (x^2+y^2) dx dy$.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez $\iint\limits_D \frac{1}{\sqrt{x^2+y^2}}dA$ sur la région bornée par $y=\sqrt{3}x$, $x=3$ et $y=0$.
+```
+\vspace*{8cm}
+
+```{example}
+Déterminez l'aire de la région située entre $r=3+2\sin(\theta)$ et $r=2$.
+```
+\vspace*{8cm}
+
+## Le changement de coordonnées pour les intégrales doubles
+
+Il existe d'autres systèmes de coordonnées autres que les systèmes cartésiens et polaires. En réalité, il est souvent impossible de résoudre certaines intégrales en n'utilisant que ces deux systèmes. Par exemple, si nous voulons calculer $\iint\limits_D 1 dA$ sur le domaine 
+$D=\left\{(x,y)\in\mathbb{R}^2\left| \frac{x^2}{a^2}+\frac{y^2}{b^2}\leq 1 \right. \right\}$, il devient très difficile de faire cette intégrale en n'utilisant que les deux systèmes que nous connaissons. Heureusement, il existe une technique permettant de trouver le terme $dA$ lorsque nous effectuons un changement de variables. Avant de débuter, nous ferons un bref rappel du produit vectoriel.
+
+### Le produit vectoriel
+
+Soit deux vecteurs de $\mathbb{R}^3$ non-colinéaires tels que $\overrightarrow{u}=[u_1,u_2,0]$ et $\overrightarrow{v}=[v_1,v_2,0]$. L'aire du parallélogramme engendré par ces vecteurs est donnée par:
+\begin{align*}
+A&= \| \vec u \times \vec v\| \\
+&= \left\| \ \left| \begin{array}{ccc}
+\vec i &\vec j& \vec k\\
+u_1 & u_2 &0 \\
+v_1 & v_2 &0
+\end{array}
+\right|\ \right\| \\
+ &=\left\|   0\vec i - 0\vec j+\left|
+\begin{array}{cc}
+u_1 & u_2  \\
+v_1 & v_2 
+\end{array}  
+\right|\vec k \ \right\| \\
+&= \left| det  \left(\begin{array}{cc}
+u_1 & u_2  \\
+v_1 & v_2 
+\end{array}  \right) \right|
+\end{align*}
+L'aire du prallélogramme est donc donnée par la valeur absolue du déterminant des deux vecteurs.
+
+### Le changement de coordonnées
+
+Nous voulons déterminer une expression dans un autre système de coordonnées (par exemple $u$ et $v$) pour $\iint\limits_D f(x,y)dA$. Plus précisément, nous voulons trouver une expression pour $dA$ en fonction de $u$ et $v$. Pour ce faire, supposons qu'il existe une transformation bijective et dérivable $T$ qui prend une région $D'$ du plan $uv$ et qui l'envoie sur $D$ dans le plan $xy$. Ceci signifie que $T$ prend un point $(u,v)\in D'$ et l'envoie sur le point $(x(u,v),y(u,v))\in D$. La figure \@ref(fig:jacobien2d) représente cette transformation.
+```{r,echo=FALSE,fig.align="center",label="jacobien2d",out.width="75%",fig.cap="La représentation de l'effet de la transformation $T$ sur un rectangle dans le plan $x$ et $y$."}
+knitr::include_graphics("resources/images/latex/jacobien2d.png")
+```
+Nous allons étudier le résultat de cette transformation sur un petit rectangle de dimension $\Delta u \times \Delta v$ dans le plan $uv$. Notons par $P=T(P')$, $Q=T(Q')$ et $R=T(R')$. On sait qu'une petite variation $\Delta x$ peut être obtenue par
+\begin{align*}
+\Delta x\approx \frac{\partial x}{\partial u}\Delta u+\frac{\partial x}{\partial v}\Delta v
+\end{align*}
+De même, on a 
+\begin{align*}
+\Delta y\approx \frac{\partial y}{\partial u}\Delta u+\frac{\partial y}{\partial v}\Delta v 
+\end{align*}
+Ainsi, le vecteur $\overrightarrow{PQ}=\left[\frac{\partial x}{\partial u}\Delta u,\frac{\partial y}{\partial u}\Delta u\right]$, car $\Delta v=0$ puisque les points $P'$ et $Q'$ont la même composante $v$. De même, on a que le vecteur \\$\overrightarrow{PR}=\left[\frac{\partial x}{\partial v}\Delta v,\frac{\partial y}{\partial v}\Delta v\right]$ pour des raisons similaires. Maintenant, l'élément d'aire $\Delta A$ formé par $\Delta u$ et $\Delta v$ s'exprime en terme d'aire de parallélogramme 
+\begin{align*}
+\Delta A&\approx \left\| \overrightarrow{PQ}\times    \overrightarrow{PR}\right\| \\
+&\approx \left\| \left| 
+\begin{array}{ccc}
+\vec i &\vec j& \vec k\\
+\frac{\partial x}{\partial u}\Delta u & \frac{\partial y}{\partial u}\Delta u &0 \\
+\frac{\partial x}{\partial v}\Delta v & \frac{\partial y}{\partial v}\Delta v &0
+\end{array}  \right|   \right\|\\
+&\approx 
+\left\| 0\vec i -0\vec j+ \left| 
+\begin{array}{cc}
+\frac{\partial x}{\partial u}\Delta u & \frac{\partial y}{\partial u}\Delta u \\
+\frac{\partial x}{\partial v}\Delta v & \frac{\partial y}{\partial v}\Delta v 
+\end{array}  \right| \vec k  \right\|\\
+&\approx 
+\sqrt{\left(\frac{\partial x}{\partial u}\Delta u \frac{\partial y}{\partial v}\Delta v- \frac{\partial y}{\partial u}\Delta u \frac{\partial x}{\partial v}\Delta v\right)^2}\\
+&\approx 
+\left|\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}- \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}\right|\Delta u\Delta v.\\
+\end{align*}
+À la limite où $\Delta u$ et $\Delta v$ tendent vers $0$, nous obtenons une expression pour $dA$:
+\begin{align*}
+dA=\left|\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}- \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}\right|dudv
+\end{align*}
+
+```{definition,name="Jacobien"}
+Soit une transformation dérivable $T:(u,v)\rightarrow (x(u,v),y(u,v))$. Nous appelons Jacobien le déterminant suivant:
+\begin{align*}
+J&=\left|\begin{array}{cc}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{array}   \right|
+=\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}- \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}
+\end{align*}
+
+```
+
+```{remark}
+Nous notons le Jacobien d'une transformation par $J$, $J_{u,v}$ ou $\frac{\partial (x,y)}{\partial (u,v)}$.
+```
+
+Nous pouvons donc écrire $dA=|J|dudv$, d'où:
+$$\iint\limits_D f(x,y)dA=\iint\limits_{D'} f(x(u,v),y(u,v))|J|dudv$$
+
+```{example}
+Démontrez qu'un élément d'aire en coordonnées polaires est $rdrd\theta$.
+```
+\vspace*{5cm}
+
+```{example}
+Calculez $\iint\limits_D e^{\tfrac{x+y}{x-y}}dA$ où $D$ est la région délimitée par le trapèze de sommets $(1,0)$, $(2,0)$, $(0,-2)$ et $(0,-1)$.
+```
+\vspace*{10cm}
+
+```{example}
+Calculez $\iint\limits_D (x^2-xy+y^2)dA$ où $D$ est l'ellipse donnée par $x^2-xy+y^2=2$ en utilisant la transformation:
+\begin{align*}
+x &= \sqrt{2}u-\sqrt{2/3}v \\
+y &= \sqrt{2}u+\sqrt{2/3}v 
+\end{align*}
+
+```
+\vspace*{8cm}
+
+```{example}
+Calculez $\iint\limits_D e^{x+y}dA$ où $D$ est $|x|+|y|\leq a$.
+```
+\vspace*{8cm}
+
+
+
+

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Calcul différentiel et intégral dans l’espace</title>
+  <meta name="description" content="Un livre sous forme de notes trouées portant sur le calcul différentiel et intégral dans l’espace.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="Calcul différentiel et intégral dans l’espace" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Un livre sous forme de notes trouées portant sur le calcul différentiel et intégral dans l’espace." />
+  <meta name="github-repo" content="desautm/calcul3" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Calcul différentiel et intégral dans l’espace" />
+  
+  <meta name="twitter:description" content="Un livre sous forme de notes trouées portant sur le calcul différentiel et intégral dans l’espace." />
+  
+
+<meta name="author" content="Marc-André Désautels">
+
+
+<meta name="date" content="2018-11-07">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="les-integrales-doubles-en-coordonneees-polaires.html">
+<link rel="next" href="intfct3vars.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<script src="libs/viz-0.3/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.0/grViz.js"></script>
+
+
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Calcul différentiel et intégral dans l'espace</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="" data-path="a-propos-de-ce-document.html"><a href="a-propos-de-ce-document.html"><i class="fa fa-check"></i>À propos de ce document</a><ul>
+<li class="chapter" data-level="" data-path="a-propos-de-ce-document.html"><a href="a-propos-de-ce-document.html#remerciements"><i class="fa fa-check"></i>Remerciements</a></li>
+<li class="chapter" data-level="" data-path="a-propos-de-ce-document.html"><a href="a-propos-de-ce-document.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Les séries de Taylor</b></span></li>
+<li class="chapter" data-level="1" data-path="taylor.html"><a href="taylor.html"><i class="fa fa-check"></i><b>1</b> Les séries de Taylor</a><ul>
+<li class="chapter" data-level="1.1" data-path="les-polynomes-de-taylor-et-de-maclaurin.html"><a href="les-polynomes-de-taylor-et-de-maclaurin.html"><i class="fa fa-check"></i><b>1.1</b> Les polynômes de Taylor et de MacLaurin</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="les-polynomes-de-taylor-et-de-maclaurin.html"><a href="les-polynomes-de-taylor-et-de-maclaurin.html#les-polynomes-de-maclaurin"><i class="fa fa-check"></i><b>1.1.1</b> Les polynômes de MacLaurin</a></li>
+<li class="chapter" data-level="1.1.2" data-path="les-polynomes-de-taylor-et-de-maclaurin.html"><a href="les-polynomes-de-taylor-et-de-maclaurin.html#les-polynomes-de-taylor"><i class="fa fa-check"></i><b>1.1.2</b> Les polynômes de Taylor</a></li>
+<li class="chapter" data-level="1.1.3" data-path="les-polynomes-de-taylor-et-de-maclaurin.html"><a href="les-polynomes-de-taylor-et-de-maclaurin.html#le-reste-de-taylor-lagrange"><i class="fa fa-check"></i><b>1.1.3</b> Le reste de Taylor-Lagrange</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="les-series-de-taylor.html"><a href="les-series-de-taylor.html"><i class="fa fa-check"></i><b>1.2</b> Les séries de Taylor</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="les-series-de-taylor.html"><a href="les-series-de-taylor.html#lobtention-de-series-de-taylor-a-partir-de-series-connues."><i class="fa fa-check"></i><b>1.2.1</b> L’obtention de séries de Taylor à partir de séries connues.</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>1.3</b> Applications</a></li>
+<li class="chapter" data-level="1.4" data-path="geogebra-taylor.html"><a href="geogebra-taylor.html"><i class="fa fa-check"></i><b>1.4</b> GeoGebra</a></li>
+<li class="chapter" data-level="1.5" data-path="pages-supplementaires.html"><a href="pages-supplementaires.html"><i class="fa fa-check"></i><b>1.5</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="part"><span><b>II Les équations différentielles</b></span></li>
+<li class="chapter" data-level="2" data-path="edo.html"><a href="edo.html"><i class="fa fa-check"></i><b>2</b> Les équations différentielles ordinaires</a><ul>
+<li class="chapter" data-level="2.1" data-path="introduction-1.html"><a href="introduction-1.html"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="les-equations-differentielles-a-variables-separables.html"><a href="les-equations-differentielles-a-variables-separables.html"><i class="fa fa-check"></i><b>2.2</b> Les équations différentielles à variables séparables</a></li>
+<li class="chapter" data-level="2.3" data-path="les-equations-differentielles-lineaires.html"><a href="les-equations-differentielles-lineaires.html"><i class="fa fa-check"></i><b>2.3</b> Les équations différentielles linéaires</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="les-equations-differentielles-lineaires.html"><a href="les-equations-differentielles-lineaires.html#problemes-de-melange"><i class="fa fa-check"></i><b>2.3.1</b> Problèmes de mélange</a></li>
+<li class="chapter" data-level="2.3.2" data-path="les-equations-differentielles-lineaires.html"><a href="les-equations-differentielles-lineaires.html#inverser-la-derivee"><i class="fa fa-check"></i><b>2.3.2</b> Inverser la dérivée</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><a href="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><i class="fa fa-check"></i><b>2.4</b> Les équations différentielles à coefficients constants d’ordre 2</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><a href="les-equations-differentielles-a-coefficients-constants-dordre-2.html#quelques-rappels-concernant-les-nombres-complexes"><i class="fa fa-check"></i><b>2.4.1</b> Quelques rappels concernant les nombres complexes</a></li>
+<li class="chapter" data-level="2.4.2" data-path="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><a href="les-equations-differentielles-a-coefficients-constants-dordre-2.html#les-equations-differentielles-homogenes-a-coefficients-constants-dordre-2"><i class="fa fa-check"></i><b>2.4.2</b> Les équations différentielles homogènes à coefficients constants d’ordre 2</a></li>
+<li class="chapter" data-level="2.4.3" data-path="les-equations-differentielles-a-coefficients-constants-dordre-2.html"><a href="les-equations-differentielles-a-coefficients-constants-dordre-2.html#non-homogene-2"><i class="fa fa-check"></i><b>2.4.3</b> Les équations différentielles non homogènes à coefficients constants d’ordre 2</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="applications-des-equations-differentielles-du-deuxieme-ordre-a-coefficients-constants.html"><a href="applications-des-equations-differentielles-du-deuxieme-ordre-a-coefficients-constants.html"><i class="fa fa-check"></i><b>2.5</b> Applications des équations différentielles du deuxième ordre à coefficients constants</a></li>
+<li class="chapter" data-level="2.6" data-path="geogebra-equations-diff.html"><a href="geogebra-equations-diff.html"><i class="fa fa-check"></i><b>2.6</b> GeoGebra</a></li>
+<li class="chapter" data-level="2.7" data-path="pages-supplementaires-1.html"><a href="pages-supplementaires-1.html"><i class="fa fa-check"></i><b>2.7</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="part"><span><b>III Les coordonnées polaires</b></span></li>
+<li class="chapter" data-level="3" data-path="coordpolaires.html"><a href="coordpolaires.html"><i class="fa fa-check"></i><b>3</b> Les coordonnées polaires</a><ul>
+<li class="chapter" data-level="3.1" data-path="introduction-2.html"><a href="introduction-2.html"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="le-graphique-dune-equation-polaire-rftheta.html"><a href="le-graphique-dune-equation-polaire-rftheta.html"><i class="fa fa-check"></i><b>3.2</b> Le graphique d’une équation polaire <span class="math inline">\(r=f(\theta)\)</span></a></li>
+<li class="chapter" data-level="3.3" data-path="tangente-a-une-courbe-polaire.html"><a href="tangente-a-une-courbe-polaire.html"><i class="fa fa-check"></i><b>3.3</b> Tangente à une courbe polaire</a></li>
+<li class="chapter" data-level="3.4" data-path="aire-dune-region.html"><a href="aire-dune-region.html"><i class="fa fa-check"></i><b>3.4</b> Aire d’une région</a></li>
+<li class="chapter" data-level="3.5" data-path="longueur-dune-courbe.html"><a href="longueur-dune-courbe.html"><i class="fa fa-check"></i><b>3.5</b> Longueur d’une courbe</a></li>
+<li class="chapter" data-level="3.6" data-path="geogebra-polaire.html"><a href="geogebra-polaire.html"><i class="fa fa-check"></i><b>3.6</b> GeoGebra</a></li>
+<li class="chapter" data-level="3.7" data-path="pages-supplementaires-2.html"><a href="pages-supplementaires-2.html"><i class="fa fa-check"></i><b>3.7</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="part"><span><b>IV Les fonctions de plusieurs variables</b></span></li>
+<li class="chapter" data-level="4" data-path="fctvar.html"><a href="fctvar.html"><i class="fa fa-check"></i><b>4</b> Les fonctions de plusieurs variables</a><ul>
+<li class="chapter" data-level="4.1" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="definitions.html"><a href="definitions.html"><i class="fa fa-check"></i><b>4.2</b> Définitions</a></li>
+<li class="chapter" data-level="4.3" data-path="graphiques-divers.html"><a href="graphiques-divers.html"><i class="fa fa-check"></i><b>4.3</b> Graphique</a></li>
+<li class="chapter" data-level="4.4" data-path="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html"><a href="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html"><i class="fa fa-check"></i><b>4.4</b> Comment étudier les graphiques de fonctions de deux variables</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html"><a href="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html#les-coupes-transversales"><i class="fa fa-check"></i><b>4.4.1</b> Les coupes transversales</a></li>
+<li class="chapter" data-level="4.4.2" data-path="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html"><a href="comment-etudier-les-graphiques-de-fonctions-de-deux-variables.html#les-courbes-de-niveaux"><i class="fa fa-check"></i><b>4.4.2</b> Les courbes de niveaux</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="domaine.html"><a href="domaine.html"><i class="fa fa-check"></i><b>4.5</b> Domaine</a></li>
+<li class="chapter" data-level="4.6" data-path="limites.html"><a href="limites.html"><i class="fa fa-check"></i><b>4.6</b> Limites</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="limites.html"><a href="limites.html#la-methode-des-chemins"><i class="fa fa-check"></i><b>4.6.1</b> La méthode des chemins</a></li>
+<li class="chapter" data-level="4.6.2" data-path="limites.html"><a href="limites.html#la-methode-des-gendarmes"><i class="fa fa-check"></i><b>4.6.2</b> La méthode des gendarmes</a></li>
+<li class="chapter" data-level="4.6.3" data-path="limites.html"><a href="limites.html#exercises-divers-de-limites"><i class="fa fa-check"></i><b>4.6.3</b> Exercises divers de limites</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="la-continuite.html"><a href="la-continuite.html"><i class="fa fa-check"></i><b>4.7</b> La continuité</a></li>
+<li class="chapter" data-level="4.8" data-path="geogebra-fctvar.html"><a href="geogebra-fctvar.html"><i class="fa fa-check"></i><b>4.8</b> Geogebra</a></li>
+<li class="chapter" data-level="4.9" data-path="pages-supplementaires-3.html"><a href="pages-supplementaires-3.html"><i class="fa fa-check"></i><b>4.9</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="derivfctvars.html"><a href="derivfctvars.html"><i class="fa fa-check"></i><b>5</b> La dérivation de fonctions de plusieurs variables</a><ul>
+<li class="chapter" data-level="5.1" data-path="introduction-4.html"><a href="introduction-4.html"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="les-derivees-partielles.html"><a href="les-derivees-partielles.html"><i class="fa fa-check"></i><b>5.2</b> Les dérivées partielles</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="les-derivees-partielles.html"><a href="les-derivees-partielles.html#les-derivees-dordres-superieurs"><i class="fa fa-check"></i><b>5.2.1</b> Les dérivées d’ordres supérieurs</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="applications-des-derivees-partielles.html"><a href="applications-des-derivees-partielles.html"><i class="fa fa-check"></i><b>5.3</b> Applications des dérivées partielles</a></li>
+<li class="chapter" data-level="5.4" data-path="le-plan-tangent.html"><a href="le-plan-tangent.html"><i class="fa fa-check"></i><b>5.4</b> Le plan tangent</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="le-plan-tangent.html"><a href="le-plan-tangent.html#lequation-cartesienne-dun-plan"><i class="fa fa-check"></i><b>5.4.1</b> L’équation cartésienne d’un plan</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="les-fonctions-differentiables.html"><a href="les-fonctions-differentiables.html"><i class="fa fa-check"></i><b>5.5</b> Les fonctions différentiables</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="les-fonctions-differentiables.html"><a href="les-fonctions-differentiables.html#les-differentielles"><i class="fa fa-check"></i><b>5.5.1</b> Les différentielles</a></li>
+<li class="chapter" data-level="5.5.2" data-path="les-fonctions-differentiables.html"><a href="les-fonctions-differentiables.html#le-calcul-dincertitude"><i class="fa fa-check"></i><b>5.5.2</b> Le calcul d’incertitude</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html"><a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html"><i class="fa fa-check"></i><b>5.6</b> La règle de dérivation en chaîne et la dérivation implicite</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html"><a href="la-regle-de-derivation-en-chaine-et-la-derivation-implicite.html#les-derivees-de-surfaces-implicites"><i class="fa fa-check"></i><b>5.6.1</b> Les dérivées de surfaces implicites</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="la-derivee-directionnelle.html"><a href="la-derivee-directionnelle.html"><i class="fa fa-check"></i><b>5.7</b> La dérivée directionnelle</a></li>
+<li class="chapter" data-level="5.8" data-path="le-vecteur-gradient.html"><a href="le-vecteur-gradient.html"><i class="fa fa-check"></i><b>5.8</b> Le vecteur gradient</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="le-vecteur-gradient.html"><a href="le-vecteur-gradient.html#le-gradient-des-fonctions-de-plus-de-deux-variables"><i class="fa fa-check"></i><b>5.8.1</b> Le gradient des fonctions de plus de deux variables</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="geogebra-derivfctvar.html"><a href="geogebra-derivfctvar.html"><i class="fa fa-check"></i><b>5.9</b> GeoGebra</a></li>
+<li class="chapter" data-level="5.10" data-path="pages-supplementaires-4.html"><a href="pages-supplementaires-4.html"><i class="fa fa-check"></i><b>5.10</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="optimisation.html"><a href="optimisation.html"><i class="fa fa-check"></i><b>6</b> L’optimisation</a><ul>
+<li class="chapter" data-level="6.1" data-path="introduction-5.html"><a href="introduction-5.html"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="lapproximation-quadratique.html"><a href="lapproximation-quadratique.html"><i class="fa fa-check"></i><b>6.2</b> L’approximation quadratique</a></li>
+<li class="chapter" data-level="6.3" data-path="les-points-critiques-et-leur-nature.html"><a href="les-points-critiques-et-leur-nature.html"><i class="fa fa-check"></i><b>6.3</b> Les points critiques et leur nature</a></li>
+<li class="chapter" data-level="6.4" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html"><i class="fa fa-check"></i><b>6.4</b> La droite de régression</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#le-quartet-danscombe"><i class="fa fa-check"></i><b>6.4.1</b> Le quartet d’Anscombe</a></li>
+<li class="chapter" data-level="6.4.2" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#datasaurus"><i class="fa fa-check"></i><b>6.4.2</b> DatasauRus</a></li>
+<li class="chapter" data-level="6.4.3" data-path="la-droite-de-regression.html"><a href="la-droite-de-regression.html#dautres-types-de-regression"><i class="fa fa-check"></i><b>6.4.3</b> D’autres types de régression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="la-distance-minimale.html"><a href="la-distance-minimale.html"><i class="fa fa-check"></i><b>6.5</b> La distance minimale</a></li>
+<li class="chapter" data-level="6.6" data-path="loptimisation-avec-contraintes.html"><a href="loptimisation-avec-contraintes.html"><i class="fa fa-check"></i><b>6.6</b> L’optimisation avec contraintes</a></li>
+<li class="chapter" data-level="6.7" data-path="les-multiplicateurs-de-lagrange.html"><a href="les-multiplicateurs-de-lagrange.html"><i class="fa fa-check"></i><b>6.7</b> Les multiplicateurs de Lagrange</a></li>
+<li class="chapter" data-level="6.8" data-path="pages-supplementaires-5.html"><a href="pages-supplementaires-5.html"><i class="fa fa-check"></i><b>6.8</b> Pages supplémentaires</a></li>
+</ul></li>
+<li class="part"><span><b>V L’intégration de fonctions de plusieurs variables</b></span></li>
+<li class="chapter" data-level="7" data-path="intfct2vars.html"><a href="intfct2vars.html"><i class="fa fa-check"></i><b>7</b> L’intégration de fonctions de deux variables</a><ul>
+<li class="chapter" data-level="7.1" data-path="introduction-6.html"><a href="introduction-6.html"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="les-integrales-doubles.html"><a href="les-integrales-doubles.html"><i class="fa fa-check"></i><b>7.2</b> Les intégrales doubles</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="les-integrales-doubles.html"><a href="les-integrales-doubles.html#lintegrale-simple-rappel"><i class="fa fa-check"></i><b>7.2.1</b> L’intégrale simple (rappel)</a></li>
+<li class="chapter" data-level="7.2.2" data-path="les-integrales-doubles.html"><a href="les-integrales-doubles.html#lintegrale-double-sur-un-rectangle"><i class="fa fa-check"></i><b>7.2.2</b> L’intégrale double sur un rectangle</a></li>
+<li class="chapter" data-level="7.2.3" data-path="les-integrales-doubles.html"><a href="les-integrales-doubles.html#integrales-iterees"><i class="fa fa-check"></i><b>7.2.3</b> Les intégrales itérées</a></li>
+<li class="chapter" data-level="7.2.4" data-path="les-integrales-doubles.html"><a href="les-integrales-doubles.html#les-integrales-doubles-sur-une-region-quelconque"><i class="fa fa-check"></i><b>7.2.4</b> Les intégrales doubles sur une région quelconque</a></li>
+<li class="chapter" data-level="7.2.5" data-path="les-integrales-doubles.html"><a href="les-integrales-doubles.html#changer-lordre-dintegration"><i class="fa fa-check"></i><b>7.2.5</b> Changer l’ordre d’intégration</a></li>
+<li class="chapter" data-level="7.2.6" data-path="les-integrales-doubles.html"><a href="les-integrales-doubles.html#les-proprietes-de-lintegrale-double"><i class="fa fa-check"></i><b>7.2.6</b> Les propriétés de l’intégrale double</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="les-integrales-doubles-en-coordonneees-polaires.html"><a href="les-integrales-doubles-en-coordonneees-polaires.html"><i class="fa fa-check"></i><b>7.3</b> Les intégrales doubles en coordonnéees polaires</a></li>
+<li class="chapter" data-level="7.4" data-path="le-changement-de-coordonnees-pour-les-integrales-doubles.html"><a href="le-changement-de-coordonnees-pour-les-integrales-doubles.html"><i class="fa fa-check"></i><b>7.4</b> Le changement de coordonnées pour les intégrales doubles</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="le-changement-de-coordonnees-pour-les-integrales-doubles.html"><a href="le-changement-de-coordonnees-pour-les-integrales-doubles.html#le-produit-vectoriel"><i class="fa fa-check"></i><b>7.4.1</b> Le produit vectoriel</a></li>
+<li class="chapter" data-level="7.4.2" data-path="le-changement-de-coordonnees-pour-les-integrales-doubles.html"><a href="le-changement-de-coordonnees-pour-les-integrales-doubles.html#le-changement-de-coordonnees"><i class="fa fa-check"></i><b>7.4.2</b> Le changement de coordonnées</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="intfct3vars.html"><a href="intfct3vars.html"><i class="fa fa-check"></i><b>8</b> L’intégration de fonctions de trois variables</a><ul>
+<li class="chapter" data-level="8.1" data-path="introduction-7.html"><a href="introduction-7.html"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Calcul différentiel et intégral dans l’espace</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="le-changement-de-coordonnees-pour-les-integrales-doubles" class="section level2">
+<h2><span class="header-section-number">7.4</span> Le changement de coordonnées pour les intégrales doubles</h2>
+<p>Il existe d’autres systèmes de coordonnées autres que les systèmes cartésiens et polaires. En réalité, il est souvent impossible de résoudre certaines intégrales en n’utilisant que ces deux systèmes. Par exemple, si nous voulons calculer <span class="math inline">\(\iint\limits_D 1 dA\)</span> sur le domaine
+<span class="math inline">\(D=\left\{(x,y)\in\mathbb{R}^2\left| \frac{x^2}{a^2}+\frac{y^2}{b^2}\leq 1 \right. \right\}\)</span>, il devient très difficile de faire cette intégrale en n’utilisant que les deux systèmes que nous connaissons. Heureusement, il existe une technique permettant de trouver le terme <span class="math inline">\(dA\)</span> lorsque nous effectuons un changement de variables. Avant de débuter, nous ferons un bref rappel du produit vectoriel.</p>
+<div id="le-produit-vectoriel" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Le produit vectoriel</h3>
+<p>Soit deux vecteurs de <span class="math inline">\(\mathbb{R}^3\)</span> non-colinéaires tels que <span class="math inline">\(\overrightarrow{u}=[u_1,u_2,0]\)</span> et <span class="math inline">\(\overrightarrow{v}=[v_1,v_2,0]\)</span>. L’aire du parallélogramme engendré par ces vecteurs est donnée par:
+<span class="math display">\[\begin{align*}
+A&amp;= \| \vec u \times \vec v\| \\
+&amp;= \left\| \ \left| \begin{array}{ccc}
+\vec i &amp;\vec j&amp; \vec k\\
+u_1 &amp; u_2 &amp;0 \\
+v_1 &amp; v_2 &amp;0
+\end{array}
+\right|\ \right\| \\
+ &amp;=\left\|   0\vec i - 0\vec j+\left|
+\begin{array}{cc}
+u_1 &amp; u_2  \\
+v_1 &amp; v_2 
+\end{array}  
+\right|\vec k \ \right\| \\
+&amp;= \left| det  \left(\begin{array}{cc}
+u_1 &amp; u_2  \\
+v_1 &amp; v_2 
+\end{array}  \right) \right|
+\end{align*}\]</span>
+L’aire du prallélogramme est donc donnée par la valeur absolue du déterminant des deux vecteurs.</p>
+</div>
+<div id="le-changement-de-coordonnees" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Le changement de coordonnées</h3>
+Nous voulons déterminer une expression dans un autre système de coordonnées (par exemple <span class="math inline">\(u\)</span> et <span class="math inline">\(v\)</span>) pour <span class="math inline">\(\iint\limits_D f(x,y)dA\)</span>. Plus précisément, nous voulons trouver une expression pour <span class="math inline">\(dA\)</span> en fonction de <span class="math inline">\(u\)</span> et <span class="math inline">\(v\)</span>. Pour ce faire, supposons qu’il existe une transformation bijective et dérivable <span class="math inline">\(T\)</span> qui prend une région <span class="math inline">\(D&#39;\)</span> du plan <span class="math inline">\(uv\)</span> et qui l’envoie sur <span class="math inline">\(D\)</span> dans le plan <span class="math inline">\(xy\)</span>. Ceci signifie que <span class="math inline">\(T\)</span> prend un point <span class="math inline">\((u,v)\in D&#39;\)</span> et l’envoie sur le point <span class="math inline">\((x(u,v),y(u,v))\in D\)</span>. La figure <a href="le-changement-de-coordonnees-pour-les-integrales-doubles.html#fig:jacobien2d">7.9</a> représente cette transformation.
+<div class="figure" style="text-align: center"><span id="fig:jacobien2d"></span>
+<img src="resources/images/latex/jacobien2d.png" alt="La représentation de l'effet de la transformation $T$ sur un rectangle dans le plan $x$ et $y$." width="75%" />
+<p class="caption">
+Figure 7.9: La représentation de l’effet de la transformation <span class="math inline">\(T\)</span> sur un rectangle dans le plan <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>.
+</p>
+</div>
+<p>Nous allons étudier le résultat de cette transformation sur un petit rectangle de dimension <span class="math inline">\(\Delta u \times \Delta v\)</span> dans le plan <span class="math inline">\(uv\)</span>. Notons par <span class="math inline">\(P=T(P&#39;)\)</span>, <span class="math inline">\(Q=T(Q&#39;)\)</span> et <span class="math inline">\(R=T(R&#39;)\)</span>. On sait qu’une petite variation <span class="math inline">\(\Delta x\)</span> peut être obtenue par
+<span class="math display">\[\begin{align*}
+\Delta x\approx \frac{\partial x}{\partial u}\Delta u+\frac{\partial x}{\partial v}\Delta v
+\end{align*}\]</span>
+De même, on a
+<span class="math display">\[\begin{align*}
+\Delta y\approx \frac{\partial y}{\partial u}\Delta u+\frac{\partial y}{\partial v}\Delta v 
+\end{align*}\]</span>
+Ainsi, le vecteur <span class="math inline">\(\overrightarrow{PQ}=\left[\frac{\partial x}{\partial u}\Delta u,\frac{\partial y}{\partial u}\Delta u\right]\)</span>, car <span class="math inline">\(\Delta v=0\)</span> puisque les points <span class="math inline">\(P&#39;\)</span> et <span class="math inline">\(Q&#39;\)</span>ont la même composante <span class="math inline">\(v\)</span>. De même, on a que le vecteur \<span class="math inline">\(\overrightarrow{PR}=\left[\frac{\partial x}{\partial v}\Delta v,\frac{\partial y}{\partial v}\Delta v\right]\)</span> pour des raisons similaires. Maintenant, l’élément d’aire <span class="math inline">\(\Delta A\)</span> formé par <span class="math inline">\(\Delta u\)</span> et <span class="math inline">\(\Delta v\)</span> s’exprime en terme d’aire de parallélogramme
+<span class="math display">\[\begin{align*}
+\Delta A&amp;\approx \left\| \overrightarrow{PQ}\times    \overrightarrow{PR}\right\| \\
+&amp;\approx \left\| \left| 
+\begin{array}{ccc}
+\vec i &amp;\vec j&amp; \vec k\\
+\frac{\partial x}{\partial u}\Delta u &amp; \frac{\partial y}{\partial u}\Delta u &amp;0 \\
+\frac{\partial x}{\partial v}\Delta v &amp; \frac{\partial y}{\partial v}\Delta v &amp;0
+\end{array}  \right|   \right\|\\
+&amp;\approx 
+\left\| 0\vec i -0\vec j+ \left| 
+\begin{array}{cc}
+\frac{\partial x}{\partial u}\Delta u &amp; \frac{\partial y}{\partial u}\Delta u \\
+\frac{\partial x}{\partial v}\Delta v &amp; \frac{\partial y}{\partial v}\Delta v 
+\end{array}  \right| \vec k  \right\|\\
+&amp;\approx 
+\sqrt{\left(\frac{\partial x}{\partial u}\Delta u \frac{\partial y}{\partial v}\Delta v- \frac{\partial y}{\partial u}\Delta u \frac{\partial x}{\partial v}\Delta v\right)^2}\\
+&amp;\approx 
+\left|\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}- \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}\right|\Delta u\Delta v.\\
+\end{align*}\]</span>
+À la limite où <span class="math inline">\(\Delta u\)</span> et <span class="math inline">\(\Delta v\)</span> tendent vers <span class="math inline">\(0\)</span>, nous obtenons une expression pour <span class="math inline">\(dA\)</span>:
+<span class="math display">\[\begin{align*}
+dA=\left|\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}- \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}\right|dudv
+\end{align*}\]</span></p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-265" class="definition"><strong>Définition 7.4  (Jacobien)  </strong></span>Soit une transformation dérivable <span class="math inline">\(T:(u,v)\rightarrow (x(u,v),y(u,v))\)</span>. Nous appelons Jacobien le déterminant suivant:
+<span class="math display">\[\begin{align*}
+J&amp;=\left|\begin{array}{cc}
+\frac{\partial x}{\partial u} &amp; \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} &amp; \frac{\partial y}{\partial v}
+\end{array}   \right|
+=\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}- \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}
+\end{align*}\]</span></p>
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Remarque. </em></span> Nous notons le Jacobien d’une transformation par <span class="math inline">\(J\)</span>, <span class="math inline">\(J_{u,v}\)</span> ou <span class="math inline">\(\frac{\partial (x,y)}{\partial (u,v)}\)</span>.
+</div>
+
+<p>Nous pouvons donc écrire <span class="math inline">\(dA=|J|dudv\)</span>, d’où:
+<span class="math display">\[\iint\limits_D f(x,y)dA=\iint\limits_{D&#39;} f(x(u,v),y(u,v))|J|dudv\]</span></p>
+
+<div class="example">
+<span id="exm:unnamed-chunk-267" class="example"><strong>Exemple 7.21  </strong></span>Démontrez qu’un élément d’aire en coordonnées polaires est <span class="math inline">\(rdrd\theta\)</span>.
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-268" class="example"><strong>Exemple 7.22  </strong></span>Calculez <span class="math inline">\(\iint\limits_D e^{\tfrac{x+y}{x-y}}dA\)</span> où <span class="math inline">\(D\)</span> est la région délimitée par le trapèze de sommets <span class="math inline">\((1,0)\)</span>, <span class="math inline">\((2,0)\)</span>, <span class="math inline">\((0,-2)\)</span> et <span class="math inline">\((0,-1)\)</span>.
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-269" class="example"><strong>Exemple 7.23  </strong></span>Calculez <span class="math inline">\(\iint\limits_D (x^2-xy+y^2)dA\)</span> où <span class="math inline">\(D\)</span> est l’ellipse donnée par <span class="math inline">\(x^2-xy+y^2=2\)</span> en utilisant la transformation:
+<span class="math display">\[\begin{align*}
+x &amp;= \sqrt{2}u-\sqrt{2/3}v \\
+y &amp;= \sqrt{2}u+\sqrt{2/3}v 
+\end{align*}\]</span></p>
+</div>
+
+
+<div class="example">
+<span id="exm:unnamed-chunk-270" class="example"><strong>Exemple 7.24  </strong></span>Calculez <span class="math inline">\(\iint\limits_D e^{x+y}dA\)</span> où <span class="math inline">\(D\)</span> est <span class="math inline">\(|x|+|y|\leq a\)</span>.
+</div>
+
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="les-integrales-doubles-en-coordonneees-polaires.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intfct3vars.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/desautm/calcul3/edit/master/07-intfct2vars.Rmd",
+"text": "Modifier"
+},
+"download": ["calcul3.pdf", "calcul3.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

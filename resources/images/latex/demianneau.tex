@@ -1,0 +1,33 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+\usepackage{pst-solides3d}
+\usepackage{fp}
+
+\begin{document}
+
+\psset{unit=1,algebraic}
+	\begin{pspicture}(-3,-1.5)(3,3)
+		
+		\pscustom{
+			\psarc(0,0){2}{0}{180}
+			\fill[fillstyle=solid, fillcolor=lightgray]
+		}
+		\pscustom{
+			\psarc(0,0){1}{0}{180}
+			\fill[fillstyle=solid, fillcolor=white]
+		}
+		
+		\psaxes[labels=none,ticks=none]{->}(0,0)(-2.5,-1)(2.5,2.5)[$x$,-90][$y$,180]
+		
+		\uput[45](0,2){$x^2+y^2=4$}
+		\uput[-90](1.25,-0.5){$x^2+y^2=1$}
+		\psline{->}(0.5,-0.5)(0.5,0.8)
+		
+		\uput[0](0,1.5){$D$}
+		
+	\end{pspicture}
+\end{document}

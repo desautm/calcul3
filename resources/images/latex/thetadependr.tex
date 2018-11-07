@@ -1,0 +1,70 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+\usepackage{pst-solides3d}
+\usepackage{fp}
+\def\nbpi{3.14159265}
+
+\begin{document}
+\psset{unit=1,algebraic}
+\begin{pspicture}(-1,-1)(6,5.5)
+	
+	\FPeval{Xa}{4.5*cos(70*\nbpi/180)}
+	\FPeval{Ya}{4.5*sin(70*\nbpi/180)}
+	\FPeval{Xb}{3.5*cos(60*\nbpi/180)}
+	\FPeval{Yb}{3.5*sin(60*\nbpi/180)}
+	\FPeval{Xc}{3*cos(55*\nbpi/180)}
+	\FPeval{Yc}{3*sin(55*\nbpi/180)}
+	\FPeval{Xd}{2.5*cos(62*\nbpi/180)}
+	\FPeval{Yd}{2.5*sin(62*\nbpi/180)}
+	\FPeval{Xe}{2*cos(70*\nbpi/180)}
+	\FPeval{Ye}{2*sin(70*\nbpi/180)}
+	
+	\FPeval{Xf}{4.5*cos(20*\nbpi/180)}
+	\FPeval{Yf}{4.5*sin(20*\nbpi/180)}
+	\FPeval{Xg}{3.5*cos(25*\nbpi/180)}
+	\FPeval{Yg}{3.5*sin(25*\nbpi/180)}
+	\FPeval{Xh}{3*cos(20*\nbpi/180)}
+	\FPeval{Yh}{3*sin(20*\nbpi/180)}
+	\FPeval{Xi}{2.5*cos(23*\nbpi/180)}
+	\FPeval{Yi}{2.5*sin(23*\nbpi/180)}
+	\FPeval{Xj}{2*cos(20*\nbpi/180)}
+	\FPeval{Yj}{2*sin(20*\nbpi/180)}
+
+	\pscustom{
+		\pswedge[linecolor=white](0,0){4.5}{20}{70}
+		\fill[fillstyle=solid,fillcolor=lightgray]
+	}
+	\psline[linecolor=white,linewidth=1.5pt](0,0)(\Xa,\Ya)
+	\psline[linecolor=white,linewidth=1.5pt](0,0)(\Xf,\Yf)
+	
+	\pscustom{
+		\pscurve(\Xa,\Ya)(\Xb,\Yb)(\Xc,\Yc)(\Xd,\Yd)(\Xe,\Ye)
+% 		\psline(\Xe,\Ye)(\Xa,\Ya)
+		\fill[fillstyle=solid,fillcolor=white]
+	}
+	\pscustom{
+		\pscurve(\Xf,\Yf)(\Xg,\Yg)(\Xh,\Yh)(\Xi,\Yi)(\Xj,\Yj)
+% 		\psline(\Xj,\Yj)(\Xf,\Yf)
+		\fill[fillstyle=solid,fillcolor=white]
+	}
+	\pswedge[fillstyle=solid,fillcolor=white,linecolor=white](0,0){2}{20}{70}
+	\pscurve[linewidth=1.5pt](\Xa,\Ya)(\Xb,\Yb)(\Xc,\Yc)(\Xd,\Yd)(\Xe,\Ye)
+	\pscurve[linewidth=1.5pt](\Xf,\Yf)(\Xg,\Yg)(\Xh,\Yh)(\Xi,\Yi)(\Xj,\Yj)
+	
+	\psarc[linewidth=1.5pt](0,0){4.5}{20}{70}
+	\psarc[linewidth=1.5pt](0,0){2}{20}{70}
+	
+	\psaxes[labels=none,ticks=none]{->}(0,0)(-1,-1)(5,5)
+	
+	\uput[225](1.5,1.5){$r=a$}
+	\uput[45](3.25,3.25){$r=b$}
+	\uput[0](\Xh,\Yh){$\theta=\theta_1 (r)$}
+	\uput[90](1.5,4.2){$\theta=\theta_2 (r)$} \psline{->}(1.25,4.2)(1.25,2.25)
+	
+\end{pspicture}
+
+\end{document}

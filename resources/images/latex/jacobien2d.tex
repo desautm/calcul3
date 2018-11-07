@@ -1,0 +1,52 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+\usepackage{pst-solides3d}
+\usepackage{fp}
+\def\nbpi{3.14159265}
+
+\begin{document}
+
+\begin{pspicture}(-4.75,-2.5)(7.5,3)
+\psline[linewidth=0.5mm](-4,-2)(0,-2)
+\psline[linewidth=0.5mm](-4,-2)(-4,2.5)
+\pscircle(-2,0.5){1.9}
+\pspolygon[fillcolor=lightgray,fillstyle=solid](-3,0)(-1.5,0)(-1.5,1.6)(-3,1.6)
+\psdots(-3,0)(-1.5,0)(-1.5,1.6)(-3,1.6)
+\uput{0.15}[225](-3,0){$P'$}
+\uput{0.15}[315](-1.5,0){$Q'$}
+\uput{0.15}[45](-3,1.6){$R'$}
+%(-1.5,0)(-1.5,1.6)(-3,1.6)
+
+\psline[linestyle=dotted](-3,0)(-3,-2)
+\psline[linestyle=dotted](-1.5,0)(-1.5,-2)
+\psline[linestyle=dotted](-4,0)(-3,0)
+\psline[linestyle=dotted](-4,1.6)(-3,1.6)
+\uput{0.2}[180](-4,0){$v$}
+\uput{0.2}[180](-4,1.6){$v+\Delta v$}
+\uput{0.3}[270](-3,-2){$u$}
+\uput{0.2}[270](-1.5,-2){$u+\Delta u$}
+
+\pscurve[linewidth=0.5mm, arrowscale=1.5]{->}(-1.5,1)(1,1.5)(3.8,1)
+\uput{0.2}[90](1,1.5){$T$}
+
+\psline[linewidth=0.5mm](3,-2)(7,-2)
+\psline[linewidth=0.5mm](3,-2)(3,2.5)
+\pscircle(5,0){1.9}
+
+\pscustom[linewidth=0.3mm, fillstyle=solid,fillcolor=lightgray]{
+\pscurve(3.5,-1)(3.7,-.5)(4,1.5)
+\pscurve(4,1.5)(5,1.2)(6,1.5)
+\pscurve(6,1.5)(5.8,0)(5.5,-1)
+\pscurve(5.5,-1)(4.5,-1.2)(3.5,-1)
+}
+\psdots(3.5,-1)(4,1.5)(5.5,-1)(6,1.5)
+\uput{0.15}[225](3.5,-1){$P$}
+\uput{0.1}[315](5.5,-1){$Q$}
+\uput{0.1}[135](4,1.5){$R$}
+\end{pspicture}
+
+\end{document}

@@ -1,0 +1,45 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+\usepackage{pst-solides3d}
+\usepackage{fp}
+
+\begin{document}
+
+\psset{unit=1,algebraic}
+	\begin{pspicture}(-0.5,-1)(4.75,5)
+		
+		\psaxes[labels=none,ticks=none]{->}(0,0)(-0.5,-0.5)(4.75,4.75)
+		
+		\pswedge[fillstyle=solid,fillcolor=lightgray](0,0){3}{60}{70}
+		\pswedge[fillstyle=solid,fillcolor=white](0,0){2.5}{60}{70}
+		
+		\multido{\i=1+1}{8}{%
+			\FPeval{Ray}{\i/2}
+			\psarc(0,0){\Ray}{10}{80}
+		}
+		\multido{\i=10+10}{8}{%
+			\FPmul{\angle}{\i}{3.1415}
+			\FPdiv{\angle}{\angle}{180}
+			\FPcos{\x}{\angle}
+			\FPsin{\y}{\angle}
+			\FPmul{\x}{\x}{4.5}
+			\FPmul{\y}{\y}{4.5}
+			\psline(0,0)(\x,\y)
+		}
+		
+		\psdot[dotsize=0.15](1.16,2.49)
+		
+		\uput[-90](2.46,-0.25){$r_{i-1}$}
+		\psline{->}(2.46,-0.25)(2.46,0.43)
+		\uput[-90](2.95,0.52){$r_{i}$}
+		\uput[60](2.25,3.9){$\theta_{j-1}$}
+		\uput[70](1.54,4.23){$\theta_{j}$}
+		\psline{->}(1.16,2.49)(3.21,3.83)
+		\uput[0](3.21,3.83){$(r^*_i,\theta^*_j)$}
+		
+	\end{pspicture}
+\end{document}

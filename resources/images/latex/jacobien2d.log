@@ -1,0 +1,416 @@
+This is XeTeX, Version 3.14159265-2.6-0.99998 (MiKTeX 2.9.6350) (preloaded format=xelatex 2018.5.23)  7 NOV 2018 09:22
+entering extended mode
+**./jacobien2d.tex
+(jacobien2d.tex
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 76 language(s) loaded.
+Invalid UTF-8 byte or sequence at line 2 replaced by U+FFFD.
+("C:\Miktex 2.9\tex\latex\standalone\standalone.cls"
+Document Class: standalone 2015/07/15 v1.2 Class to compile TeX sub-files stand
+alone
+("C:\Miktex 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+("C:\Miktex 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+("C:\Miktex 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+("C:\Miktex 2.9\tex\latex\xkeyval\xkeyval.sty"
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+("C:\Miktex 2.9\tex\generic\xkeyval\xkeyval.tex"
+("C:\Miktex 2.9\tex\generic\xkeyval\xkvutils.tex"
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+
+("C:\Miktex 2.9\tex\generic\xkeyval\keyval.tex"))
+\XKV@depth=\count79
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\sa@internal=\count80
+\c@sapage=\count81
+
+("C:\Miktex 2.9\tex\latex\standalone\standalone.cfg"
+File: standalone.cfg 2015/07/15 v1.2 Default configuration file for 'standalone
+' class
+)
+("C:\Miktex 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Miktex 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+\sa@box=\box26
+runsystem(xelatex  -shell-escape  -jobname "jacobien2d" "\expandafter\def\csnam
+e sa@internal@run\endcsname{1}\input{jacobien2d}")...executed.
+
+ (jacobien2d.aux)
+runsystem(gswin32c -dSAFER -dBATCH -dNOPAUSE -sDEVICE=png16m -r1000 -sOutputFil
+e=jacobien2d.png jacobien2d.pdf)...executed.
+
+)
+("C:\Miktex 2.9\tex\latex\pstricks-add\pstricks-add.sty"
+("C:\Miktex 2.9\tex\latex\pstricks\pstricks.sty"
+Package: pstricks 2017/03/17 v0.63 LaTeX wrapper for `PSTricks' (RN,HV)
+
+("C:\Miktex 2.9\tex\latex\xcolor\xcolor.sty"
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+("C:\Miktex 2.9\tex\latex\graphics-cfg\color.cfg"
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: xetex.def on input line 225.
+
+("C:\Miktex 2.9\tex\latex\graphics-def\xetex.def"
+File: xetex.def 2016/07/11 v4.10 LaTeX color/graphics driver for XeTeX (L3/RRM/
+JK)
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+("C:\Miktex 2.9\tex\generic\pstricks\pstricks.tex"
+("C:\Miktex 2.9\tex\generic\xkeyval\pst-xkey.tex"
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+)
+("C:\Miktex 2.9\tex\generic\pstricks\pst-fp.tex"
+`pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count90
+\pstFP@xia=\count91
+\pstFP@xib=\count92
+\pstFP@xfa=\count93
+\pstFP@xfb=\count94
+\pstFP@rega=\count95
+\pstFP@regb=\count96
+\pstFP@regs=\count97
+\pstFP@times=\count98
+)
+("C:\Miktex 2.9\tex\generic\pgf\utilities\pgfutil-common.tex"
+\pgfutil@everybye=\toks16
+\pgfutil@tempdima=\dimen103
+\pgfutil@tempdimb=\dimen104
+
+("C:\Miktex 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.tex"))
+("C:\Miktex 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex"
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+("C:\Miktex 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex"
+\pgfkeys@tmptoks=\toks19
+))
+("C:\Miktex 2.9\tex\generic\pgf\utilities\pgffor.code.tex"
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmath.code.tex"
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex"
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathutil.code.tex"
+\pgf@x=\dimen105
+\pgf@xa=\dimen106
+\pgf@xb=\dimen107
+\pgf@xc=\dimen108
+\pgf@y=\dimen109
+\pgf@ya=\dimen110
+\pgf@yb=\dimen111
+\pgf@yc=\dimen112
+\c@pgf@counta=\count99
+\c@pgf@countb=\count100
+\c@pgf@countc=\count101
+\c@pgf@countd=\count102
+\pgfutil@tempcnta=\count103
+\pgfutil@tempcntb=\count104
+)
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathparser.code.tex"
+\pgfmath@dimen=\dimen113
+\pgfmath@count=\count105
+\pgfmath@box=\box27
+\pgfmath@toks=\toks20
+\pgfmath@stack@operand=\toks21
+\pgfmath@stack@operation=\toks22
+)
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex"
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex")
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometric.code.tex")
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code.tex")
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.code.tex")
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.tex")
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.tex")
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex")
+("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.t
+ex"))) ("C:\Miktex 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex"
+\c@pgfmathroundto@lastzeros=\count106
+))
+\pgffor@iter=\dimen114
+\pgffor@skip=\dimen115
+\pgffor@stack=\toks23
+\pgffor@toks=\toks24
+)
+\psLoopIndex=\count107
+
+`PSTricks' v2.73a  <2017/05/22> (tvz)
+\pst@dima=\dimen116
+\pst@dimb=\dimen117
+\pst@dimc=\dimen118
+\pst@dimd=\dimen119
+\pst@dimg=\dimen120
+\pst@dimh=\dimen121
+\pst@dimm=\dimen122
+\pst@dimn=\dimen123
+\pst@dimo=\dimen124
+\pst@dimp=\dimen125
+\pst@hbox=\box28
+\pst@ibox=\box29
+\pst@boxg=\box30
+\pst@cnta=\count108
+\pst@cntb=\count109
+\pst@cntc=\count110
+\pst@cntd=\count111
+\pst@cntg=\count112
+\pst@cnth=\count113
+\pst@cntm=\count114
+\pst@cntn=\count115
+\pst@cnto=\count116
+\pst@cntp=\count117
+\@zero=\count118
+\pst@toks=\toks25
+("C:\Miktex 2.9\tex\xelatex\xetex-pstricks\pstricks.con"
+("C:\Miktex 2.9\tex\generic\pstricks\xdvipdfmx.cfg"))
+\psunit=\dimen126
+\psxunit=\dimen127
+\psyunit=\dimen128
+\pst@C@@rType=\count119
+\pslinewidth=\dimen129
+\psk@startLW=\dimen130
+\psk@endLW=\dimen131
+\pst@customdefs=\toks26
+\pslinearc=\dimen132
+\pst@symbolStep=\dimen133
+\pst@symbolWidth=\dimen134
+\pst@symbolLinewidth=\dimen135
+\everypsbox=\toks27
+\psframesep=\dimen136
+\pslabelsep=\dimen137
+\sh@wgridXunit=\dimen138
+\sh@wgridYunit=\dimen139
+\pst@shift=\dimen140
+
+("C:\Miktex 2.9\tex\xelatex\xetex-pstricks\pstricks.con"
+("C:\Miktex 2.9\tex\generic\pstricks\xdvipdfmx.cfg"
+Using PSTricks configuration for XeTeX+xdvipdfmx
+)))
+File: pstricks.tex 2017/05/22 v2.73a `PSTricks' (tvz,hv)
+ ("C:\Miktex 2.9\tex\generic\pstricks\pst-fp.tex")
+File: pst-fp.tex 2017/05/22 v2.73a `PST-fp' (hv)
+)
+("C:\Miktex 2.9\tex\latex\pst-plot\pst-plot.sty"
+Package: pst-plot 2011/06/05 v1.00 LaTeX wrapper for `pst-plot' (HV)
+
+("C:\Miktex 2.9\tex\latex\xkeyval\pst-xkey.sty"
+Package: pst-xkey 2005/11/25 v1.6 package wrapper for pst-xkey.tex (HA)
+)
+("C:\Miktex 2.9\tex\latex\multido\multido.sty"
+Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
+
+
+("C:\Miktex 2.9\tex\generic\multido\multido.tex"  v1.42, 2010/05/14 <tvz>
+\multido@count=\count120
+\multidocount=\count121
+\multido@stuff=\toks28
+)
+File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
+)
+Package: pst-plot 2011/04/13 package wrapper for pst-plot.tex (hv)
+
+("C:\Miktex 2.9\tex\generic\pst-plot\pst-plot.tex"
+("C:\Miktex 2.9\tex\generic\pst-tools\pst-tools.tex"
+`PST-tools' v0.06, 2017/05/12 (hv))
+("C:\Miktex 2.9\tex\generic\pstricks-add\pstricks-add.tex"
+("C:\Miktex 2.9\tex\generic\pst-node\pst-node.tex"  v1.39, 2017/01/20
+\psrow=\count122
+\pscol=\count123
+\psmatrixcnt=\count124
+\psrowsep=\skip43
+\pscolsep=\skip44
+\pst@args=\count125
+\num@pts=\count126
+\pst@argcnt=\count127
+)
+("C:\Miktex 2.9\tex\generic\pst-arrow\pst-arrow.tex"
+`pst-arrow' v0.01, 2016/09/01 (dr,hv)
+\pshooklength=\dimen141
+\pshookwidth=\dimen142
+)
+("C:\Miktex 2.9\tex\generic\pst-3d\pst-3d.tex"
+`PST-3d' v1.11, 2010/02/14 (tvz))
+("C:\Miktex 2.9\tex\generic\pst-math\pst-math.tex" `pst-math' v0.63 , (CJ,hv))
+`pstricks-add' v3.83, 2017/05/10 (dr,hv)
+\psparallelogramsep=\dimen143
+\pst@cntC=\count128
+\chart@ColorIndex=\dimen144
+\chart@ColorStep=\dimen145
+\pst@chartHeight=\dimen146
+\pst@chartStackDepth=\dimen147
+\pst@chartStackWidth=\dimen148
+\chart@Toggle=\count129
+\psVectorCtr=\count130
+)  v1.79, 2017/05/22 (tvz,hv)
+\pstRadUnit=\dimen149
+\pstRadUnitInv=\dimen150
+\pst@linecnt=\count131
+\RCD@file=\read1
+\psxlabelsep=\dimen151
+\psylabelsep=\dimen152
+\psk@subticksize=\dimen153
+\pst@xticksizeA=\dimen154
+\pst@xticksizeB=\dimen155
+\pst@xticksizeC=\dimen156
+\pst@yticksizeA=\dimen157
+\pst@yticksizeB=\dimen158
+\pst@yticksizeC=\dimen159
+\@digitcounter=\count132
+\psk@llx=\dimen160
+\psk@lly=\dimen161
+\psk@urx=\dimen162
+\psk@ury=\dimen163
+\pst@xunit=\dimen164
+\pst@yunit=\dimen165
+)
+File: pst-plot.tex 2017/05/22 1.79 `pst-plot' (tvz,hv)
+)
+("C:\Miktex 2.9\tex\latex\pst-node\pst-node.sty"
+Package: pst-node 2012/09/18 v1.01 LaTeX wrapper for `pst-node' (HV)
+Package: pst-node 2010/04/22 package wrapper for pst-node.tex
+
+("C:\Miktex 2.9\tex\generic\pst-node\pst-node.tex")
+File: pst-node.tex 2017/05/22 1.79 `pst-node' (tvz,hv)
+)
+("C:\Miktex 2.9\tex\latex\pst-3d\pst-3d.sty"
+Package: pst-3d 2009/07/28 package wrapper for pst-3d.tex (hv)
+
+("C:\Miktex 2.9\tex\generic\pst-3d\pst-3d.tex")
+File: pst-3d.tex 2017/05/22 v1.79 `PST-3d' (hv)
+)
+("C:\Miktex 2.9\tex\latex\pst-math\pst-math.sty"
+Package: pst-math 2014/07/30 package wrapper for PSTricks pst-math.tex
+
+("C:\Miktex 2.9\tex\generic\pst-math\pst-math.tex")
+File: pst-math.tex 2017/05/22 v1.79 `PST-math' (hv)
+)
+Package: pstricks-add 2010/02/11 v. 0.14 package wrapper for pstricks-add.tex (
+hv)
+
+("C:\Miktex 2.9\tex\generic\pstricks-add\pstricks-add.tex")
+File: pstricks-add.tex 2017/05/22 v1.79 `PSTricks-add' (hv)
+Package pstricks-add Info: Local config file pstricks-add.cfg used on input lin
+e 20.
+
+("C:\Miktex 2.9\tex\latex\pstricks-add\pstricks-add.cfg"
+File: pstricks-add.cfg 2005/01/10 v0.1 addtional user stuff (hv)
+))
+("C:\Miktex 2.9\tex\latex\pst-solides3d\pst-solides3d.sty"
+Package: pst-solides3d 2017/03/03 package wrapper for pst-solides3d
+
+("C:\Miktex 2.9\tex\generic\pst-solides3d\pst-solides3d.tex"
+`PSTSOLIDESIIID' v4.32a, 2017/03/05
+\test@mode=\count133
+Invalid UTF-8 byte or sequence at line 991 replaced by U+FFFD.
+)
+File: pst-solides3d.tex 2017/03/05 v4.32a `PST-solides3D'
+) ("C:\Miktex 2.9\tex\latex\fp\fp.sty"
+Package: fp 1995/04/02
+
+`Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
+("C:\Miktex 2.9\tex\latex\fp\defpattern.sty"
+Package: defpattern 1994/10/12
+\actioncount=\count134
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-basic.sty"
+Package: fp-basic 1996/05/13
+\FP@xs=\count135
+\FP@xia=\count136
+\FP@xib=\count137
+\FP@xfa=\count138
+\FP@xfb=\count139
+\FP@rega=\count140
+\FP@regb=\count141
+\FP@regs=\count142
+\FP@times=\count143
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-addons.sty"
+Package: fp-addons 1995/03/15
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-snap.sty"
+Package: fp-snap 1995/04/05
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-exp.sty"
+Package: fp-exp 1995/04/03
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-trigo.sty"
+Package: fp-trigo 1995/04/14
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-pas.sty"
+Package: fp-pas 1994/08/29
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-random.sty"
+Package: fp-random 1995/02/23
+\FPseed=\count144
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-eqn.sty"
+Package: fp-eqn 1995/04/03
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-upn.sty"
+Package: fp-upn 1996/10/21
+)
+("C:\Miktex 2.9\tex\latex\fp\fp-eval.sty"
+Package: fp-eval 1995/04/03
+)) (jacobien2d.aux)
+\openout1 = `jacobien2d.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 19.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 19.
+ [1
+
+]
+(jacobien2d.aux) ) 
+Here is how much of TeX's memory you used:
+ 10712 strings out of 427830
+ 185587 string characters out of 3155046
+ 334713 words of memory out of 3000000
+ 14548 multiletter control sequences out of 15000+200000
+ 3648 words of font info for 15 fonts, out of 3000000 for 9000
+ 1328 hyphenation exceptions out of 8191
+ 44i,5n,56p,676b,309s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on jacobien2d.pdf (1 page).
