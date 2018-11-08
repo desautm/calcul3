@@ -4,5 +4,160 @@ Vous trouverez à la section  une application [GeoGebra](https://www.geogebra.or
 
 ## Introduction
 
-Dans ce chapitre, nous verrons les intégrales multiples qui sont la généralisation des intégrales pour les fonctions de plusieurs variables. Nous étudierons également les changements de coordonnées afin de simplifier la résolution de ces intégrales.
+Dans ce chapitre, nous verrons les intégrales triples qui sont la généralisation des intégrales pour les fonctions de plusieurs variables. Nous étudierons également les changements de coordonnées afin de simplifier la résolution de ces intégrales.
+
+Les intgégrales triples permettent de faciliter le calcul de volume et de poids de certains solides dont la densité varie. Le principe des intégrales triples est le même que celui vu au chapitre \@ref(intfct2vars) pour les inégrales doubles. Nous n'entrerons pas dans les principes théoriques, nous allons plutôt nous concentrer sur des exemples.
+
+```{remark}
+Le domaine d'intégration des intégrales triples et un volume et plutôt que d'avoir un élément d'aire $dA$, nous aurons un élément de volume noté $dV$.
+```
+
+## Intégrales triples en coordonnées cartésiennes
+
+En coordonnées cartésiennes, l'élément de volume est $dV=dx\ dy\ dz$.
+
+```{example}
+Calculez l'intégrale triple suivante $\int_1^2 \int_2^x \int_1^4 xdz\ dy\ dx$.
+```
+\vspace*{5cm}
+
+```{example}
+Calculez le volume du solide délimité par les plans $x=0$, $y=0$, $z=-2$ et $z=3-x-y$.
+```
+\vspace*{10cm}
+
+```{example}
+Trouvez le volume de la région $R$ située dans le premier octant et coincée entre les plans des axes, le plan $x+2y=2$ et la surface $z=4-x^2-y^2$.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez le volume situé entre le plan $z=0$ et $z=e^{x+y}$ sur la région située entre le carré de côté 4 centré à l'origine et le carré de côté 2 centré à l'origine.
+```
+\vspace*{10cm}
+
+```{example}
+Trouvez le volume de la région située entre $z=1+x+y$ et le plan $z=0$ sur la région délimitée par $y=-x$, $x=\sqrt{y}$ et $y=2$.
+```
+\vspace*{8cm}
+
+```{example}
+Calculez le volume de la pyramide passant par les points $(0,0,0)$, $(a,0,0)$, $(0,b,0)$ et $(0,0,c)$. Montrez que ce volume correspond au tiers de l'aire de sa base multipliée par sa hauteur.
+```
+\vspace*{10cm}
+
+## Intégrales triples en coordonnées cylindriques
+
+Nous allons débuter en introduisant les coordonnées cylindriques.
+```{definition,name="Coordonnées cylindriques"}
+Soit un point $(x,y,z)\in\mathbb{R}^3$ en coordonnées cartésiennes. Nous pouvons représenter ce point en coordonnées cylindriques en effectuant les transformations suivantes:
+\begin{align*}
+x &= r\cos(\theta) \\
+y &= r\sin(\theta) \\
+z &= z
+\end{align*}
+avec les conditions suivantes:
+\begin{align*}
+0 \leq r \leq \infty \\
+0 \leq \theta \leq 2\pi \\
+-\infty \leq z \leq \infty
+\end{align*}
+```
+La figure \@ref(fig:coordcylindriques) représente un point en coordonnées cylindriques.
+```{r,echo=FALSE,fig.align="center",label="coordcylindriques",out.width="75%",fig.cap="Un point $P$ représenté en coordonnées cylindriques."}
+knitr::include_graphics("resources/images/latex/coordcylindriques.png")
+```
+
+```{remark}
+Les coordonnées cylindriques sont en fait des coordonnées polaires pour les variables $x$ et $y$ et nous conservons $z$ en coordonnées cartésiennes. Nous pouvons remarquer que $x^2+y^2=r^2$.
+```
+
+De façon analogue à la démonstration faite à la section \@ref(int-coord-polaires) pour les coordonnées polaires, nous pouvons montrer que $$\iiint\limits_V f(x,y,z)dV=\iiint\limits_V f(r\cos(\theta),r\sin(\theta) ,z) r drd\theta dz$$
+
+```{example}
+Calculez le volume d'un morceau fromage coupé dans un cylindre de 4 cm de hauteur, de 6 cm de rayon et d'angle $\frac{\pi}{4}$.
+```
+\vspace*{5cm}
+
+```{example}
+Calculez le volume entre les paraboloïdes $z=4-x^2-y^2$ et $z=x^2+y^2$.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez le volume du solide délimité par l'intérieur de la sphère $x^2+y^2+z^2=6$ et au-dessus du paraboloïde $z=x^2+y^2$.
+```
+\vspace*{10cm}
+
+```{example}
+Trouvez le volume de la demi-sphère de rayon $a$ se situant à l'extérieur du cylindre $r=\frac{a}{2}$.
+```
+\vspace*{8cm}
+
+```{example}
+Trouvez le volume du cône tronqué $z=9-\sqrt{x^2+y^2}$ avec $0\leq z \leq 4$.
+```
+\vspace*{8cm}
+
+## Intégrales triples en coordonnées sphériques
+
+Nous allons débuter en introduisant les coordonnées sphériques.
+```{definition,name="Coordonnées sphériques"}
+Soit un point $(x,y,z)\in\mathbb{R}^3$ en coordonnées cartésiennes. Nous pouvons représenter ce point en coordonnées cylindriques en effectuant les transformations suivantes:
+\begin{align*}
+x &= \rho\cos(\theta)sin(\phi) \\
+y &= \rho\sin(\theta)sin(\phi) \\
+z &= \rho\cos(\phi)
+\end{align*}
+avec les conditions suivantes:
+\begin{align*}
+0 \leq \rho \leq \infty \\
+0 \leq \theta \leq 2\pi \\
+0\leq \phi \leq \pi
+\end{align*}
+Nous avons que $\rho$ représente la longueur du segment de droite reliant l'origine au point $P$, $\theta$ est l'angle que fait la projection du segment de droite sur le plan $z=0$ et $\phi$ est l'angle que fait le segment de droite par rapport à l'axe des $z$.
+```
+La figure \@ref(fig:coordspheriques) représente un point en coordonnées cylindriques.
+```{r,echo=FALSE,fig.align="center",label="coordspheriques",out.width="75%",fig.cap="Un point $P$ représenté en coordonnées sphériques."}
+knitr::include_graphics("resources/images/latex/coordspheriques.png")
+```
+
+```{example}
+Calculez le volume d'une sphère de rayon $a$.
+```
+\vspace*{5cm}
+
+```{example}
+Calculez le volume à l'intérieur du cône $z=\sqrt{x^2+y^2}$ et de la sphère $x^2+y^2+z^2=a^2$.
+```
+\vspace*{10cm}
+
+## Le changement de coordonnées pour les intégrales triples
+
+Le principe du Jacobien vu à la section \@ref(jacobien2d) peut être généralisé pour les intégrales triples.
+
+```{definition}
+Soit une transformation dérivable:
+\begin{align*}
+T:(u,v,w)\rightarrow (x(u,v,w),y(u,v,w),z(u,v,w))
+\end{align*}
+Nous appelons Jacobien le déterminant:
+\begin{align*}
+J&=\left|\begin{array}{ccc}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
+\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+\end{array}\right|
+\end{align*}
+```
+
+```{remark}
+Nous notons le Jacobien d'une transformation par $J$, $J_{u,v,w}$ ou $\frac{\partial (x,y,z)}{\partial (u,v,w)}$.
+```
+
+```{example}
+Trouvez le volume de l'ellipsoïde $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$.
+```
+\vspace*{5cm}
+
 

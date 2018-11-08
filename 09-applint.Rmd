@@ -1,0 +1,10 @@
+# Applications des intégrales doubles et triples {#applicationsintegration}
+
+## Les masses et les centres de masse
+
+
+
+## La force gravitationnelle
+
+## La force électrique
+

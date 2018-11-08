@@ -203,7 +203,7 @@ Trouvez $\iint\limits_D (2y+x)dA$ sur la région formée de l'union des régions
 ```
 \vspace*{8cm}
 
-## Les intégrales doubles en coordonnéees polaires
+## Les intégrales doubles en coordonnéees polaires {#int-coord-polaires}
 
 Dans certains cas, il est difficile de calculer certaines intégrales en coordonnées cartésiennes et ce, pour différentes raisons. Parfois le domaine d'intégration est difficile à écrire en coordonnées cartésiennes. Par exemple, si le domaine d'intégration est celui présenté à la figure \@ref(fig:demianneau), il serait alors plus simple d'utiliser les coordonnées polaires.
 ```{r,echo=FALSE,fig.align="center",label="demianneau",out.width="75%",fig.cap="Une région sur laquelle nous voulons intégrer qui se prête particulièrement bien aux coordonnées polaires."}
@@ -224,13 +224,13 @@ knitr::include_graphics(c("resources/images/latex/rectanglepolaire.png","resourc
 Le volume délimité par le rectangle polaire $R_{ij}$ et la fonction $f(x,y)$ est donné par:
 \begin{align*}
 V_{ij}&\approx f(x_i^*,y_j^*)\Delta A_{i,j}\\
-&\approx f(r_i^*\cos \theta_j^*,r_i^*\sin \theta_j^*)\Delta A_{i,j},
+&\approx f(r_i^*\cos \theta_j^*,r_i^*\sin \theta_j^*)\Delta A_{i,j}
 \end{align*}
 où $(r_i^*,\theta_j^*)$ est le point au centre de $R_{i,j}$. Il ne reste plus qu'à déterminer $\Delta A_{i,j}$ qui correspond à l'aire de $R_{i,j}$. Nous savons que l'aire d'une section de disque de rayon $R$ est donnée par:
 \begin{align*}
 A=\dfrac{1}{2}R^2\varphi
 \end{align*}
-où $\varphi $ est l'angle au centre. Ainsi, nous pouvons trouver $\Delta A_{i,j}$ en effectuant la différence de l'aire deux sections. D'où:
+où $\varphi$ est l'angle au centre. Ainsi, nous pouvons trouver $\Delta A_{i,j}$ en effectuant la différence de l'aire deux sections. D'où:
 \begin{align*}
 \Delta A_{i,j}= \frac{1}{2}r_i^2\Delta \theta_j-\frac{1}{2}r_{i-1}^2\Delta \theta_j.
 \end{align*}
@@ -305,7 +305,7 @@ Déterminez l'aire de la région située entre $r=3+2\sin(\theta)$ et $r=2$.
 ```
 \vspace*{8cm}
 
-## Le changement de coordonnées pour les intégrales doubles
+## Le changement de coordonnées pour les intégrales doubles {#jacobien2d}
 
 Il existe d'autres systèmes de coordonnées autres que les systèmes cartésiens et polaires. En réalité, il est souvent impossible de résoudre certaines intégrales en n'utilisant que ces deux systèmes. Par exemple, si nous voulons calculer $\iint\limits_D 1 dA$ sur le domaine 
 $D=\left\{(x,y)\in\mathbb{R}^2\left| \frac{x^2}{a^2}+\frac{y^2}{b^2}\leq 1 \right. \right\}$, il devient très difficile de faire cette intégrale en n'utilisant que les deux systèmes que nous connaissons. Heureusement, il existe une technique permettant de trouver le terme $dA$ lorsque nous effectuons un changement de variables. Avant de débuter, nous ferons un bref rappel du produit vectoriel.

@@ -1,0 +1,35 @@
+%% Pour compiler, on utilise XeLateX avec Ctrl-Shift-F1
+%% Ça produit une image PNG
+
+\documentclass[convert={ghostscript, density = 1000}]{standalone}
+
+\usepackage{pstricks-add}
+\usepackage{pst-solides3d}
+\usepackage{fp}
+\def\nbpi{3.14159265}
+
+\begin{document}
+
+\begin{pspicture}(-3,-2)(5,5)
+\psset{viewpoint=35 20 20 rtp2xyz,dotscale=2}
+%viewpoint=4 2 2,
+\psPoint(2,1.5,2){I}
+\psPoint(2,0,0){x0}
+\psPoint(0,1.5,0){y0}
+\psPoint(2,1.5,0){xy}
+\psPoint(1,0.75,0){xy0}
+\psPoint(0,0,0){O}
+\psLineIIID(2,1.5,0)(2,1.5,2)
+\psLineIIID(0,0,0)(2,1.5,0)
+\axesIIID(-0.5,-0.5,-0.5)(3,3,3)
+\psdot(I)
+\psdot(xy)
+\uput{0.25}[r](I){$P=(r,\theta,z)$}
+\uput{0.25}[r](xy){$(r,\theta,0)$}
+\uput[45](xy0){$r$}
+\psarc(O){1}{225}{310}
+\psPoint(1.8,0.5,0){P}
+\uput[-90](P){$\theta$}
+\end{pspicture}
+
+\end{document}

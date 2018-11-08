@@ -85,7 +85,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-11-06}
+    \date{2018-11-08}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -4855,6 +4855,330 @@ démonstration.
 Ces propriétés sont très utiles, particulièrement la 4. Elle permet de
 scinder en plusieurs parties un domaine d'intégration.
 
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-256}{}{\label{exm:unnamed-chunk-256}
+}Soit une fonction \(f(x,y)\geq 0\). Écrivez l'expression permettant de
+calculer lee volume sous \(f(x,y)\) au dessus du triangle dont les
+sommets sont \((1,1)\), \((2,2)\) et \((-1,3)\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-257}{}{\label{exm:unnamed-chunk-257}
+}Trouvez \(\iint\limits_D (2y+x)dA\) sur la région formée de l'union des
+régions 1 et 2. La région 1 est telle que \(0\leq x \leq 2\) et
+\(0\leq y \leq x^2+1\). La région 2 ests telle que \(2\leq x\leq 7\) et
+\(0\leq y \leq 7-x\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{int-coord-polaires}{%
+\section{Les intégrales doubles en coordonnéees
+polaires}\label{int-coord-polaires}}
+
+Dans certains cas, il est difficile de calculer certaines intégrales en
+coordonnées cartésiennes et ce, pour différentes raisons. Parfois le
+domaine d'intégration est difficile à écrire en coordonnées
+cartésiennes. Par exemple, si le domaine d'intégration est celui
+présenté à la figure \ref{fig:demianneau}, il serait alors plus simple
+d'utiliser les coordonnées polaires.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{resources/images/latex/demianneau} 
+
+}
+
+\caption{Une région sur laquelle nous voulons intégrer qui se prête particulièrement bien aux coordonnées polaires.}\label{fig:demianneau}
+\end{figure}
+
+Voyons comment nous pouvons effectuer le changement de coordonnées.
+Supposons tout d'abord que le domaine est un rectangle polaire,
+c'est-à-dire que:
+\[D=\{(r,\theta)|a\leq r\leq b,\alpha \leq \theta\leq \beta\}\] Divisons
+maintenant ce rectangle polaire en petits rectangles polaires. Posons
+\begin{align*}
+R_{i,j}&=\{(r,\theta)|r_{i-1}\leq r\leq r_{i},\theta_{j-1} \leq \theta\leq \theta_j \},\\
+\Delta \theta_j&=\theta_j-\theta_{j-1},\\
+\Delta r_i&=r_i-r_{i-1}.
+\end{align*} La figure \ref{fig:partition-rectangle-polaire} représente
+un rectangle polaire ainsi qu'une partition possible de ce rectangle.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.45\linewidth]{resources/images/latex/rectanglepolaire} \includegraphics[width=0.45\linewidth]{resources/images/latex/partitionrectpolaire} 
+
+}
+
+\caption{Un rectangle polaire et une partition du rectangle polaire.}\label{fig:partition-rectangle-polaire}
+\end{figure}
+
+Le volume délimité par le rectangle polaire \(R_{ij}\) et la fonction
+\(f(x,y)\) est donné par: \begin{align*}
+V_{ij}&\approx f(x_i^*,y_j^*)\Delta A_{i,j}\\
+&\approx f(r_i^*\cos \theta_j^*,r_i^*\sin \theta_j^*)\Delta A_{i,j}
+\end{align*} où \((r_i^*,\theta_j^*)\) est le point au centre de
+\(R_{i,j}\). Il ne reste plus qu'à déterminer \(\Delta A_{i,j}\) qui
+correspond à l'aire de \(R_{i,j}\). Nous savons que l'aire d'une section
+de disque de rayon \(R\) est donnée par: \begin{align*}
+A=\dfrac{1}{2}R^2\varphi
+\end{align*} où \(\varphi\) est l'angle au centre. Ainsi, nous pouvons
+trouver \(\Delta A_{i,j}\) en effectuant la différence de l'aire deux
+sections. D'où: \begin{align*}
+\Delta A_{i,j}= \frac{1}{2}r_i^2\Delta \theta_j-\frac{1}{2}r_{i-1}^2\Delta \theta_j.
+\end{align*} Nous allons manipuler l'expression précédente pour la
+simplifier. \begin{align*}
+\Delta A_{i,j}&= \frac{1}{2}r_i^2\Delta \theta_j-\frac{1}{2}r_{i-1}^2\Delta \theta_j\\
+&= \frac{1}{2}\left(r_i^2- r_{i-1}^2  \right)\theta_j\\
+&= \underbrace{\frac{1}{2}(r_i+r_{i-1})}_{=r_i^*}\underbrace{(r_i-r_{i-1})}_{=\Delta r_i} \Delta \theta_j \\
+&=r_i^*\Delta r_i\Delta \theta_j. 
+\end{align*} Ainsi, \begin{align*}
+V_{i,j}\approx f(r_i^*\cos \theta_j^*,r_i^*\sin \theta_j^*)r_i^*\Delta r_i\Delta \theta_j
+\end{align*} Posons \(g(r,\theta)=rf(r\cos\theta, r\sin\theta)\).
+Maintenant, trouvons une expression pour l'intégrale double.
+\begin{align*}
+\iint\limits_Df(x,y)dA&:=\lim_{m,n\to\infty }\sum_{i=1}^n\sum_{j=1}^mf(r_i^*\cos \theta_j^*,r_i^*\sin \theta_j^*)\Delta A_{i,j}\\
+&=\lim_{m,n\to\infty }\sum_{i=1}^n\sum_{j=1}^mg(r_i^*,\theta_j^*)\Delta r_i\Delta \theta_j\\
+&=\int_{\alpha }^{\beta }\int_{a }^{b }g(r,\theta)drd\theta\\
+&=\int_{\alpha }^{\beta }\int_{a }^{b }f(r\cos\theta,r\sin\theta)rdrd\theta
+\end{align*}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Il est important de voir que
+\(dxdy=rdrd\theta\). Ainsi, nous devons multiplier la fonction par \(r\)
+lorsque nous passons en coordonnées polaires.
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-259}{}{\label{exm:unnamed-chunk-259}
+}Trouvez \(\iint\limits_D (x^2+y^2)dA\) sur le disque de rayon 1 centré
+à l'origine.
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-260}{}{\label{exm:unnamed-chunk-260}
+}Trouvez \(\iint\limits_D \frac{1}{e^{x^2+y^2}}dA\) sur le quart de
+disque de rayon 3 centré à l'origine.
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+Nous avons montré le changement en coordonnées polaires lorsque le
+domaine est un rectangle polaire. Cependant, tout comme pour les
+coordonnées cartésiennes, il est possible de fixer une variable et de
+faire varier l'autre, ce qui entraîne que les bornes peuvent dépendre
+d'une variable. La figure \ref{fig:r-depend-theta} présente les deux
+possibilités, que la variable \(r\) dépende de \(\theta\) ou que la
+variable \(\theta\) dépende de \(r\).
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.45\linewidth]{resources/images/latex/rdependtheta} \includegraphics[width=0.45\linewidth]{resources/images/latex/thetadependr} 
+
+}
+
+\caption{La variable $r$ peut dépendre de $\theta$ et vice-versa.}\label{fig:r-depend-theta}
+\end{figure}
+
+Dans le cas de la figure \ref{fig:r-depend-theta} de gauche, l'intégrale
+devient: \begin{align*}
+\iint\limits_D f(x,y)dA=\int_{\alpha }^{\beta}\int_{r_1(\theta)}^{r_2(\theta)}f(r\cos\theta,r\sin\theta)rdrd\theta
+\end{align*} Dans le cas de la figure \ref{fig:r-depend-theta} de
+droite, l'intégrale devient: \begin{align*}
+\iint\limits_Df(x,y)dA=\int_{a}^{b}\int_{\theta_1(r)}^{\theta_2(r)}f(r\cos\theta,r\sin\theta)rd\theta dr
+\end{align*}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Nous allons nous intéresser à un cas
+particulier. Soit \(f(x,y)=1\), alors l'inttégrale double calcule
+maintenant la surface du domaine d'intégration. Si nous nous plaçons
+dans le premier cas où la variable \(r\) dépend de \(\theta\),
+c'est-à-dire \(r_1(\theta)=0\) et \(r_2(\theta)=r(\theta)\) pour
+\(\alpha \leq \theta \leq \beta\), nous obtenons: \begin{align*}
+\text{Aire}(D)&=\int_{\alpha }^{\beta }\int_0^{r(\theta)}rdrd\theta\\
+&=\int_{\alpha }^{\beta }\left.\dfrac{r^2}{2}\right|_0^{r(\theta)}d\theta\\
+&=\int_{\alpha }^{\beta }\dfrac{r^2(\theta)}{2}\theta
+\end{align*} L'équation précédente correspond au résultat obtenu au
+chapitre \ref{coordpolaires} pour le calcul de l'aire d'une région
+polaire.
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-262}{}{\label{exm:unnamed-chunk-262}
+}Trouvez \(\int_0^1 \int_y^{\sqrt{2-y^2}} (x^2+y^2) dx dy\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-263}{}{\label{exm:unnamed-chunk-263}
+}Trouvez \(\iint\limits_D \frac{1}{\sqrt{x^2+y^2}}dA\) sur la région
+bornée par \(y=\sqrt{3}x\), \(x=3\) et \(y=0\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-264}{}{\label{exm:unnamed-chunk-264}
+}Déterminez l'aire de la région située entre \(r=3+2\sin(\theta)\) et
+\(r=2\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{jacobien2d}{%
+\section{Le changement de coordonnées pour les intégrales
+doubles}\label{jacobien2d}}
+
+Il existe d'autres systèmes de coordonnées autres que les systèmes
+cartésiens et polaires. En réalité, il est souvent impossible de
+résoudre certaines intégrales en n'utilisant que ces deux systèmes. Par
+exemple, si nous voulons calculer \(\iint\limits_D 1 dA\) sur le domaine
+\(D=\left\{(x,y)\in\mathbb{R}^2\left| \frac{x^2}{a^2}+\frac{y^2}{b^2}\leq 1 \right. \right\}\),
+il devient très difficile de faire cette intégrale en n'utilisant que
+les deux systèmes que nous connaissons. Heureusement, il existe une
+technique permettant de trouver le terme \(dA\) lorsque nous effectuons
+un changement de variables. Avant de débuter, nous ferons un bref rappel
+du produit vectoriel.
+
+\hypertarget{le-produit-vectoriel}{%
+\subsection{Le produit vectoriel}\label{le-produit-vectoriel}}
+
+Soit deux vecteurs de \(\mathbb{R}^3\) non-colinéaires tels que
+\(\overrightarrow{u}=[u_1,u_2,0]\) et
+\(\overrightarrow{v}=[v_1,v_2,0]\). L'aire du parallélogramme engendré
+par ces vecteurs est donnée par: \begin{align*}
+A&= \| \vec u \times \vec v\| \\
+&= \left\| \ \left| \begin{array}{ccc}
+\vec i &\vec j& \vec k\\
+u_1 & u_2 &0 \\
+v_1 & v_2 &0
+\end{array}
+\right|\ \right\| \\
+ &=\left\|   0\vec i - 0\vec j+\left|
+\begin{array}{cc}
+u_1 & u_2  \\
+v_1 & v_2 
+\end{array}  
+\right|\vec k \ \right\| \\
+&= \left| det  \left(\begin{array}{cc}
+u_1 & u_2  \\
+v_1 & v_2 
+\end{array}  \right) \right|
+\end{align*} L'aire du prallélogramme est donc donnée par la valeur
+absolue du déterminant des deux vecteurs.
+
+\hypertarget{le-changement-de-coordonnees}{%
+\subsection{Le changement de
+coordonnées}\label{le-changement-de-coordonnees}}
+
+Nous voulons déterminer une expression dans un autre système de
+coordonnées (par exemple \(u\) et \(v\)) pour
+\(\iint\limits_D f(x,y)dA\). Plus précisément, nous voulons trouver une
+expression pour \(dA\) en fonction de \(u\) et \(v\). Pour ce faire,
+supposons qu'il existe une transformation bijective et dérivable \(T\)
+qui prend une région \(D'\) du plan \(uv\) et qui l'envoie sur \(D\)
+dans le plan \(xy\). Ceci signifie que \(T\) prend un point
+\((u,v)\in D'\) et l'envoie sur le point \((x(u,v),y(u,v))\in D\). La
+figure \ref{fig:jacobien2d} représente cette transformation.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{resources/images/latex/jacobien2d} 
+
+}
+
+\caption{La représentation de l'effet de la transformation $T$ sur un rectangle dans le plan $x$ et $y$.}\label{fig:jacobien2d}
+\end{figure}
+
+Nous allons étudier le résultat de cette transformation sur un petit
+rectangle de dimension \(\Delta u \times \Delta v\) dans le plan \(uv\).
+Notons par \(P=T(P')\), \(Q=T(Q')\) et \(R=T(R')\). On sait qu'une
+petite variation \(\Delta x\) peut être obtenue par \begin{align*}
+\Delta x\approx \frac{\partial x}{\partial u}\Delta u+\frac{\partial x}{\partial v}\Delta v
+\end{align*} De même, on a \begin{align*}
+\Delta y\approx \frac{\partial y}{\partial u}\Delta u+\frac{\partial y}{\partial v}\Delta v 
+\end{align*} Ainsi, le vecteur
+\(\overrightarrow{PQ}=\left[\frac{\partial x}{\partial u}\Delta u,\frac{\partial y}{\partial u}\Delta u\right]\),
+car \(\Delta v=0\) puisque les points \(P'\) et \(Q'\)ont la même
+composante \(v\). De même, on a que le vecteur
+\textbackslash{}\(\overrightarrow{PR}=\left[\frac{\partial x}{\partial v}\Delta v,\frac{\partial y}{\partial v}\Delta v\right]\)
+pour des raisons similaires. Maintenant, l'élément d'aire \(\Delta A\)
+formé par \(\Delta u\) et \(\Delta v\) s'exprime en terme d'aire de
+parallélogramme \begin{align*}
+\Delta A&\approx \left\| \overrightarrow{PQ}\times    \overrightarrow{PR}\right\| \\
+&\approx \left\| \left| 
+\begin{array}{ccc}
+\vec i &\vec j& \vec k\\
+\frac{\partial x}{\partial u}\Delta u & \frac{\partial y}{\partial u}\Delta u &0 \\
+\frac{\partial x}{\partial v}\Delta v & \frac{\partial y}{\partial v}\Delta v &0
+\end{array}  \right|   \right\|\\
+&\approx 
+\left\| 0\vec i -0\vec j+ \left| 
+\begin{array}{cc}
+\frac{\partial x}{\partial u}\Delta u & \frac{\partial y}{\partial u}\Delta u \\
+\frac{\partial x}{\partial v}\Delta v & \frac{\partial y}{\partial v}\Delta v 
+\end{array}  \right| \vec k  \right\|\\
+&\approx 
+\sqrt{\left(\frac{\partial x}{\partial u}\Delta u \frac{\partial y}{\partial v}\Delta v- \frac{\partial y}{\partial u}\Delta u \frac{\partial x}{\partial v}\Delta v\right)^2}\\
+&\approx 
+\left|\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}- \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}\right|\Delta u\Delta v.\\
+\end{align*} À la limite où \(\Delta u\) et \(\Delta v\) tendent vers
+\(0\), nous obtenons une expression pour \(dA\): \begin{align*}
+dA=\left|\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}- \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}\right|dudv
+\end{align*}
+
+\BeginKnitrBlock{definition}[Jacobien]
+\protect\hypertarget{def:unnamed-chunk-265}{}{\label{def:unnamed-chunk-265}
+\iffalse (Jacobien) \fi{} }Soit une transformation dérivable
+\(T:(u,v)\rightarrow (x(u,v),y(u,v))\). Nous appelons Jacobien le
+déterminant suivant: \begin{align*}
+J&=\left|\begin{array}{cc}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+\end{array}   \right|
+=\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}- \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Nous notons le Jacobien d'une
+transformation par \(J\), \(J_{u,v}\) ou
+\(\frac{\partial (x,y)}{\partial (u,v)}\).
+\EndKnitrBlock{remark}
+
+Nous pouvons donc écrire \(dA=|J|dudv\), d'où:
+\[\iint\limits_D f(x,y)dA=\iint\limits_{D'} f(x(u,v),y(u,v))|J|dudv\]
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-267}{}{\label{exm:unnamed-chunk-267}
+}Démontrez qu'un élément d'aire en coordonnées polaires est
+\(rdrd\theta\).
+\EndKnitrBlock{example}
+\vspace*{5cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-268}{}{\label{exm:unnamed-chunk-268}
+}Calculez \(\iint\limits_D e^{\tfrac{x+y}{x-y}}dA\) où \(D\) est la
+région délimitée par le trapèze de sommets \((1,0)\), \((2,0)\),
+\((0,-2)\) et \((0,-1)\).
+\EndKnitrBlock{example}
+\vspace*{10cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-269}{}{\label{exm:unnamed-chunk-269}
+}Calculez \(\iint\limits_D (x^2-xy+y^2)dA\) où \(D\) est l'ellipse
+donnée par \(x^2-xy+y^2=2\) en utilisant la transformation:
+\begin{align*}
+x &= \sqrt{2}u-\sqrt{2/3}v \\
+y &= \sqrt{2}u+\sqrt{2/3}v 
+\end{align*}
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-270}{}{\label{exm:unnamed-chunk-270}
+}Calculez \(\iint\limits_D e^{x+y}dA\) où \(D\) est \(|x|+|y|\leq a\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
 \hypertarget{intfct3vars}{%
 \chapter{L'intégration de fonctions de trois
 variables}\label{intfct3vars}}
@@ -4868,10 +5192,250 @@ ce document.
 \hypertarget{introduction-7}{%
 \section{Introduction}\label{introduction-7}}
 
-Dans ce chapitre, nous verrons les intégrales multiples qui sont la
+Dans ce chapitre, nous verrons les intégrales triples qui sont la
 généralisation des intégrales pour les fonctions de plusieurs variables.
 Nous étudierons également les changements de coordonnées afin de
 simplifier la résolution de ces intégrales.
+
+Les intgégrales triples permettent de faciliter le calcul de volume et
+de poids de certains solides dont la densité varie. Le principe des
+intégrales triples est le même que celui vu au chapitre
+\ref{intfct2vars} pour les inégrales doubles. Nous n'entrerons pas dans
+les principes théoriques, nous allons plutôt nous concentrer sur des
+exemples.
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Le domaine d'intégration des intégrales
+triples et un volume et plutôt que d'avoir un élément d'aire \(dA\),
+nous aurons un élément de volume noté \(dV\).
+\EndKnitrBlock{remark}
+
+\hypertarget{integrales-triples-en-coordonnees-cartesiennes}{%
+\section{Intégrales triples en coordonnées
+cartésiennes}\label{integrales-triples-en-coordonnees-cartesiennes}}
+
+En coordonnées cartésiennes, l'élément de volume est \(dV=dx\ dy\ dz\).
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-272}{}{\label{exm:unnamed-chunk-272}
+}Calculez l'intégrale triple suivante
+\(\int_1^2 \int_2^x \int_1^4 xdz\ dy\ dx\).
+\EndKnitrBlock{example}
+\vspace*{5cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-273}{}{\label{exm:unnamed-chunk-273}
+}Calculez le volume du solide délimité par les plans \(x=0\), \(y=0\),
+\(z=-2\) et \(z=3-x-y\).
+\EndKnitrBlock{example}
+\vspace*{10cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-274}{}{\label{exm:unnamed-chunk-274}
+}Trouvez le volume de la région \(R\) située dans le premier octant et
+coincée entre les plans des axes, le plan \(x+2y=2\) et la surface
+\(z=4-x^2-y^2\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-275}{}{\label{exm:unnamed-chunk-275}
+}Trouvez le volume situé entre le plan \(z=0\) et \(z=e^{x+y}\) sur la
+région située entre le carré de côté 4 centré à l'origine et le carré de
+côté 2 centré à l'origine.
+\EndKnitrBlock{example}
+\vspace*{10cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-276}{}{\label{exm:unnamed-chunk-276}
+}Trouvez le volume de la région située entre \(z=1+x+y\) et le plan
+\(z=0\) sur la région délimitée par \(y=-x\), \(x=\sqrt{y}\) et \(y=2\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-277}{}{\label{exm:unnamed-chunk-277}
+}Calculez le volume de la pyramide passant par les points \((0,0,0)\),
+\((a,0,0)\), \((0,b,0)\) et \((0,0,c)\). Montrez que ce volume
+correspond au tiers de l'aire de sa base multipliée par sa hauteur.
+\EndKnitrBlock{example}
+\vspace*{10cm}
+
+\hypertarget{integrales-triples-en-coordonnees-cylindriques}{%
+\section{Intégrales triples en coordonnées
+cylindriques}\label{integrales-triples-en-coordonnees-cylindriques}}
+
+Nous allons débuter en introduisant les coordonnées cylindriques.
+\BeginKnitrBlock{definition}[Coordonnées cylindriques]
+\protect\hypertarget{def:unnamed-chunk-278}{}{\label{def:unnamed-chunk-278}
+\iffalse (Coordonnées cylindriques) \fi{} }Soit un point
+\((x,y,z)\in\mathbb{R}^3\) en coordonnées cartésiennes. Nous pouvons
+représenter ce point en coordonnées cylindriques en effectuant les
+transformations suivantes: \begin{align*}
+x &= r\cos(\theta) \\
+y &= r\sin(\theta) \\
+z &= z
+\end{align*} avec les conditions suivantes: \begin{align*}
+0 \leq r \leq \infty \\
+0 \leq \theta \leq 2\pi \\
+-\infty \leq z \leq \infty
+\end{align*}
+\EndKnitrBlock{definition}
+
+La figure \ref{fig:coordcylindriques} représente un point en coordonnées
+cylindriques.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{resources/images/latex/coordcylindriques} 
+
+}
+
+\caption{Un point $P$ représenté en coordonnées cylindriques.}\label{fig:coordcylindriques}
+\end{figure}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Les coordonnées cylindriques sont en fait
+des coordonnées polaires pour les variables \(x\) et \(y\) et nous
+conservons \(z\) en coordonnées cartésiennes. Nous pouvons remarquer que
+\(x^2+y^2=r^2\).
+\EndKnitrBlock{remark}
+
+De façon analogue à la démonstration faite à la section
+\ref{int-coord-polaires} pour les coordonnées polaires, nous pouvons
+montrer que
+\[\iiint\limits_V f(x,y,z)dV=\iiint\limits_V f(r\cos(\theta),r\sin(\theta) ,z) r drd\theta dz\]
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-280}{}{\label{exm:unnamed-chunk-280}
+}Calculez le volume d'un morceau fromage coupé dans un cylindre de 4 cm
+de hauteur, de 6 cm de rayon et d'angle \(\frac{\pi}{4}\).
+\EndKnitrBlock{example}
+\vspace*{5cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-281}{}{\label{exm:unnamed-chunk-281}
+}Calculez le volume entre les paraboloïdes \(z=4-x^2-y^2\) et
+\(z=x^2+y^2\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-282}{}{\label{exm:unnamed-chunk-282}
+}Trouvez le volume du solide délimité par l'intérieur de la sphère
+\(x^2+y^2+z^2=6\) et au-dessus du paraboloïde \(z=x^2+y^2\).
+\EndKnitrBlock{example}
+\vspace*{10cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-283}{}{\label{exm:unnamed-chunk-283}
+}Trouvez le volume de la demi-sphère de rayon \(a\) se situant à
+l'extérieur du cylindre \(r=\frac{a}{2}\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-284}{}{\label{exm:unnamed-chunk-284}
+}Trouvez le volume du cône tronqué \(z=9-\sqrt{x^2+y^2}\) avec
+\(0\leq z \leq 4\).
+\EndKnitrBlock{example}
+\vspace*{8cm}
+
+\hypertarget{integrales-triples-en-coordonnees-spheriques}{%
+\section{Intégrales triples en coordonnées
+sphériques}\label{integrales-triples-en-coordonnees-spheriques}}
+
+Nous allons débuter en introduisant les coordonnées sphériques.
+\BeginKnitrBlock{definition}[Coordonnées sphériques]
+\protect\hypertarget{def:unnamed-chunk-285}{}{\label{def:unnamed-chunk-285}
+\iffalse (Coordonnées sphériques) \fi{} }Soit un point
+\((x,y,z)\in\mathbb{R}^3\) en coordonnées cartésiennes. Nous pouvons
+représenter ce point en coordonnées cylindriques en effectuant les
+transformations suivantes: \begin{align*}
+x &= \rho\cos(\theta)sin(\phi) \\
+y &= \rho\sin(\theta)sin(\phi) \\
+z &= \rho\cos(\phi)
+\end{align*} avec les conditions suivantes: \begin{align*}
+0 \leq \rho \leq \infty \\
+0 \leq \theta \leq 2\pi \\
+0\leq \phi \leq \pi
+\end{align*} Nous avons que \(\rho\) représente la longueur du segment
+de droite reliant l'origine au point \(P\), \(\theta\) est l'angle que
+fait la projection du segment de droite sur le plan \(z=0\) et \(\phi\)
+est l'angle que fait le segment de droite par rapport à l'axe des \(z\).
+\EndKnitrBlock{definition}
+
+La figure \ref{fig:coordspheriques} représente un point en coordonnées
+cylindriques.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.75\linewidth]{resources/images/latex/coordspheriques} 
+
+}
+
+\caption{Un point $P$ représenté en coordonnées sphériques.}\label{fig:coordspheriques}
+\end{figure}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-286}{}{\label{exm:unnamed-chunk-286}
+}Calculez le volume d'une sphère de rayon \(a\).
+\EndKnitrBlock{example}
+\vspace*{5cm}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-287}{}{\label{exm:unnamed-chunk-287}
+}Calculez le volume à l'intérieur du cône \(z=\sqrt{x^2+y^2}\) et de la
+sphère \(x^2+y^2+z^2=a^2\).
+\EndKnitrBlock{example}
+\vspace*{10cm}
+
+\hypertarget{le-changement-de-coordonnees-pour-les-integrales-triples}{%
+\section{Le changement de coordonnées pour les intégrales
+triples}\label{le-changement-de-coordonnees-pour-les-integrales-triples}}
+
+Le principe du Jacobien vu à la section \ref{jacobien2d} peut être
+généralisé pour les intégrales triples.
+
+\BeginKnitrBlock{definition}
+\protect\hypertarget{def:unnamed-chunk-288}{}{\label{def:unnamed-chunk-288}
+}Soit une transformation dérivable: \begin{align*}
+T:(u,v,w)\rightarrow (x(u,v,w),y(u,v,w),z(u,v,w))
+\end{align*} Nous appelons Jacobien le déterminant: \begin{align*}
+J&=\left|\begin{array}{ccc}
+\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
+\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
+\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+\end{array}\right|
+\end{align*}
+\EndKnitrBlock{definition}
+
+\BeginKnitrBlock{remark}
+\iffalse{} {Remarque. } \fi{}Nous notons le Jacobien d'une
+transformation par \(J\), \(J_{u,v,w}\) ou
+\(\frac{\partial (x,y,z)}{\partial (u,v,w)}\).
+\EndKnitrBlock{remark}
+
+\BeginKnitrBlock{example}
+\protect\hypertarget{exm:unnamed-chunk-290}{}{\label{exm:unnamed-chunk-290}
+}Trouvez le volume de l'ellipsoïde
+\(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\).
+\EndKnitrBlock{example}
+\vspace*{5cm}
+
+\hypertarget{applicationsintegration}{%
+\chapter{Applications des intégrales doubles et
+triples}\label{applicationsintegration}}
+
+\hypertarget{les-masses-et-les-centres-de-masse}{%
+\section{Les masses et les centres de
+masse}\label{les-masses-et-les-centres-de-masse}}
+
+\hypertarget{la-force-gravitationnelle}{%
+\section{La force gravitationnelle}\label{la-force-gravitationnelle}}
+
+\hypertarget{la-force-electrique}{%
+\section{La force électrique}\label{la-force-electrique}}
 
 \bibliography{book.bib,packages.bib}
 
